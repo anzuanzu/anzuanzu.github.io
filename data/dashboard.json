@@ -1,32 +1,1092 @@
 {
-  "generatedAt": "2026-05-30T00:00:00.000Z",
+  "generatedAt": "2026-05-30T08:57:34.139Z",
   "marketOverview": {
-    "listed": { "label": "加權指數", "date": "", "close": null, "change": null, "changePct": null },
-    "otc": { "label": "櫃買指數", "date": "", "close": null, "change": null, "changePct": null, "riseCount": null, "fallCount": null, "flatCount": null },
-    "otcInstitutionSummary": []
+    "listed": {
+      "label": "加權指數",
+      "date": "2026-05-29",
+      "close": 44732.94,
+      "change": 1096.5,
+      "changePct": 2.51
+    },
+    "otc": {
+      "label": "櫃買指數",
+      "date": "2026-05-29",
+      "close": 443.64,
+      "change": 11.16,
+      "changePct": 2.58,
+      "riseCount": 567,
+      "fallCount": 248,
+      "flatCount": 67
+    },
+    "otcInstitutionSummary": [
+      {
+        "investor": "外資及陸資合計",
+        "net": -16726385987
+      },
+      {
+        "investor": "　外資及陸資(不含自營商)",
+        "net": -16726385987
+      },
+      {
+        "investor": "　外資自營商",
+        "net": 0
+      },
+      {
+        "investor": "投信",
+        "net": 1336484939
+      },
+      {
+        "investor": "自營商合計",
+        "net": 628373652
+      },
+      {
+        "investor": "　自營商(自行買賣)",
+        "net": 339694003
+      },
+      {
+        "investor": "　自營商(避險)",
+        "net": 288679649
+      },
+      {
+        "investor": "三大法人合計*",
+        "net": -14761527396
+      }
+    ]
   },
   "sourceStatus": {
-    "monthlyRevenueMonth": "等待更新",
-    "twseMajorDate": "等待更新",
-    "tpexMajorDate": "等待更新"
+    "monthlyRevenueMonth": "2026-04",
+    "twseMajorDate": "2026-05-29",
+    "tpexMajorDate": "2026-05-29"
   },
   "lists": {
     "semiconductor": {
       "key": "semiconductor",
       "title": "半導體鏈",
-      "summary": "等待 GitHub Actions 產生最新資料。",
-      "cadence": [],
-      "items": [],
-      "topIdeas": []
+      "summary": "先看產能、先進封裝、設備交期與大客戶拉貨節奏，再用月營收和重大訊息確認需求是真的擴散到供應鏈，而不是只有龍頭敘事。",
+      "cadence": [
+        "每月 8 到 12 日先檢查月營收是否連續改善，再回看法說口徑有沒有同步轉強。",
+        "優先留意設備、材料、封裝、載板這些較早反映景氣變化的環節。",
+        "如果市場只交易龍頭、二線供應商還沒全面反映，這類題材的資訊優勢通常比較完整。"
+      ],
+      "items": [
+        {
+          "code": "2330",
+          "market": "listed",
+          "name": "台積電",
+          "industry": "半導體業",
+          "focus": "晶圓代工",
+          "note": "觀察 AI、先進製程與先進封裝需求是否持續外溢。",
+          "dataMonth": "2026-04",
+          "revenue": 410725118,
+          "revenueMoM": -1.075787644781405,
+          "revenueYoY": 17.495412466636576,
+          "cumulativeYoY": 29.946314254829318,
+          "closingPrice": 2355,
+          "priceChange": 60,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 4,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "4107.25 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2303",
+          "market": "listed",
+          "name": "聯電",
+          "industry": "半導體業",
+          "focus": "成熟製程",
+          "note": "看工控、車用與通訊需求回補是否能帶動利用率。",
+          "dataMonth": "2026-04",
+          "revenue": 22663945,
+          "revenueMoM": 8.801074917287652,
+          "revenueYoY": 10.801592605647746,
+          "cumulativeYoY": 6.880500672891759,
+          "closingPrice": 144.5,
+          "priceChange": 2.5,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 5,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "226.64 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "3711",
+          "market": "listed",
+          "name": "日月光投控",
+          "industry": "半導體業",
+          "focus": "先進封裝 / 封測",
+          "note": "檢查封裝稼動率、CoWoS 外溢與大客戶急單訊號。",
+          "dataMonth": "2026-04",
+          "revenue": 62247107,
+          "revenueMoM": 1.0887775458609539,
+          "revenueYoY": 19.222740014526124,
+          "cumulativeYoY": 17.740325036087192,
+          "closingPrice": 611,
+          "priceChange": -16,
+          "announcementCount": 2,
+          "catalystCount": 2,
+          "announcements": [
+            {
+              "market": "listed",
+              "code": "3711",
+              "companyName": "日月光投控",
+              "subject": "代子公司矽品精密工業(股)公司公告取得廠務工程",
+              "date": "2026-05-29",
+              "time": "18:13:43",
+              "summary": "1.契約種類:廠務工程  2.事實發生日:115/5/15~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年5月29日  5.契約相對人及其與公司之關係:  勝義發營造股份有限公司， 與公司關係：無  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  總金額：NTD 2,000,170,000； 契約起迄日期：115年5月15日至117年6月30日； 限制條款及其他重要約定事項：無  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  供生產及營運用  11.本次交易表示異議之董事意見:  無  12.本次交易為關係人交易:否  13.監察人承認或審計委員會同意日期:  不適用  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期: 不適用  22.其他敘明事項:  無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            },
+            {
+              "market": "listed",
+              "code": "3711",
+              "companyName": "日月光投控",
+              "subject": "代子公司台灣福雷電子(股)公司公告\r\n取得士林電機廠股份有限公司高雄分公司供營業用之廠務工程",
+              "date": "2026-05-29",
+              "time": "17:51:02",
+              "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  供營業用之廠務工程  2.事實發生日:114/12/2~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年5月29日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  交易數量：一批 每單位價格計：新台幣314,816仟元(未稅) 累計交易總金額計：新台幣314,816仟元(未稅)  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人：士林電機廠股份有限公司高雄分公司 與公司之關係：無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  交付或付款條件：電匯或信用狀付款 契約限制條款：無 其他重要約定事項：無  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易之決定方式及價格決定之參考依據：比價及議價 決策單位：依該公司核決權限規定辦理  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  無  23.取得或處分之具體目的或用途:  供生產及營運用  24.本次交易表示異議之董事之意見:  不適用  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            }
+          ],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 6,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "622.47 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2454",
+          "market": "listed",
+          "name": "聯發科",
+          "industry": "半導體業",
+          "focus": "IC 設計",
+          "note": "關注手機、邊緣 AI 與平台轉換是否推升產品組合。",
+          "dataMonth": "2026-04",
+          "revenue": 46736664,
+          "revenueMoM": -26.07202269488325,
+          "revenueYoY": -4.138619297399555,
+          "cumulativeYoY": -3.058142777941978,
+          "closingPrice": 4310,
+          "priceChange": -100,
+          "announcementCount": 3,
+          "catalystCount": 3,
+          "announcements": [
+            {
+              "market": "listed",
+              "code": "2454",
+              "companyName": "聯發科",
+              "subject": "代重要子公司翔發投資(股)公司及聚星電子(股)公司\r\n簡易合併案向債權人公告",
+              "date": "2026-05-29",
+              "time": "17:13:17",
+              "summary": "1.事實發生日:115/05/29 2.公司名稱:翔發投資(股)公司及聚星電子(股)公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 一、翔發投資(股)公司與聚星電子(股)公司於民國115年5月29日， 各經其董事依法同意合併，並以翔發投資(股)公司為存續公司， 聚星電子(股)公司為消滅公司(下稱「本合併案」)，合併基準日暫定為115年6月30日。 二、聚星電子(股)公司之帳列資產、負債及截至合併基準日仍為有效之一切權利義務， 均由翔發投資(股)公司概括承受。 三、謹依公司法第319條準用第73條規定及企業併購法第23條規定辦理， 如債權人對本合併案有異議者，請於公告日起31日內，檢附債權證明文件， 以書面方式掛號郵寄 (以郵戳日為憑)向翔發投資(股)公司及聚星電子(股)公司提出， 逾期即視為無異議。 6.因應措施:另採報紙公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            },
+            {
+              "market": "listed",
+              "code": "2454",
+              "companyName": "聯發科",
+              "subject": "代重要子公司翔發投資(股)公司公告與聚星電子(股)公司\r\n之簡易合併案",
+              "date": "2026-05-29",
+              "time": "17:12:29",
+              "summary": "1.併購種類(如合併、分割、收購或股份受讓):  合併  2.事實發生日:115/5/29  3.參與併購公司名稱(如合併另一方公司、分割新設公司、收購或受讓股份標的公司之  名稱:  翔發投資(股)公司 (存續公司)&#8206;  4.交易相對人(如合併另一方公司、分割讓與他公司、收購或受讓股份之交易對象):  聚星電子(股)公司 (消滅公司)&#8206;  5.交易相對人為關係人:是  6.交易相對人與公司之關係(本公司轉投資持股達XX%之被投資公司)，並說明選定  收購、受讓他公司股份之對象為關係企業或關係人之原因及是否不影響股東權益:  翔發投資(股)公司及聚星電子(股)公司皆為本公司間接持股100%之子公司，  依企業併購&#8206;法第19條進行簡易合併，係為集團內部組織架構調整，無涉及換  股比例、亦無配發股東現金或其他財產之情事，故對股東權益無影響。&#8206;  7.併購目的及條件，包括併購理由、對價條件及支付時點(註七):  集團內組織優化及調整，以吸收合併方式進行合併。&#8206;  8.併購後預計產生之效益:  簡化組織架構，整合集團資源。&#8206;  9.併購對每股淨值及每股盈餘之影響:  對聯發科技合併每股淨值及合併每股盈餘無影響。&#8206;  10.併購之對價種類及資金來源:  不適用。&#8206;  11.換股比例及其計算依據:  不適用。&#8206;  12.本次交易會計師、律師或證券承銷商出具非合理性意見:不適用  13.會計師或律師事務所名稱或證券承銷商公司名稱:  不適用。&#8206;  14.會計師或律師姓名:  不適用。&#8206;  15.會計師或律師開業證書字號:  不適用。&#8206;  16.獨立專家就本次併購換股比例、配發股東之現金或其他財產之合理性意見書內容  (一、包含公開收購價格訂定所採用之方法、原則或計算方式及與國際慣用之市價法  、成本法及現金流量折現法之比較。二、被收購公司與已上市櫃同業之財務狀況  、獲利情形及本益比之比較情形。三、公開收購價格若參考鑑價機構之鑑價報告者  ，應說明該鑑價報告內容及結論。四、收購人融資償還計畫若係以被收購公司或合  併後存續公司之資產或股份為擔保者，應說明對被收購公司或合併後存續公司財務  業務健全性之影響評估)(註七):  不適用。&#8206;  17.預定完成日程(註七):  合併基準日暫定為民國115年6月30日。&#8206;  18.既存或新設公司承受消滅(或分割)公司權利義務相關事項(註二):  聚星電子(股)公司之資產、負債及於合併基準日仍有效之一切權利及義務，  於合併基準日均由翔發投資(股)公司概括承受。&#8206;  19.參與合併公司之基本資料(註三):  翔發投資(股)公司之主要營業項目為一般投資業；  聚星電子(股)公司之主要營業項目為技術服務。&#8206;  20.分割之相關事項(含預定讓與既存公司或新設公司之營業、資產之評價價值；被  分割公司或其股東所取得股份之總數、種類及數量；被分割公司資本減少時，其資  本減少有關事項)(註：若非分割公告時，則不適用):  不適用。&#8206;  21.併購股份未來移轉之條件及限制:  不適用。&#8206;  22.併購完成後之計畫(包含一、繼續經營公司業務之意願及計畫內容。二、是否發生  解散、下市(櫃)、重大變更組織、資本、業務計畫、財務及生產、對公司重要人員  、資產之安排或運用，或其他任何影響公司股東權益之重大事項):  為集團內部組織架構調整，不影響聯發科技股東權益。&#8206;  23.其他重要約定事項:  無。&#8206;  24.其他與併購相關之重大事項:  無。&#8206;  25.本次交易，董事有無異議:否  26.併購交易中涉及利害關係董事資訊(自然人董事姓名或法人董事名稱暨其代表人姓名  、其自身或其代表之法人有利害關係之重要內容(包括但不限於實際或預計投資其他  參加併購公司之方式、持股比率、交易價格、是否參與併購公司之經營及其他投資條件  等情形)、其應迴避或不迴避理由、迴避情形、贊成或反對併購決議之理由)(註七):  無。&#8206;  27.是否涉及營運模式變更:否  28.營運模式變更說明(註四):  不適用。&#8206;  29.過去一年及預計未來一年內與交易相對人交易情形(註五):  不適用。&#8206;  30.資金來源(註五):  不適用。&#8206;  31.其他敘明事項(註六):  如有實際需求而須調整合併基準日，或本合併案之計畫執行進度及預計完成日程  有逾期未完成之情況時，授權雙方董事長視實際情形及需求為必要之處理。&#8206;  註二、既存或新設公司承受消滅公司權利義務相關事項，包括庫藏股及已發行具有股權性質有  　　　價證券之處理原則。  註三：參與合併公司之基本資料包括公司名稱及所營業務之主要內容。  註四：倘涉營運模式變更，請於欄位敘明包括營業範圍變更、產品線擴充/縮減、製程調整、產業  　　　水平/垂直整合，或其他涉及營運架構調整事項。  註五：非屬私募資金用以併購案件者，得填寫不適用。  註六：若本案成就前，尚需經國內、外主管機關(如:投審會、公平交易委員會、反壟斷局或其他單位)核准或許可者，應予敘明相關事項。",
+              "isRoutine": false,
+              "hasCatalyst": true
+            },
+            {
+              "market": "listed",
+              "code": "2454",
+              "companyName": "聯發科",
+              "subject": "代子公司寰發股份有限公司公告取得無形資產",
+              "date": "2026-05-29",
+              "time": "17:09:54",
+              "summary": "1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:  專利權  2.事實發生日:115/5/29~115/5/29  3.董事會通過日期: 民國115年5月29日  4.其他核決日期: 不適用  5.交易數量、每單位價格及交易總金額:  一批、新台幣1,600,000,000元(相當於美金50,000,000元)  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之  關係人者，得免揭露其姓名）:  LG Electronics Inc.；非關係人  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移  轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次  移轉日期及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取  得及處分日期、價格及交易當時與公司之關係:  不適用  9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權  如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權  帳面金額:  不適用  10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明  認列情形）:  不適用  11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  依合約條件付款  12.本次交易之決定方式、價格決定之參考依據及決策單位:  寰發股份有限公司董事會並參考獨立專家之合理性意見  13.取得或處分有價證券標的公司每股淨值:  不適用  14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股  比例及權利受限情形（如質押情形）:  不適用  15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列  之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬  於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）:  不適用  16.經紀人及經紀費用:  不適用  17.取得或處分之具體目的或用途:  供營運使用  18.本次交易表示異議董事之意見:  無  19.本次交易為關係人交易:否  20.監察人承認或審計委員會同意日期:  不適用  21.本次交易會計師出具非合理性意見:否  22.會計師事務所名稱:  緯騰會計師事務所  23.會計師姓名:  朱建成  24.會計師開業證書字號:  金管會證字第6329號  25.是否涉及營運模式變更:否  26.營運模式變更說明:  無  27.過去一年及預計未來一年內與交易相對人交易情形:  不適用  28.資金來源:  不適用  29.前已就同一件事件發布重大訊息日期: 不適用  30.其他敘明事項:  無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            }
+          ],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": -2,
+            "label": "保守看待",
+            "tone": "negative"
+          },
+          "revenueDisplay": "467.37 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "3035",
+          "market": "listed",
+          "name": "智原",
+          "industry": "半導體業",
+          "focus": "ASIC / IP",
+          "note": "重點不在故事，而是 tape-out、專案量產與營收認列時點。",
+          "dataMonth": "2026-04",
+          "revenue": 967008,
+          "revenueMoM": -9.329427748716135,
+          "revenueYoY": -43.11741069301479,
+          "cumulativeYoY": -61.08916755238584,
+          "closingPrice": 207,
+          "priceChange": -1.5,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": -4,
+            "label": "保守看待",
+            "tone": "negative"
+          },
+          "revenueDisplay": "9.67 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "5274",
+          "market": "otc",
+          "name": "信驊",
+          "industry": "半導體業",
+          "focus": "伺服器管理晶片",
+          "note": "檢查 AI 伺服器滲透率是否持續推升高毛利產品比重。",
+          "dataMonth": "2026-04",
+          "revenue": 1279040,
+          "revenueMoM": 3.5300288401842597,
+          "revenueYoY": 81.593085197006,
+          "cumulativeYoY": 59.80710332909424,
+          "closingPrice": 18950,
+          "priceChange": 1115,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": 99410,
+          "signal": {
+            "score": 8,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "12.79 億",
+          "otcInstitutionNetDisplay": "9.94 萬"
+        },
+        {
+          "code": "6488",
+          "market": "otc",
+          "name": "環球晶",
+          "industry": "半導體業",
+          "focus": "矽晶圓",
+          "note": "注意長約價格、庫存調整是否結束，以及利用率修復速度。",
+          "dataMonth": "2026-04",
+          "revenue": 4747927,
+          "revenueMoM": -12.816757949120415,
+          "revenueYoY": -10.13448048016332,
+          "cumulativeYoY": -10.274821340910345,
+          "closingPrice": 1015,
+          "priceChange": 88,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": 1670438,
+          "signal": {
+            "score": -3,
+            "label": "保守看待",
+            "tone": "negative"
+          },
+          "revenueDisplay": "47.48 億",
+          "otcInstitutionNetDisplay": "167.04 萬"
+        },
+        {
+          "code": "8046",
+          "market": "listed",
+          "name": "南電",
+          "industry": "電子零組件業",
+          "focus": "ABF 載板",
+          "note": "看高階封裝與 HPC 需求是否帶動載板規格升級。",
+          "dataMonth": "2026-04",
+          "revenue": 4450857,
+          "revenueMoM": 3.7328961076190543,
+          "revenueYoY": 39.466538235928184,
+          "cumulativeYoY": 34.153949533434236,
+          "closingPrice": 848,
+          "priceChange": -2,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 6,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "44.51 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "3189",
+          "market": "listed",
+          "name": "景碩",
+          "industry": "半導體業",
+          "focus": "ABF 載板",
+          "note": "觀察產能利用率、ASP 與客戶產品周期是否同步改善。",
+          "dataMonth": "2026-04",
+          "revenue": 4072319,
+          "revenueMoM": 3.376086861603666,
+          "revenueYoY": 26.75133939090045,
+          "cumulativeYoY": 28.266849551471637,
+          "closingPrice": 729,
+          "priceChange": 48,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "40.72 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "3583",
+          "market": "listed",
+          "name": "辛耘",
+          "industry": "半導體業",
+          "focus": "半導體設備",
+          "note": "設備認列節奏常先於下游獲利，適合追交機與驗收節點。",
+          "dataMonth": "2026-04",
+          "revenue": 989044,
+          "revenueMoM": -6.110340598303986,
+          "revenueYoY": 10.802481237795744,
+          "cumulativeYoY": 10.879675911572901,
+          "closingPrice": 867,
+          "priceChange": -10,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 1,
+            "label": "保守看待",
+            "tone": "negative"
+          },
+          "revenueDisplay": "9.89 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "3131",
+          "market": "otc",
+          "name": "弘塑",
+          "industry": "其他電子業",
+          "focus": "半導體設備",
+          "note": "檢查先進封裝與先進製程擴產是否持續帶來新接單。",
+          "dataMonth": "2026-04",
+          "revenue": 536413,
+          "revenueMoM": 9.73248751628866,
+          "revenueYoY": -4.359694400613338,
+          "cumulativeYoY": 18.37713599370365,
+          "closingPrice": 3450,
+          "priceChange": -185,
+          "announcementCount": 1,
+          "catalystCount": 1,
+          "announcements": [
+            {
+              "market": "otc",
+              "code": "3131",
+              "companyName": "弘塑",
+              "subject": "因本公司有價證券於櫃買市場達公布\r\n注意交易資訊標準，故公布相關財務業務\r\n資訊，以利投資人區別暸解",
+              "date": "2026-05-29",
+              "time": "14:24:56",
+              "summary": "1.事實發生日:115/05/29 2.發生緣由:依證券櫃檯買賣中心來函規定辦理，因本公司有價證券於櫃買市場達公布 注意交易資訊標準，辦理公告本公司115年4月份、115年第一季、暨最近 四季累計(114年第二季至115年第一季)相關財務業務資訊。 3.財務業務資訊: －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 科目(最近一個月)         115年4月      114年4月     增減％ 營業收入（百萬元）            536           561         -4 稅前淨利（百萬元）            119            65         +83 歸屬母公司業主淨利（百萬元）  99            53         +87 每股盈餘（元）               3.43          1.80         +91 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 科目(最近一季單季)       115年第一季    114年第一季     增減％ 營業收入（百萬元）             1,596          1,241         +29 稅前淨利（百萬元）               580            318         +82 歸屬母公司業主淨利（百萬元）    463             255        +82 每股盈餘（元）                 16.11            8.74        +84 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 科目(最近四季累計)       114年第二季至115年第一季 營業收入（百萬元）                6,870 稅前淨利（百萬元）                1,952 歸屬母公司業主淨利（百萬元）     1,535 每股盈餘（元）                    52.85 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年4月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合 併數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本 公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會 計師查核(閱)，僅供投資人參考。 (4)上表數字為計算至百萬元四捨五入，每股盈餘為歸屬母公司業主淨利（百萬元） 除以發行股數。 (5)除本公司主動發布(含新聞稿)或於公開資訊觀測站公告之訊息外，其餘資訊， 包括媒體先進之報導，請投資人審慎判斷，以保障自身權益。 (6)依據相關法令及 櫃買中心來函辦理公告。",
+              "isRoutine": false,
+              "hasCatalyst": true
+            }
+          ],
+          "otcInstitutionNet": -426215,
+          "signal": {
+            "score": 3,
+            "label": "等待確認",
+            "tone": "neutral"
+          },
+          "revenueDisplay": "5.36 億",
+          "otcInstitutionNetDisplay": "-42.62 萬"
+        },
+        {
+          "code": "6223",
+          "market": "otc",
+          "name": "旺矽",
+          "industry": "半導體業",
+          "focus": "測試介面 / 探針卡",
+          "note": "高階測試需求若擴散，通常先反映在這類環節。",
+          "dataMonth": "2026-04",
+          "revenue": 1485961,
+          "revenueMoM": 7.019773970609841,
+          "revenueYoY": 52.59594490792657,
+          "cumulativeYoY": 42.51276664792454,
+          "closingPrice": 5960,
+          "priceChange": 45,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": 7242,
+          "signal": {
+            "score": 8,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "14.86 億",
+          "otcInstitutionNetDisplay": "7,242"
+        },
+        {
+          "code": "3105",
+          "market": "otc",
+          "name": "穩懋",
+          "industry": "半導體業",
+          "focus": "砷化鎵 / RF",
+          "note": "適合追蹤手機、基地台與衛星通訊拉貨是否回溫。",
+          "dataMonth": "2026-04",
+          "revenue": 1734086,
+          "revenueMoM": 5.1817965664153105,
+          "revenueYoY": 48.88999172301997,
+          "cumulativeYoY": 33.4073202307193,
+          "closingPrice": 527,
+          "priceChange": -1,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": -4446778,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "17.34 億",
+          "otcInstitutionNetDisplay": "-444.68 萬"
+        }
+      ],
+      "topIdeas": [
+        {
+          "code": "5274",
+          "market": "otc",
+          "name": "信驊",
+          "industry": "半導體業",
+          "focus": "伺服器管理晶片",
+          "note": "檢查 AI 伺服器滲透率是否持續推升高毛利產品比重。",
+          "dataMonth": "2026-04",
+          "revenue": 1279040,
+          "revenueMoM": 3.5300288401842597,
+          "revenueYoY": 81.593085197006,
+          "cumulativeYoY": 59.80710332909424,
+          "closingPrice": 18950,
+          "priceChange": 1115,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": 99410,
+          "signal": {
+            "score": 8,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "12.79 億",
+          "otcInstitutionNetDisplay": "9.94 萬"
+        },
+        {
+          "code": "6223",
+          "market": "otc",
+          "name": "旺矽",
+          "industry": "半導體業",
+          "focus": "測試介面 / 探針卡",
+          "note": "高階測試需求若擴散，通常先反映在這類環節。",
+          "dataMonth": "2026-04",
+          "revenue": 1485961,
+          "revenueMoM": 7.019773970609841,
+          "revenueYoY": 52.59594490792657,
+          "cumulativeYoY": 42.51276664792454,
+          "closingPrice": 5960,
+          "priceChange": 45,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": 7242,
+          "signal": {
+            "score": 8,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "14.86 億",
+          "otcInstitutionNetDisplay": "7,242"
+        },
+        {
+          "code": "3105",
+          "market": "otc",
+          "name": "穩懋",
+          "industry": "半導體業",
+          "focus": "砷化鎵 / RF",
+          "note": "適合追蹤手機、基地台與衛星通訊拉貨是否回溫。",
+          "dataMonth": "2026-04",
+          "revenue": 1734086,
+          "revenueMoM": 5.1817965664153105,
+          "revenueYoY": 48.88999172301997,
+          "cumulativeYoY": 33.4073202307193,
+          "closingPrice": 527,
+          "priceChange": -1,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": -4446778,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "17.34 億",
+          "otcInstitutionNetDisplay": "-444.68 萬"
+        }
+      ]
     },
     "nonElectronics": {
       "key": "nonElectronics",
       "title": "非電子鏈",
-      "summary": "等待 GitHub Actions 產生最新資料。",
-      "cadence": [],
-      "items": [],
-      "topIdeas": []
+      "summary": "先確認需求、價格、通路庫存與政策方向，再檢查月營收和毛利邏輯是否成立。非電子鏈的錯價，常出現在景氣拐點而不是熱門題材。",
+      "cadence": [
+        "先分清楚營收改善是量增、價增，還是匯率與一次性因素。",
+        "月營收只是第一層，真正要賺的是毛利、費用率與現金流同步改善。",
+        "市場若還用舊景氣框架看公司，反而容易出現預期差。"
+      ],
+      "items": [
+        {
+          "code": "1216",
+          "market": "listed",
+          "name": "統一",
+          "industry": "食品工業",
+          "focus": "食品 / 原物料轉嫁",
+          "note": "看原料成本、通路動銷與品牌調價能否轉成獲利。",
+          "dataMonth": "2026-04",
+          "revenue": 57480106,
+          "revenueMoM": 0.17592973086273364,
+          "revenueYoY": 2.261852590309476,
+          "cumulativeYoY": 3.1142263296188433,
+          "closingPrice": 71.8,
+          "priceChange": 1,
+          "announcementCount": 1,
+          "catalystCount": 1,
+          "announcements": [
+            {
+              "market": "listed",
+              "code": "1216",
+              "companyName": "統一",
+              "subject": "代子公司統流開發(股)公司公告於桃園市楊梅區瑞原段土地租地委建(金額調整)",
+              "date": "2026-05-29",
+              "time": "16:09:32",
+              "summary": "1.契約種類:租地委建  2.事實發生日:115/5/29~115/5/29  3.董事會通過日期: 民國115年5月29日  4.其他核決日期: 不適用  5.契約相對人及其與公司之關係:  契約相對人：大成工程(股)公司 與公司關係：大成工程(股)公司為統流開發(股)公司之 母公司統一企業(股)公司之關聯企業  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  因應低溫市場需求，將原規劃常溫、低溫共同倉儲， 改為全棟低溫倉儲，致興建工程成本增加新臺幣389佰萬元。 限制條款及其他重要約定事項：無  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  興建物流中心  11.本次交易表示異議之董事意見:  無  12.本次交易為關係人交易:是  13.監察人承認或審計委員會同意日期:  民國115年5月29日  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期:  民國112年4月28日  22.其他敘明事項:  無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            }
+          ],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 5,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "574.80 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2912",
+          "market": "listed",
+          "name": "統一超",
+          "industry": "貿易百貨",
+          "focus": "超商通路",
+          "note": "重點是同店、鮮食結構與會員經營是否推升客單價。",
+          "dataMonth": "2026-04",
+          "revenue": 29913625,
+          "revenueMoM": 0.5136495342743107,
+          "revenueYoY": 4.882515139066092,
+          "cumulativeYoY": 4.6648366359291895,
+          "closingPrice": 214,
+          "priceChange": 7,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 4,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "299.14 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "5904",
+          "market": "otc",
+          "name": "寶雅",
+          "industry": "居家生活",
+          "focus": "零售通路",
+          "note": "寶雅這類公司適合追人流、展店與毛利率變化。",
+          "dataMonth": "2026-04",
+          "revenue": 2247875,
+          "revenueMoM": -2.5303200461359014,
+          "revenueYoY": 16.67823305696841,
+          "cumulativeYoY": 13.621730262388983,
+          "closingPrice": 575,
+          "priceChange": 18,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": 197390,
+          "signal": {
+            "score": 4,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "22.48 億",
+          "otcInstitutionNetDisplay": "19.74 萬"
+        },
+        {
+          "code": "2207",
+          "market": "listed",
+          "name": "和泰車",
+          "industry": "汽車工業",
+          "focus": "汽車通路",
+          "note": "觀察交車節奏、新車周期與金融服務對獲利的拉動。",
+          "dataMonth": "2026-04",
+          "revenue": 30160251,
+          "revenueMoM": 25.00981190366184,
+          "revenueYoY": 30.02541682585594,
+          "cumulativeYoY": 5.752339125653871,
+          "closingPrice": 483,
+          "priceChange": 27,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "301.60 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2603",
+          "market": "listed",
+          "name": "長榮",
+          "industry": "航運業",
+          "focus": "貨櫃航運",
+          "note": "先看運價和裝載率，再看市場是不是把短期行情當長週期。",
+          "dataMonth": "2026-04",
+          "revenue": 31359253,
+          "revenueMoM": 13.941847433754827,
+          "revenueYoY": 4.514054892315798,
+          "cumulativeYoY": -15.791817103836403,
+          "closingPrice": 213,
+          "priceChange": 2,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 2,
+            "label": "等待確認",
+            "tone": "neutral"
+          },
+          "revenueDisplay": "313.59 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2615",
+          "market": "listed",
+          "name": "萬海",
+          "industry": "航運業",
+          "focus": "貨櫃航運",
+          "note": "適合比對艙位利用率、遠洋航線變化與現貨運價彈性。",
+          "dataMonth": "2026-04",
+          "revenue": 12930770,
+          "revenueMoM": 22.88858992742307,
+          "revenueYoY": 13.050318121962226,
+          "cumulativeYoY": -4.031931002019627,
+          "closingPrice": 82,
+          "priceChange": 1.3,
+          "announcementCount": 1,
+          "catalystCount": 1,
+          "announcements": [
+            {
+              "market": "listed",
+              "code": "2615",
+              "companyName": "萬海",
+              "subject": "代子公司萬海航運(新加坡)有限公司公告取得貨櫃使用權資產",
+              "date": "2026-05-29",
+              "time": "16:38:16",
+              "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  貨櫃使用權資產  2.事實發生日:114/9/18~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:管理階層  民國115年5月29日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  共 8,666 只貨櫃，單只平均單價為美金 2,376 ～ 9,411 元 （單位價格依貨櫃類型、期數而異，故每單位價格無法逐一揭露） 總金額約為美金 55,761,174 元  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人：SeaCube Containers LLC 與公司之關係：無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  於交櫃之次月付款  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易決定方式為議價，價格決定為參考近期市場行情，決策單位為本公司管理階層  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  不適用  23.取得或處分之具體目的或用途:  基於集團長期發展與整體營運考量  24.本次交易表示異議之董事之意見:  無  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            }
+          ],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 6,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "129.31 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2727",
+          "market": "listed",
+          "name": "王品",
+          "industry": "觀光餐旅",
+          "focus": "餐飲",
+          "note": "看展店與同店銷售是否同步成長，而不只是節慶旺季。",
+          "dataMonth": "2026-04",
+          "revenue": 1926868,
+          "revenueMoM": -1.812191103789127,
+          "revenueYoY": 13.125779003896561,
+          "cumulativeYoY": 10.24766568189056,
+          "closingPrice": 233,
+          "priceChange": 1,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 2,
+            "label": "等待確認",
+            "tone": "neutral"
+          },
+          "revenueDisplay": "19.27 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2731",
+          "market": "listed",
+          "name": "雄獅",
+          "industry": "觀光餐旅",
+          "focus": "旅遊 / 觀光",
+          "note": "留意出團量、機位供給與國際旅遊需求是否延續。",
+          "dataMonth": "2026-04",
+          "revenue": 2727755,
+          "revenueMoM": 1.674916692137378,
+          "revenueYoY": 9.818087391324477,
+          "cumulativeYoY": 12.744948792709174,
+          "closingPrice": 167.5,
+          "priceChange": 2,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 3,
+            "label": "等待確認",
+            "tone": "neutral"
+          },
+          "revenueDisplay": "27.28 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "9945",
+          "market": "listed",
+          "name": "潤泰新",
+          "industry": "其他",
+          "focus": "資產 / 營建",
+          "note": "適合追建案入帳節奏與資產價值被重新定價的時點。",
+          "dataMonth": "2026-04",
+          "revenue": 3938612,
+          "revenueMoM": 40.214725171289565,
+          "revenueYoY": 58.77978674084376,
+          "cumulativeYoY": 34.31348932043873,
+          "closingPrice": 23.3,
+          "priceChange": 0.05,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "39.39 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "9933",
+          "market": "listed",
+          "name": "中鼎",
+          "industry": "其他",
+          "focus": "統包工程",
+          "note": "檢查在手訂單、毛利結構與海外接案是否改善。",
+          "dataMonth": "2026-04",
+          "revenue": 6328540,
+          "revenueMoM": -4.605554714778667,
+          "revenueYoY": -24.204908103897484,
+          "cumulativeYoY": -23.153195514200917,
+          "closingPrice": 39.65,
+          "priceChange": 0.75,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": -4,
+            "label": "保守看待",
+            "tone": "negative"
+          },
+          "revenueDisplay": "63.29 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "5609",
+          "market": "otc",
+          "name": "中菲行",
+          "industry": "航運業",
+          "focus": "物流",
+          "note": "觀察空海運量、報價與跨境需求是否出現結構性回升。",
+          "dataMonth": "2026-04",
+          "revenue": 2840176,
+          "revenueMoM": 7.530532614185427,
+          "revenueYoY": 12.005407475266678,
+          "cumulativeYoY": 3.8197158522621537,
+          "closingPrice": 81,
+          "priceChange": 0.6,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": -66176,
+          "signal": {
+            "score": 4,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "28.40 億",
+          "otcInstitutionNetDisplay": "-6.62 萬"
+        },
+        {
+          "code": "8436",
+          "market": "otc",
+          "name": "大江",
+          "industry": "生技醫療業",
+          "focus": "保健食品 / 品牌出海",
+          "note": "看中國與海外銷售恢復是否真正轉成營收與現金流。",
+          "dataMonth": "2026-04",
+          "revenue": 605516,
+          "revenueMoM": -0.8990047609773342,
+          "revenueYoY": 14.01467935513269,
+          "cumulativeYoY": 6.068440633793507,
+          "closingPrice": 119.5,
+          "priceChange": -0.5,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": -5842,
+          "signal": {
+            "score": 2,
+            "label": "等待確認",
+            "tone": "neutral"
+          },
+          "revenueDisplay": "6.06 億",
+          "otcInstitutionNetDisplay": "-5,842"
+        }
+      ],
+      "topIdeas": [
+        {
+          "code": "9945",
+          "market": "listed",
+          "name": "潤泰新",
+          "industry": "其他",
+          "focus": "資產 / 營建",
+          "note": "適合追建案入帳節奏與資產價值被重新定價的時點。",
+          "dataMonth": "2026-04",
+          "revenue": 3938612,
+          "revenueMoM": 40.214725171289565,
+          "revenueYoY": 58.77978674084376,
+          "cumulativeYoY": 34.31348932043873,
+          "closingPrice": 23.3,
+          "priceChange": 0.05,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "39.39 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2207",
+          "market": "listed",
+          "name": "和泰車",
+          "industry": "汽車工業",
+          "focus": "汽車通路",
+          "note": "觀察交車節奏、新車周期與金融服務對獲利的拉動。",
+          "dataMonth": "2026-04",
+          "revenue": 30160251,
+          "revenueMoM": 25.00981190366184,
+          "revenueYoY": 30.02541682585594,
+          "cumulativeYoY": 5.752339125653871,
+          "closingPrice": 483,
+          "priceChange": 27,
+          "announcementCount": 0,
+          "catalystCount": 0,
+          "announcements": [],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 7,
+            "label": "高優先追蹤",
+            "tone": "strong"
+          },
+          "revenueDisplay": "301.60 億",
+          "otcInstitutionNetDisplay": "無資料"
+        },
+        {
+          "code": "2615",
+          "market": "listed",
+          "name": "萬海",
+          "industry": "航運業",
+          "focus": "貨櫃航運",
+          "note": "適合比對艙位利用率、遠洋航線變化與現貨運價彈性。",
+          "dataMonth": "2026-04",
+          "revenue": 12930770,
+          "revenueMoM": 22.88858992742307,
+          "revenueYoY": 13.050318121962226,
+          "cumulativeYoY": -4.031931002019627,
+          "closingPrice": 82,
+          "priceChange": 1.3,
+          "announcementCount": 1,
+          "catalystCount": 1,
+          "announcements": [
+            {
+              "market": "listed",
+              "code": "2615",
+              "companyName": "萬海",
+              "subject": "代子公司萬海航運(新加坡)有限公司公告取得貨櫃使用權資產",
+              "date": "2026-05-29",
+              "time": "16:38:16",
+              "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  貨櫃使用權資產  2.事實發生日:114/9/18~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:管理階層  民國115年5月29日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  共 8,666 只貨櫃，單只平均單價為美金 2,376 ～ 9,411 元 （單位價格依貨櫃類型、期數而異，故每單位價格無法逐一揭露） 總金額約為美金 55,761,174 元  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人：SeaCube Containers LLC 與公司之關係：無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  於交櫃之次月付款  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易決定方式為議價，價格決定為參考近期市場行情，決策單位為本公司管理階層  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  不適用  23.取得或處分之具體目的或用途:  基於集團長期發展與整體營運考量  24.本次交易表示異議之董事之意見:  無  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
+              "isRoutine": false,
+              "hasCatalyst": true
+            }
+          ],
+          "otcInstitutionNet": null,
+          "signal": {
+            "score": 6,
+            "label": "正向觀察",
+            "tone": "positive"
+          },
+          "revenueDisplay": "129.31 億",
+          "otcInstitutionNetDisplay": "無資料"
+        }
+      ]
     }
   },
-  "announcements": []
+  "announcements": [
+    {
+      "market": "listed",
+      "code": "3711",
+      "companyName": "日月光投控",
+      "subject": "代子公司矽品精密工業(股)公司公告取得廠務工程",
+      "date": "2026-05-29",
+      "time": "18:13:43",
+      "summary": "1.契約種類:廠務工程  2.事實發生日:115/5/15~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年5月29日  5.契約相對人及其與公司之關係:  勝義發營造股份有限公司， 與公司關係：無  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  總金額：NTD 2,000,170,000； 契約起迄日期：115年5月15日至117年6月30日； 限制條款及其他重要約定事項：無  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  供生產及營運用  11.本次交易表示異議之董事意見:  無  12.本次交易為關係人交易:否  13.監察人承認或審計委員會同意日期:  不適用  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期: 不適用  22.其他敘明事項:  無",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "listed",
+      "code": "3711",
+      "companyName": "日月光投控",
+      "subject": "代子公司台灣福雷電子(股)公司公告\r\n取得士林電機廠股份有限公司高雄分公司供營業用之廠務工程",
+      "date": "2026-05-29",
+      "time": "17:51:02",
+      "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  供營業用之廠務工程  2.事實發生日:114/12/2~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年5月29日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  交易數量：一批 每單位價格計：新台幣314,816仟元(未稅) 累計交易總金額計：新台幣314,816仟元(未稅)  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人：士林電機廠股份有限公司高雄分公司 與公司之關係：無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  交付或付款條件：電匯或信用狀付款 契約限制條款：無 其他重要約定事項：無  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易之決定方式及價格決定之參考依據：比價及議價 決策單位：依該公司核決權限規定辦理  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  無  23.取得或處分之具體目的或用途:  供生產及營運用  24.本次交易表示異議之董事之意見:  不適用  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "listed",
+      "code": "2454",
+      "companyName": "聯發科",
+      "subject": "代重要子公司翔發投資(股)公司及聚星電子(股)公司\r\n簡易合併案向債權人公告",
+      "date": "2026-05-29",
+      "time": "17:13:17",
+      "summary": "1.事實發生日:115/05/29 2.公司名稱:翔發投資(股)公司及聚星電子(股)公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 一、翔發投資(股)公司與聚星電子(股)公司於民國115年5月29日， 各經其董事依法同意合併，並以翔發投資(股)公司為存續公司， 聚星電子(股)公司為消滅公司(下稱「本合併案」)，合併基準日暫定為115年6月30日。 二、聚星電子(股)公司之帳列資產、負債及截至合併基準日仍為有效之一切權利義務， 均由翔發投資(股)公司概括承受。 三、謹依公司法第319條準用第73條規定及企業併購法第23條規定辦理， 如債權人對本合併案有異議者，請於公告日起31日內，檢附債權證明文件， 以書面方式掛號郵寄 (以郵戳日為憑)向翔發投資(股)公司及聚星電子(股)公司提出， 逾期即視為無異議。 6.因應措施:另採報紙公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "listed",
+      "code": "2454",
+      "companyName": "聯發科",
+      "subject": "代重要子公司翔發投資(股)公司公告與聚星電子(股)公司\r\n之簡易合併案",
+      "date": "2026-05-29",
+      "time": "17:12:29",
+      "summary": "1.併購種類(如合併、分割、收購或股份受讓):  合併  2.事實發生日:115/5/29  3.參與併購公司名稱(如合併另一方公司、分割新設公司、收購或受讓股份標的公司之  名稱:  翔發投資(股)公司 (存續公司)&#8206;  4.交易相對人(如合併另一方公司、分割讓與他公司、收購或受讓股份之交易對象):  聚星電子(股)公司 (消滅公司)&#8206;  5.交易相對人為關係人:是  6.交易相對人與公司之關係(本公司轉投資持股達XX%之被投資公司)，並說明選定  收購、受讓他公司股份之對象為關係企業或關係人之原因及是否不影響股東權益:  翔發投資(股)公司及聚星電子(股)公司皆為本公司間接持股100%之子公司，  依企業併購&#8206;法第19條進行簡易合併，係為集團內部組織架構調整，無涉及換  股比例、亦無配發股東現金或其他財產之情事，故對股東權益無影響。&#8206;  7.併購目的及條件，包括併購理由、對價條件及支付時點(註七):  集團內組織優化及調整，以吸收合併方式進行合併。&#8206;  8.併購後預計產生之效益:  簡化組織架構，整合集團資源。&#8206;  9.併購對每股淨值及每股盈餘之影響:  對聯發科技合併每股淨值及合併每股盈餘無影響。&#8206;  10.併購之對價種類及資金來源:  不適用。&#8206;  11.換股比例及其計算依據:  不適用。&#8206;  12.本次交易會計師、律師或證券承銷商出具非合理性意見:不適用  13.會計師或律師事務所名稱或證券承銷商公司名稱:  不適用。&#8206;  14.會計師或律師姓名:  不適用。&#8206;  15.會計師或律師開業證書字號:  不適用。&#8206;  16.獨立專家就本次併購換股比例、配發股東之現金或其他財產之合理性意見書內容  (一、包含公開收購價格訂定所採用之方法、原則或計算方式及與國際慣用之市價法  、成本法及現金流量折現法之比較。二、被收購公司與已上市櫃同業之財務狀況  、獲利情形及本益比之比較情形。三、公開收購價格若參考鑑價機構之鑑價報告者  ，應說明該鑑價報告內容及結論。四、收購人融資償還計畫若係以被收購公司或合  併後存續公司之資產或股份為擔保者，應說明對被收購公司或合併後存續公司財務  業務健全性之影響評估)(註七):  不適用。&#8206;  17.預定完成日程(註七):  合併基準日暫定為民國115年6月30日。&#8206;  18.既存或新設公司承受消滅(或分割)公司權利義務相關事項(註二):  聚星電子(股)公司之資產、負債及於合併基準日仍有效之一切權利及義務，  於合併基準日均由翔發投資(股)公司概括承受。&#8206;  19.參與合併公司之基本資料(註三):  翔發投資(股)公司之主要營業項目為一般投資業；  聚星電子(股)公司之主要營業項目為技術服務。&#8206;  20.分割之相關事項(含預定讓與既存公司或新設公司之營業、資產之評價價值；被  分割公司或其股東所取得股份之總數、種類及數量；被分割公司資本減少時，其資  本減少有關事項)(註：若非分割公告時，則不適用):  不適用。&#8206;  21.併購股份未來移轉之條件及限制:  不適用。&#8206;  22.併購完成後之計畫(包含一、繼續經營公司業務之意願及計畫內容。二、是否發生  解散、下市(櫃)、重大變更組織、資本、業務計畫、財務及生產、對公司重要人員  、資產之安排或運用，或其他任何影響公司股東權益之重大事項):  為集團內部組織架構調整，不影響聯發科技股東權益。&#8206;  23.其他重要約定事項:  無。&#8206;  24.其他與併購相關之重大事項:  無。&#8206;  25.本次交易，董事有無異議:否  26.併購交易中涉及利害關係董事資訊(自然人董事姓名或法人董事名稱暨其代表人姓名  、其自身或其代表之法人有利害關係之重要內容(包括但不限於實際或預計投資其他  參加併購公司之方式、持股比率、交易價格、是否參與併購公司之經營及其他投資條件  等情形)、其應迴避或不迴避理由、迴避情形、贊成或反對併購決議之理由)(註七):  無。&#8206;  27.是否涉及營運模式變更:否  28.營運模式變更說明(註四):  不適用。&#8206;  29.過去一年及預計未來一年內與交易相對人交易情形(註五):  不適用。&#8206;  30.資金來源(註五):  不適用。&#8206;  31.其他敘明事項(註六):  如有實際需求而須調整合併基準日，或本合併案之計畫執行進度及預計完成日程  有逾期未完成之情況時，授權雙方董事長視實際情形及需求為必要之處理。&#8206;  註二、既存或新設公司承受消滅公司權利義務相關事項，包括庫藏股及已發行具有股權性質有  　　　價證券之處理原則。  註三：參與合併公司之基本資料包括公司名稱及所營業務之主要內容。  註四：倘涉營運模式變更，請於欄位敘明包括營業範圍變更、產品線擴充/縮減、製程調整、產業  　　　水平/垂直整合，或其他涉及營運架構調整事項。  註五：非屬私募資金用以併購案件者，得填寫不適用。  註六：若本案成就前，尚需經國內、外主管機關(如:投審會、公平交易委員會、反壟斷局或其他單位)核准或許可者，應予敘明相關事項。",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "listed",
+      "code": "2454",
+      "companyName": "聯發科",
+      "subject": "代子公司寰發股份有限公司公告取得無形資產",
+      "date": "2026-05-29",
+      "time": "17:09:54",
+      "summary": "1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:  專利權  2.事實發生日:115/5/29~115/5/29  3.董事會通過日期: 民國115年5月29日  4.其他核決日期: 不適用  5.交易數量、每單位價格及交易總金額:  一批、新台幣1,600,000,000元(相當於美金50,000,000元)  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之  關係人者，得免揭露其姓名）:  LG Electronics Inc.；非關係人  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移  轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次  移轉日期及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取  得及處分日期、價格及交易當時與公司之關係:  不適用  9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權  如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權  帳面金額:  不適用  10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明  認列情形）:  不適用  11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  依合約條件付款  12.本次交易之決定方式、價格決定之參考依據及決策單位:  寰發股份有限公司董事會並參考獨立專家之合理性意見  13.取得或處分有價證券標的公司每股淨值:  不適用  14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股  比例及權利受限情形（如質押情形）:  不適用  15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列  之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬  於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）:  不適用  16.經紀人及經紀費用:  不適用  17.取得或處分之具體目的或用途:  供營運使用  18.本次交易表示異議董事之意見:  無  19.本次交易為關係人交易:否  20.監察人承認或審計委員會同意日期:  不適用  21.本次交易會計師出具非合理性意見:否  22.會計師事務所名稱:  緯騰會計師事務所  23.會計師姓名:  朱建成  24.會計師開業證書字號:  金管會證字第6329號  25.是否涉及營運模式變更:否  26.營運模式變更說明:  無  27.過去一年及預計未來一年內與交易相對人交易情形:  不適用  28.資金來源:  不適用  29.前已就同一件事件發布重大訊息日期: 不適用  30.其他敘明事項:  無",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "listed",
+      "code": "2615",
+      "companyName": "萬海",
+      "subject": "代子公司萬海航運(新加坡)有限公司公告取得貨櫃使用權資產",
+      "date": "2026-05-29",
+      "time": "16:38:16",
+      "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  貨櫃使用權資產  2.事實發生日:114/9/18~115/5/29  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:管理階層  民國115年5月29日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  共 8,666 只貨櫃，單只平均單價為美金 2,376 ～ 9,411 元 （單位價格依貨櫃類型、期數而異，故每單位價格無法逐一揭露） 總金額約為美金 55,761,174 元  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人：SeaCube Containers LLC 與公司之關係：無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  於交櫃之次月付款  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易決定方式為議價，價格決定為參考近期市場行情，決策單位為本公司管理階層  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  不適用  23.取得或處分之具體目的或用途:  基於集團長期發展與整體營運考量  24.本次交易表示異議之董事之意見:  無  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "listed",
+      "code": "1216",
+      "companyName": "統一",
+      "subject": "代子公司統流開發(股)公司公告於桃園市楊梅區瑞原段土地租地委建(金額調整)",
+      "date": "2026-05-29",
+      "time": "16:09:32",
+      "summary": "1.契約種類:租地委建  2.事實發生日:115/5/29~115/5/29  3.董事會通過日期: 民國115年5月29日  4.其他核決日期: 不適用  5.契約相對人及其與公司之關係:  契約相對人：大成工程(股)公司 與公司關係：大成工程(股)公司為統流開發(股)公司之 母公司統一企業(股)公司之關聯企業  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  因應低溫市場需求，將原規劃常溫、低溫共同倉儲， 改為全棟低溫倉儲，致興建工程成本增加新臺幣389佰萬元。 限制條款及其他重要約定事項：無  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  興建物流中心  11.本次交易表示異議之董事意見:  無  12.本次交易為關係人交易:是  13.監察人承認或審計委員會同意日期:  民國115年5月29日  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期:  民國112年4月28日  22.其他敘明事項:  無",
+      "isRoutine": false,
+      "hasCatalyst": true
+    },
+    {
+      "market": "otc",
+      "code": "3131",
+      "companyName": "弘塑",
+      "subject": "因本公司有價證券於櫃買市場達公布\r\n注意交易資訊標準，故公布相關財務業務\r\n資訊，以利投資人區別暸解",
+      "date": "2026-05-29",
+      "time": "14:24:56",
+      "summary": "1.事實發生日:115/05/29 2.發生緣由:依證券櫃檯買賣中心來函規定辦理，因本公司有價證券於櫃買市場達公布 注意交易資訊標準，辦理公告本公司115年4月份、115年第一季、暨最近 四季累計(114年第二季至115年第一季)相關財務業務資訊。 3.財務業務資訊: －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 科目(最近一個月)         115年4月      114年4月     增減％ 營業收入（百萬元）            536           561         -4 稅前淨利（百萬元）            119            65         +83 歸屬母公司業主淨利（百萬元）  99            53         +87 每股盈餘（元）               3.43          1.80         +91 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 科目(最近一季單季)       115年第一季    114年第一季     增減％ 營業收入（百萬元）             1,596          1,241         +29 稅前淨利（百萬元）               580            318         +82 歸屬母公司業主淨利（百萬元）    463             255        +82 每股盈餘（元）                 16.11            8.74        +84 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 科目(最近四季累計)       114年第二季至115年第一季 營業收入（百萬元）                6,870 稅前淨利（百萬元）                1,952 歸屬母公司業主淨利（百萬元）     1,535 每股盈餘（元）                    52.85 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年4月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合 併數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本 公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會 計師查核(閱)，僅供投資人參考。 (4)上表數字為計算至百萬元四捨五入，每股盈餘為歸屬母公司業主淨利（百萬元） 除以發行股數。 (5)除本公司主動發布(含新聞稿)或於公開資訊觀測站公告之訊息外，其餘資訊， 包括媒體先進之報導，請投資人審慎判斷，以保障自身權益。 (6)依據相關法令及 櫃買中心來函辦理公告。",
+      "isRoutine": false,
+      "hasCatalyst": true
+    }
+  ]
 }
