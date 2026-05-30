@@ -117,25 +117,19 @@ const ROUTINE_KEYWORDS = [
   "資金貸與",
 ];
 
-const CATALYST_KEYWORDS = [
-  "取得",
-  "處分",
-  "擴建",
-  "擴產",
-  "增資",
-  "投資",
-  "合併",
-  "收購",
-  "策略合作",
-  "簽約",
-  "接單",
-  "訂單",
-  "產能",
-  "設備",
-  "廠務工程",
-  "專利",
-  "量產",
-  "建廠",
+const EVENT_RULES = [
+  { type: "new_order", label: "新接單", weight: 3, keywords: ["接單", "訂單", "長約", "簽約", "中標"] },
+  { type: "capacity_expansion", label: "擴產建廠", weight: 3, keywords: ["擴產", "擴建", "建廠", "新廠", "新產線", "產能"] },
+  { type: "mass_production", label: "量產出貨", weight: 3, keywords: ["量產", "試產", "導入", "出貨"] },
+  { type: "strategic_partnership", label: "策略合作", weight: 2, keywords: ["策略合作", "合作備忘錄", "聯盟", "合資"] },
+  { type: "mna", label: "併購收購", weight: 4, keywords: ["合併", "收購", "公開收購", "股權轉換"] },
+  { type: "buyback", label: "庫藏股", weight: 2, keywords: ["庫藏股", "買回股份", "買回庫藏股"] },
+  { type: "capital_raise", label: "增資籌資", weight: 2, keywords: ["現金增資", "增資", "私募", "可轉換公司債", "公司債", "GDR"] },
+  { type: "asset_transaction", label: "資產交易", weight: 2, keywords: ["取得", "處分", "不動產", "廠房", "設備交易"] },
+  { type: "price_adjustment", label: "價格調整", weight: 2, keywords: ["漲價", "調漲", "報價", "價格調整"] },
+  { type: "regulatory_approval", label: "法規核准", weight: 4, keywords: ["核准", "許可", "認證", "藥證", "許可證", "通過審查"] },
+  { type: "supply_chain_shift", label: "供應鏈轉折", weight: 2, keywords: ["交期", "缺料", "去庫存", "庫存", "拉貨", "急單"] },
+  { type: "governance_change", label: "治理異動", weight: 1, keywords: ["董事長", "經營權", "董事改選", "法人董事", "董監"] },
 ];
 
 const WATCH_META = new Map(
@@ -246,9 +240,19 @@ function parseMajorEntry(entry, market) {
     .trim();
 
   const isRoutine = ROUTINE_KEYWORDS.some((keyword) => subject.includes(keyword));
-  const hasCatalyst = CATALYST_KEYWORDS.some(
-    (keyword) => subject.includes(keyword) || summary.includes(keyword),
-  );
+  const text = `${subject} ${summary}`;
+  const events = EVENT_RULES.flatMap((rule) => {
+    const matchedKeywords = rule.keywords.filter((keyword) => text.includes(keyword));
+    if (!matchedKeywords.length) return [];
+    return [{
+      type: rule.type,
+      label: rule.label,
+      weight: rule.weight,
+      matchedKeywords,
+    }];
+  });
+  const catalysts = events.filter((event) => event.weight >= 2);
+  const hasCatalyst = catalysts.length > 0;
 
   return {
     market,
@@ -260,7 +264,21 @@ function parseMajorEntry(entry, market) {
     summary,
     isRoutine,
     hasCatalyst,
+    events,
+    catalysts,
+    eventTypes: events.map((event) => event.type),
+    catalystTypes: catalysts.map((event) => event.type),
+    eventWeightTotal: events.reduce((sum, event) => sum + event.weight, 0),
+    catalystWeightTotal: catalysts.reduce((sum, event) => sum + event.weight, 0),
+    primaryEventLabel: events.sort((left, right) => right.weight - left.weight)[0]?.label || null,
   };
+}
+
+function isoDateDiffDays(dateA, dateB = new Date()) {
+  if (!dateA) return null;
+  const parsed = new Date(`${dateA}T00:00:00+08:00`);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return Math.floor((dateB.getTime() - parsed.getTime()) / 86400000);
 }
 
 function resolveLens(code, industry, watchMeta) {
@@ -375,6 +393,14 @@ function computeSignal(item) {
     drivers.push(compactDriver("近期有重大訊息催化", "positive", 1));
   }
 
+  if (item.eventScore >= 7) {
+    score += 2;
+    drivers.push(compactDriver("事件分數高，公告與價格確認度較完整", "positive", 2));
+  } else if (item.eventScore >= 4) {
+    score += 1;
+    drivers.push(compactDriver("事件分數中高，適合排入優先追蹤", "positive", 1));
+  }
+
   if (item.tradeValue !== null && item.tradeValue >= 2000000000) {
     score += 1;
     drivers.push(compactDriver("成交值高於 20 億", "positive", 1));
@@ -408,6 +434,65 @@ function computeSignal(item) {
   return { score, label: "偏弱等待", tone: "negative", drivers };
 }
 
+function computeEventScore(item) {
+  const drivers = [];
+  let score = 0;
+
+  if (item.catalystWeightTotal >= 8) {
+    score += 4;
+    drivers.push(compactDriver("高權重事件密集", "positive", 4));
+  } else if (item.catalystWeightTotal >= 5) {
+    score += 3;
+    drivers.push(compactDriver("多個中高權重事件", "positive", 3));
+  } else if (item.catalystWeightTotal >= 2) {
+    score += 2;
+    drivers.push(compactDriver("具備可交易事件", "positive", 2));
+  } else if (item.eventWeightTotal > 0) {
+    score += 1;
+    drivers.push(compactDriver("有事件但權重偏低", "neutral", 1));
+  }
+
+  if (item.maxEventWeight >= 4) {
+    score += 2;
+    drivers.push(compactDriver("存在高嚴重度事件", "positive", 2));
+  } else if (item.maxEventWeight >= 3) {
+    score += 1;
+    drivers.push(compactDriver("存在中高嚴重度事件", "positive", 1));
+  }
+
+  if (item.daysSinceLatestEvent !== null) {
+    if (item.daysSinceLatestEvent <= 3) {
+      score += 1;
+      drivers.push(compactDriver("事件在近 3 日內發生", "positive", 1));
+    } else if (item.daysSinceLatestEvent <= 7) {
+      score += 1;
+      drivers.push(compactDriver("事件在近 7 日內發生", "positive", 1));
+    }
+  }
+
+  if (item.catalystCount > 0 && item.tradeValue >= 2000000000) {
+    score += 1;
+    drivers.push(compactDriver("事件伴隨大量成交", "positive", 1));
+  }
+
+  if (item.catalystCount > 0 && item.priceChange >= 1) {
+    score += 1;
+    drivers.push(compactDriver("事件後價格有初步確認", "positive", 1));
+  }
+
+  if (
+    item.eventTypes.length > 0 &&
+    item.eventTypes.every((type) => type === "governance_change") &&
+    item.catalystTypes.length === 0
+  ) {
+    score = Math.max(0, score - 1);
+    drivers.push(compactDriver("治理異動偏行政事件", "negative", -1));
+  }
+
+  score = Math.max(0, Math.min(10, score));
+  return { score, drivers };
+}
+
 function buildAlertFlags(item) {
   const flags = [];
 
@@ -426,6 +511,15 @@ function buildAlertFlags(item) {
     flags.push("eventDrivenVolume");
   }
   if (item.market === "otc" && item.otcInstitutionNet >= 2000) flags.push("otcInstitutionSupport");
+  if (item.catalystTypes.includes("mna")) flags.push("mnaEvent");
+  if (item.catalystTypes.includes("buyback")) flags.push("buybackEvent");
+  if (item.catalystTypes.includes("new_order") && (item.priceChange === null || item.priceChange <= 1)) {
+    flags.push("newOrderWithoutPriceReaction");
+  }
+  if (item.catalystTypes.includes("capacity_expansion") && item.eventScore >= 6) {
+    flags.push("capacityExpansionFollowThrough");
+  }
+  if (item.catalystTypes.includes("regulatory_approval")) flags.push("regulatoryBinaryEvent");
 
   return flags;
 }
@@ -494,6 +588,49 @@ function buildCompanyItem({
     ),
   };
 
+  const eventMap = new Map();
+  const eventTimeline = [];
+  for (const announcement of announcements) {
+    for (const event of announcement.events || []) {
+      const existing = eventMap.get(event.type);
+      if (!existing || event.weight > existing.weight) {
+        eventMap.set(event.type, { ...event });
+      }
+    }
+
+    if ((announcement.events || []).length > 0) {
+      eventTimeline.push({
+        date: announcement.date,
+        time: announcement.time,
+        subject: announcement.subject,
+        summary: announcement.summary,
+        labels: announcement.events.map((event) => event.label),
+        types: announcement.events.map((event) => event.type),
+        weightTotal: announcement.eventWeightTotal,
+      });
+    }
+  }
+
+  item.eventTypes = [...eventMap.keys()];
+  item.eventLabels = [...eventMap.values()].map((event) => event.label);
+  item.primaryEventLabel = [...eventMap.values()].sort((left, right) => right.weight - left.weight)[0]?.label || null;
+  item.primaryEventType = [...eventMap.values()].sort((left, right) => right.weight - left.weight)[0]?.type || null;
+  item.eventWeightTotal = [...eventMap.values()].reduce((sum, event) => sum + event.weight, 0);
+  item.maxEventWeight = [...eventMap.values()].reduce((max, event) => Math.max(max, event.weight), 0);
+  item.catalystTypes = [...new Set(
+    announcements.flatMap((entry) => (entry.catalysts || []).map((event) => event.type)),
+  )];
+  item.catalystLabels = [...new Set(
+    announcements.flatMap((entry) => (entry.catalysts || []).map((event) => event.label)),
+  )];
+  item.catalystWeightTotal = item.catalystTypes
+    .map((type) => EVENT_RULES.find((rule) => rule.type === type)?.weight || 0)
+    .reduce((sum, weight) => sum + weight, 0);
+  item.daysSinceLatestEvent = eventTimeline.length ? isoDateDiffDays(eventTimeline[0].date) : null;
+  item.eventTimeline = eventTimeline.slice(0, 6);
+  item.eventScore = computeEventScore(item).score;
+  item.eventDrivers = computeEventScore(item).drivers;
+
   item.signal = computeSignal(item);
   item.alertFlags = buildAlertFlags(item);
   item.revenueDisplay = formatRevenueFromThousand(item.revenue);
@@ -503,6 +640,7 @@ function buildCompanyItem({
   item.revenueYoYDisplay = formatPercent(item.revenueYoY);
   item.revenueMoMDisplay = formatPercent(item.revenueMoM);
   item.cumulativeYoYDisplay = formatPercent(item.cumulativeYoY);
+  item.eventScoreDisplay = `${item.eventScore}/10`;
   item.searchText = `${item.code} ${item.name} ${item.industry} ${item.chain} ${item.focus}`.toLowerCase();
   return item;
 }
@@ -543,7 +681,14 @@ function compactRow(item) {
     priceChangeDisplay: item.priceChangeDisplay,
     tradeValue: item.tradeValue,
     tradeValueDisplay: item.tradeValueDisplay,
+    eventScore: item.eventScore,
+    eventScoreDisplay: item.eventScoreDisplay,
     catalystCount: item.catalystCount,
+    catalystTypes: item.catalystTypes,
+    catalystLabels: item.catalystLabels,
+    eventTypes: item.eventTypes,
+    eventLabels: item.eventLabels,
+    primaryEventLabel: item.primaryEventLabel,
     announcementCount: item.announcementCount,
     dataMonth: item.dataMonth,
     alertFlags: item.alertFlags,
@@ -599,7 +744,7 @@ function buildAlerts(items) {
         marketLabel: item.marketLabel,
         lensLabel: item.lensLabel,
         signalScore: item.signal.score,
-        message: `${item.name} 同時具備高分訊號與近期重大催化，適合優先驗證。`,
+        message: `${item.name} 同時具備高分訊號與近期重大催化${item.primaryEventLabel ? `，主事件為${item.primaryEventLabel}` : ""}，適合優先驗證。`,
       });
     }
 
@@ -652,6 +797,71 @@ function buildAlerts(items) {
         lensLabel: item.lensLabel,
         signalScore: item.signal.score,
         message: `${item.name} 出現櫃買法人買超，適合作為籌碼面輔助驗證。`,
+      });
+    }
+
+    if (item.alertFlags.includes("mnaEvent")) {
+      alerts.push({
+        level: "high",
+        title: "併購 / 收購事件",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 出現併購或公開收購類事件，需快速判斷價格是否已反映條件與對價。`,
+      });
+    }
+
+    if (item.alertFlags.includes("buybackEvent")) {
+      alerts.push({
+        level: "medium",
+        title: "庫藏股事件",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 出現庫藏股事件，可與估值、籌碼與價格表現一起驗證。`,
+      });
+    }
+
+    if (item.alertFlags.includes("newOrderWithoutPriceReaction")) {
+      alerts.push({
+        level: "medium",
+        title: "接單事件尚未完全反映",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 有接單或簽約類事件，但價格尚未明顯回應，適合檢查市場認知差。`,
+      });
+    }
+
+    if (item.alertFlags.includes("capacityExpansionFollowThrough")) {
+      alerts.push({
+        level: "medium",
+        title: "擴產事件需追蹤落地",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 有擴產建廠類事件，接下來要追營收、交機與法說口徑是否跟上。`,
+      });
+    }
+
+    if (item.alertFlags.includes("regulatoryBinaryEvent")) {
+      alerts.push({
+        level: "high",
+        title: "法規核准 / 二元事件",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 有法規核准或認證事件，屬於二元型催化，需特別注意後續落地與價格波動。`,
       });
     }
   }
@@ -867,10 +1077,16 @@ async function buildDashboardPayload() {
         priceChangeDisplay: item.priceChangeDisplay,
         tradeValueDisplay: item.tradeValueDisplay,
         otcInstitutionNetDisplay: item.otcInstitutionNetDisplay,
+        eventScore: item.eventScore,
+        eventScoreDisplay: item.eventScoreDisplay,
+        primaryEventLabel: item.primaryEventLabel,
+        eventLabels: item.eventLabels,
+        catalystLabels: item.catalystLabels,
         catalystCount: item.catalystCount,
         announcementCount: item.announcementCount,
         alertFlags: item.alertFlags,
         announcements: item.announcements,
+        eventTimeline: item.eventTimeline,
         signal: {
           score: item.signal.score,
           label: item.signal.label,
@@ -878,6 +1094,7 @@ async function buildDashboardPayload() {
           scoreDisplay: `${item.signal.score}/10`,
           drivers: item.signal.drivers,
         },
+        eventDrivers: item.eventDrivers,
       },
     ]);
   }
@@ -947,6 +1164,10 @@ async function buildDashboardPayload() {
       { key: "catalysts", label: "事件催化" },
       { key: "divergence", label: "量價背離" },
     ],
+    eventTypeOptions: EVENT_RULES.map((rule) => ({
+      value: rule.type,
+      label: rule.label,
+    })),
     boards,
     alerts,
     strategies: {

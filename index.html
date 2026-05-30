@@ -718,6 +718,7 @@
         market: "all",
         tone: "all",
         catalyst: "all",
+        eventType: "all",
         sort: "signal",
         query: "",
         selectedCode: null,
@@ -737,6 +738,10 @@
         tradeValue: (a, b) =>
           (b.tradeValue ?? 0) - (a.tradeValue ?? 0) ||
           b.signal.score - a.signal.score,
+        eventScore: (a, b) =>
+          (b.eventScore ?? 0) - (a.eventScore ?? 0) ||
+          b.signal.score - a.signal.score ||
+          (b.tradeValue ?? 0) - (a.tradeValue ?? 0),
       };
 
       let dashboard = null;
@@ -818,6 +823,10 @@
           rows = rows.filter((row) => row.catalystCount > 0);
         } else if (state.catalyst === "without") {
           rows = rows.filter((row) => row.catalystCount === 0);
+        }
+
+        if (state.eventType !== "all") {
+          rows = rows.filter((row) => (row.eventTypes || []).includes(state.eventType));
         }
 
         if (state.query.trim()) {
@@ -902,7 +911,7 @@
                                   <span class="tone ${signalToneClass(row.signal.tone)}">${escapeHtml(row.signal.label)}</span>
                                 </div>
                                 <div class="row-sub muted">
-                                  <span>${escapeHtml(row.chain)}</span>
+                                  <span>${escapeHtml(row.chain)}${row.primaryEventLabel ? ` · ${escapeHtml(row.primaryEventLabel)}` : ""}</span>
                                   <span>${escapeHtml(row.revenueYoYDisplay)} / ${escapeHtml(row.priceChangeDisplay)}</span>
                                 </div>
                               </button>
@@ -936,7 +945,7 @@
                   <th>營收 MoM</th>
                   <th>股價變動</th>
                   <th>成交值</th>
-                  <th>催化</th>
+                  <th>事件</th>
                 </tr>
               </thead>
               <tbody>
@@ -959,7 +968,10 @@
                         <td class="${toneClass(row.revenueMoM)}">${escapeHtml(row.revenueMoMDisplay)}</td>
                         <td class="${toneClass(row.priceChange)}">${escapeHtml(row.priceChangeDisplay)}</td>
                         <td>${escapeHtml(row.tradeValueDisplay)}</td>
-                        <td>${row.catalystCount}</td>
+                        <td>
+                          <div>${escapeHtml(row.eventScoreDisplay || "0/10")}</div>
+                          <div class="tiny">${escapeHtml(row.primaryEventLabel || (row.catalystCount > 0 ? "事件群組" : "無"))}</div>
+                        </td>
                       </tr>
                     `,
                   )
@@ -980,6 +992,8 @@
         const tone = signalToneClass(detail.signal?.tone);
         const alerts = dashboard.alerts.filter((alert) => alert.code === detail.code).slice(0, 3);
         const announcements = detail.announcements || [];
+        const eventTimeline = detail.eventTimeline || [];
+        const eventDrivers = detail.eventDrivers || [];
 
         return `
           <div class="detail-head">
@@ -1020,6 +1034,14 @@
               <span class="tiny">成交值</span>
               <strong>${escapeHtml(detail.tradeValueDisplay || "無資料")}</strong>
             </div>
+            <div class="metric">
+              <span class="tiny">事件分數</span>
+              <strong>${escapeHtml(detail.eventScoreDisplay || "0/10")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">主事件</span>
+              <strong>${escapeHtml(detail.primaryEventLabel || "無")}</strong>
+            </div>
           </div>
 
           <div class="detail-block">
@@ -1032,6 +1054,7 @@
               <span class="tag">焦點：${escapeHtml(detail.focus || "全市場掃描")}</span>
               <span class="tag">催化：${detail.catalystCount || 0}</span>
               <span class="tag">公告：${detail.announcementCount || 0}</span>
+              ${detail.eventLabels?.slice(0, 4).map((label) => `<span class="tag">${escapeHtml(label)}</span>`).join("") || ""}
               ${detail.otcInstitutionNetDisplay ? `<span class="tag">櫃買法人：${escapeHtml(detail.otcInstitutionNetDisplay)}</span>` : ""}
             </div>
           </div>
@@ -1062,6 +1085,30 @@
 
           <div class="detail-block">
             <div class="split-head">
+              <h2 class="section-title">事件拆解</h2>
+              <span class="tiny">${escapeHtml(detail.eventScoreDisplay || "0/10")}</span>
+            </div>
+            ${eventDrivers.length
+              ? `
+                <ul class="driver-list">
+                  ${eventDrivers
+                    .map(
+                      (driver) => `
+                        <li class="driver-item">
+                          <span class="driver-dot ${driver.impact === "negative" ? "negative" : driver.impact === "neutral" ? "neutral" : "positive"}"></span>
+                          <span>${escapeHtml(driver.label)}</span>
+                          <span class="code">${driver.weight > 0 ? "+" : ""}${driver.weight}</span>
+                        </li>
+                      `,
+                    )
+                    .join("")}
+                </ul>
+              `
+              : `<div class="empty">這檔目前沒有事件拆解。</div>`}
+          </div>
+
+          <div class="detail-block">
+            <div class="split-head">
               <h2 class="section-title">警報候選</h2>
               <span class="tiny">${alerts.length} 則</span>
             </div>
@@ -1088,6 +1135,33 @@
 
           <div class="detail-block">
             <div class="split-head">
+              <h2 class="section-title">事件時間線</h2>
+              <span class="tiny">${eventTimeline.length} 筆</span>
+            </div>
+            ${eventTimeline.length
+              ? `
+                <ul class="announcement-list">
+                  ${eventTimeline
+                    .map(
+                      (entry) => `
+                        <li class="announcement-item">
+                          <div class="row-main">
+                            <strong>${escapeHtml(entry.subject)}</strong>
+                            <span class="tone positive">${escapeHtml((entry.labels || []).join(" / "))}</span>
+                          </div>
+                          <div class="muted">${escapeHtml(entry.date)} ${escapeHtml(entry.time)} · 權重 ${entry.weightTotal}</div>
+                          <div class="muted">${escapeHtml(entry.summary || "無補充摘要")}</div>
+                        </li>
+                      `,
+                    )
+                    .join("")}
+                </ul>
+              `
+              : `<div class="empty">這檔目前沒有可解析的事件時間線。</div>`}
+          </div>
+
+          <div class="detail-block">
+            <div class="split-head">
               <h2 class="section-title">近期公告</h2>
               <span class="tiny">${announcements.length} 則</span>
             </div>
@@ -1100,7 +1174,7 @@
                         <li class="announcement-item">
                           <div class="row-main">
                             <strong>${escapeHtml(entry.subject)}</strong>
-                            <span class="tone ${entry.hasCatalyst ? "positive" : "neutral"}">${entry.hasCatalyst ? "催化" : "公告"}</span>
+                            <span class="tone ${entry.hasCatalyst ? "positive" : "neutral"}">${escapeHtml(entry.primaryEventLabel || (entry.hasCatalyst ? "催化" : "公告"))}</span>
                           </div>
                           <div class="muted">${escapeHtml(entry.date)} ${escapeHtml(entry.time)}</div>
                           <div class="muted">${escapeHtml(entry.summary || "無補充摘要")}</div>
@@ -1166,12 +1240,12 @@
                                   <div class="row-main">
                                     <div class="stock-head">
                                       <span class="code">${escapeHtml(item.code)}</span>
-                                      <strong>${escapeHtml(item.name)}</strong>
-                                    </div>
-                                    <span class="tone ${signalToneClass(item.signal.tone)}">${escapeHtml(item.signal.label)}</span>
+                            <strong>${escapeHtml(item.name)}</strong>
                                   </div>
-                                  <div class="row-sub muted">
-                                    <span>${escapeHtml(item.focus)}</span>
+                                  <span class="tone ${signalToneClass(item.signal.tone)}">${escapeHtml(item.signal.label)}</span>
+                                </div>
+                                <div class="row-sub muted">
+                                    <span>${escapeHtml(item.focus)}${item.primaryEventLabel ? ` · ${escapeHtml(item.primaryEventLabel)}` : ""}</span>
                                     <span>${escapeHtml(item.revenueYoYDisplay)}</span>
                                   </div>
                                 </button>
@@ -1239,7 +1313,7 @@
                         <button class="announcement-btn" data-code="${escapeHtml(entry.code)}">
                           <div class="row-main">
                             <strong>${escapeHtml(entry.code)} ${escapeHtml(entry.companyName)}</strong>
-                            <span class="tone ${entry.hasCatalyst ? "positive" : "neutral"}">${entry.hasCatalyst ? "催化" : "公告"}</span>
+                            <span class="tone ${entry.hasCatalyst ? "positive" : "neutral"}">${escapeHtml(entry.primaryEventLabel || (entry.hasCatalyst ? "催化" : "公告"))}</span>
                           </div>
                           <div class="muted">${escapeHtml(entry.date)} ${escapeHtml(entry.time)} · ${escapeHtml(entry.subject)}</div>
                         </button>
@@ -1374,11 +1448,20 @@
                 <option value="with" ${state.catalyst === "with" ? "selected" : ""}>有催化</option>
                 <option value="without" ${state.catalyst === "without" ? "selected" : ""}>無催化</option>
               </select>
+              <select id="eventTypeFilter">
+                <option value="all">全部事件類型</option>
+                ${dashboard.eventTypeOptions
+                  .map(
+                    (option) => `<option value="${escapeHtml(option.value)}" ${state.eventType === option.value ? "selected" : ""}>${escapeHtml(option.label)}</option>`,
+                  )
+                  .join("")}
+              </select>
               <select id="sortFilter">
                 <option value="signal" ${state.sort === "signal" ? "selected" : ""}>依訊號排序</option>
                 <option value="revenueYoY" ${state.sort === "revenueYoY" ? "selected" : ""}>依營收 YoY</option>
                 <option value="revenueMoM" ${state.sort === "revenueMoM" ? "selected" : ""}>依營收 MoM</option>
                 <option value="tradeValue" ${state.sort === "tradeValue" ? "selected" : ""}>依成交值</option>
+                <option value="eventScore" ${state.sort === "eventScore" ? "selected" : ""}>依事件分數</option>
               </select>
               <input id="searchInput" type="search" placeholder="搜尋代號、名稱、產業、鏈條" value="${escapeHtml(
                 state.query,
@@ -1446,6 +1529,11 @@
 
         document.getElementById("catalystFilter")?.addEventListener("change", (event) => {
           state.catalyst = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("eventTypeFilter")?.addEventListener("change", (event) => {
+          state.eventType = event.target.value;
           renderDashboard();
         });
 
