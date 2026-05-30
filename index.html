@@ -3,29 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TW Chain Terminal</title>
+    <title>TW Chain Terminal V2</title>
     <style>
       :root {
-        --bg: #03111b;
-        --bg-2: #071a29;
-        --panel: #0b2030;
-        --panel-2: #0e2637;
-        --line: rgba(121, 163, 196, 0.18);
-        --line-2: rgba(121, 163, 196, 0.08);
+        --bg: #030b12;
+        --bg-2: #07131e;
+        --panel: rgba(10, 24, 38, 0.9);
+        --panel-2: rgba(13, 32, 48, 0.95);
+        --panel-3: rgba(7, 18, 28, 0.92);
+        --line: rgba(108, 158, 197, 0.18);
+        --line-2: rgba(108, 158, 197, 0.08);
         --text: #dce8f6;
-        --muted: #83a0bd;
+        --muted: #88a4c0;
+        --dim: #5c738b;
+        --accent: #4ec8ff;
+        --accent-2: #7f8cff;
         --good: #2fe38f;
         --good-bg: rgba(47, 227, 143, 0.12);
-        --bad: #ff5f6d;
-        --bad-bg: rgba(255, 95, 109, 0.14);
         --warn: #ffc857;
-        --warn-bg: rgba(255, 200, 87, 0.14);
-        --accent: #55c2ff;
-        --accent-2: #7f8cff;
-        --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+        --warn-bg: rgba(255, 200, 87, 0.12);
+        --bad: #ff6270;
+        --bad-bg: rgba(255, 98, 112, 0.12);
+        --high: #ff8f70;
+        --high-bg: rgba(255, 143, 112, 0.14);
+        --shadow: 0 22px 80px rgba(0, 0, 0, 0.28);
         --radius-xl: 24px;
         --radius-lg: 18px;
         --radius-md: 12px;
+        --radius-sm: 9px;
       }
 
       * {
@@ -38,12 +43,13 @@
 
       body {
         margin: 0;
+        min-height: 100vh;
         color: var(--text);
         font-family: "IBM Plex Sans", "Noto Sans TC", "Segoe UI", sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(85, 194, 255, 0.18), transparent 28rem),
-          radial-gradient(circle at right 10% top 20%, rgba(127, 140, 255, 0.14), transparent 24rem),
-          linear-gradient(180deg, #04111a 0%, #020b11 100%);
+          radial-gradient(circle at 0% 0%, rgba(78, 200, 255, 0.12), transparent 24rem),
+          radial-gradient(circle at 100% 0%, rgba(127, 140, 255, 0.08), transparent 28rem),
+          linear-gradient(180deg, #020910 0%, #040c15 55%, #02070c 100%);
       }
 
       body::before {
@@ -51,901 +57,1433 @@
         position: fixed;
         inset: 0;
         pointer-events: none;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-        background-size: 100% 4px;
-        opacity: 0.25;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        background-size: 24px 24px;
+        mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent 80%);
+      }
+
+      a {
+        color: inherit;
       }
 
       .shell {
-        max-width: 1580px;
+        width: min(1680px, calc(100vw - 32px));
         margin: 0 auto;
-        padding: 22px 18px 56px;
+        padding: 18px 0 32px;
+      }
+
+      .panel {
+        background: linear-gradient(180deg, var(--panel) 0%, var(--panel-3) 100%);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
       }
 
       .ticker {
         display: flex;
         gap: 12px;
-        overflow: auto;
-        padding: 10px 12px;
+        align-items: center;
+        overflow: hidden;
+        padding: 10px 14px;
+        border-radius: 16px;
+        background: rgba(8, 20, 31, 0.9);
         border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(5, 18, 28, 0.84);
-        box-shadow: var(--shadow);
+      }
+
+      .ticker-track {
+        display: flex;
+        gap: 14px;
+        min-width: max-content;
+        animation: ticker 34s linear infinite;
+      }
+
+      @keyframes ticker {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
       }
 
       .ticker-item {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line-2);
+        background: rgba(255, 255, 255, 0.03);
         white-space: nowrap;
-        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
         font-size: 0.84rem;
-        color: var(--muted);
-      }
-
-      .ticker-item strong {
-        color: var(--text);
-      }
-
-      .hero,
-      .section,
-      .summary-box,
-      .idea-card,
-      .announcement-card,
-      .market-card {
-        border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(11, 32, 48, 0.96), rgba(8, 24, 36, 0.96));
-        box-shadow: var(--shadow);
       }
 
       .hero {
         display: grid;
-        grid-template-columns: 1.4fr 0.95fr;
+        grid-template-columns: minmax(0, 1.5fr) minmax(340px, 0.9fr);
         gap: 18px;
-        margin-top: 16px;
-        padding: 24px;
-        border-radius: var(--radius-xl);
+        margin-top: 18px;
+        padding: 22px;
       }
 
-      .eyebrow,
-      .terminal-tag,
-      th {
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
       }
 
-      .eyebrow,
-      .terminal-tag {
-        margin: 0 0 10px;
-        font-size: 0.78rem;
+      .eyebrow {
         color: var(--accent);
-      }
-
-      h1,
-      h2,
-      h3 {
-        margin: 0;
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
       }
 
       h1 {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        line-height: 0.95;
-        font-weight: 700;
-      }
-
-      .hero-copy p,
-      .section-head p,
-      .summary-box p,
-      .idea-card p,
-      .announcement-card p,
-      .minor,
-      .hint {
-        color: var(--muted);
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
       }
 
       .hero-copy p {
-        max-width: 60rem;
-        margin: 14px 0 0;
+        margin: 0;
+        color: var(--muted);
+        max-width: 70ch;
         line-height: 1.7;
       }
 
-      .hero-side {
-        display: grid;
-        gap: 14px;
-      }
-
-      .hero-actions {
+      .pill-row {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 16px 18px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        background: rgba(5, 16, 25, 0.88);
-      }
-
-      .hero-meta {
-        display: grid;
-        gap: 14px;
-        padding: 18px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        background: rgba(5, 16, 25, 0.88);
-      }
-
-      .meta-grid,
-      .market-grid,
-      .summary-grid,
-      .ideas-grid,
-      .rules-grid {
-        display: grid;
-        gap: 14px;
-      }
-
-      .meta-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .meta-label {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 0.76rem;
-        color: var(--muted);
-      }
-
-      .meta-value,
-      .market-value {
-        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
-        font-size: 1.45rem;
-        font-weight: 700;
-      }
-
-      .primary-button,
-      .tab-button {
-        border: 0;
-        cursor: pointer;
-      }
-
-      .primary-button {
-        padding: 12px 18px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent-2), var(--accent));
-        color: #04111a;
-        font-weight: 700;
-      }
-
-      .layout {
-        display: grid;
-        gap: 18px;
-        margin-top: 18px;
-      }
-
-      .section {
-        padding: 22px;
-        border-radius: var(--radius-xl);
-      }
-
-      .section-head,
-      .tabs-row {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 18px;
-        margin-bottom: 16px;
-      }
-
-      .section-head h2 {
-        font-size: 1.55rem;
-      }
-
-      .section-head p {
-        max-width: 58rem;
-        margin: 8px 0 0;
-        line-height: 1.65;
-      }
-
-      .market-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .summary-grid {
-        grid-template-columns: 1.2fr 0.8fr 0.8fr;
-        margin-bottom: 16px;
-      }
-
-      .ideas-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        margin-bottom: 16px;
-      }
-
-      .market-card,
-      .summary-box,
-      .idea-card,
-      .announcement-card,
-      .rule-card {
-        padding: 16px;
-        border-radius: var(--radius-lg);
-      }
-
-      .market-card h3,
-      .summary-box h3,
-      .idea-card h3,
-      .rule-card h3 {
-        margin-bottom: 10px;
-      }
-
-      .market-card .minor,
-      .summary-box .minor,
-      .idea-card .minor,
-      .announcement-card .minor {
-        line-height: 1.5;
-      }
-
-      .stack {
-        display: grid;
-        gap: 8px;
-      }
-
-      .mini-row {
-        display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
         gap: 10px;
       }
 
-      .tabs {
-        display: inline-flex;
-        gap: 6px;
-        padding: 4px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(5, 16, 25, 0.92);
-      }
-
-      .tab-button {
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: transparent;
-        color: var(--muted);
-        font-weight: 700;
-      }
-
-      .tab-button.is-active {
-        background: linear-gradient(135deg, rgba(127, 140, 255, 0.18), rgba(85, 194, 255, 0.18));
-        color: var(--text);
-      }
-
-      .badge,
-      .signal-pill {
+      .pill {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        min-width: 5rem;
-        padding: 6px 10px;
+        gap: 8px;
+        padding: 10px 14px;
         border-radius: 999px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        border: 1px solid transparent;
-      }
-
-      .badge {
-        min-width: auto;
-        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
-      }
-
-      .tone-strong,
-      .up {
-        color: var(--good);
-      }
-
-      .tone-positive {
-        color: #7cf5b7;
-      }
-
-      .tone-neutral,
-      .flat {
-        color: var(--warn);
-      }
-
-      .tone-negative,
-      .down {
-        color: var(--bad);
-      }
-
-      .signal-pill.tone-strong,
-      .badge.tone-strong {
-        background: var(--good-bg);
-        border-color: rgba(47, 227, 143, 0.24);
-      }
-
-      .signal-pill.tone-positive,
-      .badge.tone-positive {
-        background: rgba(124, 245, 183, 0.08);
-        border-color: rgba(124, 245, 183, 0.18);
-      }
-
-      .signal-pill.tone-neutral,
-      .badge.tone-neutral {
-        background: var(--warn-bg);
-        border-color: rgba(255, 200, 87, 0.2);
-      }
-
-      .signal-pill.tone-negative,
-      .badge.tone-negative {
-        background: var(--bad-bg);
-        border-color: rgba(255, 95, 109, 0.2);
-      }
-
-      .score-track {
-        height: 6px;
-        margin-top: 12px;
-        border-radius: 999px;
-        background: rgba(121, 163, 196, 0.12);
-        overflow: hidden;
-      }
-
-      .score-fill {
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, var(--accent-2), var(--accent));
-      }
-
-      .table-wrap {
-        overflow: auto;
         border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-      }
-
-      table {
-        width: 100%;
-        min-width: 1320px;
-        border-collapse: collapse;
-        background: rgba(5, 16, 25, 0.65);
-      }
-
-      thead {
-        background: rgba(10, 31, 47, 0.98);
-      }
-
-      th,
-      td {
-        padding: 13px 12px;
-        text-align: left;
-        vertical-align: top;
-        border-bottom: 1px solid var(--line-2);
-      }
-
-      th {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        font-size: 0.74rem;
-        color: var(--muted);
-        background: rgba(10, 31, 47, 0.98);
-      }
-
-      tbody tr:hover {
-        background: rgba(85, 194, 255, 0.05);
-      }
-
-      .mono {
-        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
-      }
-
-      .company-cell {
-        display: grid;
-        gap: 4px;
-      }
-
-      .rank {
-        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+        background: rgba(255, 255, 255, 0.03);
         font-size: 0.84rem;
         color: var(--muted);
       }
 
-      .announcement-list,
-      .rules-grid {
+      .hero-side {
         display: grid;
-        gap: 14px;
+        gap: 12px;
       }
 
-      .announcement-list {
+      .hero-stat-grid {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
       }
 
-      .announcement-meta {
-        margin-bottom: 8px;
-        font-size: 0.78rem;
+      .hero-stat {
+        padding: 16px;
+        border-radius: var(--radius-md);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        border: 1px solid var(--line);
+      }
+
+      .hero-stat strong {
+        display: block;
+        font-size: 1.5rem;
+        margin-top: 10px;
+      }
+
+      .hero-stat span,
+      .kicker,
+      .tiny {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .market-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .market-card {
+        padding: 18px;
+      }
+
+      .market-card h2,
+      .section-title,
+      .panel-title {
+        margin: 0;
+        font-size: 0.92rem;
+        color: var(--muted);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .market-card strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.75rem;
+      }
+
+      .delta,
+      .tone {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .positive {
+        color: var(--good);
+        background: var(--good-bg);
+      }
+
+      .negative {
+        color: var(--bad);
+        background: var(--bad-bg);
+      }
+
+      .neutral {
+        color: var(--warn);
+        background: var(--warn-bg);
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 18px;
+        padding: 16px;
+      }
+
+      .preset-row,
+      .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      button,
+      select,
+      input {
+        appearance: none;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font: inherit;
+      }
+
+      button,
+      select {
+        cursor: pointer;
+      }
+
+      .preset-btn {
+        padding: 9px 13px;
         color: var(--muted);
       }
 
-      .rule-card {
-        border: 1px solid var(--line);
-        background: rgba(5, 16, 25, 0.82);
+      .preset-btn.active,
+      .ghost-btn:hover,
+      .preset-btn:hover {
+        border-color: rgba(78, 200, 255, 0.4);
+        color: var(--text);
+        background: rgba(78, 200, 255, 0.08);
       }
 
-      .rule-card ul,
-      .summary-box ul {
+      .filter-row select,
+      .filter-row input {
+        min-width: 120px;
+        padding: 10px 12px;
+      }
+
+      .filter-row input {
+        min-width: 230px;
+      }
+
+      .ghost-btn {
+        padding: 10px 14px;
+      }
+
+      .boards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .board {
+        padding: 16px;
+      }
+
+      .board-header,
+      .split-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .board-list,
+      .mini-list,
+      .announcement-list,
+      .alert-list,
+      .driver-list,
+      .cadence-list {
+        list-style: none;
         margin: 0;
-        padding-left: 18px;
+        padding: 0;
+      }
+
+      .board-item,
+      .mini-item,
+      .alert-item,
+      .announcement-item,
+      .driver-item {
+        display: grid;
+        gap: 8px;
+        padding: 12px 0;
+        border-top: 1px solid var(--line-2);
+      }
+
+      .board-item:first-child,
+      .mini-item:first-child,
+      .alert-item:first-child,
+      .announcement-item:first-child,
+      .driver-item:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .row-main,
+      .row-sub {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .stock-btn,
+      .announcement-btn {
+        width: 100%;
+        display: block;
+        text-align: left;
+        background: transparent;
+        border: none;
+        padding: 0;
+        color: inherit;
+      }
+
+      .stock-btn:hover strong,
+      .announcement-btn:hover strong {
+        color: var(--accent);
+      }
+
+      .stock-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .code {
+        font-family: "IBM Plex Mono", "Consolas", monospace;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.95fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .leaderboard,
+      .detail {
+        padding: 18px;
+      }
+
+      .leaderboard-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+
+      .leaderboard-table th,
+      .leaderboard-table td {
+        text-align: left;
+        padding: 12px 10px;
+        border-top: 1px solid var(--line-2);
+        font-size: 0.9rem;
+      }
+
+      .leaderboard-table th {
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+        position: sticky;
+        top: 0;
+        background: rgba(7, 18, 28, 0.96);
+        z-index: 1;
+      }
+
+      .leaderboard-wrap {
+        max-height: 860px;
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+
+      .leaderboard-table tbody tr {
+        cursor: pointer;
+        transition: background 0.18s ease;
+      }
+
+      .leaderboard-table tbody tr:hover {
+        background: rgba(78, 200, 255, 0.05);
+      }
+
+      .leaderboard-table tbody tr.active {
+        background: rgba(78, 200, 255, 0.08);
+      }
+
+      .score {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .score-bar {
+        width: 64px;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+      }
+
+      .score-bar span {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+      }
+
+      .detail {
+        position: sticky;
+        top: 18px;
+        align-self: start;
+      }
+
+      .detail-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .detail-head h3 {
+        margin: 4px 0 0;
+        font-size: 2rem;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .metric {
+        padding: 14px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .metric strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      .detail-block {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line-2);
+      }
+
+      .driver-item {
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+
+      .driver-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .strategy-grid,
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .strategy-card,
+      .footer-card {
+        padding: 18px;
+      }
+
+      .strategy-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .strategy-top p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .metric-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .metric-pill {
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .cadence-list li {
+        padding: 10px 0;
+        border-top: 1px solid var(--line-2);
         color: var(--muted);
         line-height: 1.65;
       }
 
-      .loading,
-      .empty,
-      .error-banner {
-        padding: 18px;
-        border-radius: var(--radius-md);
+      .cadence-list li:first-child {
+        border-top: none;
+        padding-top: 0;
       }
 
-      .loading,
-      .empty {
-        background: rgba(85, 194, 255, 0.06);
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .alert-item {
+        gap: 10px;
+      }
+
+      .alert-level {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .alert-high {
+        background: var(--high-bg);
+        color: var(--high);
+      }
+
+      .alert-medium {
+        background: var(--warn-bg);
+        color: var(--warn);
+      }
+
+      .alert-low {
+        background: rgba(78, 200, 255, 0.12);
+        color: var(--accent);
+      }
+
+      .muted {
         color: var(--muted);
       }
 
-      .error-banner {
-        background: var(--bad-bg);
-        color: var(--bad);
+      .empty {
+        padding: 26px;
+        border: 1px dashed var(--line);
+        border-radius: 16px;
+        color: var(--muted);
+        text-align: center;
       }
 
-      @media (max-width: 1220px) {
+      .loading {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 1200px) {
         .hero,
+        .workspace,
+        .strategy-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .boards,
+        .market-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .detail {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100vw - 18px, 100%);
+          padding-top: 10px;
+        }
+
+        .hero,
+        .leaderboard,
+        .detail,
+        .strategy-card,
+        .footer-card {
+          padding: 16px;
+        }
+
+        .boards,
         .market-grid,
-        .summary-grid,
-        .ideas-grid,
-        .announcement-list,
-        .rules-grid {
+        .hero-stat-grid,
+        .detail-grid {
           grid-template-columns: 1fr;
         }
-      }
 
-      @media (max-width: 860px) {
-        .hero,
-        .section {
-          padding: 18px;
+        .controls {
+          align-items: stretch;
         }
 
-        .section-head,
-        .tabs-row,
-        .hero-actions {
-          flex-direction: column;
-          align-items: start;
+        .filter-row {
+          width: 100%;
         }
 
-        .meta-grid {
-          grid-template-columns: 1fr;
+        .filter-row input,
+        .filter-row select {
+          width: 100%;
         }
       }
     </style>
   </head>
   <body>
-    <div class="shell">
-      <div id="tickerTape" class="ticker">
-        <span class="ticker-item">等待資料</span>
-      </div>
-
-      <header class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Taiwan Chain Terminal</p>
-          <h1>台股鏈式觀察終端</h1>
-          <p>
-            這不是全市場掃描器，而是把《Laughing at Wall Street》翻成台股研究工作台。半導體鏈看製程、封裝、設備與拉貨節奏；非電子鏈看需求、售價、庫存、原料與政策方向。頁面只列出值得持續追蹤的觀察池，不把整個市場混成雜訊。
-          </p>
-        </div>
-
-        <div class="hero-side">
-          <div class="hero-actions">
-            <button id="refreshButton" class="primary-button" type="button">Reload Feed</button>
-            <div>
-              <div id="statusText" class="mono">等待載入</div>
-              <div id="generatedAt" class="hint"></div>
-            </div>
-          </div>
-
-          <div class="hero-meta">
-            <div class="terminal-tag">Terminal State</div>
-            <div class="meta-grid" id="heroMeta">
-              <div>
-                <span class="meta-label">COVERAGE</span>
-                <div class="meta-value">--</div>
-              </div>
-            </div>
-            <div class="hint">觀察池不是全市場名單，而是按產業鏈拆出較有研究價值的追蹤集合。</div>
-          </div>
-        </div>
-      </header>
-
-      <main class="layout">
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <h2>市場總覽</h2>
-              <p>先看加權、櫃買、廣度與櫃買法人淨流向。行情若只靠少數權值股推動，研究二線供應鏈的標準要更嚴格。</p>
-            </div>
-          </div>
-          <div id="marketOverview" class="market-grid">
-            <div class="loading">載入中</div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-head tabs-row">
-            <div>
-              <h2>觀察池</h2>
-              <p>目前分成半導體鏈與非電子鏈兩個池。每個池都不是完整產業地圖，而是我判斷最值得持續驗證的代表公司集合。</p>
-            </div>
-            <div class="tabs" role="tablist" aria-label="觀察池切換">
-              <button class="tab-button is-active" data-list="semiconductor" type="button">半導體鏈</button>
-              <button class="tab-button" data-list="nonElectronics" type="button">非電子鏈</button>
-            </div>
-          </div>
-
-          <div id="listSummary" class="summary-grid"></div>
-          <div id="topIdeas" class="ideas-grid"></div>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Rank</th>
-                  <th>公司 / 鏈位</th>
-                  <th>觀察重點</th>
-                  <th>月營收</th>
-                  <th>MoM</th>
-                  <th>YoY</th>
-                  <th>YTD YoY</th>
-                  <th>收盤</th>
-                  <th>成交值</th>
-                  <th>催化劑</th>
-                  <th>訊號</th>
-                </tr>
-              </thead>
-              <tbody id="watchlistBody"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <h2>關鍵公告</h2>
-              <p>只保留觀察池內、且較可能改變市場預期的公告。例行性揭露與噪音公告會被排除。</p>
-            </div>
-          </div>
-          <div id="announcements" class="announcement-list"></div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <h2>研究規則</h2>
-              <p>這是研究排序，不是自動下單系統。高分只是代表應該先研究，不代表應該直接追價。</p>
-            </div>
-          </div>
-          <div class="rules-grid">
-            <article class="rule-card">
-              <h3>半導體鏈</h3>
-              <ul>
-                <li>優先確認需求是否從龍頭外溢到設備、材料、封裝與載板，不只看單一明星股。</li>
-                <li>月營收改善若還沒完全反映到法說口徑與市場共識，研究價值通常最高。</li>
-                <li>若全市場都在交易同一段敘事，分數再高也要重新看風險報酬。</li>
-              </ul>
-            </article>
-            <article class="rule-card">
-              <h3>非電子鏈</h3>
-              <ul>
-                <li>先拆解成量、價、成本或政策哪一段在變，不要把所有改善都當作需求復甦。</li>
-                <li>月營收只是入口，真正要確認的是毛利、現金流與庫存結構。</li>
-                <li>若只是短期促銷或一次性補庫存，不能用成長股的框架硬套。</li>
-              </ul>
-            </article>
-            <article class="rule-card">
-              <h3>退出條件</h3>
-              <ul>
-                <li>市場已經把利多講滿、價格卻不再反應時，資訊優勢通常結束。</li>
-                <li>催化劑延後、月營收轉弱或公告方向反轉時，應該先重估 thesis。</li>
-                <li>任何單一敘事都不應該決定整個組合的風險暴露。</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <template id="announcementTemplate">
-      <article class="announcement-card">
-        <div class="announcement-meta"></div>
-        <h3></h3>
-        <p></p>
-      </article>
-    </template>
-
+    <div id="app" class="loading">載入 V2 資料中…</div>
     <script>
       const state = {
-        activeList: "semiconductor",
-        payload: null,
+        preset: "market",
+        market: "all",
+        tone: "all",
+        catalyst: "all",
+        sort: "signal",
+        query: "",
+        selectedCode: null,
       };
 
-      const el = {
-        tickerTape: document.querySelector("#tickerTape"),
-        refreshButton: document.querySelector("#refreshButton"),
-        statusText: document.querySelector("#statusText"),
-        generatedAt: document.querySelector("#generatedAt"),
-        heroMeta: document.querySelector("#heroMeta"),
-        marketOverview: document.querySelector("#marketOverview"),
-        listSummary: document.querySelector("#listSummary"),
-        topIdeas: document.querySelector("#topIdeas"),
-        watchlistBody: document.querySelector("#watchlistBody"),
-        announcements: document.querySelector("#announcements"),
-        announcementTemplate: document.querySelector("#announcementTemplate"),
-        tabs: [...document.querySelectorAll(".tab-button")],
+      const SORTERS = {
+        signal: (a, b) =>
+          b.signal.score - a.signal.score ||
+          (b.revenueYoY ?? -999) - (a.revenueYoY ?? -999) ||
+          (b.tradeValue ?? 0) - (a.tradeValue ?? 0),
+        revenueYoY: (a, b) =>
+          (b.revenueYoY ?? -999) - (a.revenueYoY ?? -999) ||
+          b.signal.score - a.signal.score,
+        revenueMoM: (a, b) =>
+          (b.revenueMoM ?? -999) - (a.revenueMoM ?? -999) ||
+          b.signal.score - a.signal.score,
+        tradeValue: (a, b) =>
+          (b.tradeValue ?? 0) - (a.tradeValue ?? 0) ||
+          b.signal.score - a.signal.score,
       };
 
-      const formatNumber = (value, digits = 2) =>
-        value == null || Number.isNaN(value)
-          ? "無資料"
-          : Number(value).toLocaleString("zh-TW", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: digits,
-            });
+      let dashboard = null;
 
-      const formatSigned = (value, digits = 2, suffix = "") =>
-        value == null || Number.isNaN(value)
-          ? "無資料"
-          : `${Number(value) > 0 ? "+" : ""}${formatNumber(value, digits)}${suffix}`;
-
-      const toneClass = (value) => {
-        if (value == null || Number.isNaN(value)) return "flat";
-        if (Number(value) > 0) return "up";
-        if (Number(value) < 0) return "down";
-        return "flat";
-      };
-
-      const signalWidth = (score) => {
-        const normalized = Math.max(0, Math.min(10, Number(score) || 0));
-        return `${normalized * 10}%`;
-      };
-
-      function setStatus(message, tone = "") {
-        el.statusText.textContent = message;
-        el.statusText.className = `mono ${tone}`.trim();
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
       }
 
-      function updateTabState() {
-        for (const tab of el.tabs) {
-          tab.classList.toggle("is-active", tab.dataset.list === state.activeList);
+      function toneClass(value) {
+        if (value === null || value === undefined) return "neutral";
+        if (value > 0) return "positive";
+        if (value < 0) return "negative";
+        return "neutral";
+      }
+
+      function signalToneClass(tone) {
+        if (tone === "strong" || tone === "positive") return "positive";
+        if (tone === "negative") return "negative";
+        return "neutral";
+      }
+
+      function levelClass(level) {
+        if (level === "high") return "alert-high";
+        if (level === "medium") return "alert-medium";
+        return "alert-low";
+      }
+
+      function formatTime(iso) {
+        const date = new Date(iso);
+        if (Number.isNaN(date.getTime())) return "無資料";
+        return date.toLocaleString("zh-TW", {
+          hour12: false,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      }
+
+      function detailDataFor(code) {
+        return dashboard?.detailByCode?.[code] || dashboard?.leaderboard?.find((item) => item.code === code) || null;
+      }
+
+      function getFilteredRows() {
+        if (!dashboard) return [];
+        let rows = [...dashboard.leaderboard];
+
+        if (state.preset === "semiconductor") {
+          rows = rows.filter((row) => row.lens === "semiconductor");
+        } else if (state.preset === "nonElectronics") {
+          rows = rows.filter((row) => row.lens === "nonElectronics");
+        } else if (state.preset === "watchlist") {
+          rows = rows.filter((row) => row.watchlist);
+        } else if (state.preset === "catalysts") {
+          rows = rows.filter((row) => row.catalystCount > 0);
+        } else if (state.preset === "divergence") {
+          rows = rows.filter(
+            (row) =>
+              row.alertFlags?.includes("revenuePriceLag") ||
+              row.alertFlags?.includes("priceAheadOfFundamentals"),
+          );
         }
+
+        if (state.market !== "all") {
+          rows = rows.filter((row) => row.market === state.market);
+        }
+
+        if (state.tone !== "all") {
+          rows = rows.filter((row) => row.signal.tone === state.tone);
+        }
+
+        if (state.catalyst === "with") {
+          rows = rows.filter((row) => row.catalystCount > 0);
+        } else if (state.catalyst === "without") {
+          rows = rows.filter((row) => row.catalystCount === 0);
+        }
+
+        if (state.query.trim()) {
+          const query = state.query.trim().toLowerCase();
+          rows = rows.filter((row) =>
+            [row.code, row.name, row.industry, row.chain, row.focus].some((field) =>
+              String(field || "").toLowerCase().includes(query),
+            ),
+          );
+        }
+
+        rows.sort(SORTERS[state.sort]);
+        return rows;
       }
 
-      function renderTicker(payload) {
-        const chips = [
-          `${payload.marketOverview.listed.label} ${formatNumber(payload.marketOverview.listed.close)} ${formatSigned(payload.marketOverview.listed.changePct, 2, "%")}`,
-          `${payload.marketOverview.otc.label} ${formatNumber(payload.marketOverview.otc.close)} ${formatSigned(payload.marketOverview.otc.changePct, 2, "%")}`,
-          `月營收最新月份 ${payload.sourceStatus.monthlyRevenueMonth}`,
-          `半導體鏈 ${payload.lists.semiconductor.metrics.total} 檔`,
-          `非電子鏈 ${payload.lists.nonElectronics.metrics.total} 檔`,
-          `公告監控 ${payload.announcements.length} 則`,
+      function renderTicker() {
+        const rows = [
+          ...dashboard.boards.topSignal.slice(0, 6),
+          ...dashboard.alerts.slice(0, 6).map((alert) => ({
+            code: alert.code,
+            name: alert.name,
+            signal: { label: alert.title, score: alert.signalScore, tone: alert.level === "high" ? "strong" : "neutral" },
+            priceChangeDisplay: alert.marketLabel,
+          })),
         ];
 
-        el.tickerTape.innerHTML = chips
-          .map((chip) => `<span class="ticker-item"><strong>></strong> ${chip}</span>`)
-          .join("");
-      }
-
-      function renderHeroMeta(payload) {
-        const coverage = payload.lists.semiconductor.metrics.total + payload.lists.nonElectronics.metrics.total;
-        const strongest = payload.lists.semiconductor.metrics.strong + payload.lists.nonElectronics.metrics.strong;
-        const catalysts = payload.announcements.filter((entry) => entry.hasCatalyst).length;
-
-        el.heroMeta.innerHTML = `
-          <div>
-            <span class="meta-label">Coverage</span>
-            <div class="meta-value">${coverage}</div>
-            <div class="hint">總觀察檔數</div>
-          </div>
-          <div>
-            <span class="meta-label">High Signal</span>
-            <div class="meta-value tone-strong">${strongest}</div>
-            <div class="hint">強訊號檔數</div>
-          </div>
-          <div>
-            <span class="meta-label">Catalysts</span>
-            <div class="meta-value">${catalysts}</div>
-            <div class="hint">追蹤中催化劑</div>
-          </div>
-        `;
-      }
-
-      function renderMarketOverview(payload) {
-        const otcFlow = payload.marketOverview.otcInstitutionSummary
+        const items = [...rows, ...rows]
           .map(
-            (entry) =>
-              `<div class="mini-row"><span>${entry.investor}</span><strong class="${toneClass(entry.net)} mono">${formatSigned(entry.net, 0)}</strong></div>`,
-          )
-          .join("");
-
-        el.marketOverview.innerHTML = `
-          <article class="market-card">
-            <h3>${payload.marketOverview.listed.label}</h3>
-            <div class="market-value">${formatNumber(payload.marketOverview.listed.close)}</div>
-            <div class="${toneClass(payload.marketOverview.listed.change)} mono">${formatSigned(payload.marketOverview.listed.change)} 點 / ${formatSigned(payload.marketOverview.listed.changePct, 2, "%")}</div>
-            <div class="minor">交易日 ${payload.marketOverview.listed.date}</div>
-          </article>
-          <article class="market-card">
-            <h3>${payload.marketOverview.otc.label}</h3>
-            <div class="market-value">${formatNumber(payload.marketOverview.otc.close)}</div>
-            <div class="${toneClass(payload.marketOverview.otc.change)} mono">${formatSigned(payload.marketOverview.otc.change)} 點 / ${formatSigned(payload.marketOverview.otc.changePct, 2, "%")}</div>
-            <div class="minor">上漲 ${formatNumber(payload.marketOverview.otc.riseCount, 0)} / 下跌 ${formatNumber(payload.marketOverview.otc.fallCount, 0)} / 平盤 ${formatNumber(payload.marketOverview.otc.flatCount, 0)}</div>
-          </article>
-          <article class="market-card">
-            <h3>資料時點</h3>
-            <div class="market-value mono">${payload.sourceStatus.monthlyRevenueMonth}</div>
-            <div class="minor">上市重訊 ${payload.sourceStatus.twseMajorDate}</div>
-            <div class="minor">上櫃重訊 ${payload.sourceStatus.tpexMajorDate}</div>
-          </article>
-          <article class="market-card">
-            <h3>櫃買三大法人</h3>
-            <div class="stack">${otcFlow}</div>
-          </article>
-        `;
-      }
-
-      function renderAnnouncements(items) {
-        if (!items.length) {
-          el.announcements.innerHTML = '<div class="empty">目前沒有落在這份觀察池中的關鍵公告。</div>';
-          return;
-        }
-
-        const fragment = document.createDocumentFragment();
-        for (const item of items) {
-          const node = el.announcementTemplate.content.firstElementChild.cloneNode(true);
-          node.querySelector(".announcement-meta").textContent = `${item.date} ${item.time} / ${item.code} ${item.companyName} / ${item.market === "listed" ? "上市" : "上櫃"}`;
-          node.querySelector("h3").textContent = item.subject;
-          node.querySelector("p").textContent = item.summary.slice(0, 240) + (item.summary.length > 240 ? "…" : "");
-          fragment.append(node);
-        }
-
-        el.announcements.innerHTML = "";
-        el.announcements.append(fragment);
-      }
-
-      function renderList() {
-        const list = state.payload.lists[state.activeList];
-        const coverageText =
-          state.activeList === "semiconductor"
-            ? "目前偏重晶圓代工、先進封裝、設備、材料、載板與 ASIC / IP。這是供應鏈追蹤池，不是全半導體清單。"
-            : "目前偏重食品零售、航運航空、觀光餐飲、傳產成本鏈與內需通路。這是需求與價格拐點追蹤池，不是全非電子清單。";
-
-        el.listSummary.innerHTML = `
-          <article class="summary-box">
-            <h3>${list.title}</h3>
-            <p>${list.summary}</p>
-            <ul>${list.cadence.map((item) => `<li>${item}</li>`).join("")}</ul>
-          </article>
-          <article class="summary-box">
-            <h3>池內結構</h3>
-            <div class="stack">
-              <div class="mini-row"><span>覆蓋檔數</span><strong class="mono">${list.metrics.total}</strong></div>
-              <div class="mini-row"><span>強訊號</span><strong class="mono tone-strong">${list.metrics.strong}</strong></div>
-              <div class="mini-row"><span>正向觀察</span><strong class="mono tone-positive">${list.metrics.positive}</strong></div>
-              <div class="mini-row"><span>公告催化</span><strong class="mono">${list.metrics.withCatalyst}</strong></div>
-            </div>
-          </article>
-          <article class="summary-box">
-            <h3>覆蓋範圍</h3>
-            <p>${coverageText}</p>
-            <div class="hint">你剛剛問「只有這些？」答案是：不是全市場，但現在已經不是原本那種少數示範股，而是可實際追蹤的一組代表池。</div>
-          </article>
-        `;
-
-        el.topIdeas.innerHTML = list.topIdeas
-          .map(
-            (item) => `
-              <article class="idea-card">
-                <div class="mini-row">
-                  <span class="badge tone-${item.signal.tone}">${item.signal.label}</span>
-                  <span class="mono">${item.code}</span>
-                </div>
-                <h3>${item.name}</h3>
-                <p>${item.chain} / ${item.focus}</p>
-                <p class="minor">${item.note}</p>
-                <div class="mini-row">
-                  <span class="${toneClass(item.revenueYoY)} mono">YoY ${formatSigned(item.revenueYoY, 2, "%")}</span>
-                  <span class="${toneClass(item.priceChange)} mono">Px ${formatSigned(item.priceChange, 2)}</span>
-                </div>
-                <div class="score-track"><div class="score-fill" style="width:${signalWidth(item.signal.score)}"></div></div>
-              </article>
+            (row) => `
+              <div class="ticker-item">
+                <span class="code">${escapeHtml(row.code)}</span>
+                <strong>${escapeHtml(row.name)}</strong>
+                <span class="tone ${signalToneClass(row.signal.tone)}">${escapeHtml(row.signal.label)}</span>
+              </div>
             `,
           )
           .join("");
 
-        el.watchlistBody.innerHTML = list.items
-          .map((item, index) => {
-            const announcementText = item.announcements[0]?.subject || "目前無關鍵公告";
-            const marketLabel = item.market === "listed" ? "上市" : "上櫃";
-            const catalystText = item.catalystCount > 0 ? `${item.catalystCount} 則催化` : `${item.announcementCount} 則公告`;
-            return `
-              <tr>
-                <td class="rank">${String(index + 1).padStart(2, "0")}</td>
-                <td>
-                  <div class="company-cell">
-                    <strong>${item.name}</strong>
-                    <span class="mono">${item.code} / ${marketLabel}</span>
-                    <span class="minor">${item.chain} / ${item.industry}</span>
-                  </div>
-                </td>
-                <td>
-                  <div><strong>${item.focus}</strong></div>
-                  <div class="minor">${item.note}</div>
-                </td>
-                <td class="mono">
-                  <div>${item.revenueDisplay}</div>
-                  <div class="minor">${item.dataMonth}</div>
-                </td>
-                <td class="${toneClass(item.revenueMoM)} mono">${formatSigned(item.revenueMoM, 2, "%")}</td>
-                <td class="${toneClass(item.revenueYoY)} mono">${formatSigned(item.revenueYoY, 2, "%")}</td>
-                <td class="${toneClass(item.cumulativeYoY)} mono">${formatSigned(item.cumulativeYoY, 2, "%")}</td>
-                <td class="mono">
-                  <div>${formatNumber(item.closingPrice)}</div>
-                  <div class="${toneClass(item.priceChange)}">${formatSigned(item.priceChange, 2)}</div>
-                </td>
-                <td class="mono">
-                  <div>${item.tradeValueDisplay}</div>
-                  <div class="minor">${item.market === "otc" ? `櫃買法人 ${item.otcInstitutionNetDisplay}` : "上市個股"}</div>
-                </td>
-                <td>
-                  <div>${announcementText}</div>
-                  <div class="minor">${catalystText}</div>
-                </td>
-                <td>
-                  <span class="signal-pill tone-${item.signal.tone}">${item.signal.label}</span>
-                  <div class="minor">分數 ${item.signal.score}</div>
-                  <div class="score-track"><div class="score-fill" style="width:${signalWidth(item.signal.score)}"></div></div>
-                </td>
-              </tr>
-            `;
-          })
-          .join("");
-
-        const codes = new Set(list.items.map((item) => item.code));
-        renderAnnouncements(state.payload.announcements.filter((entry) => codes.has(entry.code)).slice(0, 8));
+        return `
+          <div class="ticker">
+            <span class="eyebrow">Live Scan</span>
+            <div class="ticker-track">${items}</div>
+          </div>
+        `;
       }
 
-      async function loadDashboard() {
-        try {
-          setStatus("正在讀取官方資料");
-          el.refreshButton.disabled = true;
-          const response = await fetch(`./data/dashboard.json?ts=${Date.now()}`, {
-            cache: "no-store",
-          });
-          const payload = await response.json();
-          state.payload = payload;
-          el.generatedAt.textContent = `最後更新 ${new Date(payload.generatedAt).toLocaleString("zh-TW")}`;
-          renderTicker(payload);
-          renderHeroMeta(payload);
-          renderMarketOverview(payload);
-          updateTabState();
-          renderList();
-          setStatus("Feed Online", "up");
-        } catch (error) {
-          setStatus("Feed Error", "down");
-          el.marketOverview.innerHTML = `<div class="error-banner">${error.message}</div>`;
-        } finally {
-          el.refreshButton.disabled = false;
+      function renderBoards() {
+        const definitions = [
+          ["topSignal", "強訊號排行", "優先檢查訊號分數與資料是否能延續"],
+          ["semiconductorLeaders", "半導體鏈領先", "先看設備、封裝、載板與晶圓需求是否同步擴散"],
+          ["nonElectronicsLeaders", "非電子鏈領先", "把量、價、成本與政策一起看，不只看單月跳升"],
+          ["topTradeValue", "成交值排行", "成交放大不等於做多，先看是否伴隨基本面"],
+          ["catalysts", "事件催化排行", "重大訊息是催化，不是 thesis 本身"],
+          ["laggards", "偏弱名單", "用來找風險、反向驗證與價格背離"],
+        ];
+
+        return `
+          <section class="boards">
+            ${definitions
+              .map(([key, title, note]) => {
+                const rows = dashboard.boards[key].slice(0, 6);
+                return `
+                  <article class="panel board">
+                    <div class="board-header">
+                      <div>
+                        <h2 class="panel-title">${title}</h2>
+                        <div class="tiny">${note}</div>
+                      </div>
+                      <span class="tiny">${rows.length} 檔</span>
+                    </div>
+                    <ul class="board-list">
+                      ${rows
+                        .map(
+                          (row) => `
+                            <li class="board-item">
+                              <button class="stock-btn" data-code="${escapeHtml(row.code)}">
+                                <div class="row-main">
+                                  <div class="stock-head">
+                                    <span class="code">${escapeHtml(row.code)}</span>
+                                    <strong>${escapeHtml(row.name)}</strong>
+                                  </div>
+                                  <span class="tone ${signalToneClass(row.signal.tone)}">${escapeHtml(row.signal.label)}</span>
+                                </div>
+                                <div class="row-sub muted">
+                                  <span>${escapeHtml(row.chain)}</span>
+                                  <span>${escapeHtml(row.revenueYoYDisplay)} / ${escapeHtml(row.priceChangeDisplay)}</span>
+                                </div>
+                              </button>
+                            </li>
+                          `,
+                        )
+                        .join("")}
+                    </ul>
+                  </article>
+                `;
+              })
+              .join("")}
+          </section>
+        `;
+      }
+
+      function renderLeaderboard(rows) {
+        const shown = rows.slice(0, 140);
+        if (!shown.length) {
+          return `<div class="empty">目前沒有符合條件的標的。</div>`;
         }
+
+        return `
+          <div class="leaderboard-wrap">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>標的</th>
+                  <th>訊號</th>
+                  <th>營收 YoY</th>
+                  <th>營收 MoM</th>
+                  <th>股價變動</th>
+                  <th>成交值</th>
+                  <th>催化</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${shown
+                  .map(
+                    (row) => `
+                      <tr class="${state.selectedCode === row.code ? "active" : ""}" data-code="${escapeHtml(row.code)}">
+                        <td>
+                          <div><strong>${escapeHtml(row.name)}</strong></div>
+                          <div class="tiny">${escapeHtml(row.code)} · ${escapeHtml(row.marketLabel)} · ${escapeHtml(row.chain)}</div>
+                        </td>
+                        <td>
+                          <div class="score">
+                            <span>${escapeHtml(row.signal.label)}</span>
+                            <span class="score-bar"><span style="width:${row.signal.score * 10}%"></span></span>
+                            <span class="code">${row.signal.score}</span>
+                          </div>
+                        </td>
+                        <td class="${toneClass(row.revenueYoY)}">${escapeHtml(row.revenueYoYDisplay)}</td>
+                        <td class="${toneClass(row.revenueMoM)}">${escapeHtml(row.revenueMoMDisplay)}</td>
+                        <td class="${toneClass(row.priceChange)}">${escapeHtml(row.priceChangeDisplay)}</td>
+                        <td>${escapeHtml(row.tradeValueDisplay)}</td>
+                        <td>${row.catalystCount}</td>
+                      </tr>
+                    `,
+                  )
+                  .join("")}
+              </tbody>
+            </table>
+          </div>
+        `;
       }
 
-      el.refreshButton.addEventListener("click", loadDashboard);
+      function renderDetail(detail) {
+        if (!detail) {
+          return `<div class="empty">從左側名單點一檔個股，這裡會顯示詳頁。</div>`;
+        }
 
-      for (const tab of el.tabs) {
-        tab.addEventListener("click", () => {
-          state.activeList = tab.dataset.list;
-          updateTabState();
-          if (state.payload) renderList();
+        const signalDrivers = detail.signal?.drivers || [];
+        const strategy = detail.watchlist ? dashboard.strategies[detail.lens] : null;
+        const tone = signalToneClass(detail.signal?.tone);
+        const alerts = dashboard.alerts.filter((alert) => alert.code === detail.code).slice(0, 3);
+        const announcements = detail.announcements || [];
+
+        return `
+          <div class="detail-head">
+            <div>
+              <div class="tag-row">
+                <span class="tag">${escapeHtml(detail.marketLabel)}</span>
+                <span class="tag">${escapeHtml(detail.lensLabel)}</span>
+                <span class="tag">${escapeHtml(detail.chain)}</span>
+              </div>
+              <h3>${escapeHtml(detail.name)}</h3>
+              <div class="muted">${escapeHtml(detail.code)} · ${escapeHtml(detail.industry)}</div>
+            </div>
+            <span class="tone ${tone}">${escapeHtml(detail.signal?.scoreDisplay || `${detail.signal?.score || 0}/10`)}</span>
+          </div>
+
+          <div class="detail-grid">
+            <div class="metric">
+              <span class="tiny">當月營收</span>
+              <strong>${escapeHtml(detail.revenueDisplay || "無資料")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">股價變動</span>
+              <strong class="${toneClass(parseFloat(detail.priceChangeDisplay))}">${escapeHtml(detail.priceChangeDisplay || "無資料")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">營收 YoY</span>
+              <strong class="${toneClass(parseFloat(detail.revenueYoYDisplay))}">${escapeHtml(detail.revenueYoYDisplay || "無資料")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">營收 MoM</span>
+              <strong class="${toneClass(parseFloat(detail.revenueMoMDisplay))}">${escapeHtml(detail.revenueMoMDisplay || "無資料")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">累計營收 YoY</span>
+              <strong>${escapeHtml(detail.cumulativeYoYDisplay || "無資料")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">成交值</span>
+              <strong>${escapeHtml(detail.tradeValueDisplay || "無資料")}</strong>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="split-head">
+              <h2 class="section-title">研究摘要</h2>
+              <span class="tiny">${escapeHtml(detail.dataMonth || "無資料")}</span>
+            </div>
+            <p class="muted">${escapeHtml(detail.note || "目前沒有補充摘要。")}</p>
+            <div class="tag-row">
+              <span class="tag">焦點：${escapeHtml(detail.focus || "全市場掃描")}</span>
+              <span class="tag">催化：${detail.catalystCount || 0}</span>
+              <span class="tag">公告：${detail.announcementCount || 0}</span>
+              ${detail.otcInstitutionNetDisplay ? `<span class="tag">櫃買法人：${escapeHtml(detail.otcInstitutionNetDisplay)}</span>` : ""}
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="split-head">
+              <h2 class="section-title">訊號拆解</h2>
+              <span class="tiny">${escapeHtml(detail.signal?.label || "無資料")}</span>
+            </div>
+            ${signalDrivers.length
+              ? `
+                <ul class="driver-list">
+                  ${signalDrivers
+                    .map(
+                      (driver) => `
+                        <li class="driver-item">
+                          <span class="driver-dot ${driver.impact === "negative" ? "negative" : "positive"}"></span>
+                          <span>${escapeHtml(driver.label)}</span>
+                          <span class="code">${driver.weight > 0 ? "+" : ""}${driver.weight}</span>
+                        </li>
+                      `,
+                    )
+                    .join("")}
+                </ul>
+              `
+              : `<div class="empty">這檔目前沒有完整訊號拆解。</div>`}
+          </div>
+
+          <div class="detail-block">
+            <div class="split-head">
+              <h2 class="section-title">警報候選</h2>
+              <span class="tiny">${alerts.length} 則</span>
+            </div>
+            ${alerts.length
+              ? `
+                <ul class="alert-list">
+                  ${alerts
+                    .map(
+                      (alert) => `
+                        <li class="alert-item">
+                          <div class="row-main">
+                            <span class="alert-level ${levelClass(alert.level)}">${escapeHtml(alert.level.toUpperCase())}</span>
+                            <strong>${escapeHtml(alert.title)}</strong>
+                          </div>
+                          <div class="muted">${escapeHtml(alert.message)}</div>
+                        </li>
+                      `,
+                    )
+                    .join("")}
+                </ul>
+              `
+              : `<div class="empty">這檔目前沒有進入警報候選。</div>`}
+          </div>
+
+          <div class="detail-block">
+            <div class="split-head">
+              <h2 class="section-title">近期公告</h2>
+              <span class="tiny">${announcements.length} 則</span>
+            </div>
+            ${announcements.length
+              ? `
+                <ul class="announcement-list">
+                  ${announcements
+                    .map(
+                      (entry) => `
+                        <li class="announcement-item">
+                          <div class="row-main">
+                            <strong>${escapeHtml(entry.subject)}</strong>
+                            <span class="tone ${entry.hasCatalyst ? "positive" : "neutral"}">${entry.hasCatalyst ? "催化" : "公告"}</span>
+                          </div>
+                          <div class="muted">${escapeHtml(entry.date)} ${escapeHtml(entry.time)}</div>
+                          <div class="muted">${escapeHtml(entry.summary || "無補充摘要")}</div>
+                        </li>
+                      `,
+                    )
+                    .join("")}
+                </ul>
+              `
+              : `<div class="empty">目前沒有納入的近期公告。</div>`}
+          </div>
+
+          ${
+            strategy
+              ? `
+                <div class="detail-block">
+                  <div class="split-head">
+                    <h2 class="section-title">策略節奏</h2>
+                    <span class="tiny">核心觀察池</span>
+                  </div>
+                  <ul class="cadence-list">
+                    ${strategy.cadence.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+                  </ul>
+                </div>
+              `
+              : ""
+          }
+        `;
+      }
+
+      function renderStrategies() {
+        return `
+          <section class="strategy-grid">
+            ${["semiconductor", "nonElectronics"]
+              .map((key) => {
+                const strategy = dashboard.strategies[key];
+                return `
+                  <article class="panel strategy-card">
+                    <div class="strategy-top">
+                      <div>
+                        <h2>${escapeHtml(strategy.title)}</h2>
+                        <p>${escapeHtml(strategy.summary)}</p>
+                      </div>
+                      <span class="tone neutral">${strategy.metrics.avgScore ?? "0"}</span>
+                    </div>
+                    <div class="metric-strip">
+                      <span class="metric-pill">總數 ${strategy.metrics.total}</span>
+                      <span class="metric-pill">強訊號 ${strategy.metrics.strong}</span>
+                      <span class="metric-pill">正向 ${strategy.metrics.positive}</span>
+                      <span class="metric-pill">催化 ${strategy.metrics.withCatalyst}</span>
+                    </div>
+                    <div class="detail-block">
+                      <div class="split-head">
+                        <h2 class="section-title">優先研究名單</h2>
+                        <span class="tiny">Top 5</span>
+                      </div>
+                      <ul class="mini-list">
+                        ${strategy.topIdeas
+                          .map(
+                            (item) => `
+                              <li class="mini-item">
+                                <button class="stock-btn" data-code="${escapeHtml(item.code)}">
+                                  <div class="row-main">
+                                    <div class="stock-head">
+                                      <span class="code">${escapeHtml(item.code)}</span>
+                                      <strong>${escapeHtml(item.name)}</strong>
+                                    </div>
+                                    <span class="tone ${signalToneClass(item.signal.tone)}">${escapeHtml(item.signal.label)}</span>
+                                  </div>
+                                  <div class="row-sub muted">
+                                    <span>${escapeHtml(item.focus)}</span>
+                                    <span>${escapeHtml(item.revenueYoYDisplay)}</span>
+                                  </div>
+                                </button>
+                              </li>
+                            `,
+                          )
+                          .join("")}
+                      </ul>
+                    </div>
+                    <div class="detail-block">
+                      <div class="split-head">
+                        <h2 class="section-title">節奏清單</h2>
+                        <span class="tiny">研究流程</span>
+                      </div>
+                      <ul class="cadence-list">
+                        ${strategy.cadence.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+                      </ul>
+                    </div>
+                  </article>
+                `;
+              })
+              .join("")}
+          </section>
+        `;
+      }
+
+      function renderFooter() {
+        return `
+          <section class="footer-grid">
+            <article class="panel footer-card">
+              <div class="split-head">
+                <h2 class="section-title">警報佇列</h2>
+                <span class="tiny">${dashboard.alerts.length} 則</span>
+              </div>
+              <ul class="alert-list">
+                ${dashboard.alerts
+                  .slice(0, 12)
+                  .map(
+                    (alert) => `
+                      <li class="alert-item">
+                        <button class="announcement-btn" data-code="${escapeHtml(alert.code)}">
+                          <div class="row-main">
+                            <span class="alert-level ${levelClass(alert.level)}">${escapeHtml(alert.level.toUpperCase())}</span>
+                            <strong>${escapeHtml(alert.code)} ${escapeHtml(alert.name)}</strong>
+                          </div>
+                          <div class="muted">${escapeHtml(alert.title)} · ${escapeHtml(alert.message)}</div>
+                        </button>
+                      </li>
+                    `,
+                  )
+                  .join("")}
+              </ul>
+            </article>
+            <article class="panel footer-card">
+              <div class="split-head">
+                <h2 class="section-title">市場公告流</h2>
+                <span class="tiny">最新 12 則</span>
+              </div>
+              <ul class="announcement-list">
+                ${dashboard.announcements
+                  .slice(0, 12)
+                  .map(
+                    (entry) => `
+                      <li class="announcement-item">
+                        <button class="announcement-btn" data-code="${escapeHtml(entry.code)}">
+                          <div class="row-main">
+                            <strong>${escapeHtml(entry.code)} ${escapeHtml(entry.companyName)}</strong>
+                            <span class="tone ${entry.hasCatalyst ? "positive" : "neutral"}">${entry.hasCatalyst ? "催化" : "公告"}</span>
+                          </div>
+                          <div class="muted">${escapeHtml(entry.date)} ${escapeHtml(entry.time)} · ${escapeHtml(entry.subject)}</div>
+                        </button>
+                      </li>
+                    `,
+                  )
+                  .join("")}
+              </ul>
+            </article>
+          </section>
+        `;
+      }
+
+      function renderDashboard() {
+        const rows = getFilteredRows();
+        if (!state.selectedCode || !rows.some((row) => row.code === state.selectedCode)) {
+          state.selectedCode = rows[0]?.code || dashboard.boards.topSignal[0]?.code || null;
+        }
+
+        const selected = detailDataFor(state.selectedCode);
+        const app = document.getElementById("app");
+
+        app.className = "shell";
+        app.innerHTML = `
+          ${renderTicker()}
+          <section class="panel hero">
+            <div class="hero-copy">
+              <div class="eyebrow">Research Terminal V2</div>
+              <h1>台股供應鏈研究終端</h1>
+              <p>
+                這版不是只看 41 檔觀察池，而是把全市場月營收宇宙、排行板、策略池、警報候選與個股詳頁整合成同一個工作台。
+                核心目的是讓你先掃市場，再縮到半導體鏈與非電子鏈，最後才做研究判斷。
+              </p>
+              <div class="pill-row">
+                <span class="pill">資料月份 ${escapeHtml(dashboard.sourceStatus.monthlyRevenueMonth)}</span>
+                <span class="pill">全市場 ${dashboard.coverage.universeTotal} 檔</span>
+                <span class="pill">核心觀察池 ${dashboard.coverage.watchlistCount} 檔</span>
+                <span class="pill">最近更新 ${escapeHtml(formatTime(dashboard.generatedAt))}</span>
+              </div>
+            </div>
+            <div class="hero-side">
+              <div class="hero-stat-grid">
+                <div class="hero-stat">
+                  <span>強訊號</span>
+                  <strong>${dashboard.coverage.breadth.strong}</strong>
+                  <div class="tiny">全市場候選數</div>
+                </div>
+                <div class="hero-stat">
+                  <span>半導體掃描</span>
+                  <strong>${dashboard.coverage.semiconductorLensCount}</strong>
+                  <div class="tiny">含核心與外圍樣本</div>
+                </div>
+                <div class="hero-stat">
+                  <span>非電子掃描</span>
+                  <strong>${dashboard.coverage.nonElectronicsLensCount}</strong>
+                  <div class="tiny">依產業別自動歸類</div>
+                </div>
+                <div class="hero-stat">
+                  <span>警報候選</span>
+                  <strong>${dashboard.alerts.length}</strong>
+                  <div class="tiny">規則驅動，不直接等於買點</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="market-grid">
+            <article class="panel market-card">
+              <h2>${escapeHtml(dashboard.marketOverview.listed.label)}</h2>
+              <strong>${escapeHtml(dashboard.marketOverview.listed.closeDisplay)}</strong>
+              <div class="delta ${toneClass(dashboard.marketOverview.listed.change)}">${escapeHtml(
+                dashboard.marketOverview.listed.changeDisplay,
+              )} / ${escapeHtml(dashboard.marketOverview.listed.changePctDisplay)}</div>
+              <div class="tiny">${escapeHtml(dashboard.marketOverview.listed.date)}</div>
+            </article>
+            <article class="panel market-card">
+              <h2>${escapeHtml(dashboard.marketOverview.otc.label)}</h2>
+              <strong>${escapeHtml(dashboard.marketOverview.otc.closeDisplay)}</strong>
+              <div class="delta ${toneClass(dashboard.marketOverview.otc.change)}">${escapeHtml(
+                dashboard.marketOverview.otc.changeDisplay,
+              )} / ${escapeHtml(dashboard.marketOverview.otc.changePctDisplay)}</div>
+              <div class="tiny">上漲 ${dashboard.marketOverview.otc.riseCount} · 下跌 ${dashboard.marketOverview.otc.fallCount} · 平盤 ${dashboard.marketOverview.otc.flatCount}</div>
+            </article>
+            <article class="panel market-card">
+              <h2>全市場廣度</h2>
+              <strong>${dashboard.coverage.universeTotal}</strong>
+              <div class="pill-row">
+                <span class="tone positive">強 ${dashboard.coverage.breadth.strong}</span>
+                <span class="tone neutral">中 ${dashboard.coverage.breadth.neutral}</span>
+                <span class="tone negative">弱 ${dashboard.coverage.breadth.negative}</span>
+              </div>
+            </article>
+            <article class="panel market-card">
+              <h2>櫃買法人摘要</h2>
+              <strong>${escapeHtml(
+                dashboard.marketOverview.otcInstitutionSummary[0]?.netDisplay || "無資料",
+              )}</strong>
+              <div class="tiny">${dashboard.marketOverview.otcInstitutionSummary
+                .slice(0, 3)
+                .map((row) => `${row.investor} ${row.netDisplay}`)
+                .join(" · ")}</div>
+            </article>
+          </section>
+
+          <section class="panel controls">
+            <div class="preset-row">
+              ${dashboard.presets
+                .map(
+                  (preset) => `
+                    <button class="preset-btn ${state.preset === preset.key ? "active" : ""}" data-preset="${escapeHtml(
+                      preset.key,
+                    )}">${escapeHtml(preset.label)}</button>
+                  `,
+                )
+                .join("")}
+            </div>
+            <div class="filter-row">
+              <select id="marketFilter">
+                <option value="all">全部市場</option>
+                <option value="listed" ${state.market === "listed" ? "selected" : ""}>上市</option>
+                <option value="otc" ${state.market === "otc" ? "selected" : ""}>上櫃</option>
+              </select>
+              <select id="toneFilter">
+                <option value="all">全部訊號</option>
+                <option value="strong" ${state.tone === "strong" ? "selected" : ""}>強訊號</option>
+                <option value="positive" ${state.tone === "positive" ? "selected" : ""}>正向觀察</option>
+                <option value="neutral" ${state.tone === "neutral" ? "selected" : ""}>中性監看</option>
+                <option value="negative" ${state.tone === "negative" ? "selected" : ""}>偏弱等待</option>
+              </select>
+              <select id="catalystFilter">
+                <option value="all">全部催化</option>
+                <option value="with" ${state.catalyst === "with" ? "selected" : ""}>有催化</option>
+                <option value="without" ${state.catalyst === "without" ? "selected" : ""}>無催化</option>
+              </select>
+              <select id="sortFilter">
+                <option value="signal" ${state.sort === "signal" ? "selected" : ""}>依訊號排序</option>
+                <option value="revenueYoY" ${state.sort === "revenueYoY" ? "selected" : ""}>依營收 YoY</option>
+                <option value="revenueMoM" ${state.sort === "revenueMoM" ? "selected" : ""}>依營收 MoM</option>
+                <option value="tradeValue" ${state.sort === "tradeValue" ? "selected" : ""}>依成交值</option>
+              </select>
+              <input id="searchInput" type="search" placeholder="搜尋代號、名稱、產業、鏈條" value="${escapeHtml(
+                state.query,
+              )}" />
+              <button class="ghost-btn" id="refreshButton">重新整理</button>
+            </div>
+          </section>
+
+          ${renderBoards()}
+
+          <section class="workspace">
+            <article class="panel leaderboard">
+              <div class="split-head">
+                <div>
+                  <h2 class="section-title">領先名單</h2>
+                  <div class="tiny">顯示 ${Math.min(rows.length, 140)} / ${rows.length} 檔，先用篩選縮小樣本，再做詳讀。</div>
+                </div>
+                <span class="tone neutral">${state.preset}</span>
+              </div>
+              ${renderLeaderboard(rows)}
+            </article>
+            <aside class="panel detail">
+              ${renderDetail(selected)}
+            </aside>
+          </section>
+
+          ${renderStrategies()}
+          ${renderFooter()}
+        `;
+
+        bindEvents();
+      }
+
+      function bindEvents() {
+        document.querySelectorAll("[data-code]").forEach((node) => {
+          node.addEventListener("click", () => {
+            state.selectedCode = node.getAttribute("data-code");
+            renderDashboard();
+          });
+        });
+
+        document.querySelectorAll("[data-preset]").forEach((node) => {
+          node.addEventListener("click", () => {
+            state.preset = node.getAttribute("data-preset");
+            renderDashboard();
+          });
+        });
+
+        document.querySelectorAll("tbody tr[data-code]").forEach((row) => {
+          row.addEventListener("click", () => {
+            state.selectedCode = row.getAttribute("data-code");
+            renderDashboard();
+          });
+        });
+
+        document.getElementById("marketFilter")?.addEventListener("change", (event) => {
+          state.market = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("toneFilter")?.addEventListener("change", (event) => {
+          state.tone = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("catalystFilter")?.addEventListener("change", (event) => {
+          state.catalyst = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("sortFilter")?.addEventListener("change", (event) => {
+          state.sort = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("searchInput")?.addEventListener("input", (event) => {
+          state.query = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("refreshButton")?.addEventListener("click", async () => {
+          await loadDashboard(true);
         });
       }
 
-      loadDashboard();
-      setInterval(loadDashboard, 10 * 60 * 1000);
+      async function loadDashboard(forceRefresh = false) {
+        const response = await fetch(
+          `./data/dashboard.json${forceRefresh ? `?ts=${Date.now()}` : ""}`,
+          { cache: forceRefresh ? "no-store" : "default" },
+        );
+        dashboard = await response.json();
+        renderDashboard();
+      }
+
+      loadDashboard().catch((error) => {
+        const app = document.getElementById("app");
+        app.className = "shell";
+        app.innerHTML = `<div class="panel" style="padding:24px;color:#ff6270;">資料載入失敗：${escapeHtml(
+          error.message,
+        )}</div>`;
+      });
+
+      setInterval(() => {
+        loadDashboard(true).catch(() => {});
+      }, 10 * 60 * 1000);
     </script>
   </body>
 </html>

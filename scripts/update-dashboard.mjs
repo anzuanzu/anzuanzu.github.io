@@ -89,6 +89,18 @@ const WATCHLISTS = {
   },
 };
 
+const ELECTRONICS_KEYWORDS = [
+  "半導體",
+  "電子零組件",
+  "電腦及週邊設備",
+  "光電",
+  "通信網路",
+  "電子通路",
+  "資訊服務",
+  "其他電子",
+  "數位雲端",
+];
+
 const ROUTINE_KEYWORDS = [
   "股東常會",
   "董事會決議",
@@ -125,6 +137,14 @@ const CATALYST_KEYWORDS = [
   "量產",
   "建廠",
 ];
+
+const WATCH_META = new Map(
+  Object.entries(WATCHLISTS).flatMap(([lens, definition]) =>
+    definition.companies.map((company) => [company.code, { ...company, lens }]),
+  ),
+);
+const MIN_BOARD_REVENUE = 100000;
+const MIN_SIGNAL_REVENUE = 50000;
 
 function pickValue(row, keys) {
   if (!row) return null;
@@ -165,6 +185,16 @@ function formatRevenueFromThousand(value) {
   return `${value.toLocaleString("zh-TW")} 千元`;
 }
 
+function formatSignedNumber(value, digits = 2) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return "無資料";
+  return `${value > 0 ? "+" : value < 0 ? "" : ""}${value.toFixed(digits)}`;
+}
+
+function formatPercent(value) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return "無資料";
+  return `${value > 0 ? "+" : value < 0 ? "" : ""}${value.toFixed(2)}%`;
+}
+
 function rocDateToIso(raw) {
   const digits = String(raw || "").replaceAll("/", "").replaceAll("-", "").trim();
   if (!/^\d{7,8}$/.test(digits)) return String(raw || "");
@@ -189,7 +219,7 @@ function mapByCode(rows, codeKey) {
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: {
-      "user-agent": "tw-chain-terminal/1.0",
+      "user-agent": "tw-chain-terminal-v2/1.0",
       accept: "application/json, text/plain, */*",
     },
   });
@@ -233,45 +263,171 @@ function parseMajorEntry(entry, market) {
   };
 }
 
-function computeSignal(item, listKey) {
-  const yoy = item.revenueYoY ?? -999;
-  const mom = item.revenueMoM ?? -999;
-  const cumulative = item.cumulativeYoY ?? -999;
-  const priceChange = item.priceChange ?? 0;
+function resolveLens(code, industry, watchMeta) {
+  if (watchMeta) {
+    return {
+      lens: watchMeta.lens,
+      lensLabel: WATCHLISTS[watchMeta.lens].title,
+      chain: watchMeta.chain,
+      focus: watchMeta.focus,
+      note: watchMeta.note,
+      watchlist: true,
+    };
+  }
+
+  const safeIndustry = String(industry || "未分類").trim();
+
+  if (safeIndustry.includes("半導體")) {
+    return {
+      lens: "semiconductor",
+      lensLabel: WATCHLISTS.semiconductor.title,
+      chain: safeIndustry,
+      focus: "全市場半導體掃描",
+      note: "非核心觀察池，來自全市場掃描。",
+      watchlist: false,
+    };
+  }
+
+  if (!ELECTRONICS_KEYWORDS.some((keyword) => safeIndustry.includes(keyword))) {
+    return {
+      lens: "nonElectronics",
+      lensLabel: WATCHLISTS.nonElectronics.title,
+      chain: safeIndustry,
+      focus: "全市場非電子掃描",
+      note: "非核心觀察池，來自全市場掃描。",
+      watchlist: false,
+    };
+  }
+
+  return {
+    lens: "market",
+    lensLabel: "全市場",
+    chain: safeIndustry,
+    focus: "全市場掃描",
+    note: "非核心觀察池，僅納入全市場排行。",
+    watchlist: false,
+  };
+}
+
+function compactDriver(label, impact, weight) {
+  return { label, impact, weight };
+}
+
+function computeSignal(item) {
+  const drivers = [];
   let score = 0;
 
-  if (yoy >= 30) score += 4;
-  else if (yoy >= 15) score += 3;
-  else if (yoy >= 5) score += 2;
-  else if (yoy >= 0) score += 1;
-  else if (yoy <= -20) score -= 3;
-  else if (yoy < 0) score -= 1;
+  if (item.revenueYoY >= 40) {
+    score += 4;
+    drivers.push(compactDriver("營收年增超過 40%", "positive", 4));
+  } else if (item.revenueYoY >= 20) {
+    score += 3;
+    drivers.push(compactDriver("營收年增超過 20%", "positive", 3));
+  } else if (item.revenueYoY >= 8) {
+    score += 2;
+    drivers.push(compactDriver("營收年增轉強", "positive", 2));
+  } else if (item.revenueYoY >= 0) {
+    score += 1;
+    drivers.push(compactDriver("營收維持正成長", "positive", 1));
+  } else if (item.revenueYoY <= -20) {
+    score -= 3;
+    drivers.push(compactDriver("營收年減超過 20%", "negative", -3));
+  } else if (item.revenueYoY < 0) {
+    score -= 1;
+    drivers.push(compactDriver("營收年減", "negative", -1));
+  }
 
-  if (mom >= 10) score += 2;
-  else if (mom >= 0) score += 1;
-  else if (mom <= -10) score -= 2;
-  else if (mom < 0) score -= 1;
+  if (item.revenueMoM >= 10) {
+    score += 2;
+    drivers.push(compactDriver("營收月增超過 10%", "positive", 2));
+  } else if (item.revenueMoM >= 0) {
+    score += 1;
+    drivers.push(compactDriver("營收月增為正", "positive", 1));
+  } else if (item.revenueMoM <= -10) {
+    score -= 2;
+    drivers.push(compactDriver("營收月減超過 10%", "negative", -2));
+  } else if (item.revenueMoM < 0) {
+    score -= 1;
+    drivers.push(compactDriver("營收月減", "negative", -1));
+  }
 
-  if (cumulative >= 20) score += 2;
-  else if (cumulative >= 5) score += 1;
-  else if (cumulative <= -10) score -= 1;
+  if (item.cumulativeYoY >= 20) {
+    score += 2;
+    drivers.push(compactDriver("累計營收趨勢強", "positive", 2));
+  } else if (item.cumulativeYoY >= 5) {
+    score += 1;
+    drivers.push(compactDriver("累計營收維持改善", "positive", 1));
+  } else if (item.cumulativeYoY <= -10) {
+    score -= 1;
+    drivers.push(compactDriver("累計營收仍在下行", "negative", -1));
+  }
 
-  if (priceChange > 3) score += 1;
-  else if (priceChange < -3) score -= 1;
+  if (item.priceChange >= 3) {
+    score += 1;
+    drivers.push(compactDriver("股價日變動偏強", "positive", 1));
+  } else if (item.priceChange <= -3) {
+    score -= 1;
+    drivers.push(compactDriver("股價日變動偏弱", "negative", -1));
+  }
 
-  if (item.announcementCount > 0) score += 1;
-  if (item.catalystCount > 0) score += 1;
-  if (item.tradeValue !== null && item.tradeValue >= 1000000000) score += 1;
+  if (item.catalystCount > 0) {
+    score += 1;
+    drivers.push(compactDriver("近期有重大訊息催化", "positive", 1));
+  }
 
-  if (listKey === "semiconductor" && item.chain.includes("設備") && yoy >= 15) score += 1;
-  if (listKey === "nonElectronics" && item.chain.includes("航運") && mom >= 5) score += 1;
+  if (item.tradeValue !== null && item.tradeValue >= 2000000000) {
+    score += 1;
+    drivers.push(compactDriver("成交值高於 20 億", "positive", 1));
+  }
+
+  if (item.lens === "semiconductor" && item.chain.includes("設備") && item.revenueYoY >= 15) {
+    score += 1;
+    drivers.push(compactDriver("設備環節與景氣轉折同步", "positive", 1));
+  }
+
+  if (item.lens === "nonElectronics" && /航運|航空|物流/.test(item.chain) && item.revenueMoM >= 5) {
+    score += 1;
+    drivers.push(compactDriver("運輸鏈月增動能轉強", "positive", 1));
+  }
+
+  if (item.market === "otc" && item.otcInstitutionNet !== null) {
+    if (item.otcInstitutionNet >= 2000) {
+      score += 1;
+      drivers.push(compactDriver("櫃買法人買超", "positive", 1));
+    } else if (item.otcInstitutionNet <= -2000) {
+      score -= 1;
+      drivers.push(compactDriver("櫃買法人賣超", "negative", -1));
+    }
+  }
 
   score = Math.max(0, Math.min(10, score));
 
-  if (score >= 8) return { score, label: "強訊號", tone: "strong" };
-  if (score >= 5) return { score, label: "正向觀察", tone: "positive" };
-  if (score >= 3) return { score, label: "中性監看", tone: "neutral" };
-  return { score, label: "偏弱等待", tone: "negative" };
+  if (score >= 8) return { score, label: "強訊號", tone: "strong", drivers };
+  if (score >= 6) return { score, label: "正向觀察", tone: "positive", drivers };
+  if (score >= 4) return { score, label: "中性監看", tone: "neutral", drivers };
+  return { score, label: "偏弱等待", tone: "negative", drivers };
+}
+
+function buildAlertFlags(item) {
+  const flags = [];
+
+  const hasMeaningfulRevenue = item.revenue !== null && item.revenue >= MIN_BOARD_REVENUE;
+
+  if ((hasMeaningfulRevenue || item.watchlist) && item.signal.score >= 8 && item.catalystCount > 0) {
+    flags.push("strongWithCatalyst");
+  }
+  if ((hasMeaningfulRevenue || item.watchlist) && item.revenueYoY >= 30 && (item.priceChange === null || item.priceChange <= 1)) {
+    flags.push("revenuePriceLag");
+  }
+  if ((hasMeaningfulRevenue || item.watchlist) && item.revenueYoY <= -15 && item.priceChange >= 2) {
+    flags.push("priceAheadOfFundamentals");
+  }
+  if ((hasMeaningfulRevenue || item.watchlist) && item.tradeValue >= 2000000000 && item.catalystCount > 0) {
+    flags.push("eventDrivenVolume");
+  }
+  if (item.market === "otc" && item.otcInstitutionNet >= 2000) flags.push("otcInstitutionSupport");
+
+  return flags;
 }
 
 function resolveMarketRow(code, preferredMarket, maps) {
@@ -285,70 +441,134 @@ function resolveMarketRow(code, preferredMarket, maps) {
   return { row: null, market: preferredMarket };
 }
 
-function buildWatchlist(listKey, revenueMaps, quoteMaps, majorByCode, tpexInstiMap) {
-  const definition = WATCHLISTS[listKey];
+function buildCompanyItem({
+  code,
+  market,
+  revenueRow,
+  quoteRow,
+  announcements,
+  otcInsti,
+  watchMeta,
+}) {
+  const name = String(
+    pickValue(revenueRow || quoteRow || {}, ["公司名稱", "Name", "CompanyName", "SecuritiesCompanyName"]) || code,
+  ).trim();
+  const industry = String(
+    pickValue(revenueRow || quoteRow || {}, ["產業別", "Category"]) || "未分類",
+  ).trim();
+  const lensInfo = resolveLens(code, industry, watchMeta);
 
-  const items = definition.companies.map((company) => {
-    const revenueMatch = resolveMarketRow(company.code, company.market, revenueMaps);
-    const quoteMatch = resolveMarketRow(company.code, revenueMatch.market, quoteMaps);
-    const market = quoteMatch.row ? quoteMatch.market : revenueMatch.market;
-    const revenueRow = revenueMatch.row;
-    const quoteRow = quoteMatch.row;
-    const announcements = (majorByCode.get(company.code) || []).slice(0, 3);
-    const otcInsti = market === "otc" ? tpexInstiMap.get(company.code) : null;
+  const item = {
+    code,
+    market,
+    marketLabel: market === "listed" ? "上市" : "上櫃",
+    name,
+    industry,
+    lens: lensInfo.lens,
+    lensLabel: lensInfo.lensLabel,
+    watchlist: lensInfo.watchlist,
+    chain: lensInfo.chain,
+    focus: lensInfo.focus,
+    note: lensInfo.note,
+    dataMonth: rocMonthToLabel(pickValue(revenueRow || {}, ["資料年月"])),
+    revenue: normalizeNumber(pickValue(revenueRow || {}, ["營業收入-當月營收"])),
+    revenueMoM: normalizeNumber(pickValue(revenueRow || {}, ["營業收入-上月比較增減(%)"])),
+    revenueYoY: normalizeNumber(pickValue(revenueRow || {}, ["營業收入-去年同月增減(%)"])),
+    cumulativeYoY: normalizeNumber(pickValue(revenueRow || {}, ["累計營業收入-前期比較增減(%)"])),
+    closingPrice: normalizeNumber(pickValue(quoteRow || {}, ["ClosingPrice", "Close"])),
+    priceChange:
+      normalizeNumber(pickValue(quoteRow || {}, ["Change"])) ??
+      signedNumber(pickValue(quoteRow || {}, ["漲跌"]), pickValue(quoteRow || {}, ["漲跌點數"])),
+    tradeValue: normalizeNumber(
+      pickValue(quoteRow || {}, ["TradeValue", "TransactionAmount", "TradingValue"]),
+    ),
+    announcementCount: announcements.length,
+    catalystCount: announcements.filter((entry) => entry.hasCatalyst).length,
+    announcements,
+    otcInstitutionNet: normalizeNumber(
+      pickValue(otcInsti || {}, [
+        "TotalDifference",
+        "ForeignInvestorsInclude MainlandAreaInvestors-Difference",
+        "Foreign Investors include Mainland Area Investors (Foreign Dealers excluded)-Difference",
+      ]),
+    ),
+  };
 
-    const item = {
-      code: company.code,
-      market,
-      name: String(pickValue(revenueRow || quoteRow || {}, ["公司名稱", "Name", "CompanyName"]) || company.code).trim(),
-      industry: String(pickValue(revenueRow || {}, ["產業別"]) || "未分類").trim(),
-      chain: company.chain,
-      focus: company.focus,
-      note: company.note,
-      dataMonth: rocMonthToLabel(pickValue(revenueRow || {}, ["資料年月"])),
-      revenue: normalizeNumber(pickValue(revenueRow || {}, ["營業收入-當月營收"])),
-      revenueMoM: normalizeNumber(pickValue(revenueRow || {}, ["營業收入-上月比較增減(%)"])),
-      revenueYoY: normalizeNumber(pickValue(revenueRow || {}, ["營業收入-去年同月增減(%)"])),
-      cumulativeYoY: normalizeNumber(pickValue(revenueRow || {}, ["累計營業收入-前期比較增減(%)"])),
-      closingPrice: normalizeNumber(pickValue(quoteRow || {}, ["ClosingPrice", "Close"])),
-      priceChange:
-        normalizeNumber(pickValue(quoteRow || {}, ["Change"])) ??
-        signedNumber(pickValue(quoteRow || {}, ["漲跌"]), pickValue(quoteRow || {}, ["漲跌點數"])),
-      tradeValue: normalizeNumber(pickValue(quoteRow || {}, ["TradeValue", "TransactionAmount"])),
-      announcementCount: announcements.length,
-      catalystCount: announcements.filter((entry) => entry.hasCatalyst).length,
-      announcements,
-      otcInstitutionNet: normalizeNumber(
-        pickValue(otcInsti || {}, [
-          "TotalDifference",
-          "ForeignInvestorsInclude MainlandAreaInvestors-Difference",
-          "Foreign Investors include Mainland Area Investors (Foreign Dealers excluded)-Difference",
-        ]),
-      ),
-    };
+  item.signal = computeSignal(item);
+  item.alertFlags = buildAlertFlags(item);
+  item.revenueDisplay = formatRevenueFromThousand(item.revenue);
+  item.tradeValueDisplay = formatLargeNumber(item.tradeValue);
+  item.otcInstitutionNetDisplay = formatLargeNumber(item.otcInstitutionNet);
+  item.priceChangeDisplay = formatSignedNumber(item.priceChange);
+  item.revenueYoYDisplay = formatPercent(item.revenueYoY);
+  item.revenueMoMDisplay = formatPercent(item.revenueMoM);
+  item.cumulativeYoYDisplay = formatPercent(item.cumulativeYoY);
+  item.searchText = `${item.code} ${item.name} ${item.industry} ${item.chain} ${item.focus}`.toLowerCase();
+  return item;
+}
 
-    item.signal = computeSignal(item, listKey);
-    item.revenueDisplay = formatRevenueFromThousand(item.revenue);
-    item.tradeValueDisplay = formatLargeNumber(item.tradeValue);
-    item.otcInstitutionNetDisplay = formatLargeNumber(item.otcInstitutionNet);
-    return item;
-  });
-
-  const sortedItems = [...items].sort((left, right) => {
+function sortUniverse(items) {
+  return [...items].sort((left, right) => {
     if (right.signal.score !== left.signal.score) return right.signal.score - left.signal.score;
+    if ((right.catalystCount ?? 0) !== (left.catalystCount ?? 0)) return right.catalystCount - left.catalystCount;
     if ((right.revenueYoY ?? -999) !== (left.revenueYoY ?? -999)) {
       return (right.revenueYoY ?? -999) - (left.revenueYoY ?? -999);
     }
     return (right.tradeValue ?? 0) - (left.tradeValue ?? 0);
   });
+}
+
+function compactRow(item) {
+  return {
+    code: item.code,
+    name: item.name,
+    market: item.market,
+    marketLabel: item.marketLabel,
+    industry: item.industry,
+    lens: item.lens,
+    lensLabel: item.lensLabel,
+    watchlist: item.watchlist,
+    chain: item.chain,
+    focus: item.focus,
+    signal: item.signal,
+    revenueDisplay: item.revenueDisplay,
+    revenueYoY: item.revenueYoY,
+    revenueYoYDisplay: item.revenueYoYDisplay,
+    revenueMoM: item.revenueMoM,
+    revenueMoMDisplay: item.revenueMoMDisplay,
+    cumulativeYoY: item.cumulativeYoY,
+    cumulativeYoYDisplay: item.cumulativeYoYDisplay,
+    closingPrice: item.closingPrice,
+    priceChange: item.priceChange,
+    priceChangeDisplay: item.priceChangeDisplay,
+    tradeValue: item.tradeValue,
+    tradeValueDisplay: item.tradeValueDisplay,
+    catalystCount: item.catalystCount,
+    announcementCount: item.announcementCount,
+    dataMonth: item.dataMonth,
+    alertFlags: item.alertFlags,
+  };
+}
+
+function buildStrategy(listKey, itemsByCode) {
+  const definition = WATCHLISTS[listKey];
+  const items = sortUniverse(
+    definition.companies
+      .map((company) => itemsByCode.get(company.code))
+      .filter(Boolean),
+  );
 
   const metrics = {
-    total: sortedItems.length,
-    strong: sortedItems.filter((item) => item.signal.tone === "strong").length,
-    positive: sortedItems.filter((item) => item.signal.tone === "positive").length,
-    neutral: sortedItems.filter((item) => item.signal.tone === "neutral").length,
-    negative: sortedItems.filter((item) => item.signal.tone === "negative").length,
-    withCatalyst: sortedItems.filter((item) => item.catalystCount > 0).length,
+    total: items.length,
+    strong: items.filter((item) => item.signal.tone === "strong").length,
+    positive: items.filter((item) => item.signal.tone === "positive").length,
+    neutral: items.filter((item) => item.signal.tone === "neutral").length,
+    negative: items.filter((item) => item.signal.tone === "negative").length,
+    withCatalyst: items.filter((item) => item.catalystCount > 0).length,
+    avgScore:
+      items.length > 0
+        ? Number((items.reduce((sum, item) => sum + item.signal.score, 0) / items.length).toFixed(2))
+        : null,
   };
 
   return {
@@ -357,9 +577,92 @@ function buildWatchlist(listKey, revenueMaps, quoteMaps, majorByCode, tpexInstiM
     summary: definition.summary,
     cadence: definition.cadence,
     metrics,
-    items: sortedItems,
-    topIdeas: sortedItems.slice(0, 4),
+    items: items.map(compactRow),
+    topIdeas: items.slice(0, 5).map(compactRow),
   };
+}
+
+function topBy(items, predicate, compare, limit = 12) {
+  return items.filter(predicate).sort(compare).slice(0, limit).map(compactRow);
+}
+
+function buildAlerts(items) {
+  const alerts = [];
+
+  for (const item of items) {
+    if (item.alertFlags.includes("strongWithCatalyst")) {
+      alerts.push({
+        level: "high",
+        title: "強訊號 + 催化事件",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 同時具備高分訊號與近期重大催化，適合優先驗證。`,
+      });
+    }
+
+    if (item.alertFlags.includes("revenuePriceLag")) {
+      alerts.push({
+        level: "medium",
+        title: "營收強但價格未充分反映",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。`,
+      });
+    }
+
+    if (item.alertFlags.includes("priceAheadOfFundamentals")) {
+      alerts.push({
+        level: "medium",
+        title: "價格領先基本面",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 基本面仍偏弱，但價格偏強，需提防敘事交易過熱。`,
+      });
+    }
+
+    if (item.alertFlags.includes("eventDrivenVolume")) {
+      alerts.push({
+        level: "high",
+        title: "事件驅動成交放大",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 近期催化伴隨大量成交，適合納入盤後追蹤與隔日計畫。`,
+      });
+    }
+
+    if (item.alertFlags.includes("otcInstitutionSupport")) {
+      alerts.push({
+        level: "low",
+        title: "櫃買法人支持",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 出現櫃買法人買超，適合作為籌碼面輔助驗證。`,
+      });
+    }
+  }
+
+  const priority = { high: 3, medium: 2, low: 1 };
+  return alerts
+    .sort((left, right) => {
+      if (priority[right.level] !== priority[left.level]) return priority[right.level] - priority[left.level];
+      return right.signalScore - left.signalScore;
+    })
+    .slice(0, 24);
 }
 
 async function buildDashboardPayload() {
@@ -404,20 +707,69 @@ async function buildDashboardPayload() {
     .filter((entry) => entry.code)
     .sort((left, right) => `${right.date} ${right.time}`.localeCompare(`${left.date} ${left.time}`));
 
-  const watchCodes = new Set(
-    Object.values(WATCHLISTS).flatMap((list) => list.companies.map((company) => company.code)),
-  );
-
   const majorByCode = new Map();
   for (const entry of majorEntries) {
-    if (!watchCodes.has(entry.code) || entry.isRoutine) continue;
+    if (entry.isRoutine) continue;
     if (!majorByCode.has(entry.code)) majorByCode.set(entry.code, []);
-    if (majorByCode.get(entry.code).length < 5) {
+    if (majorByCode.get(entry.code).length < 4) {
       majorByCode.get(entry.code).push(entry);
     }
   }
 
   const tpexInstiMap = mapByCode(tpexInstiDetail, "SecuritiesCompanyCode");
+  const items = [];
+
+  for (const row of twseRevenue) {
+    const code = String(row["公司代號"] || "").trim();
+    if (!code) continue;
+    items.push(
+      buildCompanyItem({
+        code,
+        market: "listed",
+        revenueRow: row,
+        quoteRow: quoteMaps.listed.get(code),
+        announcements: majorByCode.get(code) || [],
+        otcInsti: null,
+        watchMeta: WATCH_META.get(code),
+      }),
+    );
+  }
+
+  for (const row of tpexRevenue) {
+    const code = String(row["公司代號"] || "").trim();
+    if (!code) continue;
+    items.push(
+      buildCompanyItem({
+        code,
+        market: "otc",
+        revenueRow: row,
+        quoteRow: quoteMaps.otc.get(code),
+        announcements: majorByCode.get(code) || [],
+        otcInsti: tpexInstiMap.get(code),
+        watchMeta: WATCH_META.get(code),
+      }),
+    );
+  }
+
+  for (const [code, watchMeta] of WATCH_META) {
+    if (items.some((item) => item.code === code)) continue;
+    const revenueMatch = resolveMarketRow(code, watchMeta.market, revenueMaps);
+    const quoteMatch = resolveMarketRow(code, revenueMatch.market, quoteMaps);
+    items.push(
+      buildCompanyItem({
+        code,
+        market: quoteMatch.row ? quoteMatch.market : revenueMatch.market,
+        revenueRow: revenueMatch.row,
+        quoteRow: quoteMatch.row,
+        announcements: majorByCode.get(code) || [],
+        otcInsti: tpexInstiMap.get(code),
+        watchMeta,
+      }),
+    );
+  }
+
+  const sortedUniverse = sortUniverse(items);
+  const itemsByCode = new Map(sortedUniverse.map((item) => [item.code, item]));
   const taiex =
     twseIndices.find((item) => String(item["指數"] || "").includes("發行量加權股價指數")) ||
     twseIndices.find((item) => String(item["指數"] || "").includes("寶島股價指數")) ||
@@ -427,6 +779,109 @@ async function buildDashboardPayload() {
   const otcChange = normalizeNumber(otcOverview?.IndexChange);
   const otcPreviousClose = otcClose !== null && otcChange !== null ? otcClose - otcChange : null;
 
+  const breadth = {
+    strong: sortedUniverse.filter((item) => item.signal.tone === "strong").length,
+    positive: sortedUniverse.filter((item) => item.signal.tone === "positive").length,
+    neutral: sortedUniverse.filter((item) => item.signal.tone === "neutral").length,
+    negative: sortedUniverse.filter((item) => item.signal.tone === "negative").length,
+  };
+
+  const boards = {
+    topSignal: topBy(
+      sortedUniverse,
+      (item) => item.signal.score >= 6 && ((item.revenue ?? 0) >= MIN_SIGNAL_REVENUE || item.watchlist),
+      (left, right) => right.signal.score - left.signal.score || (right.revenueYoY ?? -999) - (left.revenueYoY ?? -999),
+    ),
+    semiconductorLeaders: topBy(
+      sortedUniverse,
+      (item) => item.lens === "semiconductor" && ((item.revenue ?? 0) >= MIN_SIGNAL_REVENUE || item.watchlist),
+      (left, right) =>
+        right.signal.score - left.signal.score ||
+        (right.revenueYoY ?? -999) - (left.revenueYoY ?? -999) ||
+        (right.tradeValue ?? 0) - (left.tradeValue ?? 0),
+    ),
+    nonElectronicsLeaders: topBy(
+      sortedUniverse,
+      (item) => item.lens === "nonElectronics" && ((item.revenue ?? 0) >= MIN_SIGNAL_REVENUE || item.watchlist),
+      (left, right) =>
+        right.signal.score - left.signal.score ||
+        (right.revenueYoY ?? -999) - (left.revenueYoY ?? -999) ||
+        (right.tradeValue ?? 0) - (left.tradeValue ?? 0),
+    ),
+    topTradeValue: topBy(
+      sortedUniverse,
+      (item) => item.tradeValue !== null && ((item.revenue ?? 0) >= MIN_SIGNAL_REVENUE || item.watchlist),
+      (left, right) => (right.tradeValue ?? 0) - (left.tradeValue ?? 0),
+    ),
+    catalysts: topBy(
+      sortedUniverse,
+      (item) => item.catalystCount > 0 && ((item.revenue ?? 0) >= MIN_BOARD_REVENUE || item.watchlist),
+      (left, right) =>
+        right.catalystCount - left.catalystCount ||
+        right.signal.score - left.signal.score ||
+        (right.tradeValue ?? 0) - (left.tradeValue ?? 0),
+    ),
+    laggards: topBy(
+      sortedUniverse,
+      (item) => item.signal.score <= 4,
+      (left, right) =>
+        left.signal.score - right.signal.score ||
+        (left.revenueYoY ?? 999) - (right.revenueYoY ?? 999),
+    ),
+  };
+
+  const boardCodes = new Set(
+    Object.values(boards).flatMap((rows) => rows.map((row) => row.code)),
+  );
+  const alerts = buildAlerts(sortedUniverse);
+  const detailCodes = new Set([
+    ...WATCH_META.keys(),
+    ...boardCodes,
+    ...alerts.map((alert) => alert.code),
+    ...majorEntries.slice(0, 24).map((entry) => entry.code),
+  ]);
+  const detailEntries = [];
+
+  for (const item of sortedUniverse) {
+    if (!detailCodes.has(item.code)) continue;
+    detailEntries.push([
+      item.code,
+      {
+        code: item.code,
+        market: item.market,
+        marketLabel: item.marketLabel,
+        name: item.name,
+        industry: item.industry,
+        lens: item.lens,
+        lensLabel: item.lensLabel,
+        watchlist: item.watchlist,
+        chain: item.chain,
+        focus: item.focus,
+        note: item.note,
+        dataMonth: item.dataMonth,
+        revenueDisplay: item.revenueDisplay,
+        revenueYoYDisplay: item.revenueYoYDisplay,
+        revenueMoMDisplay: item.revenueMoMDisplay,
+        cumulativeYoYDisplay: item.cumulativeYoYDisplay,
+        closingPrice: item.closingPrice,
+        priceChangeDisplay: item.priceChangeDisplay,
+        tradeValueDisplay: item.tradeValueDisplay,
+        otcInstitutionNetDisplay: item.otcInstitutionNetDisplay,
+        catalystCount: item.catalystCount,
+        announcementCount: item.announcementCount,
+        alertFlags: item.alertFlags,
+        announcements: item.announcements,
+        signal: {
+          score: item.signal.score,
+          label: item.signal.label,
+          tone: item.signal.tone,
+          scoreDisplay: `${item.signal.score}/10`,
+          drivers: item.signal.drivers,
+        },
+      },
+    ]);
+  }
+
   const payload = {
     generatedAt: new Date().toISOString(),
     marketOverview: {
@@ -434,25 +889,37 @@ async function buildDashboardPayload() {
         label: "加權指數",
         date: rocDateToIso(taiex?.["日期"]),
         close: normalizeNumber(taiex?.["收盤指數"]),
+        closeDisplay: normalizeNumber(taiex?.["收盤指數"])?.toLocaleString("zh-TW") || "無資料",
         change: signedNumber(taiex?.["漲跌"], taiex?.["漲跌點數"]),
+        changeDisplay: formatSignedNumber(signedNumber(taiex?.["漲跌"], taiex?.["漲跌點數"])),
         changePct: signedNumber(taiex?.["漲跌"], taiex?.["漲跌百分比"]),
+        changePctDisplay: formatPercent(signedNumber(taiex?.["漲跌"], taiex?.["漲跌百分比"])),
       },
       otc: {
         label: "櫃買指數",
         date: rocDateToIso(otcOverview?.Date),
         close: otcClose,
+        closeDisplay: otcClose?.toLocaleString("zh-TW") || "無資料",
         change: otcChange,
+        changeDisplay: formatSignedNumber(otcChange),
         changePct:
           otcPreviousClose && otcChange !== null
             ? Number(((otcChange / otcPreviousClose) * 100).toFixed(2))
             : null,
+        changePctDisplay: formatPercent(
+          otcPreviousClose && otcChange !== null
+            ? Number(((otcChange / otcPreviousClose) * 100).toFixed(2))
+            : null,
+        ),
         riseCount: normalizeNumber(otcOverview?.PriceRiseCompanyNumbers),
         fallCount: normalizeNumber(otcOverview?.PriceDeclineCompanyNumbers),
         flatCount: normalizeNumber(otcOverview?.PriceFlatCompanyNumbers),
       },
+      breadth,
       otcInstitutionSummary: tpexInstiSummary.map((item) => ({
         investor: item.Investor,
         net: normalizeNumber(item.Net),
+        netDisplay: formatLargeNumber(normalizeNumber(item.Net)),
       })),
     },
     sourceStatus: {
@@ -461,17 +928,35 @@ async function buildDashboardPayload() {
       ),
       twseMajorDate: rocDateToIso(pickValue(twseMajor[0] || {}, ["發言日期", "出表日期"])),
       tpexMajorDate: rocDateToIso(pickValue(tpexMajor[0] || {}, ["發言日期", "Date"])),
+      universeSize: sortedUniverse.length,
     },
+    coverage: {
+      universeTotal: sortedUniverse.length,
+      listedCount: sortedUniverse.filter((item) => item.market === "listed").length,
+      otcCount: sortedUniverse.filter((item) => item.market === "otc").length,
+      watchlistCount: sortedUniverse.filter((item) => item.watchlist).length,
+      semiconductorLensCount: sortedUniverse.filter((item) => item.lens === "semiconductor").length,
+      nonElectronicsLensCount: sortedUniverse.filter((item) => item.lens === "nonElectronics").length,
+      breadth,
+    },
+    presets: [
+      { key: "market", label: "全市場掃描" },
+      { key: "semiconductor", label: "半導體鏈" },
+      { key: "nonElectronics", label: "非電子鏈" },
+      { key: "watchlist", label: "核心觀察池" },
+      { key: "catalysts", label: "事件催化" },
+      { key: "divergence", label: "量價背離" },
+    ],
+    boards,
+    alerts,
+    strategies: {
+      semiconductor: buildStrategy("semiconductor", itemsByCode),
+      nonElectronics: buildStrategy("nonElectronics", itemsByCode),
+    },
+    leaderboard: sortedUniverse.map(compactRow),
+    detailByCode: Object.fromEntries(detailEntries),
+    announcements: majorEntries.filter((entry) => !entry.isRoutine).slice(0, 32),
   };
-
-  payload.lists = {
-    semiconductor: buildWatchlist("semiconductor", revenueMaps, quoteMaps, majorByCode, tpexInstiMap),
-    nonElectronics: buildWatchlist("nonElectronics", revenueMaps, quoteMaps, majorByCode, tpexInstiMap),
-  };
-
-  payload.announcements = majorEntries
-    .filter((entry) => watchCodes.has(entry.code) && !entry.isRoutine)
-    .slice(0, 20);
 
   return payload;
 }
