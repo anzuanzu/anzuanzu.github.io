@@ -493,6 +493,51 @@ function computeEventScore(item) {
   return { score, drivers };
 }
 
+function computeEventConfirmation(item) {
+  if (item.catalystCount === 0) {
+    return {
+      level: "none",
+      label: "無事件",
+      note: "目前沒有可交易事件。",
+    };
+  }
+
+  const recentEvent = item.daysSinceLatestEvent !== null && item.daysSinceLatestEvent <= 7;
+  const strongPrice = item.priceChange !== null && item.priceChange >= 2;
+  const weakPrice = item.priceChange !== null && item.priceChange <= -1;
+  const strongVolume = item.tradeValue !== null && item.tradeValue >= 2000000000;
+
+  if (recentEvent && strongPrice && strongVolume) {
+    return {
+      level: "confirmed",
+      label: "已確認",
+      note: "事件後價格與量能已有初步確認。",
+    };
+  }
+
+  if (recentEvent && weakPrice) {
+    return {
+      level: "failed",
+      label: "確認失敗",
+      note: "事件後價格未跟進，需警覺敘事失效。",
+    };
+  }
+
+  if (recentEvent) {
+    return {
+      level: "pending",
+      label: "待確認",
+      note: "事件已出現，但價格或量能確認仍不足。",
+    };
+  }
+
+  return {
+    level: "stale",
+    label: "已鈍化",
+    note: "事件已過觀察期，需回到基本面驗證。",
+  };
+}
+
 function buildAlertFlags(item) {
   const flags = [];
 
@@ -520,6 +565,10 @@ function buildAlertFlags(item) {
     flags.push("capacityExpansionFollowThrough");
   }
   if (item.catalystTypes.includes("regulatory_approval")) flags.push("regulatoryBinaryEvent");
+  if (item.eventConfirmation.level === "pending" && item.daysSinceLatestEvent !== null && item.daysSinceLatestEvent <= 3) {
+    flags.push("eventPendingConfirmation");
+  }
+  if (item.eventConfirmation.level === "confirmed") flags.push("eventConfirmed");
 
   return flags;
 }
@@ -628,8 +677,10 @@ function buildCompanyItem({
     .reduce((sum, weight) => sum + weight, 0);
   item.daysSinceLatestEvent = eventTimeline.length ? isoDateDiffDays(eventTimeline[0].date) : null;
   item.eventTimeline = eventTimeline.slice(0, 6);
-  item.eventScore = computeEventScore(item).score;
-  item.eventDrivers = computeEventScore(item).drivers;
+  const eventScore = computeEventScore(item);
+  item.eventScore = eventScore.score;
+  item.eventDrivers = eventScore.drivers;
+  item.eventConfirmation = computeEventConfirmation(item);
 
   item.signal = computeSignal(item);
   item.alertFlags = buildAlertFlags(item);
@@ -641,6 +692,8 @@ function buildCompanyItem({
   item.revenueMoMDisplay = formatPercent(item.revenueMoM);
   item.cumulativeYoYDisplay = formatPercent(item.cumulativeYoY);
   item.eventScoreDisplay = `${item.eventScore}/10`;
+  item.daysSinceLatestEventDisplay =
+    item.daysSinceLatestEvent === null ? "無資料" : `${item.daysSinceLatestEvent} 日前`;
   item.searchText = `${item.code} ${item.name} ${item.industry} ${item.chain} ${item.focus}`.toLowerCase();
   return item;
 }
@@ -689,6 +742,9 @@ function compactRow(item) {
     eventTypes: item.eventTypes,
     eventLabels: item.eventLabels,
     primaryEventLabel: item.primaryEventLabel,
+    daysSinceLatestEvent: item.daysSinceLatestEvent,
+    daysSinceLatestEventDisplay: item.daysSinceLatestEventDisplay,
+    eventConfirmation: item.eventConfirmation,
     announcementCount: item.announcementCount,
     dataMonth: item.dataMonth,
     alertFlags: item.alertFlags,
@@ -862,6 +918,32 @@ function buildAlerts(items) {
         lensLabel: item.lensLabel,
         signalScore: item.signal.score,
         message: `${item.name} 有法規核准或認證事件，屬於二元型催化，需特別注意後續落地與價格波動。`,
+      });
+    }
+
+    if (item.alertFlags.includes("eventPendingConfirmation")) {
+      alerts.push({
+        level: "medium",
+        title: "事件待價格確認",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 近 3 日內有事件，但價格或量能尚未完整確認，適合列入觀察清單。`,
+      });
+    }
+
+    if (item.alertFlags.includes("eventConfirmed")) {
+      alerts.push({
+        level: "high",
+        title: "事件已獲價格確認",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} 事件後已有價格與量能確認，可轉入後續追蹤與風險管理。`,
       });
     }
   }
@@ -1082,6 +1164,9 @@ async function buildDashboardPayload() {
         primaryEventLabel: item.primaryEventLabel,
         eventLabels: item.eventLabels,
         catalystLabels: item.catalystLabels,
+        daysSinceLatestEvent: item.daysSinceLatestEvent,
+        daysSinceLatestEventDisplay: item.daysSinceLatestEventDisplay,
+        eventConfirmation: item.eventConfirmation,
         catalystCount: item.catalystCount,
         announcementCount: item.announcementCount,
         alertFlags: item.alertFlags,
@@ -1168,6 +1253,20 @@ async function buildDashboardPayload() {
       value: rule.type,
       label: rule.label,
     })),
+    eventWindowOptions: [
+      { value: "all", label: "全部時間窗" },
+      { value: "3d", label: "近 3 日" },
+      { value: "7d", label: "近 7 日" },
+      { value: "30d", label: "近 30 日" },
+    ],
+    eventConfirmationOptions: [
+      { value: "all", label: "全部確認狀態" },
+      { value: "confirmed", label: "已確認" },
+      { value: "pending", label: "待確認" },
+      { value: "failed", label: "確認失敗" },
+      { value: "stale", label: "已鈍化" },
+      { value: "none", label: "無事件" },
+    ],
     boards,
     alerts,
     strategies: {

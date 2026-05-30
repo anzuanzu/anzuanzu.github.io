@@ -719,6 +719,8 @@
         tone: "all",
         catalyst: "all",
         eventType: "all",
+        eventWindow: "all",
+        eventConfirmation: "all",
         sort: "signal",
         query: "",
         selectedCode: null,
@@ -827,6 +829,17 @@
 
         if (state.eventType !== "all") {
           rows = rows.filter((row) => (row.eventTypes || []).includes(state.eventType));
+        }
+
+        if (state.eventWindow !== "all") {
+          const maxDays = state.eventWindow === "3d" ? 3 : state.eventWindow === "7d" ? 7 : 30;
+          rows = rows.filter(
+            (row) => row.daysSinceLatestEvent !== null && row.daysSinceLatestEvent <= maxDays,
+          );
+        }
+
+        if (state.eventConfirmation !== "all") {
+          rows = rows.filter((row) => row.eventConfirmation?.level === state.eventConfirmation);
         }
 
         if (state.query.trim()) {
@@ -970,7 +983,7 @@
                         <td>${escapeHtml(row.tradeValueDisplay)}</td>
                         <td>
                           <div>${escapeHtml(row.eventScoreDisplay || "0/10")}</div>
-                          <div class="tiny">${escapeHtml(row.primaryEventLabel || (row.catalystCount > 0 ? "事件群組" : "無"))}</div>
+                          <div class="tiny">${escapeHtml(row.eventConfirmation?.label || "無")} · ${escapeHtml(row.primaryEventLabel || (row.catalystCount > 0 ? "事件群組" : "無"))}</div>
                         </td>
                       </tr>
                     `,
@@ -1054,6 +1067,8 @@
               <span class="tag">焦點：${escapeHtml(detail.focus || "全市場掃描")}</span>
               <span class="tag">催化：${detail.catalystCount || 0}</span>
               <span class="tag">公告：${detail.announcementCount || 0}</span>
+              <span class="tag">事件確認：${escapeHtml(detail.eventConfirmation?.label || "無")}</span>
+              <span class="tag">事件時間：${escapeHtml(detail.daysSinceLatestEventDisplay || "無資料")}</span>
               ${detail.eventLabels?.slice(0, 4).map((label) => `<span class="tag">${escapeHtml(label)}</span>`).join("") || ""}
               ${detail.otcInstitutionNetDisplay ? `<span class="tag">櫃買法人：${escapeHtml(detail.otcInstitutionNetDisplay)}</span>` : ""}
             </div>
@@ -1456,6 +1471,20 @@
                   )
                   .join("")}
               </select>
+              <select id="eventWindowFilter">
+                ${dashboard.eventWindowOptions
+                  .map(
+                    (option) => `<option value="${escapeHtml(option.value)}" ${state.eventWindow === option.value ? "selected" : ""}>${escapeHtml(option.label)}</option>`,
+                  )
+                  .join("")}
+              </select>
+              <select id="eventConfirmationFilter">
+                ${dashboard.eventConfirmationOptions
+                  .map(
+                    (option) => `<option value="${escapeHtml(option.value)}" ${state.eventConfirmation === option.value ? "selected" : ""}>${escapeHtml(option.label)}</option>`,
+                  )
+                  .join("")}
+              </select>
               <select id="sortFilter">
                 <option value="signal" ${state.sort === "signal" ? "selected" : ""}>依訊號排序</option>
                 <option value="revenueYoY" ${state.sort === "revenueYoY" ? "selected" : ""}>依營收 YoY</option>
@@ -1534,6 +1563,16 @@
 
         document.getElementById("eventTypeFilter")?.addEventListener("change", (event) => {
           state.eventType = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("eventWindowFilter")?.addEventListener("change", (event) => {
+          state.eventWindow = event.target.value;
+          renderDashboard();
+        });
+
+        document.getElementById("eventConfirmationFilter")?.addEventListener("change", (event) => {
+          state.eventConfirmation = event.target.value;
           renderDashboard();
         });
 
