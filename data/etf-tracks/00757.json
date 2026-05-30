@@ -1,0 +1,190 @@
+{
+  "ticker": "00757",
+  "name": "00757 統一FANG+",
+  "issuer": "統一投信",
+  "fundCode": "36YTW",
+  "sourceUrl": "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=36YTW",
+  "snapshots": [
+    {
+      "snapshotDate": "2026-05-28",
+      "editTime": "2026-05-29T15:32:30",
+      "fetchedAt": "2026-05-30T13:45:13.775Z",
+      "navPerUnit": 133.58,
+      "outstandingUnits": 293494000,
+      "netAsset": 39204523061,
+      "holdings": [
+        {
+          "code": "MU US",
+          "name": "MICRON TECHNOLOGY INC",
+          "rawTranDate": "2026-05-28",
+          "shares": 206946,
+          "sharesDisplay": "206,946",
+          "amount": 191118769.92,
+          "amountDisplay": "1.91 億",
+          "weightPct": 15.31,
+          "weightDisplay": "15.31%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "AVGO US",
+          "name": "BROADCOM LTD",
+          "rawTranDate": "2026-05-28",
+          "shares": 302450,
+          "sharesDisplay": "302,450",
+          "amount": 129019121,
+          "amountDisplay": "1.29 億",
+          "weightPct": 10.34,
+          "weightDisplay": "10.34%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "AMZN US",
+          "name": "AMAZON.COM INC(亞馬遜公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 455297,
+          "sharesDisplay": "455,297",
+          "amount": 124751378,
+          "amountDisplay": "1.25 億",
+          "weightPct": 9.99,
+          "weightDisplay": "9.99%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "GOOGL US",
+          "name": "ALPHABET INC-CL A(Alphabet公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 310550,
+          "sharesDisplay": "310,550",
+          "amount": 121154871.5,
+          "amountDisplay": "1.21 億",
+          "weightPct": 9.71,
+          "weightDisplay": "9.71%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "AAPL US",
+          "name": "APPLE INC(蘋果公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 382304,
+          "sharesDisplay": "382,304",
+          "amount": 119473823.04,
+          "amountDisplay": "1.19 億",
+          "weightPct": 9.57,
+          "weightDisplay": "9.57%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "NVDA US",
+          "name": "NVIDIA CORP(輝達公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 529674,
+          "sharesDisplay": "529,674",
+          "amount": 113482654.5,
+          "amountDisplay": "1.13 億",
+          "weightPct": 9.09,
+          "weightDisplay": "9.09%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "MSFT US",
+          "name": "MICROSOFT CORP(微軟公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 243889,
+          "sharesDisplay": "243,889",
+          "amount": 104138164.11,
+          "amountDisplay": "1.04 億",
+          "weightPct": 8.34,
+          "weightDisplay": "8.34%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "META US",
+          "name": "META PLATFORMS INC(Meta平台公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 155199,
+          "sharesDisplay": "155,199",
+          "amount": 98596372.71,
+          "amountDisplay": "9859.64 萬",
+          "weightPct": 7.9,
+          "weightDisplay": "7.90%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "PLTR US",
+          "name": "PALANTIR TECHNOLOGIES INC-A",
+          "rawTranDate": "2026-05-28",
+          "shares": 625470,
+          "sharesDisplay": "625,470",
+          "amount": 89654869.8,
+          "amountDisplay": "8965.49 萬",
+          "weightPct": 7.18,
+          "weightDisplay": "7.18%",
+          "contractMonth": null,
+          "position": null
+        },
+        {
+          "code": "NFLX US",
+          "name": "NETFLIX INC(網飛公司)",
+          "rawTranDate": "2026-05-28",
+          "shares": 1009009,
+          "sharesDisplay": "1,009,009",
+          "amount": 87138017.24,
+          "amountDisplay": "8713.80 萬",
+          "weightPct": 6.98,
+          "weightDisplay": "6.98%",
+          "contractMonth": null,
+          "position": null
+        }
+      ],
+      "futures": [
+        {
+          "code": "FNG",
+          "name": "FANG+ 指數期貨",
+          "rawTranDate": "2026-05-28",
+          "shares": 770,
+          "sharesDisplay": "770",
+          "amount": 69671140,
+          "amountDisplay": "6967.11 萬",
+          "weightPct": 5.58,
+          "weightDisplay": "5.58%",
+          "contractMonth": "2026/06",
+          "position": "B"
+        }
+      ],
+      "balances": [
+        {
+          "code": "CASH",
+          "name": "現金",
+          "value": 947550975,
+          "valueDisplay": "9.48 億"
+        },
+        {
+          "code": "GDM",
+          "name": "期貨保證金",
+          "value": 27575556.08,
+          "valueDisplay": "2757.56 萬"
+        },
+        {
+          "code": "PAY",
+          "name": "申贖應付款",
+          "value": -332309724,
+          "valueDisplay": "-3.32 億"
+        },
+        {
+          "code": "APAR",
+          "name": "應收付證券款",
+          "value": 201210256,
+          "valueDisplay": "2.01 億"
+        }
+      ]
+    }
+  ]
+}

@@ -27,6 +27,69 @@ const ETF_TRACKS = [
   },
 ];
 
+const ETF_TRACK_REGISTRY = [
+  {
+    ticker: "00981A",
+    name: "00981A 主動統一台股增長",
+    shortName: "主動台股增長",
+    issuer: "統一投信",
+    category: "Taiwan Active",
+    fundCode: "49YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW",
+    historyFile: path.join(etfTrackDir, "00981A.json"),
+  },
+  {
+    ticker: "00403A",
+    name: "00403A 主動統一升級50",
+    shortName: "主動升級50",
+    issuer: "統一投信",
+    category: "Taiwan Active",
+    fundCode: "63YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=63YTW",
+    historyFile: path.join(etfTrackDir, "00403A.json"),
+  },
+  {
+    ticker: "00939",
+    name: "00939 統一台灣高息動能",
+    shortName: "台灣高息動能",
+    issuer: "統一投信",
+    category: "Taiwan Equity",
+    fundCode: "46YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=46YTW",
+    historyFile: path.join(etfTrackDir, "00939.json"),
+  },
+  {
+    ticker: "009811",
+    name: "009811 統一美國50",
+    shortName: "美國50",
+    issuer: "統一投信",
+    category: "US Equity",
+    fundCode: "50YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=50YTW",
+    historyFile: path.join(etfTrackDir, "009811.json"),
+  },
+  {
+    ticker: "00757",
+    name: "00757 統一FANG+",
+    shortName: "FANG+",
+    issuer: "統一投信",
+    category: "US Tech",
+    fundCode: "36YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=36YTW",
+    historyFile: path.join(etfTrackDir, "00757.json"),
+  },
+  {
+    ticker: "00988A",
+    name: "00988A 主動統一全球創新",
+    shortName: "主動全球創新",
+    issuer: "統一投信",
+    category: "Global Active",
+    fundCode: "61YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=61YTW",
+    historyFile: path.join(etfTrackDir, "00988A.json"),
+  },
+];
+
 const SOURCES = {
   twseRevenue: "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
   tpexRevenue: "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
@@ -556,7 +619,9 @@ function buildEtfTrackPayload(track, snapshots) {
   return {
     ticker: track.ticker,
     name: track.name,
+    shortName: track.shortName || track.name,
     issuer: track.issuer,
+    category: track.category || "ETF",
     fundCode: track.fundCode,
     sourceUrl: track.sourceUrl,
     historyLength: snapshots.length,
@@ -1434,7 +1499,10 @@ function buildAlerts(items) {
 }
 
 async function buildDashboardPayload() {
-  const etfTrackStates = await Promise.all(ETF_TRACKS.map((track) => loadEtfTrackState(track)));
+  const etfTrackStates = [];
+  for (const track of ETF_TRACK_REGISTRY) {
+    etfTrackStates.push(await loadEtfTrackState(track));
+  }
   const [
     twseRevenue,
     tpexRevenue,
@@ -1707,7 +1775,12 @@ async function buildDashboardPayload() {
       ),
       twseMajorDate: rocDateToIso(pickValue(twseMajor[0] || {}, ["發言日期", "出表日期"])),
       tpexMajorDate: rocDateToIso(pickValue(tpexMajor[0] || {}, ["發言日期", "Date"])),
-      etfTrackDate: etfTrackStates[0]?.dashboard.latestSnapshotDate || null,
+      etfTrackDate: etfTrackStates
+        .map((state) => state.dashboard.latestSnapshotDate)
+        .filter(Boolean)
+        .sort()
+        .at(-1) || null,
+      etfTrackCount: etfTrackStates.length,
       universeSize: sortedUniverse.length,
     },
     coverage: {
@@ -1769,7 +1842,7 @@ const { payload, etfTrackStates } = await buildDashboardPayload();
 await writeFile(dataFile, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 await Promise.all(
   etfTrackStates.map((state) => {
-    const track = ETF_TRACKS.find((item) => item.ticker === state.history.ticker);
+    const track = ETF_TRACK_REGISTRY.find((item) => item.ticker === state.history.ticker);
     return writeFile(track.historyFile, `${JSON.stringify(state.history, null, 2)}\n`, "utf8");
   }),
 );

@@ -334,8 +334,28 @@
         margin-top: 18px;
       }
 
+      .etf-overview-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
       .etf-card {
         padding: 18px;
+      }
+
+      .etf-overview-card {
+        padding: 16px;
+        cursor: pointer;
+        transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+      }
+
+      .etf-overview-card.active,
+      .etf-overview-card:hover {
+        border-color: rgba(78, 200, 255, 0.35);
+        background: rgba(78, 200, 255, 0.06);
+        transform: translateY(-1px);
       }
 
       .etf-stat-grid,
@@ -759,7 +779,8 @@
         .workspace,
         .strategy-grid,
         .footer-grid,
-        .etf-grid {
+        .etf-grid,
+        .etf-overview-grid {
           grid-template-columns: 1fr;
         }
 
@@ -796,7 +817,8 @@
         .hero-stat-grid,
         .detail-grid,
         .etf-stat-grid,
-        .etf-list-grid {
+        .etf-list-grid,
+        .etf-overview-grid {
           grid-template-columns: 1fr;
         }
 
@@ -829,6 +851,7 @@
         sort: "signal",
         query: "",
         selectedCode: null,
+        selectedEtf: "00981A",
       };
 
       const SORTERS = {
@@ -1046,8 +1069,54 @@
         `;
       }
 
+      function renderEtfOverview() {
+        const tracks = Object.values(dashboard.etfTracks || {});
+        if (!tracks.length) return "";
+
+        return `
+          <section class="etf-overview-grid">
+            ${tracks
+              .map((track) => {
+                const active = state.selectedEtf === track.ticker;
+                const overlapCount = track.watchlistOverlap?.totalCount || 0;
+                const overlapWeight = track.watchlistOverlap?.totalWeightDisplay || "--";
+                const topHolding = track.topHoldings?.[0];
+
+                return `
+                  <button class="panel etf-overview-card ${active ? "active" : ""}" data-etf="${escapeHtml(track.ticker)}">
+                    <div class="row-main">
+                      <div>
+                        <h2 class="section-title">${escapeHtml(track.ticker)}</h2>
+                        <strong>${escapeHtml(track.shortName || track.name)}</strong>
+                      </div>
+                      <span class="tone neutral">${escapeHtml(track.category || "ETF")}</span>
+                    </div>
+                    <div class="detail-block">
+                      <div class="row-sub muted">
+                        <span>${escapeHtml(track.latestSnapshotDate || "--")}</span>
+                        <span>${escapeHtml(track.netAssetDisplay || "--")}</span>
+                      </div>
+                      <div class="row-sub muted">
+                        <span>Top holding ${escapeHtml(topHolding?.code || "--")} ${escapeHtml(topHolding?.weightDisplay || "--")}</span>
+                        <span>Overlap ${escapeHtml(String(overlapCount))}</span>
+                      </div>
+                      <div class="row-sub muted">
+                        <span>${escapeHtml(track.operationTrail?.comparisonReady ? `Up ${track.operationTrail?.counts?.increased || 0} / Down ${track.operationTrail?.counts?.reduced || 0}` : "Collecting second snapshot")}</span>
+                        <span>${escapeHtml(overlapWeight)}</span>
+                      </div>
+                    </div>
+                  </button>
+                `;
+              })
+              .join("")}
+          </section>
+        `;
+      }
+
       function renderEtfTrack() {
-        const track = dashboard.etfTracks?.["00981A"];
+        const tracks = Object.values(dashboard.etfTracks || {});
+        if (!tracks.length) return "";
+        const track = dashboard.etfTracks?.[state.selectedEtf] || tracks[0];
         if (!track) return "";
 
         const buildSparkline = (points) => {
@@ -1152,7 +1221,7 @@
             <article class="panel etf-card">
               <div class="split-head">
                 <div>
-                  <h2 class="section-title">00981A Flow</h2>
+                  <h2 class="section-title">${escapeHtml(track.ticker)} Flow</h2>
                   <div class="tiny">
                     <a href="${escapeHtml(track.sourceUrl)}" target="_blank" rel="noreferrer">Official holdings snapshot</a>
                     ${track.latestSnapshotDate ? ` 繚 ${escapeHtml(track.latestSnapshotDate)}` : ""}
@@ -1764,6 +1833,10 @@
 
       function renderDashboard() {
         const rows = getFilteredRows();
+        const etfKeys = Object.keys(dashboard.etfTracks || {});
+        if (!state.selectedEtf || !dashboard.etfTracks?.[state.selectedEtf]) {
+          state.selectedEtf = etfKeys[0] || null;
+        }
         if (!state.selectedCode || !rows.some((row) => row.code === state.selectedCode)) {
           state.selectedCode = rows[0]?.code || dashboard.boards.topSignal[0]?.code || null;
         }
@@ -1786,7 +1859,8 @@
                 <span class="pill">資料月份 ${escapeHtml(dashboard.sourceStatus.monthlyRevenueMonth)}</span>
                 <span class="pill">全市場 ${dashboard.coverage.universeTotal} 檔</span>
                 <span class="pill">核心觀察池 ${dashboard.coverage.watchlistCount} 檔</span>
-                <span class="pill">00981A ${escapeHtml(dashboard.sourceStatus.etfTrackDate || "--")}</span>
+                <span class="pill">ETF ${escapeHtml(String(dashboard.sourceStatus.etfTrackCount || 0))} 檔</span>
+                <span class="pill">ETF 更新 ${escapeHtml(dashboard.sourceStatus.etfTrackDate || "--")}</span>
                 <span class="pill">最近更新 ${escapeHtml(formatTime(dashboard.generatedAt))}</span>
               </div>
             </div>
@@ -1854,6 +1928,7 @@
             </article>
           </section>
 
+          ${renderEtfOverview()}
           ${renderEtfTrack()}
 
           <section class="panel controls">
@@ -1951,6 +2026,13 @@
         document.querySelectorAll("[data-code]").forEach((node) => {
           node.addEventListener("click", () => {
             state.selectedCode = node.getAttribute("data-code");
+            renderDashboard();
+          });
+        });
+
+        document.querySelectorAll("[data-etf]").forEach((node) => {
+          node.addEventListener("click", () => {
+            state.selectedEtf = node.getAttribute("data-etf");
             renderDashboard();
           });
         });
