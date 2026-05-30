@@ -1,4 +1,7 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -7,6 +10,22 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const dataDir = path.join(rootDir, "data");
 const dataFile = path.join(dataDir, "dashboard.json");
+const etfTrackDir = path.join(dataDir, "etf-tracks");
+const execFileAsync = promisify(execFile);
+const curlBinary = process.platform === "win32" ? "curl.exe" : "curl";
+const browserUserAgent =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36";
+
+const ETF_TRACKS = [
+  {
+    ticker: "00981A",
+    name: "00981A 主動統一台股增長",
+    issuer: "統一投信",
+    fundCode: "49YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW",
+    historyFile: path.join(etfTrackDir, "00981A.json"),
+  },
+];
 
 const SOURCES = {
   twseRevenue: "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
@@ -223,6 +242,375 @@ async function fetchJson(url) {
   }
 
   return response.json();
+}
+
+async function fetchHtmlWithCurl(url) {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "tw-chain-terminal-"));
+  const cookieFile = path.join(tempDir, "cookies.txt");
+
+  try {
+    const { stdout } = await execFileAsync(
+      curlBinary,
+      [
+        "-sS",
+        "-L",
+        "--compressed",
+        "--max-redirs",
+        "10",
+        "-A",
+        browserUserAgent,
+        "-c",
+        cookieFile,
+        "-b",
+        cookieFile,
+        url,
+      ],
+      {
+        maxBuffer: 24 * 1024 * 1024,
+      },
+    );
+    return stdout;
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+}
+
+async function readJsonFileOr(filePath, fallbackValue) {
+  try {
+    const contents = await readFile(filePath, "utf8");
+    return JSON.parse(contents);
+  } catch (error) {
+    if (error && error.code === "ENOENT") return fallbackValue;
+    throw error;
+  }
+}
+
+function decodeHtmlEntities(value) {
+  if (value === null || value === undefined) return "";
+
+  let output = String(value);
+  for (let index = 0; index < 5; index += 1) {
+    const decoded = output
+      .replaceAll("&amp;", "&")
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#39;", "'")
+      .replaceAll("&lt;", "<")
+      .replaceAll("&gt;", ">")
+      .replaceAll("&nbsp;", " ");
+
+    if (decoded === output) break;
+    output = decoded;
+  }
+
+  return output;
+}
+
+function extractEmbeddedJson(html, id) {
+  const escapedId = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(`<div id="${escapedId}" data-content="([\\s\\S]*?)" style="display:none;"><\\/div>`);
+  const match = html.match(regex);
+  if (!match) {
+    throw new Error(`Missing embedded payload: ${id}`);
+  }
+  return JSON.parse(decodeHtmlEntities(match[1]));
+}
+
+function formatHoldingWeight(value) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return "--";
+  return `${value.toFixed(2)}%`;
+}
+
+function formatWeightChange(value) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return "--";
+  return `${value > 0 ? "+" : value < 0 ? "" : ""}${value.toFixed(2)} pt`;
+}
+
+function formatShareCount(value) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return "--";
+  return Math.round(value).toLocaleString("zh-TW");
+}
+
+function formatShareDelta(value) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return "--";
+  return `${value > 0 ? "+" : value < 0 ? "" : ""}${Math.round(value).toLocaleString("zh-TW")}`;
+}
+
+function normalizeEtfDetail(detail) {
+  const weightPct = Number((normalizeNumber(detail.NavRate) || 0).toFixed(2));
+  const shares = normalizeNumber(detail.Share) || 0;
+  const amount = normalizeNumber(detail.Amount) || 0;
+  const rawTranDate = String(detail.TranDate || "").slice(0, 10) || null;
+
+  return {
+    code: String(detail.DetailCode || "").trim(),
+    name: String(detail.DetailName || "").trim(),
+    rawTranDate,
+    shares,
+    sharesDisplay: formatShareCount(shares),
+    amount,
+    amountDisplay: formatLargeNumber(amount),
+    weightPct,
+    weightDisplay: formatHoldingWeight(weightPct),
+    contractMonth: String(detail.MTH || "").trim() || null,
+    position: String(detail.Position || "").trim() || null,
+  };
+}
+
+function normalizeEtfBalance(asset) {
+  const value = normalizeNumber(asset?.Value);
+  return {
+    code: String(asset?.AssetCode || "").trim(),
+    name: String(asset?.AssetName || "").trim(),
+    value,
+    valueDisplay: formatLargeNumber(value),
+  };
+}
+
+function compareEtfHoldings(currentHoldings, previousHoldings) {
+  const currentMap = new Map(currentHoldings.map((holding) => [holding.code, holding]));
+  const previousMap = new Map(previousHoldings.map((holding) => [holding.code, holding]));
+
+  const added = [];
+  const removed = [];
+  const increased = [];
+  const reduced = [];
+  const unchanged = [];
+
+  for (const current of currentHoldings) {
+    const previous = previousMap.get(current.code);
+    if (!previous) {
+      added.push({
+        code: current.code,
+        name: current.name,
+        currentShares: current.shares,
+        currentSharesDisplay: current.sharesDisplay,
+        currentWeightPct: current.weightPct,
+        currentWeightDisplay: current.weightDisplay,
+      });
+      continue;
+    }
+
+    const shareDelta = Number((current.shares - previous.shares).toFixed(0));
+    const weightDelta = Number((current.weightPct - previous.weightPct).toFixed(2));
+    const entry = {
+      code: current.code,
+      name: current.name,
+      currentShares: current.shares,
+      currentSharesDisplay: current.sharesDisplay,
+      previousShares: previous.shares,
+      previousSharesDisplay: previous.sharesDisplay,
+      shareDelta,
+      shareDeltaDisplay: formatShareDelta(shareDelta),
+      currentWeightPct: current.weightPct,
+      currentWeightDisplay: current.weightDisplay,
+      previousWeightPct: previous.weightPct,
+      previousWeightDisplay: previous.weightDisplay,
+      weightDelta,
+      weightDeltaDisplay: formatWeightChange(weightDelta),
+    };
+
+    if (shareDelta > 0) {
+      increased.push(entry);
+    } else if (shareDelta < 0) {
+      reduced.push(entry);
+    } else {
+      unchanged.push(entry);
+    }
+  }
+
+  for (const previous of previousHoldings) {
+    if (currentMap.has(previous.code)) continue;
+    removed.push({
+      code: previous.code,
+      name: previous.name,
+      previousShares: previous.shares,
+      previousSharesDisplay: previous.sharesDisplay,
+      previousWeightPct: previous.weightPct,
+      previousWeightDisplay: previous.weightDisplay,
+    });
+  }
+
+  const byCurrentWeight = (left, right) => (right.currentWeightPct ?? 0) - (left.currentWeightPct ?? 0);
+  const byPreviousWeight = (left, right) => (right.previousWeightPct ?? 0) - (left.previousWeightPct ?? 0);
+  const byAbsoluteWeightDelta = (left, right) =>
+    Math.abs(right.weightDelta ?? 0) - Math.abs(left.weightDelta ?? 0) ||
+    Math.abs(right.shareDelta ?? 0) - Math.abs(left.shareDelta ?? 0);
+
+  added.sort(byCurrentWeight);
+  removed.sort(byPreviousWeight);
+  increased.sort(byAbsoluteWeightDelta);
+  reduced.sort(byAbsoluteWeightDelta);
+  unchanged.sort(byCurrentWeight);
+
+  return {
+    added,
+    removed,
+    increased,
+    reduced,
+    unchanged,
+    topWeightUp: [...increased].sort((left, right) => (right.weightDelta ?? 0) - (left.weightDelta ?? 0)).slice(0, 8),
+    topWeightDown: [...reduced].sort((left, right) => (left.weightDelta ?? 0) - (right.weightDelta ?? 0)).slice(0, 8),
+  };
+}
+
+function buildEtfTrackPayload(track, snapshots) {
+  const latestSnapshot = snapshots.at(-1) || null;
+  const previousSnapshot = snapshots.length > 1 ? snapshots.at(-2) : null;
+  const comparison = previousSnapshot
+    ? compareEtfHoldings(latestSnapshot?.holdings || [], previousSnapshot?.holdings || [])
+    : {
+        added: [],
+        removed: [],
+        increased: [],
+        reduced: [],
+        unchanged: [],
+        topWeightUp: [],
+        topWeightDown: [],
+      };
+
+  return {
+    ticker: track.ticker,
+    name: track.name,
+    issuer: track.issuer,
+    fundCode: track.fundCode,
+    sourceUrl: track.sourceUrl,
+    historyLength: snapshots.length,
+    latestSnapshotDate: latestSnapshot?.snapshotDate || null,
+    latestEditTime: latestSnapshot?.editTime || null,
+    latestFetchedAt: latestSnapshot?.fetchedAt || null,
+    previousSnapshotDate: previousSnapshot?.snapshotDate || null,
+    navPerUnit: latestSnapshot?.navPerUnit ?? null,
+    navPerUnitDisplay:
+      latestSnapshot?.navPerUnit === null || latestSnapshot?.navPerUnit === undefined
+        ? "--"
+        : latestSnapshot.navPerUnit.toFixed(2),
+    outstandingUnits: latestSnapshot?.outstandingUnits ?? null,
+    outstandingUnitsDisplay: formatShareCount(latestSnapshot?.outstandingUnits ?? null),
+    netAsset: latestSnapshot?.netAsset ?? null,
+    netAssetDisplay: formatLargeNumber(latestSnapshot?.netAsset ?? null),
+    holdingsCount: latestSnapshot?.holdings.length || 0,
+    futuresCount: latestSnapshot?.futures.length || 0,
+    topHoldings: (latestSnapshot?.holdings || []).slice(0, 10),
+    futures: latestSnapshot?.futures || [],
+    balances: latestSnapshot?.balances || [],
+    recentSnapshotDates: snapshots.slice(-10).map((snapshot) => snapshot.snapshotDate),
+    operationTrail: {
+      comparisonReady: Boolean(previousSnapshot),
+      compareDate: latestSnapshot?.snapshotDate || null,
+      baseDate: previousSnapshot?.snapshotDate || null,
+      added: comparison.added.slice(0, 8),
+      removed: comparison.removed.slice(0, 8),
+      increased: comparison.increased.slice(0, 8),
+      reduced: comparison.reduced.slice(0, 8),
+      topWeightUp: comparison.topWeightUp,
+      topWeightDown: comparison.topWeightDown,
+      counts: {
+        added: comparison.added.length,
+        removed: comparison.removed.length,
+        increased: comparison.increased.length,
+        reduced: comparison.reduced.length,
+        unchanged: comparison.unchanged.length,
+      },
+    },
+  };
+}
+
+async function fetchEtfTrack(track) {
+  const html = await fetchHtmlWithCurl(track.sourceUrl);
+  const assets = extractEmbeddedJson(html, "DataAsset");
+  const stockAsset = assets.find((asset) => String(asset.AssetCode || "").toUpperCase() === "ST") || null;
+  const futuresAsset = assets.find((asset) => String(asset.AssetCode || "").toUpperCase() === "GD") || null;
+  const navAsset = assets.find((asset) => String(asset.AssetCode || "").toUpperCase() === "NAV") || null;
+  const unitAsset = assets.find((asset) => String(asset.AssetCode || "").toUpperCase() === "OUT_UNIT") || null;
+  const navPerUnitAsset = assets.find((asset) => String(asset.AssetCode || "").toUpperCase() === "P_UNIT") || null;
+
+  const holdings = (stockAsset?.Details || [])
+    .map(normalizeEtfDetail)
+    .filter((detail) => detail.code)
+    .sort((left, right) => right.weightPct - left.weightPct || right.amount - left.amount);
+  const futures = (futuresAsset?.Details || [])
+    .map(normalizeEtfDetail)
+    .filter((detail) => detail.code)
+    .sort((left, right) => right.weightPct - left.weightPct || right.amount - left.amount);
+  const balances = assets
+    .filter((asset) => ["CASH", "GDM", "PAY", "APAR", "RP"].includes(String(asset.AssetCode || "").toUpperCase()))
+    .map(normalizeEtfBalance);
+  const snapshotDate =
+    holdings[0]?.rawTranDate ||
+    futures[0]?.rawTranDate ||
+    String(stockAsset?.EditDate || futuresAsset?.EditDate || navAsset?.EditDate || "").slice(0, 10) ||
+    null;
+
+  const snapshot = {
+    snapshotDate,
+    editTime:
+      String(stockAsset?.EditDate || futuresAsset?.EditDate || navAsset?.EditDate || "").trim() || null,
+    fetchedAt: new Date().toISOString(),
+    navPerUnit: normalizeNumber(navPerUnitAsset?.Value),
+    outstandingUnits: normalizeNumber(unitAsset?.Value),
+    netAsset: normalizeNumber(navAsset?.Value),
+    holdings,
+    futures,
+    balances,
+  };
+
+  return {
+    track,
+    snapshot,
+  };
+}
+
+async function loadEtfTrackState(track) {
+  const existing = await readJsonFileOr(track.historyFile, {
+    ticker: track.ticker,
+    name: track.name,
+    issuer: track.issuer,
+    fundCode: track.fundCode,
+    sourceUrl: track.sourceUrl,
+    snapshots: [],
+  });
+  let latest = null;
+
+  try {
+    latest = await fetchEtfTrack(track);
+  } catch (error) {
+    if ((existing.snapshots || []).length === 0) {
+      throw error;
+    }
+
+    return {
+      history: existing,
+      dashboard: {
+        ...buildEtfTrackPayload(track, existing.snapshots || []),
+        staleReason: error.message,
+      },
+    };
+  }
+
+  const snapshots = [...(existing.snapshots || [])];
+  const existingIndex = snapshots.findIndex((snapshot) => snapshot.snapshotDate === latest.snapshot.snapshotDate);
+
+  if (existingIndex >= 0) {
+    snapshots.splice(existingIndex, 1, latest.snapshot);
+  } else {
+    snapshots.push(latest.snapshot);
+  }
+
+  snapshots.sort((left, right) => String(left.snapshotDate).localeCompare(String(right.snapshotDate)));
+  const trimmedSnapshots = snapshots.slice(-180);
+  const history = {
+    ticker: track.ticker,
+    name: track.name,
+    issuer: track.issuer,
+    fundCode: track.fundCode,
+    sourceUrl: track.sourceUrl,
+    snapshots: trimmedSnapshots,
+  };
+
+  return {
+    history,
+    dashboard: buildEtfTrackPayload(track, trimmedSnapshots),
+  };
 }
 
 function parseMajorEntry(entry, market) {
@@ -958,6 +1346,7 @@ function buildAlerts(items) {
 }
 
 async function buildDashboardPayload() {
+  const etfTrackStates = await Promise.all(ETF_TRACKS.map((track) => loadEtfTrackState(track)));
   const [
     twseRevenue,
     tpexRevenue,
@@ -1230,6 +1619,7 @@ async function buildDashboardPayload() {
       ),
       twseMajorDate: rocDateToIso(pickValue(twseMajor[0] || {}, ["發言日期", "出表日期"])),
       tpexMajorDate: rocDateToIso(pickValue(tpexMajor[0] || {}, ["發言日期", "Date"])),
+      etfTrackDate: etfTrackStates[0]?.dashboard.latestSnapshotDate || null,
       universeSize: sortedUniverse.length,
     },
     coverage: {
@@ -1273,15 +1663,26 @@ async function buildDashboardPayload() {
       semiconductor: buildStrategy("semiconductor", itemsByCode),
       nonElectronics: buildStrategy("nonElectronics", itemsByCode),
     },
+    etfTracks: Object.fromEntries(etfTrackStates.map((state) => [state.history.ticker, state.dashboard])),
     leaderboard: sortedUniverse.map(compactRow),
     detailByCode: Object.fromEntries(detailEntries),
     announcements: majorEntries.filter((entry) => !entry.isRoutine).slice(0, 32),
   };
 
-  return payload;
+  return {
+    payload,
+    etfTrackStates,
+  };
 }
 
 await mkdir(dataDir, { recursive: true });
-const payload = await buildDashboardPayload();
+await mkdir(etfTrackDir, { recursive: true });
+const { payload, etfTrackStates } = await buildDashboardPayload();
 await writeFile(dataFile, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+await Promise.all(
+  etfTrackStates.map((state) => {
+    const track = ETF_TRACKS.find((item) => item.ticker === state.history.ticker);
+    return writeFile(track.historyFile, `${JSON.stringify(state.history, null, 2)}\n`, "utf8");
+  }),
+);
 console.log(`wrote ${dataFile}`);

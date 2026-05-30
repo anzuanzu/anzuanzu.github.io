@@ -327,6 +327,71 @@
         margin-top: 18px;
       }
 
+      .etf-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.9fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .etf-card {
+        padding: 18px;
+      }
+
+      .etf-stat-grid,
+      .etf-list-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .etf-stat-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: 16px;
+      }
+
+      .etf-list-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 18px;
+      }
+
+      .etf-stat {
+        padding: 14px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .etf-stat strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      .etf-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+      }
+
+      .etf-table th,
+      .etf-table td {
+        text-align: left;
+        padding: 10px 8px;
+        border-top: 1px solid var(--line-2);
+        font-size: 0.88rem;
+      }
+
+      .etf-table th {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      .etf-caption {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
       .board {
         padding: 16px;
       }
@@ -660,12 +725,17 @@
         .hero,
         .workspace,
         .strategy-grid,
-        .footer-grid {
+        .footer-grid,
+        .etf-grid {
           grid-template-columns: 1fr;
         }
 
         .boards,
         .market-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .etf-stat-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
@@ -691,7 +761,9 @@
         .boards,
         .market-grid,
         .hero-stat-grid,
-        .detail-grid {
+        .detail-grid,
+        .etf-stat-grid,
+        .etf-list-grid {
           grid-template-columns: 1fr;
         }
 
@@ -937,6 +1009,191 @@
                 `;
               })
               .join("")}
+          </section>
+        `;
+      }
+
+      function renderEtfTrack() {
+        const track = dashboard.etfTracks?.["00981A"];
+        if (!track) return "";
+
+        const renderHoldings = (rows, mode) => {
+          if (!rows?.length) {
+            return `<div class="empty">No changes in this bucket.</div>`;
+          }
+
+          return `
+            <ul class="mini-list">
+              ${rows
+                .map((row) => {
+                  if (mode === "new") {
+                    return `
+                      <li class="mini-item">
+                        <div class="row-main">
+                          <div class="stock-head">
+                            <span class="code">${escapeHtml(row.code)}</span>
+                            <strong>${escapeHtml(row.name)}</strong>
+                          </div>
+                          <span class="tone positive">${escapeHtml(row.currentWeightDisplay)}</span>
+                        </div>
+                        <div class="row-sub muted">
+                          <span>New position</span>
+                          <span>${escapeHtml(row.currentSharesDisplay)} shares</span>
+                        </div>
+                      </li>
+                    `;
+                  }
+
+                  if (mode === "removed") {
+                    return `
+                      <li class="mini-item">
+                        <div class="row-main">
+                          <div class="stock-head">
+                            <span class="code">${escapeHtml(row.code)}</span>
+                            <strong>${escapeHtml(row.name)}</strong>
+                          </div>
+                          <span class="tone negative">${escapeHtml(row.previousWeightDisplay)}</span>
+                        </div>
+                        <div class="row-sub muted">
+                          <span>Removed</span>
+                          <span>${escapeHtml(row.previousSharesDisplay)} shares</span>
+                        </div>
+                      </li>
+                    `;
+                  }
+
+                  return `
+                    <li class="mini-item">
+                      <div class="row-main">
+                        <div class="stock-head">
+                          <span class="code">${escapeHtml(row.code)}</span>
+                          <strong>${escapeHtml(row.name)}</strong>
+                        </div>
+                        <span class="tone ${mode === "increase" ? "positive" : "negative"}">${escapeHtml(row.weightDeltaDisplay)}</span>
+                      </div>
+                      <div class="row-sub muted">
+                        <span>${escapeHtml(row.shareDeltaDisplay)} shares</span>
+                        <span>${escapeHtml(row.currentWeightDisplay)} vs ${escapeHtml(row.previousWeightDisplay)}</span>
+                      </div>
+                    </li>
+                  `;
+                })
+                .join("")}
+            </ul>
+          `;
+        };
+
+        return `
+          <section class="etf-grid">
+            <article class="panel etf-card">
+              <div class="split-head">
+                <div>
+                  <h2 class="section-title">00981A Flow</h2>
+                  <div class="tiny">
+                    <a href="${escapeHtml(track.sourceUrl)}" target="_blank" rel="noreferrer">Official holdings snapshot</a>
+                    ${track.latestSnapshotDate ? ` 繚 ${escapeHtml(track.latestSnapshotDate)}` : ""}
+                  </div>
+                </div>
+                <span class="tone neutral">${escapeHtml(track.name)}</span>
+              </div>
+              <p class="etf-caption">
+                Daily trail is based on the latest disclosed official holdings from ${escapeHtml(track.issuer)}.
+                ${track.staleReason ? ` Last fetch reused cached data: ${escapeHtml(track.staleReason)}` : ""}
+              </p>
+              <div class="etf-stat-grid">
+                <div class="etf-stat">
+                  <span class="tiny">Snapshot date</span>
+                  <strong>${escapeHtml(track.latestSnapshotDate || "--")}</strong>
+                </div>
+                <div class="etf-stat">
+                  <span class="tiny">NAV / unit</span>
+                  <strong>${escapeHtml(track.navPerUnitDisplay || "--")}</strong>
+                </div>
+                <div class="etf-stat">
+                  <span class="tiny">Holdings count</span>
+                  <strong>${escapeHtml(String(track.holdingsCount || 0))}</strong>
+                </div>
+                <div class="etf-stat">
+                  <span class="tiny">Net asset</span>
+                  <strong>${escapeHtml(track.netAssetDisplay || "--")}</strong>
+                </div>
+              </div>
+              <div class="detail-block">
+                <div class="split-head">
+                  <h2 class="section-title">Top holdings</h2>
+                  <span class="tiny">${escapeHtml(track.previousSnapshotDate || "First snapshot")}</span>
+                </div>
+                <table class="etf-table">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Name</th>
+                      <th>Weight</th>
+                      <th>Shares</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${track.topHoldings
+                      .map(
+                        (row) => `
+                          <tr>
+                            <td class="code">${escapeHtml(row.code)}</td>
+                            <td>${escapeHtml(row.name)}</td>
+                            <td>${escapeHtml(row.weightDisplay)}</td>
+                            <td>${escapeHtml(row.sharesDisplay)}</td>
+                          </tr>
+                        `,
+                      )
+                      .join("")}
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="panel etf-card">
+              <div class="split-head">
+                <div>
+                  <h2 class="section-title">Operation trail</h2>
+                  <div class="tiny">
+                    ${escapeHtml(track.operationTrail?.baseDate || "No prior snapshot")} -> ${escapeHtml(track.operationTrail?.compareDate || "--")}
+                  </div>
+                </div>
+                <span class="tone neutral">
+                  ${escapeHtml(
+                    `+${track.operationTrail?.counts?.added || 0} / -${track.operationTrail?.counts?.removed || 0} / up ${track.operationTrail?.counts?.increased || 0} / down ${track.operationTrail?.counts?.reduced || 0}`,
+                  )}
+                </span>
+              </div>
+              <div class="etf-list-grid">
+                <div class="detail-block" style="margin-top:0;padding-top:0;border-top:none;">
+                  <div class="split-head">
+                    <h2 class="section-title">Increased</h2>
+                    <span class="tiny">${track.operationTrail?.counts?.increased || 0}</span>
+                  </div>
+                  ${renderHoldings(track.operationTrail?.increased || [], "increase")}
+                </div>
+                <div class="detail-block" style="margin-top:0;padding-top:0;border-top:none;">
+                  <div class="split-head">
+                    <h2 class="section-title">Reduced</h2>
+                    <span class="tiny">${track.operationTrail?.counts?.reduced || 0}</span>
+                  </div>
+                  ${renderHoldings(track.operationTrail?.reduced || [], "reduce")}
+                </div>
+                <div class="detail-block" style="margin-top:0;">
+                  <div class="split-head">
+                    <h2 class="section-title">New adds</h2>
+                    <span class="tiny">${track.operationTrail?.counts?.added || 0}</span>
+                  </div>
+                  ${renderHoldings(track.operationTrail?.added || [], "new")}
+                </div>
+                <div class="detail-block" style="margin-top:0;">
+                  <div class="split-head">
+                    <h2 class="section-title">Removed</h2>
+                    <span class="tiny">${track.operationTrail?.counts?.removed || 0}</span>
+                  </div>
+                  ${renderHoldings(track.operationTrail?.removed || [], "removed")}
+                </div>
+              </div>
+            </article>
           </section>
         `;
       }
@@ -1366,6 +1623,7 @@
                 <span class="pill">資料月份 ${escapeHtml(dashboard.sourceStatus.monthlyRevenueMonth)}</span>
                 <span class="pill">全市場 ${dashboard.coverage.universeTotal} 檔</span>
                 <span class="pill">核心觀察池 ${dashboard.coverage.watchlistCount} 檔</span>
+                <span class="pill">00981A ${escapeHtml(dashboard.sourceStatus.etfTrackDate || "--")}</span>
                 <span class="pill">最近更新 ${escapeHtml(formatTime(dashboard.generatedAt))}</span>
               </div>
             </div>
@@ -1432,6 +1690,8 @@
                 .join(" · ")}</div>
             </article>
           </section>
+
+          ${renderEtfTrack()}
 
           <section class="panel controls">
             <div class="preset-row">
