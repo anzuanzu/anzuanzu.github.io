@@ -3,128 +3,674 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>台股鏈式觀察儀表板</title>
+    <title>TW Chain Terminal</title>
     <style>
       :root {
-        --bg: #f3efe3;
-        --bg-deep: #14342d;
-        --surface: rgba(255, 252, 246, 0.84);
-        --text: #13231f;
-        --muted: #53635e;
-        --line: rgba(19, 35, 31, 0.12);
-        --accent: #cb5c2b;
-        --good: #147659;
-        --warn: #b17a12;
-        --bad: #a43a2b;
-        --shadow: 0 24px 80px rgba(15, 39, 34, 0.12);
-        --radius-xl: 28px;
+        --bg: #03111b;
+        --bg-2: #071a29;
+        --panel: #0b2030;
+        --panel-2: #0e2637;
+        --line: rgba(121, 163, 196, 0.18);
+        --line-2: rgba(121, 163, 196, 0.08);
+        --text: #dce8f6;
+        --muted: #83a0bd;
+        --good: #2fe38f;
+        --good-bg: rgba(47, 227, 143, 0.12);
+        --bad: #ff5f6d;
+        --bad-bg: rgba(255, 95, 109, 0.14);
+        --warn: #ffc857;
+        --warn-bg: rgba(255, 200, 87, 0.14);
+        --accent: #55c2ff;
+        --accent-2: #7f8cff;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+        --radius-xl: 24px;
         --radius-lg: 18px;
         --radius-md: 12px;
       }
-      * { box-sizing: border-box; }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
       body {
         margin: 0;
         color: var(--text);
         font-family: "IBM Plex Sans", "Noto Sans TC", "Segoe UI", sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(203, 92, 43, 0.18), transparent 24rem),
-          radial-gradient(circle at top right, rgba(20, 118, 89, 0.2), transparent 28rem),
-          linear-gradient(180deg, #f8f3e9 0%, #efe8d8 100%);
+          radial-gradient(circle at top left, rgba(85, 194, 255, 0.18), transparent 28rem),
+          radial-gradient(circle at right 10% top 20%, rgba(127, 140, 255, 0.14), transparent 24rem),
+          linear-gradient(180deg, #04111a 0%, #020b11 100%);
       }
-      .shell { max-width: 1480px; margin: 0 auto; padding: 36px 20px 56px; }
-      .hero, .section, .market-card, .summary-panel, .idea-card, .rule-card, .announcement-card { backdrop-filter: blur(14px); }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 100% 4px;
+        opacity: 0.25;
+      }
+
+      .shell {
+        max-width: 1580px;
+        margin: 0 auto;
+        padding: 22px 18px 56px;
+      }
+
+      .ticker {
+        display: flex;
+        gap: 12px;
+        overflow: auto;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(5, 18, 28, 0.84);
+        box-shadow: var(--shadow);
+      }
+
+      .ticker-item {
+        white-space: nowrap;
+        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      .ticker-item strong {
+        color: var(--text);
+      }
+
+      .hero,
+      .section,
+      .summary-box,
+      .idea-card,
+      .announcement-card,
+      .market-card {
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(11, 32, 48, 0.96), rgba(8, 24, 36, 0.96));
+        box-shadow: var(--shadow);
+      }
+
       .hero {
-        display: grid; grid-template-columns: 1.6fr 0.9fr; gap: 28px; padding: 34px;
+        display: grid;
+        grid-template-columns: 1.4fr 0.95fr;
+        gap: 18px;
+        margin-top: 16px;
+        padding: 24px;
         border-radius: var(--radius-xl);
-        background: linear-gradient(135deg, rgba(255, 251, 242, 0.96), rgba(255, 245, 228, 0.8)), rgba(255, 252, 246, 0.84);
-        box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,.5);
       }
-      .eyebrow { margin: 0 0 10px; font-size: .85rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
-      h1,h2,h3 { margin: 0; }
-      h1 { font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1; font-family: "Noto Serif TC", serif; }
-      .hero-text,.section-head p,.status-text,.generated-at,.summary-panel p,.summary-panel li,.rule-card li,.announcement-card p,.minor,.idea-card p { color: var(--muted); }
-      .hero-text { max-width: 48rem; margin-top: 16px; font-size: 1rem; line-height: 1.7; }
+
+      .eyebrow,
+      .terminal-tag,
+      th {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .eyebrow,
+      .terminal-tag {
+        margin: 0 0 10px;
+        font-size: 0.78rem;
+        color: var(--accent);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 0.95;
+        font-weight: 700;
+      }
+
+      .hero-copy p,
+      .section-head p,
+      .summary-box p,
+      .idea-card p,
+      .announcement-card p,
+      .minor,
+      .hint {
+        color: var(--muted);
+      }
+
+      .hero-copy p {
+        max-width: 60rem;
+        margin: 14px 0 0;
+        line-height: 1.7;
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 14px;
+      }
+
       .hero-actions {
-        display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; gap:12px; padding:24px;
-        border-radius:var(--radius-lg); background:linear-gradient(180deg, rgba(20,52,45,.98), rgba(18,44,39,.92)); color:#f8f1e1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: rgba(5, 16, 25, 0.88);
       }
-      .primary-button,.tab-button { border:0; cursor:pointer; transition:transform .18s ease, opacity .18s ease, background .18s ease; }
-      .primary-button:hover,.tab-button:hover { transform: translateY(-1px); }
-      .primary-button { padding:14px 20px; border-radius:999px; background:linear-gradient(135deg,#f0b54a,#cb5c2b); color:#fffef8; font-weight:700; }
-      .layout { display:grid; gap:24px; margin-top:24px; }
-      .section { padding:28px; border-radius:var(--radius-xl); background:var(--surface); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.45); }
-      .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:20px; }
-      .section-head h2 { font-family:"Noto Serif TC",serif; font-size:1.8rem; }
-      .section-head p { max-width:56rem; margin:8px 0 0; line-height:1.65; }
-      .market-grid,.ideas-grid,.rules-grid,.list-summary { display:grid; gap:16px; }
-      .market-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
-      .market-card,.summary-panel,.idea-card,.rule-card,.announcement-card { padding:18px; border-radius:var(--radius-lg); background:rgba(255,250,240,.92); border:1px solid var(--line); }
-      .market-card .value { font-size:2rem; font-weight:700; font-variant-numeric:tabular-nums; }
-      .up,.tone-strong,.tone-positive { color: var(--good); }
-      .down,.tone-negative { color: var(--bad); }
-      .flat,.tone-neutral { color: var(--warn); }
-      .tabs { display:inline-flex; padding:4px; border-radius:999px; background:rgba(19,35,31,.08); }
-      .tab-button { padding:10px 16px; border-radius:999px; background:transparent; color:var(--text); font-weight:700; }
-      .tab-button.is-active { background:var(--bg-deep); color:#fffaf0; }
-      .list-summary { grid-template-columns: 1.2fr .8fr; margin-bottom:18px; }
-      .ideas-grid { grid-template-columns: repeat(3, minmax(0,1fr)); margin-bottom:18px; }
-      .table-wrap { overflow:auto; border-radius:var(--radius-lg); border:1px solid var(--line); }
-      table { width:100%; border-collapse:collapse; min-width:1180px; background:rgba(255,252,246,.9); }
-      thead { background: rgba(20,52,45,.06); }
-      th,td { padding:14px 12px; text-align:left; vertical-align:top; border-bottom:1px solid rgba(19,35,31,.08); }
-      th { font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
-      tbody tr:hover { background:rgba(20,118,89,.05); }
-      .company-cell { display:grid; gap:4px; }
-      .company-code { font-size:.85rem; color:var(--muted); }
-      .signal-pill { display:inline-flex; align-items:center; justify-content:center; min-width:5.6rem; padding:6px 10px; border-radius:999px; font-size:.84rem; font-weight:700; }
-      .signal-pill.tone-strong { background:rgba(20,118,89,.12); }
-      .signal-pill.tone-positive { background:rgba(20,118,89,.08); }
-      .signal-pill.tone-neutral { background:rgba(177,122,18,.12); }
-      .signal-pill.tone-negative { background:rgba(164,58,43,.12); }
-      .announcement-list,.stack { display:grid; gap:12px; }
-      .minor-row { display:flex; justify-content:space-between; gap:10px; }
-      .announcement-meta { margin-bottom:6px; font-size:.82rem; color:var(--muted); }
-      .rules-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-      .loading,.empty,.error-banner { padding:18px; border-radius:var(--radius-md); }
-      .loading,.empty { background:rgba(19,35,31,.05); color:var(--muted); }
-      .error-banner { background:rgba(164,58,43,.12); color:var(--bad); }
-      @media (max-width: 1080px) { .hero,.list-summary,.rules-grid,.market-grid,.ideas-grid{grid-template-columns:1fr}.section-head,.tabs-row{align-items:start;flex-direction:column} }
-      @media (max-width: 720px) { .shell{padding:16px 12px 40px}.hero,.section{padding:20px} h1{font-size:2.2rem} }
+
+      .hero-meta {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: rgba(5, 16, 25, 0.88);
+      }
+
+      .meta-grid,
+      .market-grid,
+      .summary-grid,
+      .ideas-grid,
+      .rules-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .meta-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .meta-label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.76rem;
+        color: var(--muted);
+      }
+
+      .meta-value,
+      .market-value {
+        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+        font-size: 1.45rem;
+        font-weight: 700;
+      }
+
+      .primary-button,
+      .tab-button {
+        border: 0;
+        cursor: pointer;
+      }
+
+      .primary-button {
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent-2), var(--accent));
+        color: #04111a;
+        font-weight: 700;
+      }
+
+      .layout {
+        display: grid;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .section {
+        padding: 22px;
+        border-radius: var(--radius-xl);
+      }
+
+      .section-head,
+      .tabs-row {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 16px;
+      }
+
+      .section-head h2 {
+        font-size: 1.55rem;
+      }
+
+      .section-head p {
+        max-width: 58rem;
+        margin: 8px 0 0;
+        line-height: 1.65;
+      }
+
+      .market-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .summary-grid {
+        grid-template-columns: 1.2fr 0.8fr 0.8fr;
+        margin-bottom: 16px;
+      }
+
+      .ideas-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-bottom: 16px;
+      }
+
+      .market-card,
+      .summary-box,
+      .idea-card,
+      .announcement-card,
+      .rule-card {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+      }
+
+      .market-card h3,
+      .summary-box h3,
+      .idea-card h3,
+      .rule-card h3 {
+        margin-bottom: 10px;
+      }
+
+      .market-card .minor,
+      .summary-box .minor,
+      .idea-card .minor,
+      .announcement-card .minor {
+        line-height: 1.5;
+      }
+
+      .stack {
+        display: grid;
+        gap: 8px;
+      }
+
+      .mini-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .tabs {
+        display: inline-flex;
+        gap: 6px;
+        padding: 4px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(5, 16, 25, 0.92);
+      }
+
+      .tab-button {
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .tab-button.is-active {
+        background: linear-gradient(135deg, rgba(127, 140, 255, 0.18), rgba(85, 194, 255, 0.18));
+        color: var(--text);
+      }
+
+      .badge,
+      .signal-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 5rem;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+
+      .badge {
+        min-width: auto;
+        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+      }
+
+      .tone-strong,
+      .up {
+        color: var(--good);
+      }
+
+      .tone-positive {
+        color: #7cf5b7;
+      }
+
+      .tone-neutral,
+      .flat {
+        color: var(--warn);
+      }
+
+      .tone-negative,
+      .down {
+        color: var(--bad);
+      }
+
+      .signal-pill.tone-strong,
+      .badge.tone-strong {
+        background: var(--good-bg);
+        border-color: rgba(47, 227, 143, 0.24);
+      }
+
+      .signal-pill.tone-positive,
+      .badge.tone-positive {
+        background: rgba(124, 245, 183, 0.08);
+        border-color: rgba(124, 245, 183, 0.18);
+      }
+
+      .signal-pill.tone-neutral,
+      .badge.tone-neutral {
+        background: var(--warn-bg);
+        border-color: rgba(255, 200, 87, 0.2);
+      }
+
+      .signal-pill.tone-negative,
+      .badge.tone-negative {
+        background: var(--bad-bg);
+        border-color: rgba(255, 95, 109, 0.2);
+      }
+
+      .score-track {
+        height: 6px;
+        margin-top: 12px;
+        border-radius: 999px;
+        background: rgba(121, 163, 196, 0.12);
+        overflow: hidden;
+      }
+
+      .score-fill {
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      }
+
+      .table-wrap {
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+      }
+
+      table {
+        width: 100%;
+        min-width: 1320px;
+        border-collapse: collapse;
+        background: rgba(5, 16, 25, 0.65);
+      }
+
+      thead {
+        background: rgba(10, 31, 47, 0.98);
+      }
+
+      th,
+      td {
+        padding: 13px 12px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line-2);
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        font-size: 0.74rem;
+        color: var(--muted);
+        background: rgba(10, 31, 47, 0.98);
+      }
+
+      tbody tr:hover {
+        background: rgba(85, 194, 255, 0.05);
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+      }
+
+      .company-cell {
+        display: grid;
+        gap: 4px;
+      }
+
+      .rank {
+        font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      .announcement-list,
+      .rules-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .announcement-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .announcement-meta {
+        margin-bottom: 8px;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .rule-card {
+        border: 1px solid var(--line);
+        background: rgba(5, 16, 25, 0.82);
+      }
+
+      .rule-card ul,
+      .summary-box ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .loading,
+      .empty,
+      .error-banner {
+        padding: 18px;
+        border-radius: var(--radius-md);
+      }
+
+      .loading,
+      .empty {
+        background: rgba(85, 194, 255, 0.06);
+        color: var(--muted);
+      }
+
+      .error-banner {
+        background: var(--bad-bg);
+        color: var(--bad);
+      }
+
+      @media (max-width: 1220px) {
+        .hero,
+        .market-grid,
+        .summary-grid,
+        .ideas-grid,
+        .announcement-list,
+        .rules-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .section {
+          padding: 18px;
+        }
+
+        .section-head,
+        .tabs-row,
+        .hero-actions {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="shell">
+      <div id="tickerTape" class="ticker">
+        <span class="ticker-item">等待資料</span>
+      </div>
+
       <header class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Taiwan Equity Chainboard</p>
-          <h1>台股鏈式觀察儀表板</h1>
-          <p class="hero-text">把《Laughing at Wall Street》的資訊優勢方法，翻成台股可執行版本。頁面直接讀取官方公開資料整理出的觀察名單與關鍵催化劑。</p>
+          <p class="eyebrow">Taiwan Chain Terminal</p>
+          <h1>台股鏈式觀察終端</h1>
+          <p>
+            這不是全市場掃描器，而是把《Laughing at Wall Street》翻成台股研究工作台。半導體鏈看製程、封裝、設備與拉貨節奏；非電子鏈看需求、售價、庫存、原料與政策方向。頁面只列出值得持續追蹤的觀察池，不把整個市場混成雜訊。
+          </p>
         </div>
-        <div class="hero-actions">
-          <button id="refreshButton" class="primary-button" type="button">重新載入</button>
-          <p id="statusText" class="status-text">等待載入</p>
-          <p id="generatedAt" class="generated-at"></p>
+
+        <div class="hero-side">
+          <div class="hero-actions">
+            <button id="refreshButton" class="primary-button" type="button">Reload Feed</button>
+            <div>
+              <div id="statusText" class="mono">等待載入</div>
+              <div id="generatedAt" class="hint"></div>
+            </div>
+          </div>
+
+          <div class="hero-meta">
+            <div class="terminal-tag">Terminal State</div>
+            <div class="meta-grid" id="heroMeta">
+              <div>
+                <span class="meta-label">COVERAGE</span>
+                <div class="meta-value">--</div>
+              </div>
+            </div>
+            <div class="hint">觀察池不是全市場名單，而是按產業鏈拆出較有研究價值的追蹤集合。</div>
+          </div>
         </div>
       </header>
+
       <main class="layout">
-        <section class="section"><div class="section-head"><div><h2>市場總覽</h2><p>先看加權、櫃買與櫃買三大法人，判斷今天是廣度行情、題材擴散，還是只有少數權值股推動。</p></div></div><div id="marketOverview" class="market-grid"><div class="loading">載入中</div></div></section>
         <section class="section">
-          <div class="section-head tabs-row"><div><h2>觀察名單</h2><p>半導體鏈重點在製程、封裝、設備與客戶拉貨；非電子鏈重點在需求、價格、原料、庫存與政策方向。</p></div><div class="tabs" role="tablist" aria-label="觀察名單切換"><button class="tab-button is-active" data-list="semiconductor" type="button">半導體鏈</button><button class="tab-button" data-list="nonElectronics" type="button">非電子鏈</button></div></div>
-          <div id="listSummary" class="list-summary"></div>
-          <div id="topIdeas" class="ideas-grid"></div>
-          <div class="table-wrap"><table><thead><tr><th>公司</th><th>觀察重點</th><th>最新月營收</th><th>MoM</th><th>YoY</th><th>累計 YoY</th><th>收盤價</th><th>漲跌</th><th>最新事件</th><th>訊號</th></tr></thead><tbody id="watchlistBody"></tbody></table></div>
+          <div class="section-head">
+            <div>
+              <h2>市場總覽</h2>
+              <p>先看加權、櫃買、廣度與櫃買法人淨流向。行情若只靠少數權值股推動，研究二線供應鏈的標準要更嚴格。</p>
+            </div>
+          </div>
+          <div id="marketOverview" class="market-grid">
+            <div class="loading">載入中</div>
+          </div>
         </section>
-        <section class="section"><div class="section-head"><div><h2>關鍵公告</h2><p>只保留觀察名單中的非例行重大訊息，排除股東會、董事會與一般補充公告，讓頁面只留下可能改變市場預期的催化劑。</p></div></div><div id="announcements" class="announcement-list"></div></section>
-        <section class="section"><div class="section-head"><div><h2>研究規則</h2><p>這是研究頁，不是喊單頁。訊號分數只是排序，不是買進按鈕。</p></div></div><div class="rules-grid"><article class="rule-card"><h3>半導體鏈</h3><ul><li>先看利用率、設備交期、先進封裝與大客戶拉貨。</li><li>如果月營收先動，但法說還沒全面反映，通常還有研究空間。</li><li>題材若已變成市場共識，訊號再強也要重看風險報酬。</li></ul></article><article class="rule-card"><h3>非電子鏈</h3><ul><li>先分清楚是量增、價增，還是成本下滑造成的短期改善。</li><li>月營收只是入口，真正要確認的是毛利與現金流。</li><li>政策、原料與庫存拐點，通常比單日股價更重要。</li></ul></article><article class="rule-card"><h3>退出條件</h3><ul><li>市場已經把好消息講滿，價格卻不再反應時，優勢通常結束。</li><li>催化劑延後、月營收轉弱、重訊方向反轉，都要重新評估 thesis。</li><li>任何單一敘事都不應該決定整個組合的生死。</li></ul></article></div></section>
+
+        <section class="section">
+          <div class="section-head tabs-row">
+            <div>
+              <h2>觀察池</h2>
+              <p>目前分成半導體鏈與非電子鏈兩個池。每個池都不是完整產業地圖，而是我判斷最值得持續驗證的代表公司集合。</p>
+            </div>
+            <div class="tabs" role="tablist" aria-label="觀察池切換">
+              <button class="tab-button is-active" data-list="semiconductor" type="button">半導體鏈</button>
+              <button class="tab-button" data-list="nonElectronics" type="button">非電子鏈</button>
+            </div>
+          </div>
+
+          <div id="listSummary" class="summary-grid"></div>
+          <div id="topIdeas" class="ideas-grid"></div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>公司 / 鏈位</th>
+                  <th>觀察重點</th>
+                  <th>月營收</th>
+                  <th>MoM</th>
+                  <th>YoY</th>
+                  <th>YTD YoY</th>
+                  <th>收盤</th>
+                  <th>成交值</th>
+                  <th>催化劑</th>
+                  <th>訊號</th>
+                </tr>
+              </thead>
+              <tbody id="watchlistBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>關鍵公告</h2>
+              <p>只保留觀察池內、且較可能改變市場預期的公告。例行性揭露與噪音公告會被排除。</p>
+            </div>
+          </div>
+          <div id="announcements" class="announcement-list"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>研究規則</h2>
+              <p>這是研究排序，不是自動下單系統。高分只是代表應該先研究，不代表應該直接追價。</p>
+            </div>
+          </div>
+          <div class="rules-grid">
+            <article class="rule-card">
+              <h3>半導體鏈</h3>
+              <ul>
+                <li>優先確認需求是否從龍頭外溢到設備、材料、封裝與載板，不只看單一明星股。</li>
+                <li>月營收改善若還沒完全反映到法說口徑與市場共識，研究價值通常最高。</li>
+                <li>若全市場都在交易同一段敘事，分數再高也要重新看風險報酬。</li>
+              </ul>
+            </article>
+            <article class="rule-card">
+              <h3>非電子鏈</h3>
+              <ul>
+                <li>先拆解成量、價、成本或政策哪一段在變，不要把所有改善都當作需求復甦。</li>
+                <li>月營收只是入口，真正要確認的是毛利、現金流與庫存結構。</li>
+                <li>若只是短期促銷或一次性補庫存，不能用成長股的框架硬套。</li>
+              </ul>
+            </article>
+            <article class="rule-card">
+              <h3>退出條件</h3>
+              <ul>
+                <li>市場已經把利多講滿、價格卻不再反應時，資訊優勢通常結束。</li>
+                <li>催化劑延後、月營收轉弱或公告方向反轉時，應該先重估 thesis。</li>
+                <li>任何單一敘事都不應該決定整個組合的風險暴露。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
       </main>
     </div>
-    <template id="announcementTemplate"><article class="announcement-card"><div class="announcement-meta"></div><h3></h3><p></p></article></template>
+
+    <template id="announcementTemplate">
+      <article class="announcement-card">
+        <div class="announcement-meta"></div>
+        <h3></h3>
+        <p></p>
+      </article>
+    </template>
+
     <script>
-      const state = { activeList: "semiconductor", payload: null };
+      const state = {
+        activeList: "semiconductor",
+        payload: null,
+      };
+
       const el = {
+        tickerTape: document.querySelector("#tickerTape"),
         refreshButton: document.querySelector("#refreshButton"),
         statusText: document.querySelector("#statusText"),
         generatedAt: document.querySelector("#generatedAt"),
+        heroMeta: document.querySelector("#heroMeta"),
         marketOverview: document.querySelector("#marketOverview"),
         listSummary: document.querySelector("#listSummary"),
         topIdeas: document.querySelector("#topIdeas"),
@@ -133,77 +679,271 @@
         announcementTemplate: document.querySelector("#announcementTemplate"),
         tabs: [...document.querySelectorAll(".tab-button")],
       };
-      const setStatus = (message, tone = "") => {
-        el.statusText.textContent = message;
-        el.statusText.className = `status-text ${tone}`.trim();
+
+      const formatNumber = (value, digits = 2) =>
+        value == null || Number.isNaN(value)
+          ? "無資料"
+          : Number(value).toLocaleString("zh-TW", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: digits,
+            });
+
+      const formatSigned = (value, digits = 2, suffix = "") =>
+        value == null || Number.isNaN(value)
+          ? "無資料"
+          : `${Number(value) > 0 ? "+" : ""}${formatNumber(value, digits)}${suffix}`;
+
+      const toneClass = (value) => {
+        if (value == null || Number.isNaN(value)) return "flat";
+        if (Number(value) > 0) return "up";
+        if (Number(value) < 0) return "down";
+        return "flat";
       };
-      const formatNumber = (value, digits = 2) => value == null || Number.isNaN(value) ? "無資料" : Number(value).toLocaleString("zh-TW", { minimumFractionDigits: 0, maximumFractionDigits: digits });
-      const formatSigned = (value, digits = 2, suffix = "") => value == null || Number.isNaN(value) ? "無資料" : `${Number(value) > 0 ? "+" : ""}${formatNumber(value, digits)}${suffix}`;
-      const toneClass = (value) => value == null || Number.isNaN(value) ? "flat" : Number(value) > 0 ? "up" : Number(value) < 0 ? "down" : "flat";
-      function renderMarketOverview(payload) {
-        const otcFlow = payload.marketOverview.otcInstitutionSummary.map((entry) => `<div class="minor-row"><strong>${entry.investor}</strong><span class="${toneClass(entry.net)}">${formatSigned(entry.net, 0)}</span></div>`).join("");
-        el.marketOverview.innerHTML = `
-          <article class="market-card"><h3>${payload.marketOverview.listed.label}</h3><div class="value">${formatNumber(payload.marketOverview.listed.close)}</div><p class="${toneClass(payload.marketOverview.listed.change)}">${formatSigned(payload.marketOverview.listed.change)} 點 / ${formatSigned(payload.marketOverview.listed.changePct, 2, "%")}</p><p class="minor">交易日 ${payload.marketOverview.listed.date}</p></article>
-          <article class="market-card"><h3>${payload.marketOverview.otc.label}</h3><div class="value">${formatNumber(payload.marketOverview.otc.close)}</div><p class="${toneClass(payload.marketOverview.otc.change)}">${formatSigned(payload.marketOverview.otc.change)} 點 / ${formatSigned(payload.marketOverview.otc.changePct, 2, "%")}</p><p class="minor">上漲 ${formatNumber(payload.marketOverview.otc.riseCount,0)} 家 / 下跌 ${formatNumber(payload.marketOverview.otc.fallCount,0)} 家 / 平盤 ${formatNumber(payload.marketOverview.otc.flatCount,0)} 家</p></article>
-          <article class="market-card"><h3>資料時點</h3><div class="value">${payload.sourceStatus.monthlyRevenueMonth}</div><p class="minor">月營收最新月份</p><p class="minor">上市重訊 ${payload.sourceStatus.twseMajorDate}</p><p class="minor">上櫃重訊 ${payload.sourceStatus.tpexMajorDate}</p></article>
-          <article class="market-card"><h3>櫃買三大法人</h3><div class="minor stack">${otcFlow}</div></article>`;
+
+      const signalWidth = (score) => {
+        const normalized = Math.max(0, Math.min(10, Number(score) || 0));
+        return `${normalized * 10}%`;
+      };
+
+      function setStatus(message, tone = "") {
+        el.statusText.textContent = message;
+        el.statusText.className = `mono ${tone}`.trim();
       }
+
+      function updateTabState() {
+        for (const tab of el.tabs) {
+          tab.classList.toggle("is-active", tab.dataset.list === state.activeList);
+        }
+      }
+
+      function renderTicker(payload) {
+        const chips = [
+          `${payload.marketOverview.listed.label} ${formatNumber(payload.marketOverview.listed.close)} ${formatSigned(payload.marketOverview.listed.changePct, 2, "%")}`,
+          `${payload.marketOverview.otc.label} ${formatNumber(payload.marketOverview.otc.close)} ${formatSigned(payload.marketOverview.otc.changePct, 2, "%")}`,
+          `月營收最新月份 ${payload.sourceStatus.monthlyRevenueMonth}`,
+          `半導體鏈 ${payload.lists.semiconductor.metrics.total} 檔`,
+          `非電子鏈 ${payload.lists.nonElectronics.metrics.total} 檔`,
+          `公告監控 ${payload.announcements.length} 則`,
+        ];
+
+        el.tickerTape.innerHTML = chips
+          .map((chip) => `<span class="ticker-item"><strong>></strong> ${chip}</span>`)
+          .join("");
+      }
+
+      function renderHeroMeta(payload) {
+        const coverage = payload.lists.semiconductor.metrics.total + payload.lists.nonElectronics.metrics.total;
+        const strongest = payload.lists.semiconductor.metrics.strong + payload.lists.nonElectronics.metrics.strong;
+        const catalysts = payload.announcements.filter((entry) => entry.hasCatalyst).length;
+
+        el.heroMeta.innerHTML = `
+          <div>
+            <span class="meta-label">Coverage</span>
+            <div class="meta-value">${coverage}</div>
+            <div class="hint">總觀察檔數</div>
+          </div>
+          <div>
+            <span class="meta-label">High Signal</span>
+            <div class="meta-value tone-strong">${strongest}</div>
+            <div class="hint">強訊號檔數</div>
+          </div>
+          <div>
+            <span class="meta-label">Catalysts</span>
+            <div class="meta-value">${catalysts}</div>
+            <div class="hint">追蹤中催化劑</div>
+          </div>
+        `;
+      }
+
+      function renderMarketOverview(payload) {
+        const otcFlow = payload.marketOverview.otcInstitutionSummary
+          .map(
+            (entry) =>
+              `<div class="mini-row"><span>${entry.investor}</span><strong class="${toneClass(entry.net)} mono">${formatSigned(entry.net, 0)}</strong></div>`,
+          )
+          .join("");
+
+        el.marketOverview.innerHTML = `
+          <article class="market-card">
+            <h3>${payload.marketOverview.listed.label}</h3>
+            <div class="market-value">${formatNumber(payload.marketOverview.listed.close)}</div>
+            <div class="${toneClass(payload.marketOverview.listed.change)} mono">${formatSigned(payload.marketOverview.listed.change)} 點 / ${formatSigned(payload.marketOverview.listed.changePct, 2, "%")}</div>
+            <div class="minor">交易日 ${payload.marketOverview.listed.date}</div>
+          </article>
+          <article class="market-card">
+            <h3>${payload.marketOverview.otc.label}</h3>
+            <div class="market-value">${formatNumber(payload.marketOverview.otc.close)}</div>
+            <div class="${toneClass(payload.marketOverview.otc.change)} mono">${formatSigned(payload.marketOverview.otc.change)} 點 / ${formatSigned(payload.marketOverview.otc.changePct, 2, "%")}</div>
+            <div class="minor">上漲 ${formatNumber(payload.marketOverview.otc.riseCount, 0)} / 下跌 ${formatNumber(payload.marketOverview.otc.fallCount, 0)} / 平盤 ${formatNumber(payload.marketOverview.otc.flatCount, 0)}</div>
+          </article>
+          <article class="market-card">
+            <h3>資料時點</h3>
+            <div class="market-value mono">${payload.sourceStatus.monthlyRevenueMonth}</div>
+            <div class="minor">上市重訊 ${payload.sourceStatus.twseMajorDate}</div>
+            <div class="minor">上櫃重訊 ${payload.sourceStatus.tpexMajorDate}</div>
+          </article>
+          <article class="market-card">
+            <h3>櫃買三大法人</h3>
+            <div class="stack">${otcFlow}</div>
+          </article>
+        `;
+      }
+
       function renderAnnouncements(items) {
         if (!items.length) {
-          el.announcements.innerHTML = `<div class="empty">目前沒有落在這份觀察名單中的關鍵公告。</div>`;
+          el.announcements.innerHTML = '<div class="empty">目前沒有落在這份觀察池中的關鍵公告。</div>';
           return;
         }
+
         const fragment = document.createDocumentFragment();
         for (const item of items) {
           const node = el.announcementTemplate.content.firstElementChild.cloneNode(true);
           node.querySelector(".announcement-meta").textContent = `${item.date} ${item.time} / ${item.code} ${item.companyName} / ${item.market === "listed" ? "上市" : "上櫃"}`;
           node.querySelector("h3").textContent = item.subject;
-          node.querySelector("p").textContent = item.summary.slice(0, 220) + (item.summary.length > 220 ? "…" : "");
+          node.querySelector("p").textContent = item.summary.slice(0, 240) + (item.summary.length > 240 ? "…" : "");
           fragment.append(node);
         }
+
         el.announcements.innerHTML = "";
         el.announcements.append(fragment);
       }
+
       function renderList() {
         const list = state.payload.lists[state.activeList];
-        const copy = state.activeList === "semiconductor"
-          ? "半導體鏈的重點不是追新聞，而是確認需求是否從晶圓、封裝、設備一路擴散。當月營收開始連鎖改善，而市場只先交易少數龍頭時，研究價值最高。"
-          : "非電子鏈的重點不是追熱門題材，而是找景氣、價格與庫存的錯位修正。當營收改善開始傳導到毛利與現金流，但市場還沿用舊預期時，勝率通常較高。";
-        el.listSummary.innerHTML = `<article class="summary-panel"><h3>${list.title}</h3><p>${list.summary}</p><ul>${list.cadence.map((item) => `<li>${item}</li>`).join("")}</ul></article><article class="summary-panel"><h3>方法翻譯</h3><p>${copy}</p><ul><li>先記錄異常現象，再寫成可驗證的假說。</li><li>至少同時驗證月營收、重大訊息與市場價格三層資料。</li><li>訊號高分不代表立即買進，只代表值得優先研究。</li></ul></article>`;
-        el.topIdeas.innerHTML = list.topIdeas.map((item) => `<article class="idea-card"><h3>${item.name}</h3><p>${item.focus}</p><p class="minor">${item.note}</p><div class="score tone-${item.signal.tone}">${item.signal.label} / 分數 ${item.signal.score}</div></article>`).join("");
-        el.watchlistBody.innerHTML = list.items.map((item) => {
-          const announcementText = item.announcements[0]?.subject || (item.announcementCount ? "已有公告，請展開查看" : "目前無關鍵公告");
-          const marketLabel = item.market === "listed" ? "上市" : "上櫃";
-          const otcFlow = item.market === "otc" && item.otcInstitutionNetDisplay !== "無資料" ? ` / 櫃買法人 ${item.otcInstitutionNetDisplay}` : "";
-          return `<tr><td><div class="company-cell"><strong>${item.name}</strong><span class="company-code">${item.code} / ${marketLabel}</span><span class="minor">${item.industry}</span></div></td><td><strong>${item.focus}</strong><div class="minor">${item.note}</div></td><td><strong>${item.revenueDisplay}</strong><div class="minor">${item.dataMonth}</div></td><td class="${toneClass(item.revenueMoM)}">${formatSigned(item.revenueMoM, 2, "%")}</td><td class="${toneClass(item.revenueYoY)}">${formatSigned(item.revenueYoY, 2, "%")}</td><td class="${toneClass(item.cumulativeYoY)}">${formatSigned(item.cumulativeYoY, 2, "%")}</td><td>${formatNumber(item.closingPrice)}</td><td class="${toneClass(item.priceChange)}">${formatSigned(item.priceChange, 2)}</td><td><div>${announcementText}</div><div class="minor">公告 ${item.announcementCount} 則${otcFlow}</div></td><td><span class="signal-pill tone-${item.signal.tone}">${item.signal.label}</span><div class="minor">分數 ${item.signal.score}</div></td></tr>`;
-        }).join("");
+        const coverageText =
+          state.activeList === "semiconductor"
+            ? "目前偏重晶圓代工、先進封裝、設備、材料、載板與 ASIC / IP。這是供應鏈追蹤池，不是全半導體清單。"
+            : "目前偏重食品零售、航運航空、觀光餐飲、傳產成本鏈與內需通路。這是需求與價格拐點追蹤池，不是全非電子清單。";
+
+        el.listSummary.innerHTML = `
+          <article class="summary-box">
+            <h3>${list.title}</h3>
+            <p>${list.summary}</p>
+            <ul>${list.cadence.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>
+          <article class="summary-box">
+            <h3>池內結構</h3>
+            <div class="stack">
+              <div class="mini-row"><span>覆蓋檔數</span><strong class="mono">${list.metrics.total}</strong></div>
+              <div class="mini-row"><span>強訊號</span><strong class="mono tone-strong">${list.metrics.strong}</strong></div>
+              <div class="mini-row"><span>正向觀察</span><strong class="mono tone-positive">${list.metrics.positive}</strong></div>
+              <div class="mini-row"><span>公告催化</span><strong class="mono">${list.metrics.withCatalyst}</strong></div>
+            </div>
+          </article>
+          <article class="summary-box">
+            <h3>覆蓋範圍</h3>
+            <p>${coverageText}</p>
+            <div class="hint">你剛剛問「只有這些？」答案是：不是全市場，但現在已經不是原本那種少數示範股，而是可實際追蹤的一組代表池。</div>
+          </article>
+        `;
+
+        el.topIdeas.innerHTML = list.topIdeas
+          .map(
+            (item) => `
+              <article class="idea-card">
+                <div class="mini-row">
+                  <span class="badge tone-${item.signal.tone}">${item.signal.label}</span>
+                  <span class="mono">${item.code}</span>
+                </div>
+                <h3>${item.name}</h3>
+                <p>${item.chain} / ${item.focus}</p>
+                <p class="minor">${item.note}</p>
+                <div class="mini-row">
+                  <span class="${toneClass(item.revenueYoY)} mono">YoY ${formatSigned(item.revenueYoY, 2, "%")}</span>
+                  <span class="${toneClass(item.priceChange)} mono">Px ${formatSigned(item.priceChange, 2)}</span>
+                </div>
+                <div class="score-track"><div class="score-fill" style="width:${signalWidth(item.signal.score)}"></div></div>
+              </article>
+            `,
+          )
+          .join("");
+
+        el.watchlistBody.innerHTML = list.items
+          .map((item, index) => {
+            const announcementText = item.announcements[0]?.subject || "目前無關鍵公告";
+            const marketLabel = item.market === "listed" ? "上市" : "上櫃";
+            const catalystText = item.catalystCount > 0 ? `${item.catalystCount} 則催化` : `${item.announcementCount} 則公告`;
+            return `
+              <tr>
+                <td class="rank">${String(index + 1).padStart(2, "0")}</td>
+                <td>
+                  <div class="company-cell">
+                    <strong>${item.name}</strong>
+                    <span class="mono">${item.code} / ${marketLabel}</span>
+                    <span class="minor">${item.chain} / ${item.industry}</span>
+                  </div>
+                </td>
+                <td>
+                  <div><strong>${item.focus}</strong></div>
+                  <div class="minor">${item.note}</div>
+                </td>
+                <td class="mono">
+                  <div>${item.revenueDisplay}</div>
+                  <div class="minor">${item.dataMonth}</div>
+                </td>
+                <td class="${toneClass(item.revenueMoM)} mono">${formatSigned(item.revenueMoM, 2, "%")}</td>
+                <td class="${toneClass(item.revenueYoY)} mono">${formatSigned(item.revenueYoY, 2, "%")}</td>
+                <td class="${toneClass(item.cumulativeYoY)} mono">${formatSigned(item.cumulativeYoY, 2, "%")}</td>
+                <td class="mono">
+                  <div>${formatNumber(item.closingPrice)}</div>
+                  <div class="${toneClass(item.priceChange)}">${formatSigned(item.priceChange, 2)}</div>
+                </td>
+                <td class="mono">
+                  <div>${item.tradeValueDisplay}</div>
+                  <div class="minor">${item.market === "otc" ? `櫃買法人 ${item.otcInstitutionNetDisplay}` : "上市個股"}</div>
+                </td>
+                <td>
+                  <div>${announcementText}</div>
+                  <div class="minor">${catalystText}</div>
+                </td>
+                <td>
+                  <span class="signal-pill tone-${item.signal.tone}">${item.signal.label}</span>
+                  <div class="minor">分數 ${item.signal.score}</div>
+                  <div class="score-track"><div class="score-fill" style="width:${signalWidth(item.signal.score)}"></div></div>
+                </td>
+              </tr>
+            `;
+          })
+          .join("");
+
         const codes = new Set(list.items.map((item) => item.code));
-        renderAnnouncements(state.payload.announcements.filter((entry) => codes.has(entry.code)));
+        renderAnnouncements(state.payload.announcements.filter((entry) => codes.has(entry.code)).slice(0, 8));
       }
-      function updateTabState() {
-        for (const tab of el.tabs) tab.classList.toggle("is-active", tab.dataset.list === state.activeList);
-      }
+
       async function loadDashboard() {
         try {
-          setStatus("正在載入資料");
+          setStatus("正在讀取官方資料");
           el.refreshButton.disabled = true;
-          const response = await fetch(`./data/dashboard.json?ts=${Date.now()}`, { cache: "no-store" });
+          const response = await fetch(`./data/dashboard.json?ts=${Date.now()}`, {
+            cache: "no-store",
+          });
           const payload = await response.json();
           state.payload = payload;
           el.generatedAt.textContent = `最後更新 ${new Date(payload.generatedAt).toLocaleString("zh-TW")}`;
+          renderTicker(payload);
+          renderHeroMeta(payload);
           renderMarketOverview(payload);
           updateTabState();
           renderList();
-          setStatus("資料已更新", "up");
+          setStatus("Feed Online", "up");
         } catch (error) {
-          setStatus("資料更新失敗", "down");
+          setStatus("Feed Error", "down");
           el.marketOverview.innerHTML = `<div class="error-banner">${error.message}</div>`;
         } finally {
           el.refreshButton.disabled = false;
         }
       }
+
       el.refreshButton.addEventListener("click", loadDashboard);
-      for (const tab of el.tabs) tab.addEventListener("click", () => { state.activeList = tab.dataset.list; updateTabState(); if (state.payload) renderList(); });
+
+      for (const tab of el.tabs) {
+        tab.addEventListener("click", () => {
+          state.activeList = tab.dataset.list;
+          updateTabState();
+          if (state.payload) renderList();
+        });
+      }
+
       loadDashboard();
       setInterval(loadDashboard, 10 * 60 * 1000);
     </script>
