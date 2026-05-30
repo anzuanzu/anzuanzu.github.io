@@ -668,6 +668,169 @@ function buildEtfTrackPayload(track, snapshots) {
   };
 }
 
+function buildEtfFlowRadar(trackDashboards) {
+  const createBucket = () => new Map();
+  const buckets = {
+    consensusAdds: createBucket(),
+    consensusCuts: createBucket(),
+    newEntries: createBucket(),
+    exits: createBucket(),
+  };
+
+  const upsertAggregate = (map, code, name) => {
+    if (!map.has(code)) {
+      const watchMeta = WATCH_META.get(code);
+      map.set(code, {
+        code,
+        name,
+        inUniverse: Boolean(DETAIL_META.get(code)),
+        lens: watchMeta?.lens || null,
+        lensLabel: watchMeta ? WATCHLISTS[watchMeta.lens].title : "Universe",
+        chain: watchMeta?.chain || null,
+        focus: watchMeta?.focus || null,
+        etfs: new Set(),
+        actionCounts: {
+          added: 0,
+          removed: 0,
+          increased: 0,
+          reduced: 0,
+        },
+        shareDelta: 0,
+        weightDelta: 0,
+        currentWeightPct: 0,
+        previousWeightPct: 0,
+      });
+    }
+
+    return map.get(code);
+  };
+
+  const addEntry = (map, track, row, action) => {
+    const entry = upsertAggregate(map, row.code, row.name);
+    entry.etfs.add(track.ticker);
+    entry.actionCounts[action] += 1;
+
+    if (action === "added") {
+      entry.shareDelta += row.currentShares || 0;
+      entry.weightDelta += row.currentWeightPct || 0;
+      entry.currentWeightPct += row.currentWeightPct || 0;
+      return;
+    }
+
+    if (action === "removed") {
+      entry.shareDelta -= row.previousShares || 0;
+      entry.weightDelta -= row.previousWeightPct || 0;
+      entry.previousWeightPct += row.previousWeightPct || 0;
+      return;
+    }
+
+    entry.shareDelta += row.shareDelta || 0;
+    entry.weightDelta += row.weightDelta || 0;
+    entry.currentWeightPct += row.currentWeightPct || 0;
+    entry.previousWeightPct += row.previousWeightPct || 0;
+  };
+
+  const comparisonReadyTracks = trackDashboards.filter((track) => track.operationTrail?.comparisonReady);
+
+  for (const track of comparisonReadyTracks) {
+    for (const row of track.operationTrail?.increased || []) {
+      addEntry(buckets.consensusAdds, track, row, "increased");
+    }
+    for (const row of track.operationTrail?.added || []) {
+      addEntry(buckets.consensusAdds, track, row, "added");
+      addEntry(buckets.newEntries, track, row, "added");
+    }
+    for (const row of track.operationTrail?.reduced || []) {
+      addEntry(buckets.consensusCuts, track, row, "reduced");
+    }
+    for (const row of track.operationTrail?.removed || []) {
+      addEntry(buckets.consensusCuts, track, row, "removed");
+      addEntry(buckets.exits, track, row, "removed");
+    }
+  }
+
+  const finalizeRows = (map, mode) => {
+    const rows = Array.from(map.values()).map((entry) => {
+      const etfList = Array.from(entry.etfs).sort();
+      return {
+        code: entry.code,
+        name: entry.name,
+        inUniverse: entry.inUniverse,
+        lens: entry.lens,
+        lensLabel: entry.lensLabel,
+        chain: entry.chain,
+        focus: entry.focus,
+        etfCount: etfList.length,
+        etfs: etfList,
+        etfDisplay: etfList.join(" / "),
+        shareDelta: Math.round(entry.shareDelta),
+        shareDeltaDisplay: formatShareDelta(entry.shareDelta),
+        weightDelta: Number(entry.weightDelta.toFixed(2)),
+        weightDeltaDisplay: formatWeightChange(entry.weightDelta),
+        currentWeightPct: Number(entry.currentWeightPct.toFixed(2)),
+        currentWeightDisplay: formatHoldingWeight(entry.currentWeightPct),
+        previousWeightPct: Number(entry.previousWeightPct.toFixed(2)),
+        previousWeightDisplay: formatHoldingWeight(entry.previousWeightPct),
+        actionCounts: entry.actionCounts,
+      };
+    });
+
+    if (mode === "buy") {
+      rows.sort(
+        (left, right) =>
+          right.etfCount - left.etfCount ||
+          (right.weightDelta ?? 0) - (left.weightDelta ?? 0) ||
+          (right.shareDelta ?? 0) - (left.shareDelta ?? 0),
+      );
+    } else if (mode === "sell") {
+      rows.sort(
+        (left, right) =>
+          right.etfCount - left.etfCount ||
+          Math.abs(right.weightDelta ?? 0) - Math.abs(left.weightDelta ?? 0) ||
+          Math.abs(right.shareDelta ?? 0) - Math.abs(left.shareDelta ?? 0),
+      );
+    } else if (mode === "new") {
+      rows.sort(
+        (left, right) =>
+          right.etfCount - left.etfCount ||
+          (right.currentWeightPct ?? 0) - (left.currentWeightPct ?? 0),
+      );
+    } else if (mode === "exit") {
+      rows.sort(
+        (left, right) =>
+          right.etfCount - left.etfCount ||
+          (right.previousWeightPct ?? 0) - (left.previousWeightPct ?? 0),
+      );
+    }
+
+    return rows.slice(0, 16);
+  };
+
+  const latestCompareDate =
+    comparisonReadyTracks
+      .map((track) => track.operationTrail?.compareDate)
+      .filter(Boolean)
+      .sort()
+      .at(-1) || null;
+  const touchedSet = new Set([
+    ...buckets.consensusAdds.keys(),
+    ...buckets.consensusCuts.keys(),
+    ...buckets.newEntries.keys(),
+    ...buckets.exits.keys(),
+  ]);
+
+  return {
+    trackedCount: trackDashboards.length,
+    comparisonReadyCount: comparisonReadyTracks.length,
+    latestCompareDate,
+    touchedCount: touchedSet.size,
+    consensusAdds: finalizeRows(buckets.consensusAdds, "buy"),
+    consensusCuts: finalizeRows(buckets.consensusCuts, "sell"),
+    newEntries: finalizeRows(buckets.newEntries, "new"),
+    exits: finalizeRows(buckets.exits, "exit"),
+  };
+}
+
 async function fetchEtfTrack(track) {
   const html = await fetchHtmlWithCurl(track.sourceUrl);
   const assets = extractEmbeddedJson(html, "DataAsset");
@@ -1729,6 +1892,7 @@ async function buildDashboardPayload() {
     ]);
   }
 
+  const etfTrackDashboards = etfTrackStates.map((state) => state.dashboard);
   const payload = {
     generatedAt: new Date().toISOString(),
     marketOverview: {
@@ -1825,6 +1989,7 @@ async function buildDashboardPayload() {
       nonElectronics: buildStrategy("nonElectronics", itemsByCode),
     },
     etfTracks: Object.fromEntries(etfTrackStates.map((state) => [state.history.ticker, state.dashboard])),
+    etfFlowRadar: buildEtfFlowRadar(etfTrackDashboards),
     leaderboard: sortedUniverse.map(compactRow),
     detailByCode: Object.fromEntries(detailEntries),
     announcements: majorEntries.filter((entry) => !entry.isRoutine).slice(0, 32),

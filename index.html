@@ -341,8 +341,26 @@
         margin-top: 18px;
       }
 
+      .etf-flow-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
       .etf-card {
         padding: 18px;
+      }
+
+      .flow-card {
+        padding: 16px;
+      }
+
+      .flow-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
       }
 
       .etf-overview-card {
@@ -780,6 +798,7 @@
         .strategy-grid,
         .footer-grid,
         .etf-grid,
+        .etf-flow-grid,
         .etf-overview-grid {
           grid-template-columns: 1fr;
         }
@@ -1109,6 +1128,137 @@
                 `;
               })
               .join("")}
+          </section>
+        `;
+      }
+
+      function renderEtfFlowRadar() {
+        const radar = dashboard.etfFlowRadar;
+        if (!radar) return "";
+
+        if (!radar.comparisonReadyCount) {
+          return `
+            <section class="etf-flow-grid">
+              <article class="panel flow-card">
+                <div class="split-head">
+                  <div>
+                    <h2 class="section-title">ETF Flow Radar</h2>
+                    <div class="tiny">Waiting for a second official snapshot before cross-ETF add/reduce rankings go live</div>
+                  </div>
+                  <span class="tone neutral">${escapeHtml(String(radar.trackedCount || 0))} ETFs</span>
+                </div>
+                <div class="flow-meta">
+                  <span class="pill">Tracked ${escapeHtml(String(radar.trackedCount || 0))} ETFs</span>
+                  <span class="pill">Comparable ${escapeHtml(String(radar.comparisonReadyCount || 0))}</span>
+                  <span class="pill">Latest snapshot ${escapeHtml(dashboard.sourceStatus.etfTrackDate || "--")}</span>
+                </div>
+                <p class="etf-caption">
+                  Official holdings snapshots are already updating daily. Once at least one ETF has a prior-day
+                  comparison, this block will automatically switch to consensus adds, consensus cuts, new entries,
+                  and full exits across the tracked ETF shelf.
+                </p>
+              </article>
+            </section>
+          `;
+        }
+
+        const definitions = [
+          ["consensusAdds", "Consensus Adds", "Stocks increased or newly added by multiple ETFs", "positive"],
+          ["consensusCuts", "Consensus Cuts", "Stocks reduced or fully removed across ETF books", "negative"],
+          ["newEntries", "New Entries", "Fresh positions opened on the latest disclosed snapshot", "neutral"],
+          ["exits", "Full Exits", "Names dropped from ETF holdings on the latest disclosed snapshot", "neutral"],
+        ];
+
+        const renderFlowRows = (rows, mode) => {
+          if (!rows?.length) {
+            return `<div class="empty">No ETF flow changes in this bucket yet.</div>`;
+          }
+
+          return `
+            <ul class="board-list">
+              ${rows
+                .map((row) => {
+                  const clickable = row.inUniverse;
+                  const tagTone = mode === "consensusCuts" || mode === "exits" ? "negative" : "positive";
+                  const body = `
+                    <div class="row-main">
+                      <div class="stock-head">
+                        <span class="code">${escapeHtml(row.code)}</span>
+                        <strong>${escapeHtml(row.name)}</strong>
+                      </div>
+                      <span class="tone ${tagTone}">
+                        ${escapeHtml(`${row.etfCount} ETF${row.etfCount > 1 ? "s" : ""}`)}
+                      </span>
+                    </div>
+                    <div class="row-sub muted">
+                      <span>${escapeHtml(row.etfDisplay)}</span>
+                      <span>${escapeHtml(row.weightDeltaDisplay)}</span>
+                    </div>
+                    <div class="row-sub muted">
+                      <span>${escapeHtml(row.shareDeltaDisplay)} shares</span>
+                      <span>${escapeHtml(
+                        mode === "newEntries"
+                          ? `new ${row.actionCounts.added}`
+                          : mode === "exits"
+                            ? `removed ${row.actionCounts.removed}`
+                            : `up ${row.actionCounts.increased} / new ${row.actionCounts.added} / down ${row.actionCounts.reduced} / out ${row.actionCounts.removed}`,
+                      )}</span>
+                    </div>
+                  `;
+
+                  return `
+                    <li class="board-item">
+                      ${
+                        clickable
+                          ? `<button class="stock-btn" data-code="${escapeHtml(row.code)}">${body}</button>`
+                          : body
+                      }
+                    </li>
+                  `;
+                })
+                .join("")}
+            </ul>
+          `;
+        };
+
+        return `
+          <section class="etf-flow-grid">
+            ${definitions
+              .map(([key, title, note, tone]) => {
+                const rows = radar[key] || [];
+                return `
+                  <article class="panel flow-card">
+                    <div class="board-header">
+                      <div>
+                        <h2 class="panel-title">${title}</h2>
+                        <div class="tiny">${note}</div>
+                      </div>
+                      <span class="tone ${tone}">${escapeHtml(String(rows.length))}</span>
+                    </div>
+                    ${renderFlowRows(rows, key)}
+                  </article>
+                `;
+              })
+              .join("")}
+            <article class="panel flow-card">
+              <div class="split-head">
+                <div>
+                  <h2 class="section-title">ETF Flow Radar</h2>
+                  <div class="tiny">Cross-ETF rebalance summary from official daily holdings snapshots</div>
+                </div>
+                <span class="tone neutral">${escapeHtml(radar.latestCompareDate || "--")}</span>
+              </div>
+              <div class="flow-meta">
+                <span class="pill">Tracked ${escapeHtml(String(radar.trackedCount || 0))} ETFs</span>
+                <span class="pill">Comparable ${escapeHtml(String(radar.comparisonReadyCount || 0))}</span>
+                <span class="pill">Touched ${escapeHtml(String(radar.touchedCount || 0))} names</span>
+              </div>
+              <p class="etf-caption">
+                Use this block to see whether rebalance pressure is isolated to one product or starting to cluster
+                across the ETF shelf. Consensus buys matter more when they overlap with your existing semiconductor
+                or non-electronics watchlist.
+              </p>
+            </article>
           </section>
         `;
       }
@@ -1929,6 +2079,7 @@
           </section>
 
           ${renderEtfOverview()}
+          ${renderEtfFlowRadar()}
           ${renderEtfTrack()}
 
           <section class="panel controls">
