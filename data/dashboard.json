@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-05-30T00:00:00.000Z",
+  "marketOverview": {
+    "listed": { "label": "加權指數", "date": "", "close": null, "change": null, "changePct": null },
+    "otc": { "label": "櫃買指數", "date": "", "close": null, "change": null, "changePct": null, "riseCount": null, "fallCount": null, "flatCount": null },
+    "otcInstitutionSummary": []
+  },
+  "sourceStatus": {
+    "monthlyRevenueMonth": "等待更新",
+    "twseMajorDate": "等待更新",
+    "tpexMajorDate": "等待更新"
+  },
+  "lists": {
+    "semiconductor": {
+      "key": "semiconductor",
+      "title": "半導體鏈",
+      "summary": "等待 GitHub Actions 產生最新資料。",
+      "cadence": [],
+      "items": [],
+      "topIdeas": []
+    },
+    "nonElectronics": {
+      "key": "nonElectronics",
+      "title": "非電子鏈",
+      "summary": "等待 GitHub Actions 產生最新資料。",
+      "cadence": [],
+      "items": [],
+      "topIdeas": []
+    }
+  },
+  "announcements": []
+}
