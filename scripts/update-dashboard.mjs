@@ -453,11 +453,93 @@ function compareEtfHoldings(currentHoldings, previousHoldings) {
   };
 }
 
+function summarizeEtfConcentration(holdings) {
+  const top3 = holdings.slice(0, 3).reduce((sum, holding) => sum + (holding.weightPct || 0), 0);
+  const top5 = holdings.slice(0, 5).reduce((sum, holding) => sum + (holding.weightPct || 0), 0);
+  const top10 = holdings.slice(0, 10).reduce((sum, holding) => sum + (holding.weightPct || 0), 0);
+
+  return {
+    top3Pct: Number(top3.toFixed(2)),
+    top5Pct: Number(top5.toFixed(2)),
+    top10Pct: Number(top10.toFixed(2)),
+    top3Display: formatHoldingWeight(top3),
+    top5Display: formatHoldingWeight(top5),
+    top10Display: formatHoldingWeight(top10),
+  };
+}
+
+function buildEtfWatchlistOverlap(holdings) {
+  const overlapRows = holdings
+    .map((holding) => {
+      const watchMeta = WATCH_META.get(holding.code);
+      if (!watchMeta) return null;
+      return {
+        code: holding.code,
+        name: holding.name,
+        weightPct: holding.weightPct,
+        weightDisplay: holding.weightDisplay,
+        sharesDisplay: holding.sharesDisplay,
+        lens: watchMeta.lens,
+        lensLabel: WATCHLISTS[watchMeta.lens].title,
+        chain: watchMeta.chain,
+        focus: watchMeta.focus,
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => right.weightPct - left.weightPct);
+
+  const semiconductorRows = overlapRows.filter((row) => row.lens === "semiconductor");
+  const nonElectronicsRows = overlapRows.filter((row) => row.lens === "nonElectronics");
+
+  return {
+    totalCount: overlapRows.length,
+    totalWeightPct: Number(overlapRows.reduce((sum, row) => sum + row.weightPct, 0).toFixed(2)),
+    totalWeightDisplay: formatHoldingWeight(overlapRows.reduce((sum, row) => sum + row.weightPct, 0)),
+    semiconductorCount: semiconductorRows.length,
+    semiconductorWeightPct: Number(semiconductorRows.reduce((sum, row) => sum + row.weightPct, 0).toFixed(2)),
+    semiconductorWeightDisplay: formatHoldingWeight(semiconductorRows.reduce((sum, row) => sum + row.weightPct, 0)),
+    nonElectronicsCount: nonElectronicsRows.length,
+    nonElectronicsWeightPct: Number(nonElectronicsRows.reduce((sum, row) => sum + row.weightPct, 0).toFixed(2)),
+    nonElectronicsWeightDisplay: formatHoldingWeight(nonElectronicsRows.reduce((sum, row) => sum + row.weightPct, 0)),
+    rows: overlapRows.slice(0, 12),
+  };
+}
+
+function buildEtfTrendSeries(snapshots, limit = 6) {
+  const latestHoldings = snapshots.at(-1)?.holdings || [];
+  const trackedCodes = latestHoldings.slice(0, limit).map((holding) => holding.code);
+
+  return trackedCodes.map((code) => {
+    const latestHolding = latestHoldings.find((holding) => holding.code === code);
+    const points = snapshots.map((snapshot) => {
+      const holding = snapshot.holdings.find((entry) => entry.code === code);
+      return {
+        date: snapshot.snapshotDate,
+        weightPct: Number(((holding?.weightPct || 0)).toFixed(2)),
+        shares: holding?.shares || 0,
+      };
+    });
+    const firstWeightPct = points[0]?.weightPct ?? 0;
+    const latestWeightPct = points.at(-1)?.weightPct ?? 0;
+
+    return {
+      code,
+      name: latestHolding?.name || code,
+      latestWeightPct: Number(latestWeightPct.toFixed(2)),
+      latestWeightDisplay: formatHoldingWeight(latestWeightPct),
+      changeFromFirstPct: Number((latestWeightPct - firstWeightPct).toFixed(2)),
+      changeFromFirstDisplay: formatWeightChange(latestWeightPct - firstWeightPct),
+      points,
+    };
+  });
+}
+
 function buildEtfTrackPayload(track, snapshots) {
   const latestSnapshot = snapshots.at(-1) || null;
   const previousSnapshot = snapshots.length > 1 ? snapshots.at(-2) : null;
+  const latestHoldings = latestSnapshot?.holdings || [];
   const comparison = previousSnapshot
-    ? compareEtfHoldings(latestSnapshot?.holdings || [], previousSnapshot?.holdings || [])
+    ? compareEtfHoldings(latestHoldings, previousSnapshot?.holdings || [])
     : {
         added: [],
         removed: [],
@@ -467,6 +549,9 @@ function buildEtfTrackPayload(track, snapshots) {
         topWeightUp: [],
         topWeightDown: [],
       };
+  const concentration = summarizeEtfConcentration(latestHoldings);
+  const watchlistOverlap = buildEtfWatchlistOverlap(latestHoldings);
+  const trendSeries = buildEtfTrendSeries(snapshots);
 
   return {
     ticker: track.ticker,
@@ -488,11 +573,14 @@ function buildEtfTrackPayload(track, snapshots) {
     outstandingUnitsDisplay: formatShareCount(latestSnapshot?.outstandingUnits ?? null),
     netAsset: latestSnapshot?.netAsset ?? null,
     netAssetDisplay: formatLargeNumber(latestSnapshot?.netAsset ?? null),
-    holdingsCount: latestSnapshot?.holdings.length || 0,
+    holdingsCount: latestHoldings.length,
     futuresCount: latestSnapshot?.futures.length || 0,
-    topHoldings: (latestSnapshot?.holdings || []).slice(0, 10),
+    topHoldings: latestHoldings.slice(0, 10),
     futures: latestSnapshot?.futures || [],
     balances: latestSnapshot?.balances || [],
+    concentration,
+    watchlistOverlap,
+    trendSeries,
     recentSnapshotDates: snapshots.slice(-10).map((snapshot) => snapshot.snapshotDate),
     operationTrail: {
       comparisonReady: Boolean(previousSnapshot),
