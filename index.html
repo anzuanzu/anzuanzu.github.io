@@ -1005,6 +1005,8 @@
           rows = rows.filter((row) => row.watchlist);
         } else if (state.preset === "catalysts") {
           rows = rows.filter((row) => row.catalystCount > 0);
+        } else if (state.preset === "highValue") {
+          rows = rows.filter((row) => row.highValueEvent?.active);
         } else if (state.preset === "divergence") {
           rows = rows.filter(
             (row) =>
@@ -1683,7 +1685,12 @@
                         <td>${escapeHtml(row.tradeValueDisplay)}</td>
                         <td>
                           <div>${escapeHtml(row.eventScoreDisplay || "0/10")}</div>
-                          <div class="tiny">${escapeHtml(row.eventConfirmation?.label || "無")} · ${escapeHtml(row.primaryEventLabel || (row.catalystCount > 0 ? "事件群組" : "無"))}</div>
+                          <div class="tiny">
+                            ${escapeHtml(`S ${row.eventStrengthDisplay || "0/4"} / M ${row.marketConfirmationDisplay || "0/3"} / F ${row.fundamentalFollowThroughDisplay || "0/3"}`)}
+                          </div>
+                          <div class="tiny">
+                            ${escapeHtml(row.highValueEvent?.active ? "High-value" : row.eventConfirmation?.label || "無")} · ${escapeHtml(row.primaryEventLabel || (row.catalystCount > 0 ? "事件群組" : "無"))}
+                          </div>
                         </td>
                       </tr>
                     `,
@@ -1756,6 +1763,18 @@
               <span class="tiny">主事件</span>
               <strong>${escapeHtml(detail.primaryEventLabel || "無")}</strong>
             </div>
+            <div class="metric">
+              <span class="tiny">Event Strength</span>
+              <strong>${escapeHtml(detail.eventStrengthDisplay || "0/4")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">Market Confirm</span>
+              <strong>${escapeHtml(detail.marketConfirmationDisplay || "0/3")}</strong>
+            </div>
+            <div class="metric">
+              <span class="tiny">Fund Follow-through</span>
+              <strong>${escapeHtml(detail.fundamentalFollowThroughDisplay || "0/3")}</strong>
+            </div>
           </div>
 
           <div class="detail-block">
@@ -1770,6 +1789,7 @@
               <span class="tag">公告：${detail.announcementCount || 0}</span>
               <span class="tag">事件確認：${escapeHtml(detail.eventConfirmation?.label || "無")}</span>
               <span class="tag">事件時間：${escapeHtml(detail.daysSinceLatestEventDisplay || "無資料")}</span>
+              ${detail.highValueEvent?.label ? `<span class="tag">Event quality: ${escapeHtml(detail.highValueEvent.label)}</span>` : ""}
               ${detail.eventLabels?.slice(0, 4).map((label) => `<span class="tag">${escapeHtml(label)}</span>`).join("") || ""}
               ${detail.otcInstitutionNetDisplay ? `<span class="tag">櫃買法人：${escapeHtml(detail.otcInstitutionNetDisplay)}</span>` : ""}
             </div>
@@ -2163,6 +2183,7 @@
                   `,
                 )
                 .join("")}
+              <button class="preset-btn ${state.preset === "highValue" ? "active" : ""}" data-preset="highValue">High-value events</button>
             </div>
             <div class="filter-row">
               <select id="marketFilter">

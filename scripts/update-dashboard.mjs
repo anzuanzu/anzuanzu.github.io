@@ -1261,6 +1261,242 @@ function computeEventConfirmation(item) {
   };
 }
 
+function computeEventStrengthV2(item) {
+  const drivers = [];
+  let score = 0;
+
+  if (item.catalystWeightTotal >= 8) {
+    score += 3;
+    drivers.push(compactDriver("Heavy catalyst cluster", "positive", 3));
+  } else if (item.catalystWeightTotal >= 5) {
+    score += 2;
+    drivers.push(compactDriver("Multi-catalyst setup", "positive", 2));
+  } else if (item.catalystWeightTotal >= 2) {
+    score += 1;
+    drivers.push(compactDriver("Tradeable catalyst exists", "positive", 1));
+  } else if (item.eventWeightTotal > 0) {
+    drivers.push(compactDriver("Event exists but catalyst weight is light", "neutral", 0));
+  }
+
+  if (item.maxEventWeight >= 3) {
+    score += 1;
+    drivers.push(compactDriver(item.maxEventWeight >= 4 ? "Primary event is high-impact" : "Primary event is meaningful", "positive", 1));
+  }
+
+  if (
+    item.eventTypes.length > 0 &&
+    item.eventTypes.every((type) => type === "governance_change") &&
+    item.catalystTypes.length === 0
+  ) {
+    score = Math.max(0, score - 1);
+    drivers.push(compactDriver("Governance-only event is usually weak", "negative", -1));
+  }
+
+  score = Math.max(0, Math.min(4, score));
+  return {
+    score,
+    label: `${score}/4`,
+    note:
+      score >= 3
+        ? "Event strength is high."
+        : score >= 2
+          ? "Event strength is actionable."
+          : score >= 1
+            ? "Event strength is light."
+            : "No strong catalyst weight yet.",
+    drivers,
+  };
+}
+
+function computeMarketConfirmationV2(item) {
+  if (item.catalystCount === 0) {
+    return {
+      score: 0,
+      level: "none",
+      label: "None",
+      note: "No catalyst to confirm in price or turnover.",
+      drivers: [compactDriver("No catalyst yet", "neutral", 0)],
+    };
+  }
+
+  const recentEvent = item.daysSinceLatestEvent !== null && item.daysSinceLatestEvent <= 7;
+  const staleWindow = item.daysSinceLatestEvent !== null && item.daysSinceLatestEvent <= 30;
+  const strongPrice = item.priceChange !== null && item.priceChange >= 2;
+  const modestPrice = item.priceChange !== null && item.priceChange >= 1;
+  const weakPrice = item.priceChange !== null && item.priceChange <= -1;
+  const strongVolume = item.tradeValue !== null && item.tradeValue >= 2000000000;
+  const drivers = [];
+
+  if (recentEvent && strongPrice && strongVolume) {
+    return {
+      score: 3,
+      level: "confirmed",
+      label: "Confirmed",
+      note: "Price and turnover are validating the event.",
+      drivers: [
+        compactDriver("Price confirmed", "positive", 2),
+        compactDriver("Turnover confirmed", "positive", 1),
+      ],
+    };
+  }
+
+  if (recentEvent && weakPrice) {
+    return {
+      score: 0,
+      level: "failed",
+      label: "Failed",
+      note: "Price action rejected the event.",
+      drivers: [compactDriver("Price rejected the event", "negative", -1)],
+    };
+  }
+
+  if (recentEvent && (modestPrice || strongVolume)) {
+    if (modestPrice) drivers.push(compactDriver("Price reaction started", "positive", 1));
+    if (strongVolume) drivers.push(compactDriver("Turnover picked up", "positive", 1));
+    return {
+      score: 2,
+      level: "pending",
+      label: "Partial",
+      note: "Market is reacting, but confirmation is incomplete.",
+      drivers,
+    };
+  }
+
+  if (recentEvent) {
+    return {
+      score: 1,
+      level: "pending",
+      label: "Pending",
+      note: "Fresh event, but price and turnover have not confirmed it yet.",
+      drivers: [compactDriver("Fresh event; awaiting market response", "neutral", 1)],
+    };
+  }
+
+  if (staleWindow && modestPrice) {
+    return {
+      score: 1,
+      level: "stale",
+      label: "Late",
+      note: "Reaction came after the initial event window.",
+      drivers: [compactDriver("Late price follow-through", "neutral", 1)],
+    };
+  }
+
+  return {
+    score: 0,
+    level: "stale",
+    label: "Stale",
+    note: "Event is outside the active setup window.",
+    drivers: [compactDriver("Event window has cooled off", "neutral", 0)],
+  };
+}
+
+function computeFundamentalFollowThroughV2(item) {
+  if (item.catalystCount === 0) {
+    return {
+      score: 0,
+      label: "0/3",
+      note: "No catalyst yet, so there is no follow-through to grade.",
+      drivers: [compactDriver("No event-follow-through context", "neutral", 0)],
+    };
+  }
+
+  const drivers = [];
+  let score = 0;
+
+  if (item.revenueYoY >= 20) {
+    score += 1;
+    drivers.push(compactDriver("Revenue YoY is validating the thesis", "positive", 1));
+  } else if (item.revenueYoY < 0) {
+    drivers.push(compactDriver("Revenue YoY is not yet validating the thesis", "negative", -1));
+  }
+
+  if (item.revenueMoM >= 5) {
+    score += 1;
+    drivers.push(compactDriver("Revenue MoM is improving", "positive", 1));
+  } else if (item.revenueMoM < 0) {
+    drivers.push(compactDriver("Revenue MoM softened", "negative", -1));
+  }
+
+  if (item.cumulativeYoY >= 5) {
+    score += 1;
+    drivers.push(compactDriver("Cumulative trend is supportive", "positive", 1));
+  } else if (item.cumulativeYoY < 0) {
+    drivers.push(compactDriver("Cumulative trend is still weak", "negative", -1));
+  }
+
+  score = Math.max(0, Math.min(3, score));
+  return {
+    score,
+    label: `${score}/3`,
+    note:
+      score >= 2
+        ? "Fundamentals are following the event."
+        : score === 1
+          ? "Fundamental follow-through is mixed."
+          : "Fundamentals have not confirmed the event yet.",
+    drivers,
+  };
+}
+
+function computeEventScoreV2(item) {
+  const breakdown = {
+    strength: computeEventStrengthV2(item),
+    marketConfirmation: computeMarketConfirmationV2(item),
+    fundamentalFollowThrough: computeFundamentalFollowThroughV2(item),
+  };
+  const score = Math.max(
+    0,
+    Math.min(
+      10,
+      breakdown.strength.score + breakdown.marketConfirmation.score + breakdown.fundamentalFollowThrough.score,
+    ),
+  );
+
+  return {
+    score,
+    drivers: [
+      ...breakdown.strength.drivers,
+      ...breakdown.marketConfirmation.drivers,
+      ...breakdown.fundamentalFollowThrough.drivers,
+    ],
+    breakdown,
+  };
+}
+
+function classifyHighValueEventV2(item) {
+  if (item.catalystCount === 0) {
+    return { active: false, label: "No catalyst", note: "No event to classify." };
+  }
+
+  if (
+    item.eventScore >= 7 &&
+    item.eventStrength.score >= 3 &&
+    (item.marketConfirmation.score >= 2 || item.fundamentalFollowThrough.score >= 2) &&
+    item.eventConfirmation.level !== "failed"
+  ) {
+    return {
+      active: true,
+      label: "High-value",
+      note: "Strong event with market or fundamental validation.",
+    };
+  }
+
+  if (item.eventScore >= 5 && item.eventStrength.score >= 2) {
+    return {
+      active: false,
+      label: "Watch",
+      note: "Meaningful event, but validation is incomplete.",
+    };
+  }
+
+  return {
+    active: false,
+    label: "Low-value",
+    note: "Event exists, but its trading value is still limited.",
+  };
+}
+
 function buildAlertFlags(item) {
   const flags = [];
 
@@ -1292,6 +1528,7 @@ function buildAlertFlags(item) {
     flags.push("eventPendingConfirmation");
   }
   if (item.eventConfirmation.level === "confirmed") flags.push("eventConfirmed");
+  if (item.highValueEvent?.active) flags.push("highValueEvent");
 
   return flags;
 }
@@ -1400,10 +1637,18 @@ function buildCompanyItem({
     .reduce((sum, weight) => sum + weight, 0);
   item.daysSinceLatestEvent = eventTimeline.length ? isoDateDiffDays(eventTimeline[0].date) : null;
   item.eventTimeline = eventTimeline.slice(0, 6);
-  const eventScore = computeEventScore(item);
+  const eventScore = computeEventScoreV2(item);
   item.eventScore = eventScore.score;
   item.eventDrivers = eventScore.drivers;
-  item.eventConfirmation = computeEventConfirmation(item);
+  item.eventStrength = eventScore.breakdown.strength;
+  item.marketConfirmation = eventScore.breakdown.marketConfirmation;
+  item.fundamentalFollowThrough = eventScore.breakdown.fundamentalFollowThrough;
+  item.eventConfirmation = {
+    level: item.marketConfirmation.level,
+    label: item.marketConfirmation.label,
+    note: item.marketConfirmation.note,
+  };
+  item.highValueEvent = classifyHighValueEventV2(item);
 
   item.signal = computeSignal(item);
   item.alertFlags = buildAlertFlags(item);
@@ -1415,6 +1660,9 @@ function buildCompanyItem({
   item.revenueMoMDisplay = formatPercent(item.revenueMoM);
   item.cumulativeYoYDisplay = formatPercent(item.cumulativeYoY);
   item.eventScoreDisplay = `${item.eventScore}/10`;
+  item.eventStrengthDisplay = item.eventStrength.label;
+  item.marketConfirmationDisplay = `${item.marketConfirmation.score}/3`;
+  item.fundamentalFollowThroughDisplay = item.fundamentalFollowThrough.label;
   item.daysSinceLatestEventDisplay =
     item.daysSinceLatestEvent === null ? "無資料" : `${item.daysSinceLatestEvent} 日前`;
   item.searchText = `${item.code} ${item.name} ${item.industry} ${item.chain} ${item.focus}`.toLowerCase();
@@ -1459,6 +1707,12 @@ function compactRow(item) {
     tradeValueDisplay: item.tradeValueDisplay,
     eventScore: item.eventScore,
     eventScoreDisplay: item.eventScoreDisplay,
+    eventStrength: item.eventStrength,
+    eventStrengthDisplay: item.eventStrengthDisplay,
+    marketConfirmationScore: item.marketConfirmation?.score ?? 0,
+    marketConfirmationDisplay: item.marketConfirmationDisplay,
+    fundamentalFollowThrough: item.fundamentalFollowThrough,
+    fundamentalFollowThroughDisplay: item.fundamentalFollowThroughDisplay,
     catalystCount: item.catalystCount,
     catalystTypes: item.catalystTypes,
     catalystLabels: item.catalystLabels,
@@ -1468,6 +1722,7 @@ function compactRow(item) {
     daysSinceLatestEvent: item.daysSinceLatestEvent,
     daysSinceLatestEventDisplay: item.daysSinceLatestEventDisplay,
     eventConfirmation: item.eventConfirmation,
+    highValueEvent: item.highValueEvent,
     announcementCount: item.announcementCount,
     dataMonth: item.dataMonth,
     alertFlags: item.alertFlags,
@@ -1514,6 +1769,18 @@ function buildAlerts(items) {
   const alerts = [];
 
   for (const item of items) {
+    if (item.alertFlags.includes("highValueEvent")) {
+      alerts.push({
+        level: "high",
+        title: "High-value event",
+        code: item.code,
+        name: item.name,
+        marketLabel: item.marketLabel,
+        lensLabel: item.lensLabel,
+        signalScore: item.signal.score,
+        message: `${item.name} has a strong event setup with validation in price, turnover, or fundamentals.`,
+      });
+    }
     if (item.alertFlags.includes("strongWithCatalyst")) {
       alerts.push({
         level: "high",
@@ -1840,6 +2107,14 @@ async function buildDashboardPayload() {
         right.signal.score - left.signal.score ||
         (right.tradeValue ?? 0) - (left.tradeValue ?? 0),
     ),
+    highValueEvents: topBy(
+      sortedUniverse,
+      (item) => item.highValueEvent?.active,
+      (left, right) =>
+        right.eventScore - left.eventScore ||
+        (right.marketConfirmation?.score ?? 0) - (left.marketConfirmation?.score ?? 0) ||
+        (right.fundamentalFollowThrough?.score ?? 0) - (left.fundamentalFollowThrough?.score ?? 0),
+    ),
     laggards: topBy(
       sortedUniverse,
       (item) => item.signal.score <= 4,
@@ -1888,12 +2163,19 @@ async function buildDashboardPayload() {
         otcInstitutionNetDisplay: item.otcInstitutionNetDisplay,
         eventScore: item.eventScore,
         eventScoreDisplay: item.eventScoreDisplay,
+        eventStrength: item.eventStrength,
+        eventStrengthDisplay: item.eventStrengthDisplay,
+        marketConfirmation: item.marketConfirmation,
+        marketConfirmationDisplay: item.marketConfirmationDisplay,
+        fundamentalFollowThrough: item.fundamentalFollowThrough,
+        fundamentalFollowThroughDisplay: item.fundamentalFollowThroughDisplay,
         primaryEventLabel: item.primaryEventLabel,
         eventLabels: item.eventLabels,
         catalystLabels: item.catalystLabels,
         daysSinceLatestEvent: item.daysSinceLatestEvent,
         daysSinceLatestEventDisplay: item.daysSinceLatestEventDisplay,
         eventConfirmation: item.eventConfirmation,
+        highValueEvent: item.highValueEvent,
         catalystCount: item.catalystCount,
         announcementCount: item.announcementCount,
         alertFlags: item.alertFlags,
