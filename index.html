@@ -175,6 +175,34 @@
         color: var(--muted);
       }
 
+      .data-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .data-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-size: 0.76rem;
+        letter-spacing: 0.02em;
+      }
+
+      .data-chip.official {
+        color: #8ee7ff;
+        background: rgba(78, 200, 255, 0.1);
+      }
+
+      .data-chip.derived {
+        color: #ffd480;
+        background: rgba(255, 200, 87, 0.12);
+      }
+
       .hero-side {
         display: grid;
         gap: 12px;
@@ -936,6 +964,31 @@
         });
       }
 
+      function renderDataBadges(mode = "mixed") {
+        if (mode === "official") {
+          return `
+            <div class="data-badges">
+              <span class="data-chip official">官方原始資料</span>
+            </div>
+          `;
+        }
+
+        if (mode === "derived") {
+          return `
+            <div class="data-badges">
+              <span class="data-chip derived">模型衍生結果</span>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="data-badges">
+            <span class="data-chip official">官方原始資料</span>
+            <span class="data-chip derived">模型衍生結果</span>
+          </div>
+        `;
+      }
+
       function detailDataFor(code) {
         return dashboard?.detailByCode?.[code] || dashboard?.leaderboard?.find((item) => item.code === code) || null;
       }
@@ -1054,6 +1107,7 @@
                       <div>
                         <h2 class="panel-title">${title}</h2>
                         <div class="tiny">${note}</div>
+                        ${renderDataBadges("derived")}
                       </div>
                       <span class="tiny">${rows.length} 檔</span>
                     </div>
@@ -1107,6 +1161,7 @@
                       <div>
                         <h2 class="section-title">${escapeHtml(track.ticker)}</h2>
                         <strong>${escapeHtml(track.shortName || track.name)}</strong>
+                        ${renderDataBadges("mixed")}
                       </div>
                       <span class="tone neutral">${escapeHtml(track.category || "ETF")}</span>
                     </div>
@@ -1144,6 +1199,7 @@
                   <div>
                     <h2 class="section-title">ETF Flow Radar</h2>
                     <div class="tiny">Waiting for a second official snapshot before cross-ETF add/reduce rankings go live</div>
+                    ${renderDataBadges("mixed")}
                   </div>
                   <span class="tone neutral">${escapeHtml(String(radar.trackedCount || 0))} ETFs</span>
                 </div>
@@ -1232,6 +1288,7 @@
                       <div>
                         <h2 class="panel-title">${title}</h2>
                         <div class="tiny">${note}</div>
+                        ${renderDataBadges("mixed")}
                       </div>
                       <span class="tone ${tone}">${escapeHtml(String(rows.length))}</span>
                     </div>
@@ -1245,6 +1302,7 @@
                 <div>
                   <h2 class="section-title">ETF Flow Radar</h2>
                   <div class="tiny">Cross-ETF rebalance summary from official daily holdings snapshots</div>
+                  ${renderDataBadges("mixed")}
                 </div>
                 <span class="tone neutral">${escapeHtml(radar.latestCompareDate || "--")}</span>
               </div>
@@ -1253,6 +1311,7 @@
                 <span class="pill">Comparable ${escapeHtml(String(radar.comparisonReadyCount || 0))}</span>
                 <span class="pill">Touched ${escapeHtml(String(radar.touchedCount || 0))} names</span>
               </div>
+              ${renderDataBadges("mixed")}
               <p class="etf-caption">
                 Use this block to see whether rebalance pressure is isolated to one product or starting to cluster
                 across the ETF shelf. Consensus buys matter more when they overlap with your existing semiconductor
@@ -1373,7 +1432,7 @@
                 <div>
                   <h2 class="section-title">${escapeHtml(track.ticker)} Flow</h2>
                   <div class="tiny">
-                    <a href="${escapeHtml(track.sourceUrl)}" target="_blank" rel="noreferrer">Official holdings snapshot</a>
+                    <a href="${escapeHtml(track.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(track.sourceLabel || "Official holdings snapshot")}</a>
                     ${track.latestSnapshotDate ? ` 繚 ${escapeHtml(track.latestSnapshotDate)}` : ""}
                   </div>
                 </div>
@@ -1499,6 +1558,7 @@
                   <div class="tiny">
                     ${escapeHtml(track.operationTrail?.baseDate || "No prior snapshot")} -> ${escapeHtml(track.operationTrail?.compareDate || "--")}
                   </div>
+                  ${renderDataBadges("mixed")}
                 </div>
                 <span class="tone neutral">
                   ${escapeHtml(
@@ -1506,6 +1566,7 @@
                   )}
                 </span>
               </div>
+              ${renderDataBadges("mixed")}
               <div class="etf-list-grid">
                 <div class="detail-block" style="margin-top:0;padding-top:0;border-top:none;">
                   <div class="split-head">
@@ -1655,6 +1716,7 @@
                 <span class="tag">${escapeHtml(detail.lensLabel)}</span>
                 <span class="tag">${escapeHtml(detail.chain)}</span>
               </div>
+              ${renderDataBadges("mixed")}
               <h3>${escapeHtml(detail.name)}</h3>
               <div class="muted">${escapeHtml(detail.code)} · ${escapeHtml(detail.industry)}</div>
             </div>
@@ -1871,6 +1933,7 @@
                       <div>
                         <h2>${escapeHtml(strategy.title)}</h2>
                         <p>${escapeHtml(strategy.summary)}</p>
+                        ${renderDataBadges("derived")}
                       </div>
                       <span class="tone neutral">${strategy.metrics.avgScore ?? "0"}</span>
                     </div>
@@ -1934,6 +1997,7 @@
                 <h2 class="section-title">警報佇列</h2>
                 <span class="tiny">${dashboard.alerts.length} 則</span>
               </div>
+              ${renderDataBadges("derived")}
               <ul class="alert-list">
                 ${dashboard.alerts
                   .slice(0, 12)
@@ -1958,6 +2022,7 @@
                 <h2 class="section-title">市場公告流</h2>
                 <span class="tiny">最新 12 則</span>
               </div>
+              ${renderDataBadges("mixed")}
               <ul class="announcement-list">
                 ${dashboard.announcements
                   .slice(0, 12)
@@ -2005,6 +2070,7 @@
                 這版不是只看 41 檔觀察池，而是把全市場月營收宇宙、排行板、策略池、警報候選與個股詳頁整合成同一個工作台。
                 核心目的是讓你先掃市場，再縮到半導體鏈與非電子鏈，最後才做研究判斷。
               </p>
+              ${renderDataBadges("mixed")}
               <div class="pill-row">
                 <span class="pill">資料月份 ${escapeHtml(dashboard.sourceStatus.monthlyRevenueMonth)}</span>
                 <span class="pill">全市場 ${dashboard.coverage.universeTotal} 檔</span>
@@ -2043,6 +2109,7 @@
           <section class="market-grid">
             <article class="panel market-card">
               <h2>${escapeHtml(dashboard.marketOverview.listed.label)}</h2>
+              ${renderDataBadges("official")}
               <strong>${escapeHtml(dashboard.marketOverview.listed.closeDisplay)}</strong>
               <div class="delta ${toneClass(dashboard.marketOverview.listed.change)}">${escapeHtml(
                 dashboard.marketOverview.listed.changeDisplay,
@@ -2051,6 +2118,7 @@
             </article>
             <article class="panel market-card">
               <h2>${escapeHtml(dashboard.marketOverview.otc.label)}</h2>
+              ${renderDataBadges("official")}
               <strong>${escapeHtml(dashboard.marketOverview.otc.closeDisplay)}</strong>
               <div class="delta ${toneClass(dashboard.marketOverview.otc.change)}">${escapeHtml(
                 dashboard.marketOverview.otc.changeDisplay,
@@ -2059,6 +2127,7 @@
             </article>
             <article class="panel market-card">
               <h2>全市場廣度</h2>
+              ${renderDataBadges("official")}
               <strong>${dashboard.coverage.universeTotal}</strong>
               <div class="pill-row">
                 <span class="tone positive">強 ${dashboard.coverage.breadth.strong}</span>
@@ -2068,6 +2137,7 @@
             </article>
             <article class="panel market-card">
               <h2>櫃買法人摘要</h2>
+              ${renderDataBadges("official")}
               <strong>${escapeHtml(
                 dashboard.marketOverview.otcInstitutionSummary[0]?.netDisplay || "無資料",
               )}</strong>
@@ -2156,9 +2226,11 @@
                 <div>
                   <h2 class="section-title">領先名單</h2>
                   <div class="tiny">顯示 ${Math.min(rows.length, 140)} / ${rows.length} 檔，先用篩選縮小樣本，再做詳讀。</div>
+                  ${renderDataBadges("mixed")}
                 </div>
                 <span class="tone neutral">${state.preset}</span>
               </div>
+              ${renderDataBadges("mixed")}
               ${renderLeaderboard(rows)}
             </article>
             <aside class="panel detail">

@@ -22,7 +22,7 @@ const ETF_TRACKS = [
     name: "00981A 主動統一台股增長",
     issuer: "統一投信",
     fundCode: "49YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=49YTW",
     historyFile: path.join(etfTrackDir, "00981A.json"),
   },
 ];
@@ -35,7 +35,9 @@ const ETF_TRACK_REGISTRY = [
     issuer: "統一投信",
     category: "Taiwan Active",
     fundCode: "49YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=49YTW",
+    sourceLabel: "Official issuer PCF / holdings page",
+    sourceHost: "www.ezmoney.com.tw",
     historyFile: path.join(etfTrackDir, "00981A.json"),
   },
   {
@@ -45,7 +47,9 @@ const ETF_TRACK_REGISTRY = [
     issuer: "統一投信",
     category: "Taiwan Active",
     fundCode: "63YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=63YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=63YTW",
+    sourceLabel: "Official issuer PCF / holdings page",
+    sourceHost: "www.ezmoney.com.tw",
     historyFile: path.join(etfTrackDir, "00403A.json"),
   },
   {
@@ -55,7 +59,9 @@ const ETF_TRACK_REGISTRY = [
     issuer: "統一投信",
     category: "Taiwan Equity",
     fundCode: "46YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=46YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=46YTW",
+    sourceLabel: "Official issuer PCF / holdings page",
+    sourceHost: "www.ezmoney.com.tw",
     historyFile: path.join(etfTrackDir, "00939.json"),
   },
   {
@@ -65,7 +71,9 @@ const ETF_TRACK_REGISTRY = [
     issuer: "統一投信",
     category: "US Equity",
     fundCode: "50YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=50YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=50YTW",
+    sourceLabel: "Official issuer PCF / holdings page",
+    sourceHost: "www.ezmoney.com.tw",
     historyFile: path.join(etfTrackDir, "009811.json"),
   },
   {
@@ -75,7 +83,9 @@ const ETF_TRACK_REGISTRY = [
     issuer: "統一投信",
     category: "US Tech",
     fundCode: "36YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=36YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=36YTW",
+    sourceLabel: "Official issuer PCF / holdings page",
+    sourceHost: "www.ezmoney.com.tw",
     historyFile: path.join(etfTrackDir, "00757.json"),
   },
   {
@@ -85,7 +95,9 @@ const ETF_TRACK_REGISTRY = [
     issuer: "統一投信",
     category: "Global Active",
     fundCode: "61YTW",
-    sourceUrl: "https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=61YTW",
+    sourceUrl: "https://www.ezmoney.com.tw/ETF/Transaction/PCF?fundCode=61YTW",
+    sourceLabel: "Official issuer PCF / holdings page",
+    sourceHost: "www.ezmoney.com.tw",
     historyFile: path.join(etfTrackDir, "00988A.json"),
   },
 ];
@@ -624,6 +636,9 @@ function buildEtfTrackPayload(track, snapshots) {
     category: track.category || "ETF",
     fundCode: track.fundCode,
     sourceUrl: track.sourceUrl,
+    sourceLabel: track.sourceLabel || "Official issuer holdings page",
+    sourceHost: track.sourceHost || null,
+    sourceKind: "official_raw",
     historyLength: snapshots.length,
     latestSnapshotDate: latestSnapshot?.snapshotDate || null,
     latestEditTime: latestSnapshot?.editTime || null,
@@ -883,6 +898,8 @@ async function loadEtfTrackState(track) {
     issuer: track.issuer,
     fundCode: track.fundCode,
     sourceUrl: track.sourceUrl,
+    sourceLabel: track.sourceLabel || null,
+    sourceHost: track.sourceHost || null,
     snapshots: [],
   });
   let latest = null;
@@ -920,6 +937,8 @@ async function loadEtfTrackState(track) {
     issuer: track.issuer,
     fundCode: track.fundCode,
     sourceUrl: track.sourceUrl,
+    sourceLabel: track.sourceLabel || null,
+    sourceHost: track.sourceHost || null,
     snapshots: trimmedSnapshots,
   };
 
@@ -1946,6 +1965,29 @@ async function buildDashboardPayload() {
         .at(-1) || null,
       etfTrackCount: etfTrackStates.length,
       universeSize: sortedUniverse.length,
+    },
+    sourceCatalog: {
+      officialRaw: [
+        { label: "TWSE OpenAPI", url: SOURCES.twseRevenue },
+        { label: "TPEx OpenAPI", url: SOURCES.tpexRevenue },
+        { label: "TWSE Major Announcements", url: SOURCES.twseMajor },
+        { label: "TPEx Major Announcements", url: SOURCES.tpexMajor },
+      ],
+      etfIssuerRaw: ETF_TRACK_REGISTRY.map((track) => ({
+        ticker: track.ticker,
+        label: track.sourceLabel || "Official issuer holdings page",
+        url: track.sourceUrl,
+        host: track.sourceHost || null,
+      })),
+      modelDerived: [
+        "Signal score",
+        "Event score",
+        "Lens classification",
+        "Watchlist overlap",
+        "Operation trail",
+        "ETF Flow Radar",
+        "Alerts and rankings",
+      ],
     },
     coverage: {
       universeTotal: sortedUniverse.length,
