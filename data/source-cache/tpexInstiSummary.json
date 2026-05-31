@@ -1,0 +1,63 @@
+{
+  "sourceKey": "tpexInstiSummary",
+  "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
+  "fetchedAt": "2026-05-31T03:32:38.978Z",
+  "data": [
+    {
+      "Date": "1150529",
+      "Investor": "外資及陸資合計",
+      "PurchaseAmount": "144128772954",
+      "SaleAmount": "160855158941",
+      "Net": "-16726385987"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "　外資及陸資(不含自營商)",
+      "PurchaseAmount": "144128772954",
+      "SaleAmount": "160855158941",
+      "Net": "-16726385987"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "　外資自營商",
+      "PurchaseAmount": "0",
+      "SaleAmount": "0",
+      "Net": "0"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "投信",
+      "PurchaseAmount": "7624837421",
+      "SaleAmount": "6288352482",
+      "Net": "1336484939"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "自營商合計",
+      "PurchaseAmount": "9200650395",
+      "SaleAmount": "8572276743",
+      "Net": "628373652"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "　自營商(自行買賣)",
+      "PurchaseAmount": "1988477592",
+      "SaleAmount": "1648783589",
+      "Net": "339694003"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "　自營商(避險)",
+      "PurchaseAmount": "7212172803",
+      "SaleAmount": "6923493154",
+      "Net": "288679649"
+    },
+    {
+      "Date": "1150529",
+      "Investor": "三大法人合計*",
+      "PurchaseAmount": "160954260770",
+      "SaleAmount": "175715788166",
+      "Net": "-14761527396"
+    }
+  ]
+}

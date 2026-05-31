@@ -1,0 +1,23 @@
+{
+  "sourceKey": "tpexHighlight",
+  "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
+  "fetchedAt": "2026-05-31T03:32:38.977Z",
+  "data": [
+    {
+      "Date": "1150529",
+      "ListedCompanyNumbers": "888",
+      "AuthorizedCapital": "835402",
+      "MarketCapitalization": "12097442",
+      "DailyTradingValue": "385397",
+      "DailyTradingVolume": "1570935",
+      "CloseIndex": "443.64",
+      "IndexChange": "11.16",
+      "PriceRiseCompanyNumbers": "567",
+      "LimitUpCompanyNumbers": "42",
+      "PriceDeclineCompanyNumbers": "248",
+      "LimitDownCompanyNumbers": "2",
+      "PriceFlatCompanyNumbers": "67",
+      "UnmatchedCompanyNumbersSuspensionStocksIncluded": "6"
+    }
+  ]
+}

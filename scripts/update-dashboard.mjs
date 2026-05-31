@@ -11,10 +11,13 @@ const rootDir = path.resolve(__dirname, "..");
 const dataDir = path.join(rootDir, "data");
 const dataFile = path.join(dataDir, "dashboard.json");
 const etfTrackDir = path.join(dataDir, "etf-tracks");
+const sourceCacheDir = path.join(dataDir, "source-cache");
 const execFileAsync = promisify(execFile);
 const curlBinary = process.platform === "win32" ? "curl.exe" : "curl";
 const browserUserAgent =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36";
+const retryableHttpStatuses = new Set([408, 425, 429, 500, 502, 503, 504, 520, 521, 522, 523, 524]);
+const sourceFetchStates = new Map();
 
 const ETF_TRACKS = [
   {
@@ -304,19 +307,88 @@ function mapByCode(rows, codeKey) {
   return new Map(rows.map((row) => [String(row[codeKey] || "").trim(), row]));
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: {
-      "user-agent": "tw-chain-terminal-v2/1.0",
-      accept: "application/json, text/plain, */*",
-    },
-  });
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText} @ ${url}`);
+function sourceCacheFile(sourceKey) {
+  return path.join(sourceCacheDir, `${sourceKey}.json`);
+}
+
+function isRetryableFetchError(error) {
+  if (retryableHttpStatuses.has(error?.status)) return true;
+  if (error?.name === "TypeError") return true;
+  return false;
+}
+
+async function fetchJson(sourceKey, url, options = {}) {
+  const { retries = 3, allowStaleCache = true } = options;
+  const cacheFile = sourceCacheFile(sourceKey);
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          "user-agent": "tw-chain-terminal-v2/1.0",
+          accept: "application/json, text/plain, */*",
+        },
+      });
+
+      if (!response.ok) {
+        const error = new Error(`${response.status} ${response.statusText} @ ${url}`);
+        error.status = response.status;
+        throw error;
+      }
+
+      const data = await response.json();
+      const fetchedAt = new Date().toISOString();
+      await writeFile(cacheFile, `${JSON.stringify({ sourceKey, url, fetchedAt, data }, null, 2)}\n`, "utf8");
+      sourceFetchStates.set(sourceKey, {
+        status: "live",
+        url,
+        fetchedAt,
+        attempts: attempt,
+        cacheUsed: false,
+      });
+      return data;
+    } catch (error) {
+      lastError = error;
+      if (attempt < retries && isRetryableFetchError(error)) {
+        await sleep(attempt * 1200);
+        continue;
+      }
+      break;
+    }
   }
 
-  return response.json();
+  if (allowStaleCache) {
+    const cached = await readJsonFileOr(cacheFile, null);
+    if (cached?.data) {
+      sourceFetchStates.set(sourceKey, {
+        status: "stale-cache",
+        url,
+        fetchedAt: cached.fetchedAt || null,
+        attempts: retries,
+        cacheUsed: true,
+        error: String(lastError?.message || lastError),
+      });
+      console.warn(
+        `[source-cache] ${sourceKey} fell back to cached snapshot from ${cached.fetchedAt || "unknown time"} after ${String(lastError?.message || lastError)}`,
+      );
+      return cached.data;
+    }
+  }
+
+  sourceFetchStates.set(sourceKey, {
+    status: "failed",
+    url,
+    fetchedAt: null,
+    attempts: retries,
+    cacheUsed: false,
+    error: String(lastError?.message || lastError),
+  });
+  throw lastError;
 }
 
 async function fetchHtmlWithCurl(url) {
@@ -1964,16 +2036,16 @@ async function buildDashboardPayload() {
     tpexInstiSummary,
     tpexInstiDetail,
   ] = await Promise.all([
-    fetchJson(SOURCES.twseRevenue),
-    fetchJson(SOURCES.tpexRevenue),
-    fetchJson(SOURCES.twseMajor),
-    fetchJson(SOURCES.tpexMajor),
-    fetchJson(SOURCES.twseQuotes),
-    fetchJson(SOURCES.tpexQuotes),
-    fetchJson(SOURCES.twseIndices),
-    fetchJson(SOURCES.tpexHighlight),
-    fetchJson(SOURCES.tpexInstiSummary),
-    fetchJson(SOURCES.tpexInstiDetail),
+    fetchJson("twseRevenue", SOURCES.twseRevenue),
+    fetchJson("tpexRevenue", SOURCES.tpexRevenue),
+    fetchJson("twseMajor", SOURCES.twseMajor),
+    fetchJson("tpexMajor", SOURCES.tpexMajor),
+    fetchJson("twseQuotes", SOURCES.twseQuotes),
+    fetchJson("tpexQuotes", SOURCES.tpexQuotes),
+    fetchJson("twseIndices", SOURCES.twseIndices),
+    fetchJson("tpexHighlight", SOURCES.tpexHighlight),
+    fetchJson("tpexInstiSummary", SOURCES.tpexInstiSummary),
+    fetchJson("tpexInstiDetail", SOURCES.tpexInstiDetail),
   ]);
 
   const revenueMaps = {
@@ -2247,6 +2319,9 @@ async function buildDashboardPayload() {
         .at(-1) || null,
       etfTrackCount: etfTrackStates.length,
       universeSize: sortedUniverse.length,
+      sourceHealth: Object.fromEntries(
+        [...sourceFetchStates.entries()].sort(([left], [right]) => left.localeCompare(right)),
+      ),
     },
     sourceCatalog: {
       officialRaw: [
@@ -2327,6 +2402,7 @@ async function buildDashboardPayload() {
 
 await mkdir(dataDir, { recursive: true });
 await mkdir(etfTrackDir, { recursive: true });
+await mkdir(sourceCacheDir, { recursive: true });
 const { payload, etfTrackStates } = await buildDashboardPayload();
 await writeFile(dataFile, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 await Promise.all(
