@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-22T03:26:05.812Z",
+  "generatedAt": "2026-06-22T06:04:41.365Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -76,7 +76,7 @@
   "sourceStatus": {
     "monthlyRevenueMonth": "2026-05",
     "twseMajorDate": "2026-06-21",
-    "tpexMajorDate": "2026-06-20",
+    "tpexMajorDate": "2026-06-21",
     "etfTrackDate": "2026-05-29",
     "etfTrackCount": 6,
     "universeSize": 1972,
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-06-22T03:26:05.754Z",
-        "attempts": 2,
+        "fetchedAt": "2026-06-22T06:04:37.959Z",
+        "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-06-22T03:26:02.383Z",
+        "fetchedAt": "2026-06-22T06:04:39.289Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-06-22T03:25:59.159Z",
+        "fetchedAt": "2026-06-22T06:04:37.963Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-06-22T03:26:00.003Z",
+        "fetchedAt": "2026-06-22T06:04:37.380Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-06-22T03:26:01.818Z",
+        "fetchedAt": "2026-06-22T06:04:38.340Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-06-22T03:26:02.114Z",
+        "fetchedAt": "2026-06-22T06:04:41.301Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-06-22T03:25:59.487Z",
+        "fetchedAt": "2026-06-22T06:04:38.240Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-06-22T03:25:59.029Z",
+        "fetchedAt": "2026-06-22T06:04:37.661Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-06-22T03:25:59.682Z",
+        "fetchedAt": "2026-06-22T06:04:38.590Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-06-22T03:25:59.431Z",
+        "fetchedAt": "2026-06-22T06:04:38.346Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -5654,8 +5654,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -55942,8 +55942,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -172633,7 +172633,7 @@
         "label": "No catalyst",
         "note": "No event to classify."
       },
-      "announcementCount": 0,
+      "announcementCount": 3,
       "dataMonth": "2026-05",
       "alertFlags": []
     },
@@ -205399,8 +205399,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -205423,8 +205423,8 @@
           "code": "4953",
           "companyName": "緯致",
           "subject": "公告本公司名稱由「緯創軟體股份有限公司」\r\n更名為「緯致科技股份有限公司」，\r\n公告期間：115年6月2日至115年9月1日。",
-          "date": "2026-06-20",
-          "time": "07:00:03",
+          "date": "2026-06-21",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年06月01日  2.公司名稱：緯致科技股份有限公司(原名：緯創軟體股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月01日  (2)公司名稱變更核准文號：經授商字第11530077630號  (3)更名案股東會決議通過日期：民國115年05月27日  (4)變更前公司名稱：緯創軟體股份有限公司  (5)變更後公司名稱：緯致科技股份有限公司  (6)變更前公司簡稱：緯軟  (7)變更後公司簡稱：緯致  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月2日收到經濟部變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4953」。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -205461,8 +205461,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-06-20",
-          "time": "07:00:03",
+          "date": "2026-06-21",
+          "time": "07:00:04",
           "subject": "公告本公司名稱由「緯創軟體股份有限公司」\r\n更名為「緯致科技股份有限公司」，\r\n公告期間：115年6月2日至115年9月1日。",
           "summary": "1.事實發生日：民國115年06月01日  2.公司名稱：緯致科技股份有限公司(原名：緯創軟體股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月01日  (2)公司名稱變更核准文號：經授商字第11530077630號  (3)更名案股東會決議通過日期：民國115年05月27日  (4)變更前公司名稱：緯創軟體股份有限公司  (5)變更後公司名稱：緯致科技股份有限公司  (6)變更前公司簡稱：緯軟  (7)變更後公司簡稱：緯致  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月2日收到經濟部變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4953」。",
           "labels": [
@@ -205652,6 +205652,174 @@
             "label": "成交值高於 20 億",
             "impact": "positive",
             "weight": 1
+          }
+        ]
+      },
+      "eventDrivers": [
+        {
+          "label": "No catalyst yet",
+          "impact": "neutral",
+          "weight": 0
+        },
+        {
+          "label": "No event-follow-through context",
+          "impact": "neutral",
+          "weight": 0
+        }
+      ]
+    },
+    "5202": {
+      "code": "5202",
+      "market": "otc",
+      "marketLabel": "上櫃",
+      "name": "力新",
+      "industry": "資訊服務業",
+      "lens": "market",
+      "lensLabel": "全市場",
+      "watchlist": false,
+      "chain": "資訊服務業",
+      "focus": "全市場掃描",
+      "note": "非核心觀察池，僅納入全市場排行。",
+      "dataMonth": "2026-05",
+      "revenueDisplay": "891.60 萬",
+      "revenueYoYDisplay": "-15.33%",
+      "revenueMoMDisplay": "-29.01%",
+      "cumulativeYoYDisplay": "-6.91%",
+      "closingPrice": 15.8,
+      "priceChangeDisplay": "-0.15",
+      "tradeValueDisplay": "2644.70 萬",
+      "otcInstitutionNetDisplay": "-22.09 萬",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmation": {
+        "score": 0,
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover.",
+        "drivers": [
+          {
+            "label": "No catalyst yet",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "primaryEventLabel": null,
+      "eventLabels": [],
+      "catalystLabels": [],
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "catalystCount": 0,
+      "announcementCount": 3,
+      "alertFlags": [],
+      "announcements": [
+        {
+          "market": "otc",
+          "code": "5202",
+          "companyName": "力新",
+          "subject": "公告本公司會計主管發生異動",
+          "date": "2026-06-21",
+          "time": "09:59:11",
+          "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:會計主管 2.發生變動日期:115/06/21 3.舊任者姓名、級職及簡歷: 江佳燕 財會處處長 中原大學 會計系 睿能創意(股)公司 會計經理 台灣宅配通(股)公司 財會經理 安侯建業聯合會計師事務所 副理 4.新任者姓名、級職及簡歷:無。 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/06/21 8.其他應敘明事項:新任人選待遴選並經董事會正式任命後另行公告。",
+          "isRoutine": false,
+          "hasCatalyst": false,
+          "events": [],
+          "catalysts": [],
+          "eventTypes": [],
+          "catalystTypes": [],
+          "eventWeightTotal": 0,
+          "catalystWeightTotal": 0,
+          "primaryEventLabel": null
+        },
+        {
+          "market": "otc",
+          "code": "5202",
+          "companyName": "力新",
+          "subject": "公告本公司財務主管發生異動",
+          "date": "2026-06-21",
+          "time": "09:58:30",
+          "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:財務主管 2.發生變動日期:115/06/21 3.舊任者姓名、級職及簡歷: 江佳燕 財會處處長 中原大學 會計系 睿能創意(股)公司 會計經理 台灣宅配通(股)公司 財會經理 安侯建業聯合會計師事務所 副理 4.新任者姓名、級職及簡歷:無。 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/06/21 8.其他應敘明事項:新任人選待遴選並經董事會正式任命後另行公告。",
+          "isRoutine": false,
+          "hasCatalyst": false,
+          "events": [],
+          "catalysts": [],
+          "eventTypes": [],
+          "catalystTypes": [],
+          "eventWeightTotal": 0,
+          "catalystWeightTotal": 0,
+          "primaryEventLabel": null
+        },
+        {
+          "market": "otc",
+          "code": "5202",
+          "companyName": "力新",
+          "subject": "公告本公司公司治理主管發生異動",
+          "date": "2026-06-21",
+          "time": "09:58:01",
+          "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:公司治理主管 2.發生變動日期:115/06/21 3.舊任者姓名、級職及簡歷: 江佳燕 財會處處長 中原大學 會計系 睿能創意(股)公司 會計經理 台灣宅配通(股)公司 財會經理 安侯建業聯合會計師事務所 副理 4.新任者姓名、級職及簡歷:無。 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/06/21 8.其他應敘明事項:新任人選待遴選並經董事會正式任命後另行公告。",
+          "isRoutine": false,
+          "hasCatalyst": false,
+          "events": [],
+          "catalysts": [],
+          "eventTypes": [],
+          "catalystTypes": [],
+          "eventWeightTotal": 0,
+          "catalystWeightTotal": 0,
+          "primaryEventLabel": null
+        }
+      ],
+      "eventTimeline": [],
+      "signal": {
+        "score": 0,
+        "label": "偏弱等待",
+        "tone": "negative",
+        "scoreDisplay": "0/10",
+        "drivers": [
+          {
+            "label": "營收年減",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "營收月減超過 10%",
+            "impact": "negative",
+            "weight": -2
+          },
+          {
+            "label": "櫃買法人賣超",
+            "impact": "negative",
+            "weight": -1
           }
         ]
       },
@@ -212352,6 +212520,60 @@
       "primaryEventLabel": "資產交易"
     },
     {
+      "market": "otc",
+      "code": "5202",
+      "companyName": "力新",
+      "subject": "公告本公司會計主管發生異動",
+      "date": "2026-06-21",
+      "time": "09:59:11",
+      "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:會計主管 2.發生變動日期:115/06/21 3.舊任者姓名、級職及簡歷: 江佳燕 財會處處長 中原大學 會計系 睿能創意(股)公司 會計經理 台灣宅配通(股)公司 財會經理 安侯建業聯合會計師事務所 副理 4.新任者姓名、級職及簡歷:無。 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/06/21 8.其他應敘明事項:新任人選待遴選並經董事會正式任命後另行公告。",
+      "isRoutine": false,
+      "hasCatalyst": false,
+      "events": [],
+      "catalysts": [],
+      "eventTypes": [],
+      "catalystTypes": [],
+      "eventWeightTotal": 0,
+      "catalystWeightTotal": 0,
+      "primaryEventLabel": null
+    },
+    {
+      "market": "otc",
+      "code": "5202",
+      "companyName": "力新",
+      "subject": "公告本公司財務主管發生異動",
+      "date": "2026-06-21",
+      "time": "09:58:30",
+      "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:財務主管 2.發生變動日期:115/06/21 3.舊任者姓名、級職及簡歷: 江佳燕 財會處處長 中原大學 會計系 睿能創意(股)公司 會計經理 台灣宅配通(股)公司 財會經理 安侯建業聯合會計師事務所 副理 4.新任者姓名、級職及簡歷:無。 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/06/21 8.其他應敘明事項:新任人選待遴選並經董事會正式任命後另行公告。",
+      "isRoutine": false,
+      "hasCatalyst": false,
+      "events": [],
+      "catalysts": [],
+      "eventTypes": [],
+      "catalystTypes": [],
+      "eventWeightTotal": 0,
+      "catalystWeightTotal": 0,
+      "primaryEventLabel": null
+    },
+    {
+      "market": "otc",
+      "code": "5202",
+      "companyName": "力新",
+      "subject": "公告本公司公司治理主管發生異動",
+      "date": "2026-06-21",
+      "time": "09:58:01",
+      "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:公司治理主管 2.發生變動日期:115/06/21 3.舊任者姓名、級職及簡歷: 江佳燕 財會處處長 中原大學 會計系 睿能創意(股)公司 會計經理 台灣宅配通(股)公司 財會經理 安侯建業聯合會計師事務所 副理 4.新任者姓名、級職及簡歷:無。 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/06/21 8.其他應敘明事項:新任人選待遴選並經董事會正式任命後另行公告。",
+      "isRoutine": false,
+      "hasCatalyst": false,
+      "events": [],
+      "catalysts": [],
+      "eventTypes": [],
+      "catalystTypes": [],
+      "eventWeightTotal": 0,
+      "catalystWeightTotal": 0,
+      "primaryEventLabel": null
+    },
+    {
       "market": "listed",
       "code": "3708",
       "companyName": "上緯投控",
@@ -212396,8 +212618,8 @@
       "code": "4953",
       "companyName": "緯致",
       "subject": "公告本公司名稱由「緯創軟體股份有限公司」\r\n更名為「緯致科技股份有限公司」，\r\n公告期間：115年6月2日至115年9月1日。",
-      "date": "2026-06-20",
-      "time": "07:00:03",
+      "date": "2026-06-21",
+      "time": "07:00:04",
       "summary": "1.事實發生日：民國115年06月01日  2.公司名稱：緯致科技股份有限公司(原名：緯創軟體股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月01日  (2)公司名稱變更核准文號：經授商字第11530077630號  (3)更名案股東會決議通過日期：民國115年05月27日  (4)變更前公司名稱：緯創軟體股份有限公司  (5)變更後公司名稱：緯致科技股份有限公司  (6)變更前公司簡稱：緯軟  (7)變更後公司簡稱：緯致  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月2日收到經濟部變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4953」。",
       "isRoutine": false,
       "hasCatalyst": true,
