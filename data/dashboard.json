@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T01:18:39.264Z",
+  "generatedAt": "2026-06-26T03:21:58.793Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -84,42 +84,42 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-06-26T01:18:27.116Z",
+        "fetchedAt": "2026-06-26T03:21:26.071Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-06-26T01:18:27.291Z",
+        "fetchedAt": "2026-06-26T03:21:26.447Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-06-26T01:18:27.118Z",
+        "fetchedAt": "2026-06-26T03:21:28.812Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-06-26T01:18:36.810Z",
+        "fetchedAt": "2026-06-26T03:21:31.574Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-06-26T01:18:39.201Z",
+        "fetchedAt": "2026-06-26T03:21:27.477Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-06-26T01:18:32.601Z",
+        "fetchedAt": "2026-06-26T03:21:29.695Z",
         "attempts": 1,
         "cacheUsed": false
       },
@@ -129,7 +129,7 @@
         "fetchedAt": "2026-05-31T03:32:38.994Z",
         "attempts": 3,
         "cacheUsed": true,
-        "error": "Unexpected token '<', \"<html>\n<he\"... is not valid JSON"
+        "error": "fetch failed"
       },
       "twseMajor": {
         "status": "stale-cache",
@@ -137,7 +137,7 @@
         "fetchedAt": "2026-05-31T03:32:38.974Z",
         "attempts": 3,
         "cacheUsed": true,
-        "error": "Unexpected token '<', \"<html>\n<he\"... is not valid JSON"
+        "error": "fetch failed"
       },
       "twseQuotes": {
         "status": "stale-cache",
@@ -145,7 +145,7 @@
         "fetchedAt": "2026-05-31T03:32:39.069Z",
         "attempts": 3,
         "cacheUsed": true,
-        "error": "Unexpected token '<', \"<html>\n<he\"... is not valid JSON"
+        "error": "fetch failed"
       },
       "twseRevenue": {
         "status": "stale-cache",
@@ -153,7 +153,7 @@
         "fetchedAt": "2026-05-31T03:32:39.189Z",
         "attempts": 3,
         "cacheUsed": true,
-        "error": "Unexpected token '<', \"<html>\n<he\"... is not valid JSON"
+        "error": "fetch failed"
       }
     }
   },
