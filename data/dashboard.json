@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T09:07:51.202Z",
+  "generatedAt": "2026-07-06T12:56:49.659Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -48,8 +48,8 @@
       },
       {
         "investor": "投信",
-        "net": -1094425725,
-        "netDisplay": "-10.94 億"
+        "net": -450962724,
+        "netDisplay": "-4.51 億"
       },
       {
         "investor": "自營商合計",
@@ -68,8 +68,8 @@
       },
       {
         "investor": "三大法人合計*",
-        "net": -14919379617,
-        "netDisplay": "-149.19 億"
+        "net": -14275916616,
+        "netDisplay": "-142.76 億"
       }
     ]
   },
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-07-06T09:07:44.222Z",
+        "fetchedAt": "2026-07-06T12:56:46.509Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-07-06T09:07:48.687Z",
+        "fetchedAt": "2026-07-06T12:56:49.595Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-07-06T09:07:44.856Z",
+        "fetchedAt": "2026-07-06T12:56:46.523Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-07-06T09:07:43.868Z",
+        "fetchedAt": "2026-07-06T12:56:46.382Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-07-06T09:07:47.939Z",
+        "fetchedAt": "2026-07-06T12:56:47.086Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-07-06T09:07:46.202Z",
+        "fetchedAt": "2026-07-06T12:56:48.091Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-07-06T09:07:44.517Z",
+        "fetchedAt": "2026-07-06T12:56:46.754Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-07-06T09:07:46.093Z",
+        "fetchedAt": "2026-07-06T12:56:46.747Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-07-06T09:07:45.205Z",
+        "fetchedAt": "2026-07-06T12:56:47.036Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-07-06T09:07:51.139Z",
+        "fetchedAt": "2026-07-06T12:56:47.029Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -205715,7 +205715,7 @@
       "closingPrice": 1645,
       "priceChangeDisplay": "+10.00",
       "tradeValueDisplay": "44.27 億",
-      "otcInstitutionNetDisplay": "30.07 萬",
+      "otcInstitutionNetDisplay": "29.23 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -207498,7 +207498,7 @@
       "closingPrice": 156,
       "priceChangeDisplay": "-7.00",
       "tradeValueDisplay": "301.35 億",
-      "otcInstitutionNetDisplay": "-599.68 萬",
+      "otcInstitutionNetDisplay": "-377.68 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -208385,7 +208385,7 @@
       "closingPrice": 1335,
       "priceChangeDisplay": "+80.00",
       "tradeValueDisplay": "287.21 億",
-      "otcInstitutionNetDisplay": "184.33 萬",
+      "otcInstitutionNetDisplay": "205.53 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
