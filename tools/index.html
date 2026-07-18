@@ -3,55 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="整合債券與基金質借、FCN 標的雷達、保單融資與 ETF 技術掃描的投資工具中心。">
-  <title>投資工具中心｜策略、試算與市場掃描</title>
+  <meta name="description" content="投資策略工作台：整合 ETF 技術掃描、FCN 標的雷達、質借與保單融資試算。">
+  <title>投資工具中心｜投資策略工作台</title>
   <style>
-    :root { --ink:#142238; --muted:#62718a; --line:#dbe4ef; --page:#f5f8fc; --panel:#fff; --blue:#2457d6; --blue-2:#5f7ef0; --sky:#eaf1ff; --green:#14845b; --gold:#9a6a10; --violet:#6c50bf; }
+    :root { --night:#10223f; --ink:#14243d; --muted:#64748b; --line:#dce5f0; --paper:#fff; --page:#f2f6fb; --blue:#3265df; --cyan:#159fc5; --green:#15946b; --gold:#b67a18; --violet:#7357d4; --shadow:0 20px 48px rgba(28,53,90,.1); }
     * { box-sizing:border-box; }
-    body { margin:0; color:var(--ink); background:radial-gradient(circle at 12% 0%,#e9f1ff 0,transparent 28rem),radial-gradient(circle at 92% 4%,#edf9f5 0,transparent 24rem),var(--page); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif; line-height:1.55; }
+    html { scroll-behavior:smooth; }
+    body { min-width:320px; margin:0; color:var(--ink); background:radial-gradient(circle at 4% 0%,#dfeaff 0,transparent 30rem),radial-gradient(circle at 100% 5%,#dff7ef 0,transparent 26rem),var(--page); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif; line-height:1.55; }
     a { color:inherit; }
-    .shell { width:min(1180px,calc(100% - 36px)); margin:0 auto; }
-    .workspace-nav { margin:16px 0 0; padding:7px; display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(244,248,255,.93)); box-shadow:0 14px 32px rgba(31,55,91,.1); backdrop-filter:blur(14px); }
-    .workspace-nav__brand { display:flex; align-items:center; gap:8px; min-width:max-content; padding:4px 8px; color:var(--blue); text-decoration:none; }
-    .workspace-nav__mark { display:grid; width:30px; height:30px; place-items:center; border-radius:10px; color:#fff; background:linear-gradient(135deg,var(--blue),var(--blue-2)); box-shadow:0 5px 11px rgba(36,87,214,.22); font-size:.78rem; }
-    .workspace-nav__brand-copy { display:grid; line-height:1.05; } .workspace-nav__brand strong { font-size:.77rem; letter-spacing:.06em; } .workspace-nav__brand small { margin-top:3px; color:var(--muted); font-size:.57rem; font-weight:700; letter-spacing:.06em; }
-    .workspace-nav__links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:3px; padding:3px; border:1px solid #e0e7f0; border-radius:11px; background:#eef3fa; }
-    .workspace-nav__links a { display:inline-flex; align-items:center; gap:4px; padding:7px 9px; color:#53647e; border-radius:8px; font-size:.73rem; font-weight:750; text-decoration:none; transition:transform .16s ease,box-shadow .16s ease,background .16s ease; }
-    .workspace-nav__links a:hover { color:var(--blue); background:#fff; transform:translateY(-1px); } .workspace-nav__links a.is-active { color:#fff; background:linear-gradient(135deg,var(--blue),var(--blue-2)); box-shadow:0 5px 12px rgba(36,87,214,.22); }
+    .shell { width:min(1200px,calc(100% - 36px)); margin:0 auto; }
+
+    .workspace-nav { position:relative; z-index:2; margin:16px 0 0; padding:7px; display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid rgba(220,229,240,.92); border-radius:17px; background:rgba(255,255,255,.84); box-shadow:0 14px 34px rgba(31,55,91,.1); backdrop-filter:blur(16px); }
+    .workspace-nav__brand { display:flex; align-items:center; gap:9px; min-width:max-content; padding:4px 8px; color:var(--blue); text-decoration:none; }
+    .workspace-nav__mark { display:grid; width:31px; height:31px; place-items:center; border-radius:10px; color:#fff; background:linear-gradient(135deg,#2556cc,#7a89f5); box-shadow:0 5px 12px rgba(50,101,223,.28); font-size:.8rem; }
+    .workspace-nav__brand-copy { display:grid; line-height:1.03; } .workspace-nav__brand strong { font-size:.78rem; letter-spacing:.06em; } .workspace-nav__brand small { margin-top:4px; color:var(--muted); font-size:.57rem; font-weight:800; letter-spacing:.07em; }
+    .workspace-nav__links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:3px; padding:3px; border:1px solid #e2e9f3; border-radius:11px; background:#f0f4fa; }
+    .workspace-nav__links a { display:inline-flex; align-items:center; gap:4px; padding:7px 9px; border-radius:8px; color:#556882; font-size:.73rem; font-weight:780; text-decoration:none; transition:transform .16s ease,box-shadow .16s ease,background .16s ease; }
+    .workspace-nav__links a:hover { color:var(--blue); background:#fff; transform:translateY(-1px); } .workspace-nav__links a.is-active { color:#fff; background:linear-gradient(135deg,#2b5cda,#7082ed); box-shadow:0 5px 12px rgba(50,101,223,.24); }
     .workspace-nav__icon { display:inline-grid; min-width:13px; place-items:center; font-size:.62rem; font-weight:850; }
-    .hero { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:22px; margin:28px 0 18px; padding:clamp(26px,5vw,54px); overflow:hidden; position:relative; border-radius:26px; color:#fff; background:linear-gradient(125deg,#102449 0%,#204da8 56%,#5e72db 100%); box-shadow:0 20px 45px rgba(22,61,130,.24); }
-    .hero::after { content:""; position:absolute; width:330px; height:330px; right:-110px; top:-145px; border:46px solid rgba(255,255,255,.1); border-radius:50%; }
-    .eyebrow { margin:0 0 11px; color:#b9d7ff; font-size:.77rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
-    h1 { max-width:720px; margin:0; font-size:clamp(2.1rem,5vw,4rem); line-height:1.04; letter-spacing:-.05em; }
-    .hero p { max-width:640px; margin:18px 0 0; color:#e6efff; font-size:1.02rem; }
+
+    .hero { position:relative; display:grid; grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr); gap:24px; min-height:420px; margin:19px 0 0; padding:clamp(28px,5.2vw,62px); overflow:hidden; border-radius:28px; color:#fff; background:linear-gradient(130deg,#0e2040 0%,#193b78 49%,#4c65cf 100%); box-shadow:0 26px 54px rgba(21,56,124,.23); }
+    .hero::before { content:""; width:470px; height:470px; position:absolute; right:-165px; top:-245px; border:56px solid rgba(132,171,255,.17); border-radius:50%; }
+    .hero::after { content:""; width:245px; height:245px; position:absolute; left:42%; bottom:-175px; border:34px solid rgba(82,215,198,.12); border-radius:50%; }
+    .hero-copy,.hero-panel { position:relative; z-index:1; }
+    .eyebrow { margin:0 0 12px; color:#a9c5ff; font-size:.76rem; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
+    h1 { max-width:700px; margin:0; font-size:clamp(2.25rem,5vw,4.35rem); line-height:1.03; letter-spacing:-.06em; }
+    h1 span { display:block; }
+    .hero-copy > p:not(.eyebrow) { max-width:630px; margin:20px 0 0; color:#dce8ff; font-size:1.02rem; }
+    .signal-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .signal { display:inline-flex; align-items:center; gap:7px; padding:7px 10px; border:1px solid rgba(197,219,255,.2); border-radius:999px; color:#dce8ff; background:rgba(255,255,255,.07); font-size:.75rem; font-weight:720; }
+    .signal b { width:6px; height:6px; border-radius:50%; background:#58e4b0; box-shadow:0 0 0 4px rgba(88,228,176,.12); }
     .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:25px; }
-    .button { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:10px 15px; border-radius:10px; color:#174187; background:#fff; font-size:.88rem; font-weight:800; text-decoration:none; }
-    .button.ghost { color:#fff; border:1px solid rgba(255,255,255,.36); background:rgba(255,255,255,.1); }
-    .hero-note { align-self:end; z-index:1; padding:18px; border:1px solid rgba(255,255,255,.16); border-radius:16px; background:rgba(8,27,68,.24); }
-    .hero-note strong { display:block; margin-bottom:8px; font-size:1.55rem; }
-    .hero-note span { color:#dbe8ff; font-size:.86rem; }
-    .section { margin-top:34px; }
-    .section-head { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:15px; }
-    h2 { margin:0; font-size:clamp(1.4rem,2.5vw,1.85rem); letter-spacing:-.03em; }
-    .section-head p { max-width:620px; margin:0; color:var(--muted); font-size:.9rem; }
+    .button { display:inline-flex; min-height:43px; align-items:center; justify-content:center; padding:10px 15px; border:1px solid transparent; border-radius:11px; color:#173e82; background:#fff; font-size:.87rem; font-weight:820; text-decoration:none; box-shadow:0 7px 16px rgba(4,20,57,.14); transition:transform .16s ease,box-shadow .16s ease; }
+    .button:hover { transform:translateY(-2px); box-shadow:0 11px 22px rgba(4,20,57,.22); } .button.secondary { color:#fff; border-color:rgba(255,255,255,.27); background:rgba(255,255,255,.1); box-shadow:none; }
+    .hero-panel { align-self:center; padding:13px; border:1px solid rgba(192,217,255,.18); border-radius:20px; background:rgba(7,26,66,.27); box-shadow:inset 0 1px rgba(255,255,255,.08); backdrop-filter:blur(9px); }
+    .panel-kicker { display:flex; align-items:center; justify-content:space-between; padding:6px 7px 13px; color:#bcd4ff; font-size:.7rem; font-weight:850; letter-spacing:.11em; text-transform:uppercase; }
+    .panel-kicker span:last-child { padding:3px 7px; border-radius:999px; color:#a6f6d5; background:rgba(84,228,177,.14); font-size:.61rem; letter-spacing:.04em; }
+    .panel-step { display:grid; grid-template-columns:34px 1fr; gap:11px; padding:12px 9px; border-top:1px solid rgba(195,216,255,.13); }
+    .panel-step:first-of-type { border-top:0; } .panel-step > span { display:grid; width:27px; height:27px; place-items:center; border-radius:9px; color:#fff; background:rgba(127,157,255,.28); font-size:.71rem; font-weight:850; }
+    .panel-step strong { display:block; font-size:.91rem; } .panel-step p { margin:2px 0 0; color:#cad9f4; font-size:.76rem; }
+
+    .section { margin-top:42px; } .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:16px; } h2 { margin:0; font-size:clamp(1.45rem,2.7vw,2rem); letter-spacing:-.04em; } .section-head p { max-width:590px; margin:0; color:var(--muted); font-size:.89rem; }
     .tool-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
-    .tool-card { display:flex; min-height:270px; flex-direction:column; padding:23px; border:1px solid var(--line); border-radius:18px; background:var(--panel); box-shadow:0 8px 25px rgba(29,47,78,.05); }
-    .tool-card.blue { border-top:4px solid var(--blue); } .tool-card.sky { border-top:4px solid #0d99cc; } .tool-card.gold { border-top:4px solid #c18b27; } .tool-card.green { border-top:4px solid #15936b; }
-    .tool-label { margin:0 0 9px; color:var(--muted); font-size:.73rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .tool-card h3 { margin:0; font-size:1.25rem; }
-    .tool-card > p { margin:9px 0 15px; color:var(--muted); font-size:.9rem; }
-    .features { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
-    .features li { padding-left:18px; position:relative; color:#3c4c64; font-size:.84rem; }
-    .features li::before { content:""; width:6px; height:6px; position:absolute; left:0; top:.55em; border-radius:50%; background:var(--blue-2); }
-    .tool-card .button { width:max-content; margin-top:auto; color:#fff; background:var(--ink); }
-    .workflow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-    .step { position:relative; min-height:154px; padding:18px; border:1px solid var(--line); border-radius:15px; background:rgba(255,255,255,.72); }
-    .step-num { display:grid; width:28px; height:28px; place-items:center; margin-bottom:13px; border-radius:50%; color:#fff; background:var(--blue); font-size:.76rem; font-weight:850; }
-    .step h3 { margin:0 0 6px; font-size:.98rem; } .step p { margin:0; color:var(--muted); font-size:.82rem; }
-    .notice { margin:32px 0 40px; padding:16px 18px; border:1px solid #efdcae; border-radius:14px; color:#76530d; background:#fff9e9; font-size:.83rem; }
-    footer { padding:0 0 35px; color:#74839a; font-size:.78rem; text-align:center; }
-    @media (max-width:850px) { .hero,.tool-grid,.workflow { grid-template-columns:1fr; } .hero-note { align-self:start; } }
-    @media (max-width:620px) { .shell { width:min(100% - 20px,1180px); } .workspace-nav { align-items:stretch; flex-direction:column; } .workspace-nav__links { justify-content:space-between; } .workspace-nav__links a { flex:1 1 auto; justify-content:center; padding:6px 4px; font-size:.68rem; } .workspace-nav__brand small { display:none; } .hero { margin-top:14px; border-radius:18px; } .section-head { align-items:flex-start; flex-direction:column; } }
+    .tool-card { position:relative; display:grid; grid-template-columns:58px 1fr; gap:17px; min-height:252px; padding:22px; overflow:hidden; border:1px solid var(--line); border-radius:19px; background:rgba(255,255,255,.88); box-shadow:0 10px 24px rgba(29,47,78,.055); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+    .tool-card:hover { transform:translateY(-4px); border-color:#c2d2e8; box-shadow:var(--shadow); } .tool-card::after { content:""; width:155px; height:155px; position:absolute; right:-75px; bottom:-105px; border:26px solid var(--accent-soft); border-radius:50%; pointer-events:none; }
+    .tool-card.bond { --accent:var(--blue); --accent-soft:rgba(50,101,223,.1); } .tool-card.fcn { --accent:var(--cyan); --accent-soft:rgba(21,159,197,.1); } .tool-card.insurance { --accent:var(--gold); --accent-soft:rgba(182,122,24,.11); } .tool-card.etf { --accent:var(--green); --accent-soft:rgba(21,148,107,.1); }
+    .tool-icon { display:grid; width:54px; height:54px; place-items:center; border:1px solid color-mix(in srgb,var(--accent) 28%,white); border-radius:16px; color:var(--accent); background:var(--accent-soft); font-size:.72rem; font-weight:900; letter-spacing:.03em; }
+    .tool-card h3 { margin:0; font-size:1.22rem; } .tool-card p { margin:6px 0 12px; color:var(--muted); font-size:.86rem; }
+    .feature-tags { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 16px; padding:0; list-style:none; } .feature-tags li { padding:4px 7px; border:1px solid color-mix(in srgb,var(--accent) 20%,white); border-radius:999px; color:#4d607a; background:#fff; font-size:.69rem; font-weight:720; }
+    .tool-link { display:inline-flex; align-items:center; gap:7px; color:var(--accent); font-size:.82rem; font-weight:850; text-decoration:none; } .tool-link::after { content:"→"; transition:transform .15s ease; } .tool-link:hover::after { transform:translateX(3px); }
+    .tool-content { position:relative; z-index:1; }
+
+    .workflow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; padding:7px; border:1px solid var(--line); border-radius:21px; background:rgba(255,255,255,.64); }
+    .flow-card { min-height:156px; padding:16px; border-radius:15px; background:#fff; } .flow-card:nth-child(2) { background:#f4f8ff; } .flow-card:nth-child(3) { background:#f3fbf8; } .flow-card:nth-child(4) { background:#fffaee; }
+    .flow-num { display:grid; width:28px; height:28px; place-items:center; margin-bottom:13px; border-radius:9px; color:#fff; background:var(--night); font-size:.71rem; font-weight:850; } .flow-card h3 { margin:0 0 6px; font-size:.94rem; } .flow-card p { margin:0; color:var(--muted); font-size:.79rem; }
+    .disclaimer { display:flex; align-items:flex-start; gap:10px; margin:34px 0 36px; padding:15px 17px; border:1px solid #efdba7; border-radius:14px; color:#74500a; background:#fff9e8; font-size:.8rem; } .disclaimer b { flex:0 0 auto; color:#a06d08; }
+    footer { padding:0 0 34px; color:#8290a5; font-size:.75rem; text-align:center; }
+    @media (max-width:900px) { .hero,.tool-grid { grid-template-columns:1fr; } .hero { min-height:0; } .hero-panel { max-width:600px; } .workflow { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:620px) { .shell { width:min(100% - 20px,1200px); } .workspace-nav { align-items:stretch; flex-direction:column; } .workspace-nav__brand small { display:none; } .workspace-nav__links { justify-content:space-between; } .workspace-nav__links a { flex:1 1 auto; justify-content:center; padding:6px 4px; font-size:.68rem; } .hero { margin-top:12px; padding:30px 24px; border-radius:20px; } h1 { font-size:clamp(2.2rem,11vw,3.2rem); } .section { margin-top:31px; } .section-head { align-items:flex-start; flex-direction:column; gap:7px; } .tool-card { grid-template-columns:48px 1fr; gap:13px; padding:18px; } .tool-icon { width:46px; height:46px; border-radius:13px; font-size:.62rem; } .workflow { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -62,27 +71,19 @@
     </nav>
 
     <header class="hero">
-      <div>
-        <p class="eyebrow">Research · Screen · Simulate</p>
-        <h1>市場、標的與策略，都在同一個入口。</h1>
-        <p>從 ETF 的即時技術訊號、FCN 連結標的雷達，到質借與保單融資的情境試算，依你的投資流程快速切換工具。</p>
-        <div class="hero-actions"><a class="button" href="#tools">探索四個工具</a><a class="button ghost" href="https://anzuanzu.github.io/Top50ETF/">開啟即時 ETF 掃描</a></div>
-      </div>
-      <aside class="hero-note"><strong>4 個專用工具</strong><span>資料觀察、策略篩選、融資試算與風險情境，分工清楚、可直接跳轉。</span></aside>
+      <div class="hero-copy"><p class="eyebrow">Investment strategy workspace</p><h1><span>從市場訊號到</span><span>策略決策。</span></h1><p>用一個清楚的工作台切換市場觀察、標的篩選與融資試算；每項工具各自專注，也能依你的分析節奏串接使用。</p><div class="signal-row"><span class="signal"><b></b>市場掃描</span><span class="signal"><b></b>標的研究</span><span class="signal"><b></b>情境試算</span></div><div class="hero-actions"><a class="button" href="#tools">選擇工具</a><a class="button secondary" href="https://anzuanzu.github.io/Top50ETF/">開啟 ETF 即時掃描</a></div></div>
+      <aside class="hero-panel" aria-label="建議分析流程"><div class="panel-kicker">Today&apos;s workflow <span>Ready</span></div><div class="panel-step"><span>01</span><div><strong>捕捉市場訊號</strong><p>從 ETF 技術掃描建立初步觀察清單。</p></div></div><div class="panel-step"><span>02</span><div><strong>聚焦 FCN 標的</strong><p>依行情、技術條件和關鍵價位深入篩選。</p></div></div><div class="panel-step"><span>03</span><div><strong>檢視資金策略</strong><p>用質借或保單融資工具完成情境試算。</p></div></div></aside>
     </header>
 
-    <section class="section" id="tools">
-      <div class="section-head"><h2>依任務選擇工具</h2><p>每個頁面均保有完整的工具列，可在分析過程中直接切換到其他工具或回到本總覽。</p></div>
-      <div class="tool-grid">
-        <article class="tool-card blue"><p class="tool-label">Income strategy</p><h3>債券／基金質借試算</h3><p>在債券或基金質借情境下，評估資金成本、槓桿後收益與風險承受範圍。</p><ul class="features"><li>債券質借收益率與條件試算</li><li>基金質借情境比較</li><li>支援跨幣別與匯率調整</li><li>提供操作說明與風險提醒</li></ul><a class="button" href="https://anzuanzu.github.io/BondAndFund/">開啟質借試算</a></article>
-        <article class="tool-card sky"><p class="tool-label">Linked-note screening</p><h3>FCN 標的雷達</h3><p>用即時行情和技術條件快速鎖定 FCN 可觀察標的，並銜接詢價組合流程。</p><ul class="features"><li>代碼、產業、市值與技術條件篩選</li><li>技術型態、相對強弱與關鍵價位</li><li>可勾選標的並帶入詢價系統</li><li>支援 AI 條件輸入與深淺色介面</li></ul><a class="button" href="https://anzuanzu.github.io/fcneliAI/">開啟 FCN 雷達</a></article>
-        <article class="tool-card gold"><p class="tool-label">Financing simulation</p><h3>保費／保單融資試算</h3><p>以步驟式設定保單與投資條件，檢視融資結構、現金流與情境結果。</p><ul class="features"><li>選擇保費融資或保單融資</li><li>設定保單、借款與投資配置</li><li>逐步完成試算並閱讀結果</li><li>適合用於策略討論與方案比較</li></ul><a class="button" href="https://anzuanzu.github.io/insurance-financing-v2/">開啟融資試算</a></article>
-        <article class="tool-card green"><p class="tool-label">Live market scanner</p><h3>ETF 即時技術掃描</h3><p>掃描國泰世華可銷售 ETF 的 TradingView 行情與技術指標，找出符合規則的標的。</p><ul class="features"><li>涵蓋國泰世華可銷售 ETF 清單</li><li>多空週／月反向波動情境</li><li>杯柄、VCP、突破與圓弧底條件</li><li>市場、趨勢、績效區間與代碼搜尋</li></ul><a class="button" href="https://anzuanzu.github.io/Top50ETF/">開啟 ETF 掃描</a></article>
-      </div>
-    </section>
+    <section class="section" id="tools"><div class="section-head"><div><p class="eyebrow" style="color:var(--blue);margin-bottom:6px">Choose a tool</p><h2>用任務選擇正確的工具</h2></div><p>每個工具都可獨立使用。從市場觀察開始，或直接進入你要處理的標的與試算情境。</p></div><div class="tool-grid">
+      <article class="tool-card bond"><span class="tool-icon">B&amp;F</span><div class="tool-content"><h3>債券／基金質借</h3><p>評估資金成本、槓桿後收益與不同幣別條件下的質借情境。</p><ul class="feature-tags"><li>債券質借</li><li>基金質借</li><li>跨幣別</li><li>匯率調整</li></ul><a class="tool-link" href="https://anzuanzu.github.io/BondAndFund/">開啟質借試算</a></div></article>
+      <article class="tool-card fcn"><span class="tool-icon">FCN</span><div class="tool-content"><h3>FCN 標的雷達</h3><p>以即時行情與技術條件，找出可觀察的連結標的並接續詢價流程。</p><ul class="feature-tags"><li>即時行情</li><li>型態篩選</li><li>關鍵價位</li><li>詢價組合</li></ul><a class="tool-link" href="https://anzuanzu.github.io/fcneliAI/">開啟 FCN 雷達</a></div></article>
+      <article class="tool-card insurance"><span class="tool-icon">INS</span><div class="tool-content"><h3>保費／保單融資</h3><p>以引導式步驟建立保單、借款與投資配置，檢視整體融資結構。</p><ul class="feature-tags"><li>融資類型</li><li>保單設定</li><li>投資配置</li><li>結果比較</li></ul><a class="tool-link" href="https://anzuanzu.github.io/insurance-financing-v2/">開啟融資試算</a></div></article>
+      <article class="tool-card etf"><span class="tool-icon">ETF</span><div class="tool-content"><h3>ETF 即時技術掃描</h3><p>掃描國泰世華可銷售 ETF，辨識回檔、突破與多種技術型態訊號。</p><ul class="feature-tags"><li>TradingView 行情</li><li>多空情境</li><li>杯柄／VCP</li><li>市場篩選</li></ul><a class="tool-link" href="https://anzuanzu.github.io/Top50ETF/">開啟 ETF 掃描</a></div></article>
+    </div></section>
 
-    <section class="section"><div class="section-head"><h2>建議的使用順序</h2><p>工具彼此獨立，但可以依「找標的 → 檢視策略 → 估算資金結構」的方式串接使用。</p></div><div class="workflow"><article class="step"><span class="step-num">1</span><h3>從市場開始</h3><p>在 ETF 掃描器掌握多空、回檔與型態訊號，建立觀察清單。</p></article><article class="step"><span class="step-num">2</span><h3>篩選 FCN 標的</h3><p>以 FCN 雷達檢視個股行情、條件與可能的連結標的。</p></article><article class="step"><span class="step-num">3</span><h3>評估資金運用</h3><p>需要槓桿或配置比較時，使用債券／基金質借試算。</p></article><article class="step"><span class="step-num">4</span><h3>模擬保單融資</h3><p>針對保費或保單融資，分步填入假設並閱讀策略結果。</p></article></div></section>
-    <p class="notice">所有內容均為資訊整理與規則式試算，不構成投資、融資、保險或稅務建議。實際投資與融資條件、商品適格性、報價及風險，請以金融機構、發行單位與專業顧問提供的資料為準。</p>
+    <section class="section"><div class="section-head"><div><p class="eyebrow" style="color:var(--green);margin-bottom:6px">A simple path</p><h2>一條清晰的分析路徑</h2></div><p>不必每次都從第一步開始；這是將四個工具串成一次研究流程的建議方式。</p></div><div class="workflow"><article class="flow-card"><span class="flow-num">1</span><h3>看見市場</h3><p>先用 ETF 技術掃描掌握趨勢、回檔與值得注意的訊號。</p></article><article class="flow-card"><span class="flow-num">2</span><h3>挑選標的</h3><p>以 FCN 雷達縮小範圍，檢查個股條件與關鍵價位。</p></article><article class="flow-card"><span class="flow-num">3</span><h3>評估資金</h3><p>比較質借的成本、收益與幣別假設，確認資金運用邏輯。</p></article><article class="flow-card"><span class="flow-num">4</span><h3>模擬融資</h3><p>需要保費或保單融資時，以分步情境完成策略討論。</p></article></div></section>
+    <aside class="disclaimer"><b>注意</b><span>本工具中心提供資訊整理與規則式試算，不構成投資、融資、保險、稅務或個人化建議。實際商品、適格性、條件與報價，請以金融機構、發行單位及專業顧問提供之資料為準。</span></aside>
     <footer>投資工具中心 · 僅供研究與策略討論使用</footer>
   </div>
 </body>
