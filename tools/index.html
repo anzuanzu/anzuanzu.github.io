@@ -11,11 +11,14 @@
     body { margin:0; color:var(--ink); background:radial-gradient(circle at 12% 0%,#e9f1ff 0,transparent 28rem),radial-gradient(circle at 92% 4%,#edf9f5 0,transparent 24rem),var(--page); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif; line-height:1.55; }
     a { color:inherit; }
     .shell { width:min(1180px,calc(100% - 36px)); margin:0 auto; }
-    .workspace-nav { margin:16px 0 0; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.86); box-shadow:0 10px 30px rgba(31,55,91,.08); backdrop-filter:blur(14px); }
-    .workspace-nav__brand { color:var(--blue); font-size:.78rem; font-weight:850; letter-spacing:.09em; white-space:nowrap; }
-    .workspace-nav__links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:4px; }
-    .workspace-nav a { padding:6px 9px; color:#53647e; border-radius:7px; font-size:.76rem; font-weight:750; text-decoration:none; }
-    .workspace-nav a:hover, .workspace-nav a.is-active { color:#fff; background:var(--blue); }
+    .workspace-nav { margin:16px 0 0; padding:7px; display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(244,248,255,.93)); box-shadow:0 14px 32px rgba(31,55,91,.1); backdrop-filter:blur(14px); }
+    .workspace-nav__brand { display:flex; align-items:center; gap:8px; min-width:max-content; padding:4px 8px; color:var(--blue); text-decoration:none; }
+    .workspace-nav__mark { display:grid; width:30px; height:30px; place-items:center; border-radius:10px; color:#fff; background:linear-gradient(135deg,var(--blue),var(--blue-2)); box-shadow:0 5px 11px rgba(36,87,214,.22); font-size:.78rem; }
+    .workspace-nav__brand-copy { display:grid; line-height:1.05; } .workspace-nav__brand strong { font-size:.77rem; letter-spacing:.06em; } .workspace-nav__brand small { margin-top:3px; color:var(--muted); font-size:.57rem; font-weight:700; letter-spacing:.06em; }
+    .workspace-nav__links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:3px; padding:3px; border:1px solid #e0e7f0; border-radius:11px; background:#eef3fa; }
+    .workspace-nav__links a { display:inline-flex; align-items:center; gap:4px; padding:7px 9px; color:#53647e; border-radius:8px; font-size:.73rem; font-weight:750; text-decoration:none; transition:transform .16s ease,box-shadow .16s ease,background .16s ease; }
+    .workspace-nav__links a:hover { color:var(--blue); background:#fff; transform:translateY(-1px); } .workspace-nav__links a.is-active { color:#fff; background:linear-gradient(135deg,var(--blue),var(--blue-2)); box-shadow:0 5px 12px rgba(36,87,214,.22); }
+    .workspace-nav__icon { display:inline-grid; min-width:13px; place-items:center; font-size:.62rem; font-weight:850; }
     .hero { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:22px; margin:28px 0 18px; padding:clamp(26px,5vw,54px); overflow:hidden; position:relative; border-radius:26px; color:#fff; background:linear-gradient(125deg,#102449 0%,#204da8 56%,#5e72db 100%); box-shadow:0 20px 45px rgba(22,61,130,.24); }
     .hero::after { content:""; position:absolute; width:330px; height:330px; right:-110px; top:-145px; border:46px solid rgba(255,255,255,.1); border-radius:50%; }
     .eyebrow { margin:0 0 11px; color:#b9d7ff; font-size:.77rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
@@ -48,20 +51,20 @@
     .notice { margin:32px 0 40px; padding:16px 18px; border:1px solid #efdcae; border-radius:14px; color:#76530d; background:#fff9e9; font-size:.83rem; }
     footer { padding:0 0 35px; color:#74839a; font-size:.78rem; text-align:center; }
     @media (max-width:850px) { .hero,.tool-grid,.workflow { grid-template-columns:1fr; } .hero-note { align-self:start; } }
-    @media (max-width:620px) { .shell { width:min(100% - 20px,1180px); } .workspace-nav { align-items:flex-start; flex-direction:column; } .workspace-nav__links { justify-content:flex-start; } .hero { margin-top:14px; border-radius:18px; } .section-head { align-items:flex-start; flex-direction:column; } }
+    @media (max-width:620px) { .shell { width:min(100% - 20px,1180px); } .workspace-nav { align-items:stretch; flex-direction:column; } .workspace-nav__links { justify-content:space-between; } .workspace-nav__links a { flex:1 1 auto; justify-content:center; padding:6px 4px; font-size:.68rem; } .workspace-nav__brand small { display:none; } .hero { margin-top:14px; border-radius:18px; } .section-head { align-items:flex-start; flex-direction:column; } }
   </style>
 </head>
 <body>
   <div class="shell">
     <nav class="workspace-nav" aria-label="投資工具導覽">
-      <span class="workspace-nav__brand">投資工具中心</span>
-      <span class="workspace-nav__links"><a class="is-active" aria-current="page" href="https://anzuanzu.github.io/tools/">工具總覽</a><a href="https://anzuanzu.github.io/BondAndFund/">債券／基金質借</a><a href="https://anzuanzu.github.io/fcneliAI/">FCN 標的雷達</a><a href="https://anzuanzu.github.io/insurance-financing-v2/">保單融資試算</a><a href="https://anzuanzu.github.io/Top50ETF/">ETF 技術掃描</a></span>
+      <a class="workspace-nav__brand" href="https://anzuanzu.github.io/tools/"><span class="workspace-nav__mark">✦</span><span class="workspace-nav__brand-copy"><strong>投資工具中心</strong><small>RESEARCH · SIMULATE</small></span></a>
+      <span class="workspace-nav__links"><a class="is-active" aria-current="page" href="https://anzuanzu.github.io/tools/"><span class="workspace-nav__icon">⌂</span>工具總覽</a><a href="https://anzuanzu.github.io/BondAndFund/"><span class="workspace-nav__icon">◎</span>債券／基金質借</a><a href="https://anzuanzu.github.io/fcneliAI/"><span class="workspace-nav__icon">FCN</span>標的雷達</a><a href="https://anzuanzu.github.io/insurance-financing-v2/"><span class="workspace-nav__icon">◈</span>保單融資試算</a><a href="https://anzuanzu.github.io/Top50ETF/"><span class="workspace-nav__icon">ETF</span>技術掃描</a></span>
     </nav>
 
     <header class="hero">
       <div>
         <p class="eyebrow">Research · Screen · Simulate</p>
-        <h1>市場觀察、標的篩選與策略試算，都在同一個入口。</h1>
+        <h1>市場、標的與策略，都在同一個入口。</h1>
         <p>從 ETF 的即時技術訊號、FCN 連結標的雷達，到質借與保單融資的情境試算，依你的投資流程快速切換工具。</p>
         <div class="hero-actions"><a class="button" href="#tools">探索四個工具</a><a class="button ghost" href="https://anzuanzu.github.io/Top50ETF/">開啟即時 ETF 掃描</a></div>
       </div>
