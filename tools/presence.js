@@ -18,10 +18,10 @@
 
   const getVisitorId = () => {
     try {
-      const existing = sessionStorage.getItem(storageKey);
+      const existing = localStorage.getItem(storageKey);
       if (existing) return existing;
       const id = crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-      sessionStorage.setItem(storageKey, id);
+      localStorage.setItem(storageKey, id);
       return id;
     } catch {
       return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -61,8 +61,10 @@
       });
 
       const render = () => {
-        const presences = Object.values(channel.presenceState()).flat();
-        const counts = presences.reduce((result, presence) => {
+        const people = Object.values(channel.presenceState()).map((presences) => presences.reduce((latest, presence) => (
+          Number(presence?.updatedAt || 0) > Number(latest?.updatedAt || 0) ? presence : latest
+        ), null));
+        const counts = people.reduce((result, presence) => {
           if (presence?.tool && toolNames[presence.tool]) result[presence.tool] = (result[presence.tool] || 0) + 1;
           return result;
         }, {});
@@ -74,9 +76,9 @@
         indicator.innerHTML = `<span class="live-presence__pulse"></span><span class="live-presence__copy"><strong>${total}</strong> 位投資者正在共同研究<span class="live-presence__detail">${detail || '成為第一位加入的研究者'}</span></span>`;
       };
 
-      const publish = () => channel.track({ tool, active: true });
+      const publish = () => channel.track({ tool, active: true, updatedAt: Date.now() });
       channel.on('presence', { event: 'sync' }, render).subscribe(async (status) => {
-        if (status === 'SUBSCRIBED') await publish();
+        if (status === 'SUBSCRIBED' && document.visibilityState === 'visible') await publish();
       });
       document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') publish();
