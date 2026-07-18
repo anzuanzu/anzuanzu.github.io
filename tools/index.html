@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整合債券與基金質借、FCN 標的雷達、保單融資與 ETF 技術掃描的投資工具中心。">
+  <title>投資工具中心｜策略、試算與市場掃描</title>
+  <style>
+    :root { --ink:#142238; --muted:#62718a; --line:#dbe4ef; --page:#f5f8fc; --panel:#fff; --blue:#2457d6; --blue-2:#5f7ef0; --sky:#eaf1ff; --green:#14845b; --gold:#9a6a10; --violet:#6c50bf; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:radial-gradient(circle at 12% 0%,#e9f1ff 0,transparent 28rem),radial-gradient(circle at 92% 4%,#edf9f5 0,transparent 24rem),var(--page); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif; line-height:1.55; }
+    a { color:inherit; }
+    .shell { width:min(1180px,calc(100% - 36px)); margin:0 auto; }
+    .workspace-nav { margin:16px 0 0; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.86); box-shadow:0 10px 30px rgba(31,55,91,.08); backdrop-filter:blur(14px); }
+    .workspace-nav__brand { color:var(--blue); font-size:.78rem; font-weight:850; letter-spacing:.09em; white-space:nowrap; }
+    .workspace-nav__links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:4px; }
+    .workspace-nav a { padding:6px 9px; color:#53647e; border-radius:7px; font-size:.76rem; font-weight:750; text-decoration:none; }
+    .workspace-nav a:hover, .workspace-nav a.is-active { color:#fff; background:var(--blue); }
+    .hero { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:22px; margin:28px 0 18px; padding:clamp(26px,5vw,54px); overflow:hidden; position:relative; border-radius:26px; color:#fff; background:linear-gradient(125deg,#102449 0%,#204da8 56%,#5e72db 100%); box-shadow:0 20px 45px rgba(22,61,130,.24); }
+    .hero::after { content:""; position:absolute; width:330px; height:330px; right:-110px; top:-145px; border:46px solid rgba(255,255,255,.1); border-radius:50%; }
+    .eyebrow { margin:0 0 11px; color:#b9d7ff; font-size:.77rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { max-width:720px; margin:0; font-size:clamp(2.1rem,5vw,4rem); line-height:1.04; letter-spacing:-.05em; }
+    .hero p { max-width:640px; margin:18px 0 0; color:#e6efff; font-size:1.02rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:25px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:10px 15px; border-radius:10px; color:#174187; background:#fff; font-size:.88rem; font-weight:800; text-decoration:none; }
+    .button.ghost { color:#fff; border:1px solid rgba(255,255,255,.36); background:rgba(255,255,255,.1); }
+    .hero-note { align-self:end; z-index:1; padding:18px; border:1px solid rgba(255,255,255,.16); border-radius:16px; background:rgba(8,27,68,.24); }
+    .hero-note strong { display:block; margin-bottom:8px; font-size:1.55rem; }
+    .hero-note span { color:#dbe8ff; font-size:.86rem; }
+    .section { margin-top:34px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:15px; }
+    h2 { margin:0; font-size:clamp(1.4rem,2.5vw,1.85rem); letter-spacing:-.03em; }
+    .section-head p { max-width:620px; margin:0; color:var(--muted); font-size:.9rem; }
+    .tool-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+    .tool-card { display:flex; min-height:270px; flex-direction:column; padding:23px; border:1px solid var(--line); border-radius:18px; background:var(--panel); box-shadow:0 8px 25px rgba(29,47,78,.05); }
+    .tool-card.blue { border-top:4px solid var(--blue); } .tool-card.sky { border-top:4px solid #0d99cc; } .tool-card.gold { border-top:4px solid #c18b27; } .tool-card.green { border-top:4px solid #15936b; }
+    .tool-label { margin:0 0 9px; color:var(--muted); font-size:.73rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .tool-card h3 { margin:0; font-size:1.25rem; }
+    .tool-card > p { margin:9px 0 15px; color:var(--muted); font-size:.9rem; }
+    .features { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
+    .features li { padding-left:18px; position:relative; color:#3c4c64; font-size:.84rem; }
+    .features li::before { content:""; width:6px; height:6px; position:absolute; left:0; top:.55em; border-radius:50%; background:var(--blue-2); }
+    .tool-card .button { width:max-content; margin-top:auto; color:#fff; background:var(--ink); }
+    .workflow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .step { position:relative; min-height:154px; padding:18px; border:1px solid var(--line); border-radius:15px; background:rgba(255,255,255,.72); }
+    .step-num { display:grid; width:28px; height:28px; place-items:center; margin-bottom:13px; border-radius:50%; color:#fff; background:var(--blue); font-size:.76rem; font-weight:850; }
+    .step h3 { margin:0 0 6px; font-size:.98rem; } .step p { margin:0; color:var(--muted); font-size:.82rem; }
+    .notice { margin:32px 0 40px; padding:16px 18px; border:1px solid #efdcae; border-radius:14px; color:#76530d; background:#fff9e9; font-size:.83rem; }
+    footer { padding:0 0 35px; color:#74839a; font-size:.78rem; text-align:center; }
+    @media (max-width:850px) { .hero,.tool-grid,.workflow { grid-template-columns:1fr; } .hero-note { align-self:start; } }
+    @media (max-width:620px) { .shell { width:min(100% - 20px,1180px); } .workspace-nav { align-items:flex-start; flex-direction:column; } .workspace-nav__links { justify-content:flex-start; } .hero { margin-top:14px; border-radius:18px; } .section-head { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="workspace-nav" aria-label="投資工具導覽">
+      <span class="workspace-nav__brand">投資工具中心</span>
+      <span class="workspace-nav__links"><a class="is-active" aria-current="page" href="https://anzuanzu.github.io/tools/">工具總覽</a><a href="https://anzuanzu.github.io/BondAndFund/">債券／基金質借</a><a href="https://anzuanzu.github.io/fcneliAI/">FCN 標的雷達</a><a href="https://anzuanzu.github.io/insurance-financing-v2/">保單融資試算</a><a href="https://anzuanzu.github.io/Top50ETF/">ETF 技術掃描</a></span>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Research · Screen · Simulate</p>
+        <h1>市場觀察、標的篩選與策略試算，都在同一個入口。</h1>
+        <p>從 ETF 的即時技術訊號、FCN 連結標的雷達，到質借與保單融資的情境試算，依你的投資流程快速切換工具。</p>
+        <div class="hero-actions"><a class="button" href="#tools">探索四個工具</a><a class="button ghost" href="https://anzuanzu.github.io/Top50ETF/">開啟即時 ETF 掃描</a></div>
+      </div>
+      <aside class="hero-note"><strong>4 個專用工具</strong><span>資料觀察、策略篩選、融資試算與風險情境，分工清楚、可直接跳轉。</span></aside>
+    </header>
+
+    <section class="section" id="tools">
+      <div class="section-head"><h2>依任務選擇工具</h2><p>每個頁面均保有完整的工具列，可在分析過程中直接切換到其他工具或回到本總覽。</p></div>
+      <div class="tool-grid">
+        <article class="tool-card blue"><p class="tool-label">Income strategy</p><h3>債券／基金質借試算</h3><p>在債券或基金質借情境下，評估資金成本、槓桿後收益與風險承受範圍。</p><ul class="features"><li>債券質借收益率與條件試算</li><li>基金質借情境比較</li><li>支援跨幣別與匯率調整</li><li>提供操作說明與風險提醒</li></ul><a class="button" href="https://anzuanzu.github.io/BondAndFund/">開啟質借試算</a></article>
+        <article class="tool-card sky"><p class="tool-label">Linked-note screening</p><h3>FCN 標的雷達</h3><p>用即時行情和技術條件快速鎖定 FCN 可觀察標的，並銜接詢價組合流程。</p><ul class="features"><li>代碼、產業、市值與技術條件篩選</li><li>技術型態、相對強弱與關鍵價位</li><li>可勾選標的並帶入詢價系統</li><li>支援 AI 條件輸入與深淺色介面</li></ul><a class="button" href="https://anzuanzu.github.io/fcneliAI/">開啟 FCN 雷達</a></article>
+        <article class="tool-card gold"><p class="tool-label">Financing simulation</p><h3>保費／保單融資試算</h3><p>以步驟式設定保單與投資條件，檢視融資結構、現金流與情境結果。</p><ul class="features"><li>選擇保費融資或保單融資</li><li>設定保單、借款與投資配置</li><li>逐步完成試算並閱讀結果</li><li>適合用於策略討論與方案比較</li></ul><a class="button" href="https://anzuanzu.github.io/insurance-financing-v2/">開啟融資試算</a></article>
+        <article class="tool-card green"><p class="tool-label">Live market scanner</p><h3>ETF 即時技術掃描</h3><p>掃描國泰世華可銷售 ETF 的 TradingView 行情與技術指標，找出符合規則的標的。</p><ul class="features"><li>涵蓋國泰世華可銷售 ETF 清單</li><li>多空週／月反向波動情境</li><li>杯柄、VCP、突破與圓弧底條件</li><li>市場、趨勢、績效區間與代碼搜尋</li></ul><a class="button" href="https://anzuanzu.github.io/Top50ETF/">開啟 ETF 掃描</a></article>
+      </div>
+    </section>
+
+    <section class="section"><div class="section-head"><h2>建議的使用順序</h2><p>工具彼此獨立，但可以依「找標的 → 檢視策略 → 估算資金結構」的方式串接使用。</p></div><div class="workflow"><article class="step"><span class="step-num">1</span><h3>從市場開始</h3><p>在 ETF 掃描器掌握多空、回檔與型態訊號，建立觀察清單。</p></article><article class="step"><span class="step-num">2</span><h3>篩選 FCN 標的</h3><p>以 FCN 雷達檢視個股行情、條件與可能的連結標的。</p></article><article class="step"><span class="step-num">3</span><h3>評估資金運用</h3><p>需要槓桿或配置比較時，使用債券／基金質借試算。</p></article><article class="step"><span class="step-num">4</span><h3>模擬保單融資</h3><p>針對保費或保單融資，分步填入假設並閱讀策略結果。</p></article></div></section>
+    <p class="notice">所有內容均為資訊整理與規則式試算，不構成投資、融資、保險或稅務建議。實際投資與融資條件、商品適格性、報價及風險，請以金融機構、發行單位與專業顧問提供的資料為準。</p>
+    <footer>投資工具中心 · 僅供研究與策略討論使用</footer>
+  </div>
+</body>
+</html>
