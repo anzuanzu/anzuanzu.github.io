@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T09:33:34.165Z",
+  "generatedAt": "2026-07-21T11:56:08.712Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -26,20 +26,20 @@
     },
     "breadth": {
       "strong": 197,
-      "positive": 327,
-      "neutral": 382,
+      "positive": 326,
+      "neutral": 383,
       "negative": 1067
     },
     "otcInstitutionSummary": [
       {
         "investor": "外資及陸資合計",
-        "net": -9670365587,
-        "netDisplay": "-96.70 億"
+        "net": -9869751587,
+        "netDisplay": "-98.70 億"
       },
       {
         "investor": "　外資及陸資(不含自營商)",
-        "net": -9670365587,
-        "netDisplay": "-96.70 億"
+        "net": -9869751587,
+        "netDisplay": "-98.70 億"
       },
       {
         "investor": "　外資自營商",
@@ -68,8 +68,8 @@
       },
       {
         "investor": "三大法人合計*",
-        "net": -8368332690,
-        "netDisplay": "-83.68 億"
+        "net": -8567718690,
+        "netDisplay": "-85.68 億"
       }
     ]
   },
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-07-21T09:33:21.664Z",
+        "fetchedAt": "2026-07-21T11:56:00.134Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-07-21T09:33:30.554Z",
+        "fetchedAt": "2026-07-21T11:56:03.408Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-07-21T09:33:22.167Z",
+        "fetchedAt": "2026-07-21T11:56:00.161Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-07-21T09:33:23.773Z",
+        "fetchedAt": "2026-07-21T11:56:01.028Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-07-21T09:33:34.092Z",
+        "fetchedAt": "2026-07-21T11:56:02.075Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-07-21T09:33:24.806Z",
+        "fetchedAt": "2026-07-21T11:56:02.926Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-07-21T09:33:22.349Z",
+        "fetchedAt": "2026-07-21T11:56:01.548Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-07-21T09:33:22.561Z",
+        "fetchedAt": "2026-07-21T11:56:02.181Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-07-21T09:33:24.985Z",
+        "fetchedAt": "2026-07-21T11:56:05.852Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-07-21T09:33:30.272Z",
+        "fetchedAt": "2026-07-21T11:56:08.641Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -229,8 +229,8 @@
     "nonElectronicsLensCount": 1026,
     "breadth": {
       "strong": 197,
-      "positive": 327,
-      "neutral": 382,
+      "positive": 326,
+      "neutral": 383,
       "negative": 1067
     }
   },
@@ -67581,104 +67581,6 @@
       ]
     },
     {
-      "code": "4105",
-      "name": "東洋",
-      "market": "otc",
-      "marketLabel": "上櫃",
-      "industry": "生技醫療業",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "生技醫療業",
-      "focus": "全市場非電子掃描",
-      "signal": {
-        "score": 6,
-        "label": "正向觀察",
-        "tone": "positive",
-        "drivers": [
-          {
-            "label": "營收年增轉強",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "營收月增超過 10%",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "累計營收維持改善",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "櫃買法人買超",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "revenueDisplay": "6.17 億",
-      "revenueYoY": 15.282902197122686,
-      "revenueYoYDisplay": "+15.28%",
-      "revenueMoM": 19.05018211562799,
-      "revenueMoMDisplay": "+19.05%",
-      "cumulativeYoY": 6.840149449661719,
-      "cumulativeYoYDisplay": "+6.84%",
-      "closingPrice": 79.1,
-      "priceChange": 1,
-      "priceChangeDisplay": "+1.00",
-      "tradeValue": 88228200,
-      "tradeValueDisplay": "8822.82 萬",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmationScore": 0,
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "catalystCount": 0,
-      "catalystTypes": [],
-      "catalystLabels": [],
-      "eventTypes": [],
-      "eventLabels": [],
-      "primaryEventLabel": null,
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "announcementCount": 0,
-      "dataMonth": "2026-06",
-      "alertFlags": [
-        "otcInstitutionSupport"
-      ]
-    },
-    {
       "code": "3131",
       "name": "弘塑",
       "market": "otc",
@@ -99530,6 +99432,102 @@
       "priceChangeDisplay": "-0.40",
       "tradeValue": 24150337,
       "tradeValueDisplay": "2415.03 萬",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmationScore": 0,
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "catalystCount": 0,
+      "catalystTypes": [],
+      "catalystLabels": [],
+      "eventTypes": [],
+      "eventLabels": [],
+      "primaryEventLabel": null,
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "announcementCount": 0,
+      "dataMonth": "2026-06",
+      "alertFlags": []
+    },
+    {
+      "code": "4105",
+      "name": "東洋",
+      "market": "otc",
+      "marketLabel": "上櫃",
+      "industry": "生技醫療業",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "生技醫療業",
+      "focus": "全市場非電子掃描",
+      "signal": {
+        "score": 4,
+        "label": "中性監看",
+        "tone": "neutral",
+        "drivers": [
+          {
+            "label": "營收年增轉強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "營收月增超過 10%",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "累計營收維持改善",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "櫃買法人賣超",
+            "impact": "negative",
+            "weight": -1
+          }
+        ]
+      },
+      "revenueDisplay": "6.17 億",
+      "revenueYoY": 15.282902197122686,
+      "revenueYoYDisplay": "+15.28%",
+      "revenueMoM": 19.05018211562799,
+      "revenueMoMDisplay": "+19.05%",
+      "cumulativeYoY": 6.840149449661719,
+      "cumulativeYoYDisplay": "+6.84%",
+      "closingPrice": 79.1,
+      "priceChange": 1,
+      "priceChangeDisplay": "+1.00",
+      "tradeValue": 88228200,
+      "tradeValueDisplay": "8822.82 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
