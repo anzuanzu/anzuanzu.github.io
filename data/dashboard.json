@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T03:05:58.080Z",
+  "generatedAt": "2026-08-20T03:53:57.029Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-08-20T03:05:56.717Z",
+        "fetchedAt": "2026-08-20T03:53:55.417Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-08-20T03:05:57.891Z",
+        "fetchedAt": "2026-08-20T03:53:56.829Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-08-20T03:05:56.927Z",
+        "fetchedAt": "2026-08-20T03:53:54.258Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-08-20T03:05:56.429Z",
+        "fetchedAt": "2026-08-20T03:53:55.218Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-08-20T03:05:57.506Z",
+        "fetchedAt": "2026-08-20T03:53:55.569Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-08-20T03:05:57.381Z",
+        "fetchedAt": "2026-08-20T03:53:53.994Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-08-20T03:05:57.518Z",
+        "fetchedAt": "2026-08-20T03:53:53.500Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-08-20T03:05:57.441Z",
+        "fetchedAt": "2026-08-20T03:53:53.333Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-08-20T03:05:57.798Z",
+        "fetchedAt": "2026-08-20T03:53:53.827Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-08-20T03:05:57.435Z",
+        "fetchedAt": "2026-08-20T03:53:55.132Z",
         "attempts": 1,
         "cacheUsed": false
       }
