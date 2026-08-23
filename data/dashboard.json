@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T15:32:11.764Z",
+  "generatedAt": "2026-08-23T16:36:39.542Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-08-23T15:32:08.811Z",
+        "fetchedAt": "2026-08-23T16:36:37.490Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-08-23T15:32:11.604Z",
+        "fetchedAt": "2026-08-23T16:36:39.414Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-08-23T15:32:08.441Z",
+        "fetchedAt": "2026-08-23T16:36:37.523Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-08-23T15:32:08.393Z",
+        "fetchedAt": "2026-08-23T16:36:37.346Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-08-23T15:32:09.371Z",
+        "fetchedAt": "2026-08-23T16:36:38.398Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-08-23T15:32:09.525Z",
+        "fetchedAt": "2026-08-23T16:36:38.407Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-08-23T15:32:08.208Z",
+        "fetchedAt": "2026-08-23T16:36:37.153Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-08-23T15:32:07.885Z",
+        "fetchedAt": "2026-08-23T16:36:37.025Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-08-23T15:32:08.287Z",
+        "fetchedAt": "2026-08-23T16:36:37.485Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-08-23T15:32:08.253Z",
+        "fetchedAt": "2026-08-23T16:36:37.507Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -5386,8 +5386,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 1,
-        "daysSinceLatestEventDisplay": "1 日前",
+        "daysSinceLatestEvent": 2,
+        "daysSinceLatestEventDisplay": "2 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -5517,8 +5517,8 @@
           "資產交易"
         ],
         "primaryEventLabel": "資產交易",
-        "daysSinceLatestEvent": 1,
-        "daysSinceLatestEventDisplay": "1 日前",
+        "daysSinceLatestEvent": 2,
+        "daysSinceLatestEventDisplay": "2 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -5655,8 +5655,8 @@
           "併購收購"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 1,
-        "daysSinceLatestEventDisplay": "1 日前",
+        "daysSinceLatestEvent": 2,
+        "daysSinceLatestEventDisplay": "2 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Partial",
@@ -5788,8 +5788,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 1,
-        "daysSinceLatestEventDisplay": "1 日前",
+        "daysSinceLatestEvent": 2,
+        "daysSinceLatestEventDisplay": "2 日前",
         "eventConfirmation": {
           "level": "failed",
           "label": "Failed",
@@ -5920,8 +5920,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 1,
-        "daysSinceLatestEventDisplay": "1 日前",
+        "daysSinceLatestEvent": 2,
+        "daysSinceLatestEventDisplay": "2 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -10327,8 +10327,8 @@
             "法規核准"
           ],
           "primaryEventLabel": "法規核准",
-          "daysSinceLatestEvent": 1,
-          "daysSinceLatestEventDisplay": "1 日前",
+          "daysSinceLatestEvent": 2,
+          "daysSinceLatestEventDisplay": "2 日前",
           "eventConfirmation": {
             "level": "failed",
             "label": "Failed",
@@ -12217,8 +12217,8 @@
             "法規核准"
           ],
           "primaryEventLabel": "法規核准",
-          "daysSinceLatestEvent": 1,
-          "daysSinceLatestEventDisplay": "1 日前",
+          "daysSinceLatestEvent": 2,
+          "daysSinceLatestEventDisplay": "2 日前",
           "eventConfirmation": {
             "level": "failed",
             "label": "Failed",
@@ -16990,8 +16990,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -21515,8 +21515,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -32045,8 +32045,8 @@
         "資產交易"
       ],
       "primaryEventLabel": "資產交易",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -32183,8 +32183,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Partial",
@@ -47147,8 +47147,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -47274,8 +47274,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -60642,8 +60642,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -60770,8 +60770,8 @@
         "增資籌資"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -146086,8 +146086,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Partial",
@@ -146214,8 +146214,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -199313,8 +199313,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -199652,8 +199652,8 @@
       "catalystLabels": [
         "併購收購"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Partial",
@@ -200362,8 +200362,8 @@
       "catalystLabels": [
         "資產交易"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -203851,8 +203851,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -204559,8 +204559,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -204780,8 +204780,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -205126,8 +205126,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -206824,8 +206824,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -209590,8 +209590,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Partial",
@@ -211132,8 +211132,8 @@
         "增資籌資",
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
