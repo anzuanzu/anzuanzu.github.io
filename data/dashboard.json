@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T05:48:24.268Z",
+  "generatedAt": "2026-08-24T07:14:50.959Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -76,7 +76,7 @@
   "sourceStatus": {
     "monthlyRevenueMonth": "2026-07",
     "twseMajorDate": "2026-08-23",
-    "tpexMajorDate": "2026-08-22",
+    "tpexMajorDate": "2026-08-23",
     "etfTrackDate": "2026-05-29",
     "etfTrackCount": 6,
     "universeSize": 1975,
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-08-24T05:48:19.089Z",
+        "fetchedAt": "2026-08-24T07:14:45.091Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-08-24T05:48:24.189Z",
+        "fetchedAt": "2026-08-24T07:14:48.528Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-08-24T05:48:18.581Z",
+        "fetchedAt": "2026-08-24T07:14:45.090Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-08-24T05:48:18.277Z",
+        "fetchedAt": "2026-08-24T07:14:45.538Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-08-24T05:48:20.877Z",
+        "fetchedAt": "2026-08-24T07:14:45.629Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-08-24T05:48:19.610Z",
+        "fetchedAt": "2026-08-24T07:14:46.572Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-08-24T05:48:18.815Z",
+        "fetchedAt": "2026-08-24T07:14:45.397Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-08-24T05:48:18.468Z",
+        "fetchedAt": "2026-08-24T07:14:46.270Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-08-24T05:48:20.396Z",
+        "fetchedAt": "2026-08-24T07:14:45.748Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-08-24T05:48:20.508Z",
+        "fetchedAt": "2026-08-24T07:14:50.820Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -5386,8 +5386,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -5522,8 +5522,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "failed",
           "label": "Failed",
@@ -10199,8 +10199,8 @@
             "法規核准"
           ],
           "primaryEventLabel": "法規核准",
-          "daysSinceLatestEvent": 2,
-          "daysSinceLatestEventDisplay": "2 日前",
+          "daysSinceLatestEvent": 1,
+          "daysSinceLatestEventDisplay": "1 日前",
           "eventConfirmation": {
             "level": "failed",
             "label": "Failed",
@@ -12089,8 +12089,8 @@
             "法規核准"
           ],
           "primaryEventLabel": "法規核准",
-          "daysSinceLatestEvent": 2,
-          "daysSinceLatestEventDisplay": "2 日前",
+          "daysSinceLatestEvent": 1,
+          "daysSinceLatestEventDisplay": "1 日前",
           "eventConfirmation": {
             "level": "failed",
             "label": "Failed",
@@ -16862,8 +16862,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -21387,8 +21387,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -46891,8 +46891,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -47018,8 +47018,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -60514,8 +60514,8 @@
         "增資籌資"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -203745,126 +203745,6 @@
         }
       ]
     },
-    "4304": {
-      "code": "4304",
-      "market": "otc",
-      "marketLabel": "上櫃",
-      "name": "勝昱",
-      "industry": "塑膠工業",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "塑膠工業",
-      "focus": "全市場非電子掃描",
-      "note": "非核心觀察池，來自全市場掃描。",
-      "dataMonth": "2026-07",
-      "revenueDisplay": "4797.40 萬",
-      "revenueYoYDisplay": "+54.85%",
-      "revenueMoMDisplay": "+111.90%",
-      "cumulativeYoYDisplay": "+8.08%",
-      "closingPrice": 25.7,
-      "priceChangeDisplay": "+2.30",
-      "tradeValueDisplay": "203.03 萬",
-      "otcInstitutionNetDisplay": "2.20 萬",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmation": {
-        "score": 0,
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover.",
-        "drivers": [
-          {
-            "label": "No catalyst yet",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "primaryEventLabel": null,
-      "eventLabels": [],
-      "catalystLabels": [],
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "catalystCount": 0,
-      "announcementCount": 0,
-      "alertFlags": [
-        "otcInstitutionSupport"
-      ],
-      "announcements": [],
-      "eventTimeline": [],
-      "signal": {
-        "score": 8,
-        "label": "強訊號",
-        "tone": "strong",
-        "scoreDisplay": "8/10",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月增超過 10%",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "累計營收維持改善",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "櫃買法人買超",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventDrivers": [
-        {
-          "label": "No catalyst yet",
-          "impact": "neutral",
-          "weight": 0
-        },
-        {
-          "label": "No event-follow-through context",
-          "impact": "neutral",
-          "weight": 0
-        }
-      ]
-    },
     "4530": {
       "code": "4530",
       "market": "otc",
@@ -203945,8 +203825,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -203969,8 +203849,8 @@
           "code": "4530",
           "companyName": "天意能創",
           "subject": "公告本公司名稱由「宏易創新國際股份有限公司」\r\n更名為「天意能創股份有限公司」，\r\n公告期間：115年7月09日至115年10月08日。",
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年07月08日  2.公司名稱：天意能創股份有限公司(原名：宏易創新國際股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年07月08日  (2)公司名稱變更核准文號：府產業商字第11550721810  (3)更名案股東會決議通過日期：民國115年06月24日  (4)變更前公司名稱：宏易創新國際股份有限公司  (5)變更後公司名稱：天意能創股份有限公司  (6)變更前公司簡稱：宏易  (7)變更後公司簡稱：天意  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年7月09日收到台北市政府變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4530」。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -204007,8 +203887,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "subject": "公告本公司名稱由「宏易創新國際股份有限公司」\r\n更名為「天意能創股份有限公司」，\r\n公告期間：115年7月09日至115年10月08日。",
           "summary": "1.事實發生日：民國115年07月08日  2.公司名稱：天意能創股份有限公司(原名：宏易創新國際股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年07月08日  (2)公司名稱變更核准文號：府產業商字第11550721810  (3)更名案股東會決議通過日期：民國115年06月24日  (4)變更前公司名稱：宏易創新國際股份有限公司  (5)變更後公司名稱：天意能創股份有限公司  (6)變更前公司簡稱：宏易  (7)變更後公司簡稱：天意  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年7月09日收到台北市政府變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4530」。",
           "labels": [
@@ -204166,8 +204046,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -204190,8 +204070,8 @@
           "code": "4747",
           "companyName": "強生製藥",
           "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣5元」\r\n公告期間：115年7月22日至115年10月21日",
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年06月24日  2.公司名稱：強生化學製藥廠股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年06月24日  (2)公司面額變更核准文號：經授商字第新北府經司字第1158046510號函  (3)董事會決議通過換股計畫書日期：民國115年07月22日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣5.00  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年08月31日  (7)換發股票時程重大訊息公告日期：民國115年07月22日重大訊息公告  6.因應措施：不適用。  7.其他應敘明事項：無。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -204228,8 +204108,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣5元」\r\n公告期間：115年7月22日至115年10月21日",
           "summary": "1.事實發生日：民國115年06月24日  2.公司名稱：強生化學製藥廠股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年06月24日  (2)公司面額變更核准文號：經授商字第新北府經司字第1158046510號函  (3)董事會決議通過換股計畫書日期：民國115年07月22日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣5.00  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年08月31日  (7)換發股票時程重大訊息公告日期：民國115年07月22日重大訊息公告  6.因應措施：不適用。  7.其他應敘明事項：無。",
           "labels": [
@@ -204512,8 +204392,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -204539,8 +204419,8 @@
           "code": "4953",
           "companyName": "緯致",
           "subject": "公告本公司名稱由「緯創軟體股份有限公司」\r\n更名為「緯致科技股份有限公司」，\r\n公告期間：115年6月2日至115年9月1日。",
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年06月01日  2.公司名稱：緯致科技股份有限公司(原名：緯創軟體股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月01日  (2)公司名稱變更核准文號：經授商字第11530077630號  (3)更名案股東會決議通過日期：民國115年05月27日  (4)變更前公司名稱：緯創軟體股份有限公司  (5)變更後公司名稱：緯致科技股份有限公司  (6)變更前公司簡稱：緯軟  (7)變更後公司簡稱：緯致  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月2日收到經濟部變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4953」。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -204577,8 +204457,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "subject": "公告本公司名稱由「緯創軟體股份有限公司」\r\n更名為「緯致科技股份有限公司」，\r\n公告期間：115年6月2日至115年9月1日。",
           "summary": "1.事實發生日：民國115年06月01日  2.公司名稱：緯致科技股份有限公司(原名：緯創軟體股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月01日  (2)公司名稱變更核准文號：經授商字第11530077630號  (3)更名案股東會決議通過日期：民國115年05月27日  (4)變更前公司名稱：緯創軟體股份有限公司  (5)變更後公司名稱：緯致科技股份有限公司  (6)變更前公司簡稱：緯軟  (7)變更後公司簡稱：緯致  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月2日收到經濟部變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4953」。",
           "labels": [
@@ -206210,8 +206090,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -206233,8 +206113,8 @@
           "code": "5904",
           "companyName": "寶雅*",
           "subject": "公告本公司股票面額變更由「新台幣10元」變更為「新台幣1元」\r\n公告期間：115年7月2日至115年10月1日",
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年06月24日  2.公司名稱：寶雅國際股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年06月24日  (2)公司面額變更核准文號：經授商字第證櫃監字第1150004034號號函  (3)董事會決議通過換股計畫書日期：民國115年06月29日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣1.00  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年08月10日  (7)換發股票時程重大訊息公告日期：民國115年07月02日重大訊息公告  6.因應措施：不適用  7.其他應敘明事項：一、換發股票時程如下：  (1)舊股票最後交易日：115年7月29日。  (2)舊股票停止交易期間：115年7月30日起至115年8月7日止。  (3)舊股票最後過戶日：115年8月2日。  (4)舊股票停止過戶期間：115年8月3日起至115年8月7日止。  (5)換發股票基準日：115年8月7日。  (6)有價證券換發日：115年8月10日。  (7)新股票上櫃買賣日及舊股票終止上櫃買賣日：115年8月10日。  (8)自新股票上櫃買賣之日起，原上櫃買賣之舊股票不得作為買賣交割之標的；  本次換發之新股票，其權利義務與原發行之舊股票相同。  二、本公司係辦理股票面額變更，每股面額由新台幣10元變更為新台幣1元。  業經財團法人中華民國證券櫃檯買賣中心115年6月24日證櫃監字第1150004034號  函核准在案。  三、配合上述面額變更，新股票上櫃買賣日之參考價將按比例調整為舊股票  最後交易日收盤價之10分之1，請投資人注意。  四、股票面額變更後，財務資料例如:每股盈餘或每股淨值等將有所變動，  建議投資人可利用公開資訊觀測站公布之財務報告及財務比率分析等作為  投資分析指標參考。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -206271,8 +206151,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "subject": "公告本公司股票面額變更由「新台幣10元」變更為「新台幣1元」\r\n公告期間：115年7月2日至115年10月1日",
           "summary": "1.事實發生日：民國115年06月24日  2.公司名稱：寶雅國際股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年06月24日  (2)公司面額變更核准文號：經授商字第證櫃監字第1150004034號號函  (3)董事會決議通過換股計畫書日期：民國115年06月29日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣1.00  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年08月10日  (7)換發股票時程重大訊息公告日期：民國115年07月02日重大訊息公告  6.因應措施：不適用  7.其他應敘明事項：一、換發股票時程如下：  (1)舊股票最後交易日：115年7月29日。  (2)舊股票停止交易期間：115年7月30日起至115年8月7日止。  (3)舊股票最後過戶日：115年8月2日。  (4)舊股票停止過戶期間：115年8月3日起至115年8月7日止。  (5)換發股票基準日：115年8月7日。  (6)有價證券換發日：115年8月10日。  (7)新股票上櫃買賣日及舊股票終止上櫃買賣日：115年8月10日。  (8)自新股票上櫃買賣之日起，原上櫃買賣之舊股票不得作為買賣交割之標的；  本次換發之新股票，其權利義務與原發行之舊股票相同。  二、本公司係辦理股票面額變更，每股面額由新台幣10元變更為新台幣1元。  業經財團法人中華民國證券櫃檯買賣中心115年6月24日證櫃監字第1150004034號  函核准在案。  三、配合上述面額變更，新股票上櫃買賣日之參考價將按比例調整為舊股票  最後交易日收盤價之10分之1，請投資人注意。  四、股票面額變更後，財務資料例如:每股盈餘或每股淨值等將有所變動，  建議投資人可利用公開資訊觀測站公布之財務報告及財務比率分析等作為  投資分析指標參考。",
           "labels": [
@@ -210751,8 +210631,8 @@
         "增資籌資",
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -210775,8 +210655,8 @@
           "code": "8472",
           "companyName": "納維康",
           "subject": "公告本公司名稱由「夠麻吉股份有限公司」更名為\r\n「納維康生技股份有限公司」，公告期間：115年6月29日\r\n至115年9月28日",
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：納維康生技股份有限公司(原名：夠麻吉股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：經司字第1158046769號  (3)更名案股東會決議通過日期：民國115年05月29日  (4)變更前公司名稱：夠麻吉股份有限公司  (5)變更後公司名稱：納維康生技股份有限公司  (6)變更前公司簡稱：夠麻吉  (7)變更後公司簡稱：納維康  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月29日接獲新北市政府115年6月25日之核准函。  (2)本公司股票簡稱變動為「納維康」，股票代號未變動仍為「8472」。  (3)本公司原英文名稱由「GOMAJI Corp., LTD」變更為「Navicare Biotech Co., Ltd.」。  (4)本公司國內第一次私募無擔保轉換公司債債券簡稱變動為「納維康私債一」，債券代號仍為「YCQ5AA」。  (5)有關本公司更名全面換發有價證券等相關事宜，俟日期確定後，另行公告。  (6)依據「財團法人中華民國證券櫃檯買賣中心證券商營業處所買賣有價證券業務規則」第九條     之一規定，連續公告三個月。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -210833,8 +210713,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-22",
-          "time": "07:00:03",
+          "date": "2026-08-23",
+          "time": "07:00:04",
           "subject": "公告本公司名稱由「夠麻吉股份有限公司」更名為\r\n「納維康生技股份有限公司」，公告期間：115年6月29日\r\n至115年9月28日",
           "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：納維康生技股份有限公司(原名：夠麻吉股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：經司字第1158046769號  (3)更名案股東會決議通過日期：民國115年05月29日  (4)變更前公司名稱：夠麻吉股份有限公司  (5)變更後公司名稱：納維康生技股份有限公司  (6)變更前公司簡稱：夠麻吉  (7)變更後公司簡稱：納維康  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月29日接獲新北市政府115年6月25日之核准函。  (2)本公司股票簡稱變動為「納維康」，股票代號未變動仍為「8472」。  (3)本公司原英文名稱由「GOMAJI Corp., LTD」變更為「Navicare Biotech Co., Ltd.」。  (4)本公司國內第一次私募無擔保轉換公司債債券簡稱變動為「納維康私債一」，債券代號仍為「YCQ5AA」。  (5)有關本公司更名全面換發有價證券等相關事宜，俟日期確定後，另行公告。  (6)依據「財團法人中華民國證券櫃檯買賣中心證券商營業處所買賣有價證券業務規則」第九條     之一規定，連續公告三個月。",
           "labels": [
@@ -211520,8 +211400,8 @@
       "code": "4530",
       "companyName": "天意能創",
       "subject": "公告本公司名稱由「宏易創新國際股份有限公司」\r\n更名為「天意能創股份有限公司」，\r\n公告期間：115年7月09日至115年10月08日。",
-      "date": "2026-08-22",
-      "time": "07:00:03",
+      "date": "2026-08-23",
+      "time": "07:00:04",
       "summary": "1.事實發生日：民國115年07月08日  2.公司名稱：天意能創股份有限公司(原名：宏易創新國際股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年07月08日  (2)公司名稱變更核准文號：府產業商字第11550721810  (3)更名案股東會決議通過日期：民國115年06月24日  (4)變更前公司名稱：宏易創新國際股份有限公司  (5)變更後公司名稱：天意能創股份有限公司  (6)變更前公司簡稱：宏易  (7)變更後公司簡稱：天意  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年7月09日收到台北市政府變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4530」。",
       "isRoutine": false,
       "hasCatalyst": true,
@@ -211560,8 +211440,8 @@
       "code": "4747",
       "companyName": "強生製藥",
       "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣5元」\r\n公告期間：115年7月22日至115年10月21日",
-      "date": "2026-08-22",
-      "time": "07:00:03",
+      "date": "2026-08-23",
+      "time": "07:00:04",
       "summary": "1.事實發生日：民國115年06月24日  2.公司名稱：強生化學製藥廠股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年06月24日  (2)公司面額變更核准文號：經授商字第新北府經司字第1158046510號函  (3)董事會決議通過換股計畫書日期：民國115年07月22日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣5.00  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年08月31日  (7)換發股票時程重大訊息公告日期：民國115年07月22日重大訊息公告  6.因應措施：不適用。  7.其他應敘明事項：無。",
       "isRoutine": false,
       "hasCatalyst": true,
@@ -211600,8 +211480,8 @@
       "code": "4953",
       "companyName": "緯致",
       "subject": "公告本公司名稱由「緯創軟體股份有限公司」\r\n更名為「緯致科技股份有限公司」，\r\n公告期間：115年6月2日至115年9月1日。",
-      "date": "2026-08-22",
-      "time": "07:00:03",
+      "date": "2026-08-23",
+      "time": "07:00:04",
       "summary": "1.事實發生日：民國115年06月01日  2.公司名稱：緯致科技股份有限公司(原名：緯創軟體股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月01日  (2)公司名稱變更核准文號：經授商字第11530077630號  (3)更名案股東會決議通過日期：民國115年05月27日  (4)變更前公司名稱：緯創軟體股份有限公司  (5)變更後公司名稱：緯致科技股份有限公司  (6)變更前公司簡稱：緯軟  (7)變更後公司簡稱：緯致  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月2日收到經濟部變更登記核准函。  (2)依據財團法人中華民國櫃檯買賣中心證券商營業所買賣有價證券業務規則第9-1條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，仍為「4953」。",
       "isRoutine": false,
       "hasCatalyst": true,
@@ -211640,8 +211520,8 @@
       "code": "5904",
       "companyName": "寶雅*",
       "subject": "公告本公司股票面額變更由「新台幣10元」變更為「新台幣1元」\r\n公告期間：115年7月2日至115年10月1日",
-      "date": "2026-08-22",
-      "time": "07:00:03",
+      "date": "2026-08-23",
+      "time": "07:00:04",
       "summary": "1.事實發生日：民國115年06月24日  2.公司名稱：寶雅國際股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年06月24日  (2)公司面額變更核准文號：經授商字第證櫃監字第1150004034號號函  (3)董事會決議通過換股計畫書日期：民國115年06月29日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣1.00  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年08月10日  (7)換發股票時程重大訊息公告日期：民國115年07月02日重大訊息公告  6.因應措施：不適用  7.其他應敘明事項：一、換發股票時程如下：  (1)舊股票最後交易日：115年7月29日。  (2)舊股票停止交易期間：115年7月30日起至115年8月7日止。  (3)舊股票最後過戶日：115年8月2日。  (4)舊股票停止過戶期間：115年8月3日起至115年8月7日止。  (5)換發股票基準日：115年8月7日。  (6)有價證券換發日：115年8月10日。  (7)新股票上櫃買賣日及舊股票終止上櫃買賣日：115年8月10日。  (8)自新股票上櫃買賣之日起，原上櫃買賣之舊股票不得作為買賣交割之標的；  本次換發之新股票，其權利義務與原發行之舊股票相同。  二、本公司係辦理股票面額變更，每股面額由新台幣10元變更為新台幣1元。  業經財團法人中華民國證券櫃檯買賣中心115年6月24日證櫃監字第1150004034號  函核准在案。  三、配合上述面額變更，新股票上櫃買賣日之參考價將按比例調整為舊股票  最後交易日收盤價之10分之1，請投資人注意。  四、股票面額變更後，財務資料例如:每股盈餘或每股淨值等將有所變動，  建議投資人可利用公開資訊觀測站公布之財務報告及財務比率分析等作為  投資分析指標參考。",
       "isRoutine": false,
       "hasCatalyst": true,
@@ -211680,8 +211560,8 @@
       "code": "8472",
       "companyName": "納維康",
       "subject": "公告本公司名稱由「夠麻吉股份有限公司」更名為\r\n「納維康生技股份有限公司」，公告期間：115年6月29日\r\n至115年9月28日",
-      "date": "2026-08-22",
-      "time": "07:00:03",
+      "date": "2026-08-23",
+      "time": "07:00:04",
       "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：納維康生技股份有限公司(原名：夠麻吉股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：經司字第1158046769號  (3)更名案股東會決議通過日期：民國115年05月29日  (4)變更前公司名稱：夠麻吉股份有限公司  (5)變更後公司名稱：納維康生技股份有限公司  (6)變更前公司簡稱：夠麻吉  (7)變更後公司簡稱：納維康  6.因應措施：無  7.其他應敘明事項：(1)本公司於115年6月29日接獲新北市政府115年6月25日之核准函。  (2)本公司股票簡稱變動為「納維康」，股票代號未變動仍為「8472」。  (3)本公司原英文名稱由「GOMAJI Corp., LTD」變更為「Navicare Biotech Co., Ltd.」。  (4)本公司國內第一次私募無擔保轉換公司債債券簡稱變動為「納維康私債一」，債券代號仍為「YCQ5AA」。  (5)有關本公司更名全面換發有價證券等相關事宜，俟日期確定後，另行公告。  (6)依據「財團法人中華民國證券櫃檯買賣中心證券商營業處所買賣有價證券業務規則」第九條     之一規定，連續公告三個月。",
       "isRoutine": false,
       "hasCatalyst": true,
