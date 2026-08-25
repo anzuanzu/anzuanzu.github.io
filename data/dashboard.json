@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T11:36:50.221Z",
+  "generatedAt": "2026-08-25T13:05:12.130Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -25,8 +25,8 @@
       "flatCount": 92
     },
     "breadth": {
-      "strong": 192,
-      "positive": 314,
+      "strong": 191,
+      "positive": 315,
       "neutral": 395,
       "negative": 1074
     },
@@ -48,8 +48,8 @@
       },
       {
         "investor": "投信",
-        "net": 1518566942,
-        "netDisplay": "15.19 億"
+        "net": 1790935198,
+        "netDisplay": "17.91 億"
       },
       {
         "investor": "自營商合計",
@@ -68,8 +68,8 @@
       },
       {
         "investor": "三大法人合計*",
-        "net": -1444390414,
-        "netDisplay": "-14.44 億"
+        "net": -1172022158,
+        "netDisplay": "-11.72 億"
       }
     ]
   },
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-08-25T11:36:42.956Z",
+        "fetchedAt": "2026-08-25T13:05:11.000Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-08-25T11:36:46.674Z",
+        "fetchedAt": "2026-08-25T13:05:12.048Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-08-25T11:36:50.167Z",
-        "attempts": 2,
+        "fetchedAt": "2026-08-25T13:05:10.216Z",
+        "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-08-25T11:36:50.164Z",
-        "attempts": 2,
+        "fetchedAt": "2026-08-25T13:05:10.181Z",
+        "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-08-25T11:36:42.245Z",
+        "fetchedAt": "2026-08-25T13:05:10.962Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-08-25T11:36:42.122Z",
+        "fetchedAt": "2026-08-25T13:05:10.882Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-08-25T11:36:42.693Z",
+        "fetchedAt": "2026-08-25T13:05:09.649Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-08-25T11:36:42.564Z",
+        "fetchedAt": "2026-08-25T13:05:09.653Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-08-25T11:36:43.109Z",
+        "fetchedAt": "2026-08-25T13:05:10.444Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-08-25T11:36:42.975Z",
+        "fetchedAt": "2026-08-25T13:05:11.757Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -228,8 +228,8 @@
     "semiconductorLensCount": 208,
     "nonElectronicsLensCount": 1026,
     "breadth": {
-      "strong": 192,
-      "positive": 314,
+      "strong": 191,
+      "positive": 315,
       "neutral": 395,
       "negative": 1074
     }
@@ -8853,12 +8853,12 @@
       ],
       "metrics": {
         "total": 21,
-        "strong": 8,
-        "positive": 7,
+        "strong": 7,
+        "positive": 8,
         "neutral": 0,
         "negative": 6,
         "withCatalyst": 1,
-        "avgScore": 5.76
+        "avgScore": 5.67
       },
       "items": [
         {
@@ -9290,119 +9290,6 @@
           "alertFlags": []
         },
         {
-          "code": "6223",
-          "name": "旺矽",
-          "market": "otc",
-          "marketLabel": "上櫃",
-          "industry": "半導體業",
-          "lens": "semiconductor",
-          "lensLabel": "半導體鏈",
-          "watchlist": true,
-          "chain": "設備 / 測試",
-          "focus": "探針卡與測試介面",
-          "signal": {
-            "score": 9,
-            "label": "強訊號",
-            "tone": "strong",
-            "drivers": [
-              {
-                "label": "營收年增超過 40%",
-                "impact": "positive",
-                "weight": 4
-              },
-              {
-                "label": "營收月減",
-                "impact": "negative",
-                "weight": -1
-              },
-              {
-                "label": "累計營收趨勢強",
-                "impact": "positive",
-                "weight": 2
-              },
-              {
-                "label": "股價日變動偏強",
-                "impact": "positive",
-                "weight": 1
-              },
-              {
-                "label": "成交值高於 20 億",
-                "impact": "positive",
-                "weight": 1
-              },
-              {
-                "label": "設備環節與景氣轉折同步",
-                "impact": "positive",
-                "weight": 1
-              },
-              {
-                "label": "櫃買法人買超",
-                "impact": "positive",
-                "weight": 1
-              }
-            ]
-          },
-          "revenueDisplay": "18.05 億",
-          "revenueYoY": 66.49547047903269,
-          "revenueYoYDisplay": "+66.50%",
-          "revenueMoM": -1.5032339197398679,
-          "revenueMoMDisplay": "-1.50%",
-          "cumulativeYoY": 52.26335952282982,
-          "cumulativeYoYDisplay": "+52.26%",
-          "closingPrice": 5600,
-          "priceChange": 35,
-          "priceChangeDisplay": "+35.00",
-          "tradeValue": 2223880000,
-          "tradeValueDisplay": "22.24 億",
-          "eventScore": 0,
-          "eventScoreDisplay": "0/10",
-          "eventStrength": {
-            "score": 0,
-            "label": "0/4",
-            "note": "No strong catalyst weight yet.",
-            "drivers": []
-          },
-          "eventStrengthDisplay": "0/4",
-          "marketConfirmationScore": 0,
-          "marketConfirmationDisplay": "0/3",
-          "fundamentalFollowThrough": {
-            "score": 0,
-            "label": "0/3",
-            "note": "No catalyst yet, so there is no follow-through to grade.",
-            "drivers": [
-              {
-                "label": "No event-follow-through context",
-                "impact": "neutral",
-                "weight": 0
-              }
-            ]
-          },
-          "fundamentalFollowThroughDisplay": "0/3",
-          "catalystCount": 0,
-          "catalystTypes": [],
-          "catalystLabels": [],
-          "eventTypes": [],
-          "eventLabels": [],
-          "primaryEventLabel": null,
-          "daysSinceLatestEvent": null,
-          "daysSinceLatestEventDisplay": "無資料",
-          "eventConfirmation": {
-            "level": "none",
-            "label": "None",
-            "note": "No catalyst to confirm in price or turnover."
-          },
-          "highValueEvent": {
-            "active": false,
-            "label": "No catalyst",
-            "note": "No event to classify."
-          },
-          "announcementCount": 0,
-          "dataMonth": "2026-07",
-          "alertFlags": [
-            "otcInstitutionSupport"
-          ]
-        },
-        {
           "code": "8046",
           "name": "南電",
           "market": "listed",
@@ -9788,6 +9675,117 @@
           "priceChangeDisplay": "+35.00",
           "tradeValue": 4239149600,
           "tradeValueDisplay": "42.39 億",
+          "eventScore": 0,
+          "eventScoreDisplay": "0/10",
+          "eventStrength": {
+            "score": 0,
+            "label": "0/4",
+            "note": "No strong catalyst weight yet.",
+            "drivers": []
+          },
+          "eventStrengthDisplay": "0/4",
+          "marketConfirmationScore": 0,
+          "marketConfirmationDisplay": "0/3",
+          "fundamentalFollowThrough": {
+            "score": 0,
+            "label": "0/3",
+            "note": "No catalyst yet, so there is no follow-through to grade.",
+            "drivers": [
+              {
+                "label": "No event-follow-through context",
+                "impact": "neutral",
+                "weight": 0
+              }
+            ]
+          },
+          "fundamentalFollowThroughDisplay": "0/3",
+          "catalystCount": 0,
+          "catalystTypes": [],
+          "catalystLabels": [],
+          "eventTypes": [],
+          "eventLabels": [],
+          "primaryEventLabel": null,
+          "daysSinceLatestEvent": null,
+          "daysSinceLatestEventDisplay": "無資料",
+          "eventConfirmation": {
+            "level": "none",
+            "label": "None",
+            "note": "No catalyst to confirm in price or turnover."
+          },
+          "highValueEvent": {
+            "active": false,
+            "label": "No catalyst",
+            "note": "No event to classify."
+          },
+          "announcementCount": 0,
+          "dataMonth": "2026-07",
+          "alertFlags": []
+        },
+        {
+          "code": "6223",
+          "name": "旺矽",
+          "market": "otc",
+          "marketLabel": "上櫃",
+          "industry": "半導體業",
+          "lens": "semiconductor",
+          "lensLabel": "半導體鏈",
+          "watchlist": true,
+          "chain": "設備 / 測試",
+          "focus": "探針卡與測試介面",
+          "signal": {
+            "score": 7,
+            "label": "正向觀察",
+            "tone": "positive",
+            "drivers": [
+              {
+                "label": "營收年增超過 40%",
+                "impact": "positive",
+                "weight": 4
+              },
+              {
+                "label": "營收月減",
+                "impact": "negative",
+                "weight": -1
+              },
+              {
+                "label": "累計營收趨勢強",
+                "impact": "positive",
+                "weight": 2
+              },
+              {
+                "label": "股價日變動偏強",
+                "impact": "positive",
+                "weight": 1
+              },
+              {
+                "label": "成交值高於 20 億",
+                "impact": "positive",
+                "weight": 1
+              },
+              {
+                "label": "設備環節與景氣轉折同步",
+                "impact": "positive",
+                "weight": 1
+              },
+              {
+                "label": "櫃買法人賣超",
+                "impact": "negative",
+                "weight": -1
+              }
+            ]
+          },
+          "revenueDisplay": "18.05 億",
+          "revenueYoY": 66.49547047903269,
+          "revenueYoYDisplay": "+66.50%",
+          "revenueMoM": -1.5032339197398679,
+          "revenueMoMDisplay": "-1.50%",
+          "cumulativeYoY": 52.26335952282982,
+          "cumulativeYoYDisplay": "+52.26%",
+          "closingPrice": 5600,
+          "priceChange": 35,
+          "priceChangeDisplay": "+35.00",
+          "tradeValue": 2223880000,
+          "tradeValueDisplay": "22.24 億",
           "eventScore": 0,
           "eventScoreDisplay": "0/10",
           "eventStrength": {
@@ -11447,16 +11445,16 @@
           "alertFlags": []
         },
         {
-          "code": "6223",
-          "name": "旺矽",
-          "market": "otc",
-          "marketLabel": "上櫃",
-          "industry": "半導體業",
+          "code": "8046",
+          "name": "南電",
+          "market": "listed",
+          "marketLabel": "上市",
+          "industry": "電子零組件業",
           "lens": "semiconductor",
           "lensLabel": "半導體鏈",
           "watchlist": true,
-          "chain": "設備 / 測試",
-          "focus": "探針卡與測試介面",
+          "chain": "載板",
+          "focus": "ABF 載板",
           "signal": {
             "score": 9,
             "label": "強訊號",
@@ -11468,9 +11466,9 @@
                 "weight": 4
               },
               {
-                "label": "營收月減",
-                "impact": "negative",
-                "weight": -1
+                "label": "營收月增超過 10%",
+                "impact": "positive",
+                "weight": 2
               },
               {
                 "label": "累計營收趨勢強",
@@ -11478,39 +11476,24 @@
                 "weight": 2
               },
               {
-                "label": "股價日變動偏強",
-                "impact": "positive",
-                "weight": 1
-              },
-              {
                 "label": "成交值高於 20 億",
-                "impact": "positive",
-                "weight": 1
-              },
-              {
-                "label": "設備環節與景氣轉折同步",
-                "impact": "positive",
-                "weight": 1
-              },
-              {
-                "label": "櫃買法人買超",
                 "impact": "positive",
                 "weight": 1
               }
             ]
           },
-          "revenueDisplay": "18.05 億",
-          "revenueYoY": 66.49547047903269,
-          "revenueYoYDisplay": "+66.50%",
-          "revenueMoM": -1.5032339197398679,
-          "revenueMoMDisplay": "-1.50%",
-          "cumulativeYoY": 52.26335952282982,
-          "cumulativeYoYDisplay": "+52.26%",
-          "closingPrice": 5600,
-          "priceChange": 35,
-          "priceChangeDisplay": "+35.00",
-          "tradeValue": 2223880000,
-          "tradeValueDisplay": "22.24 億",
+          "revenueDisplay": "54.40 億",
+          "revenueYoY": 50.241184043103516,
+          "revenueYoYDisplay": "+50.24%",
+          "revenueMoM": 16.126529060393043,
+          "revenueMoMDisplay": "+16.13%",
+          "cumulativeYoY": 39.38224870427572,
+          "cumulativeYoYDisplay": "+39.38%",
+          "closingPrice": 1135,
+          "priceChange": 0,
+          "priceChangeDisplay": "0.00",
+          "tradeValue": 8491697935,
+          "tradeValueDisplay": "84.92 億",
           "eventScore": 0,
           "eventScoreDisplay": "0/10",
           "eventStrength": {
@@ -11556,7 +11539,7 @@
           "announcementCount": 0,
           "dataMonth": "2026-07",
           "alertFlags": [
-            "otcInstitutionSupport"
+            "revenuePriceLag"
           ]
         }
       ]
@@ -21753,119 +21736,6 @@
       "dataMonth": "2026-07",
       "alertFlags": [
         "revenuePriceLag",
-        "otcInstitutionSupport"
-      ]
-    },
-    {
-      "code": "6223",
-      "name": "旺矽",
-      "market": "otc",
-      "marketLabel": "上櫃",
-      "industry": "半導體業",
-      "lens": "semiconductor",
-      "lensLabel": "半導體鏈",
-      "watchlist": true,
-      "chain": "設備 / 測試",
-      "focus": "探針卡與測試介面",
-      "signal": {
-        "score": 9,
-        "label": "強訊號",
-        "tone": "strong",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月減",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "股價日變動偏強",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "成交值高於 20 億",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "設備環節與景氣轉折同步",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "櫃買法人買超",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "revenueDisplay": "18.05 億",
-      "revenueYoY": 66.49547047903269,
-      "revenueYoYDisplay": "+66.50%",
-      "revenueMoM": -1.5032339197398679,
-      "revenueMoMDisplay": "-1.50%",
-      "cumulativeYoY": 52.26335952282982,
-      "cumulativeYoYDisplay": "+52.26%",
-      "closingPrice": 5600,
-      "priceChange": 35,
-      "priceChangeDisplay": "+35.00",
-      "tradeValue": 2223880000,
-      "tradeValueDisplay": "22.24 億",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmationScore": 0,
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "catalystCount": 0,
-      "catalystTypes": [],
-      "catalystLabels": [],
-      "eventTypes": [],
-      "eventLabels": [],
-      "primaryEventLabel": null,
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "announcementCount": 0,
-      "dataMonth": "2026-07",
-      "alertFlags": [
         "otcInstitutionSupport"
       ]
     },
@@ -41655,6 +41525,117 @@
       "alertFlags": [
         "revenuePriceLag"
       ]
+    },
+    {
+      "code": "6223",
+      "name": "旺矽",
+      "market": "otc",
+      "marketLabel": "上櫃",
+      "industry": "半導體業",
+      "lens": "semiconductor",
+      "lensLabel": "半導體鏈",
+      "watchlist": true,
+      "chain": "設備 / 測試",
+      "focus": "探針卡與測試介面",
+      "signal": {
+        "score": 7,
+        "label": "正向觀察",
+        "tone": "positive",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月減",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "股價日變動偏強",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "成交值高於 20 億",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "設備環節與景氣轉折同步",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "櫃買法人賣超",
+            "impact": "negative",
+            "weight": -1
+          }
+        ]
+      },
+      "revenueDisplay": "18.05 億",
+      "revenueYoY": 66.49547047903269,
+      "revenueYoYDisplay": "+66.50%",
+      "revenueMoM": -1.5032339197398679,
+      "revenueMoMDisplay": "-1.50%",
+      "cumulativeYoY": 52.26335952282982,
+      "cumulativeYoYDisplay": "+52.26%",
+      "closingPrice": 5600,
+      "priceChange": 35,
+      "priceChangeDisplay": "+35.00",
+      "tradeValue": 2223880000,
+      "tradeValueDisplay": "22.24 億",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmationScore": 0,
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "catalystCount": 0,
+      "catalystTypes": [],
+      "catalystLabels": [],
+      "eventTypes": [],
+      "eventLabels": [],
+      "primaryEventLabel": null,
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "announcementCount": 0,
+      "dataMonth": "2026-07",
+      "alertFlags": []
     },
     {
       "code": "1591",
@@ -202808,7 +202789,7 @@
       "closingPrice": 109,
       "priceChangeDisplay": "+1.50",
       "tradeValueDisplay": "38.71 億",
-      "otcInstitutionNetDisplay": "-158.00 萬",
+      "otcInstitutionNetDisplay": "-26.10 萬",
       "eventScore": 8,
       "eventScoreDisplay": "8/10",
       "eventStrength": {
@@ -212001,7 +211982,7 @@
       "closingPrice": 15400,
       "priceChangeDisplay": "+285.00",
       "tradeValueDisplay": "27.74 億",
-      "otcInstitutionNetDisplay": "8.42 萬",
+      "otcInstitutionNetDisplay": "8.52 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -214879,7 +214860,7 @@
       "closingPrice": 5600,
       "priceChangeDisplay": "+35.00",
       "tradeValueDisplay": "22.24 億",
-      "otcInstitutionNetDisplay": "3,193",
+      "otcInstitutionNetDisplay": "-1.68 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -214933,16 +214914,14 @@
       },
       "catalystCount": 0,
       "announcementCount": 0,
-      "alertFlags": [
-        "otcInstitutionSupport"
-      ],
+      "alertFlags": [],
       "announcements": [],
       "eventTimeline": [],
       "signal": {
-        "score": 9,
-        "label": "強訊號",
-        "tone": "strong",
-        "scoreDisplay": "9/10",
+        "score": 7,
+        "label": "正向觀察",
+        "tone": "positive",
+        "scoreDisplay": "7/10",
         "drivers": [
           {
             "label": "營收年增超過 40%",
@@ -214975,9 +214954,9 @@
             "weight": 1
           },
           {
-            "label": "櫃買法人買超",
-            "impact": "positive",
-            "weight": 1
+            "label": "櫃買法人賣超",
+            "impact": "negative",
+            "weight": -1
           }
         ]
       },
