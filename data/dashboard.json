@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T19:45:40.993Z",
+  "generatedAt": "2026-08-30T22:40:46.809Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -25,8 +25,8 @@
       "flatCount": 92
     },
     "breadth": {
-      "strong": 197,
-      "positive": 305,
+      "strong": 195,
+      "positive": 307,
       "neutral": 384,
       "negative": 1089
     },
@@ -75,7 +75,7 @@
   },
   "sourceStatus": {
     "monthlyRevenueMonth": "2026-07",
-    "twseMajorDate": "2026-08-29",
+    "twseMajorDate": "2026-08-30",
     "tpexMajorDate": "2026-08-29",
     "etfTrackDate": "2026-05-29",
     "etfTrackCount": 6,
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-08-30T19:45:38.828Z",
+        "fetchedAt": "2026-08-30T22:40:44.607Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-08-30T19:45:40.920Z",
+        "fetchedAt": "2026-08-30T22:40:46.389Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-08-30T19:45:38.836Z",
+        "fetchedAt": "2026-08-30T22:40:44.599Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-08-30T19:45:38.164Z",
+        "fetchedAt": "2026-08-30T22:40:42.931Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-08-30T19:45:40.365Z",
+        "fetchedAt": "2026-08-30T22:40:46.750Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-08-30T19:45:40.207Z",
+        "fetchedAt": "2026-08-30T22:40:45.285Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-08-30T19:45:38.861Z",
+        "fetchedAt": "2026-08-30T22:40:44.224Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-08-30T19:45:38.587Z",
+        "fetchedAt": "2026-08-30T22:40:43.232Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-08-30T19:45:38.969Z",
+        "fetchedAt": "2026-08-30T22:40:43.817Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-08-30T19:45:38.458Z",
+        "fetchedAt": "2026-08-30T22:40:43.793Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -228,8 +228,8 @@
     "semiconductorLensCount": 208,
     "nonElectronicsLensCount": 1026,
     "breadth": {
-      "strong": 197,
-      "positive": 305,
+      "strong": 195,
+      "positive": 307,
       "neutral": 384,
       "negative": 1089
     }
@@ -560,6 +560,137 @@
         "dataMonth": "2026-07",
         "alertFlags": [
           "otcInstitutionSupport"
+        ]
+      },
+      {
+        "code": "5534",
+        "name": "長虹",
+        "market": "listed",
+        "marketLabel": "上市",
+        "industry": "建材營造",
+        "lens": "nonElectronics",
+        "lensLabel": "非電子鏈",
+        "watchlist": false,
+        "chain": "建材營造",
+        "focus": "全市場非電子掃描",
+        "signal": {
+          "score": 10,
+          "label": "強訊號",
+          "tone": "strong",
+          "drivers": [
+            {
+              "label": "營收年增超過 40%",
+              "impact": "positive",
+              "weight": 4
+            },
+            {
+              "label": "營收月增超過 10%",
+              "impact": "positive",
+              "weight": 2
+            },
+            {
+              "label": "累計營收趨勢強",
+              "impact": "positive",
+              "weight": 2
+            },
+            {
+              "label": "近期有重大訊息催化",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "事件分數中高，適合排入優先追蹤",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "revenueDisplay": "9.07 億",
+        "revenueYoY": 269.79263095650754,
+        "revenueYoYDisplay": "+269.79%",
+        "revenueMoM": 23.99556410039026,
+        "revenueMoMDisplay": "+24.00%",
+        "cumulativeYoY": 63.44502485811813,
+        "cumulativeYoYDisplay": "+63.45%",
+        "closingPrice": 75.3,
+        "priceChange": -0.4,
+        "priceChangeDisplay": "-0.40",
+        "tradeValue": 84213808,
+        "tradeValueDisplay": "8421.38 萬",
+        "eventScore": 5,
+        "eventScoreDisplay": "5/10",
+        "eventStrength": {
+          "score": 1,
+          "label": "1/4",
+          "note": "Event strength is light.",
+          "drivers": [
+            {
+              "label": "Tradeable catalyst exists",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "eventStrengthDisplay": "1/4",
+        "marketConfirmationScore": 1,
+        "marketConfirmationDisplay": "1/3",
+        "fundamentalFollowThrough": {
+          "score": 3,
+          "label": "3/3",
+          "note": "Fundamentals are following the event.",
+          "drivers": [
+            {
+              "label": "Revenue YoY is validating the thesis",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "Revenue MoM is improving",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "Cumulative trend is supportive",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "fundamentalFollowThroughDisplay": "3/3",
+        "catalystCount": 1,
+        "catalystTypes": [
+          "asset_transaction"
+        ],
+        "catalystLabels": [
+          "資產交易"
+        ],
+        "eventTypes": [
+          "asset_transaction",
+          "governance_change"
+        ],
+        "eventLabels": [
+          "資產交易",
+          "治理異動"
+        ],
+        "primaryEventLabel": "資產交易",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
+        "eventConfirmation": {
+          "level": "pending",
+          "label": "Pending",
+          "note": "Fresh event, but price and turnover have not confirmed it yet."
+        },
+        "highValueEvent": {
+          "active": false,
+          "label": "Low-value",
+          "note": "Event exists, but its trading value is still limited."
+        },
+        "announcementCount": 1,
+        "dataMonth": "2026-07",
+        "alertFlags": [
+          "strongWithCatalyst",
+          "revenuePriceLag",
+          "eventPendingConfirmation"
         ]
       },
       {
@@ -1443,107 +1574,6 @@
         "priceChangeDisplay": "+140.00",
         "tradeValue": 5471540530,
         "tradeValueDisplay": "54.72 億",
-        "eventScore": 0,
-        "eventScoreDisplay": "0/10",
-        "eventStrength": {
-          "score": 0,
-          "label": "0/4",
-          "note": "No strong catalyst weight yet.",
-          "drivers": []
-        },
-        "eventStrengthDisplay": "0/4",
-        "marketConfirmationScore": 0,
-        "marketConfirmationDisplay": "0/3",
-        "fundamentalFollowThrough": {
-          "score": 0,
-          "label": "0/3",
-          "note": "No catalyst yet, so there is no follow-through to grade.",
-          "drivers": [
-            {
-              "label": "No event-follow-through context",
-              "impact": "neutral",
-              "weight": 0
-            }
-          ]
-        },
-        "fundamentalFollowThroughDisplay": "0/3",
-        "catalystCount": 0,
-        "catalystTypes": [],
-        "catalystLabels": [],
-        "eventTypes": [],
-        "eventLabels": [],
-        "primaryEventLabel": null,
-        "daysSinceLatestEvent": null,
-        "daysSinceLatestEventDisplay": "無資料",
-        "eventConfirmation": {
-          "level": "none",
-          "label": "None",
-          "note": "No catalyst to confirm in price or turnover."
-        },
-        "highValueEvent": {
-          "active": false,
-          "label": "No catalyst",
-          "note": "No event to classify."
-        },
-        "announcementCount": 0,
-        "dataMonth": "2026-07",
-        "alertFlags": []
-      },
-      {
-        "code": "2368",
-        "name": "金像電",
-        "market": "listed",
-        "marketLabel": "上市",
-        "industry": "電子零組件業",
-        "lens": "market",
-        "lensLabel": "全市場",
-        "watchlist": false,
-        "chain": "電子零組件業",
-        "focus": "全市場掃描",
-        "signal": {
-          "score": 10,
-          "label": "強訊號",
-          "tone": "strong",
-          "drivers": [
-            {
-              "label": "營收年增超過 40%",
-              "impact": "positive",
-              "weight": 4
-            },
-            {
-              "label": "營收月增超過 10%",
-              "impact": "positive",
-              "weight": 2
-            },
-            {
-              "label": "累計營收趨勢強",
-              "impact": "positive",
-              "weight": 2
-            },
-            {
-              "label": "股價日變動偏強",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "成交值高於 20 億",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "revenueDisplay": "100.15 億",
-        "revenueYoY": 77.38084589596791,
-        "revenueYoYDisplay": "+77.38%",
-        "revenueMoM": 21.311919243995412,
-        "revenueMoMDisplay": "+21.31%",
-        "cumulativeYoY": 70.28827013710922,
-        "cumulativeYoYDisplay": "+70.29%",
-        "closingPrice": 1130,
-        "priceChange": 100,
-        "priceChangeDisplay": "+100.00",
-        "tradeValue": 11940367670,
-        "tradeValueDisplay": "119.40 億",
         "eventScore": 0,
         "eventScoreDisplay": "0/10",
         "eventStrength": {
@@ -2819,6 +2849,137 @@
     ],
     "nonElectronicsLeaders": [
       {
+        "code": "5534",
+        "name": "長虹",
+        "market": "listed",
+        "marketLabel": "上市",
+        "industry": "建材營造",
+        "lens": "nonElectronics",
+        "lensLabel": "非電子鏈",
+        "watchlist": false,
+        "chain": "建材營造",
+        "focus": "全市場非電子掃描",
+        "signal": {
+          "score": 10,
+          "label": "強訊號",
+          "tone": "strong",
+          "drivers": [
+            {
+              "label": "營收年增超過 40%",
+              "impact": "positive",
+              "weight": 4
+            },
+            {
+              "label": "營收月增超過 10%",
+              "impact": "positive",
+              "weight": 2
+            },
+            {
+              "label": "累計營收趨勢強",
+              "impact": "positive",
+              "weight": 2
+            },
+            {
+              "label": "近期有重大訊息催化",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "事件分數中高，適合排入優先追蹤",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "revenueDisplay": "9.07 億",
+        "revenueYoY": 269.79263095650754,
+        "revenueYoYDisplay": "+269.79%",
+        "revenueMoM": 23.99556410039026,
+        "revenueMoMDisplay": "+24.00%",
+        "cumulativeYoY": 63.44502485811813,
+        "cumulativeYoYDisplay": "+63.45%",
+        "closingPrice": 75.3,
+        "priceChange": -0.4,
+        "priceChangeDisplay": "-0.40",
+        "tradeValue": 84213808,
+        "tradeValueDisplay": "8421.38 萬",
+        "eventScore": 5,
+        "eventScoreDisplay": "5/10",
+        "eventStrength": {
+          "score": 1,
+          "label": "1/4",
+          "note": "Event strength is light.",
+          "drivers": [
+            {
+              "label": "Tradeable catalyst exists",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "eventStrengthDisplay": "1/4",
+        "marketConfirmationScore": 1,
+        "marketConfirmationDisplay": "1/3",
+        "fundamentalFollowThrough": {
+          "score": 3,
+          "label": "3/3",
+          "note": "Fundamentals are following the event.",
+          "drivers": [
+            {
+              "label": "Revenue YoY is validating the thesis",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "Revenue MoM is improving",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "Cumulative trend is supportive",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "fundamentalFollowThroughDisplay": "3/3",
+        "catalystCount": 1,
+        "catalystTypes": [
+          "asset_transaction"
+        ],
+        "catalystLabels": [
+          "資產交易"
+        ],
+        "eventTypes": [
+          "asset_transaction",
+          "governance_change"
+        ],
+        "eventLabels": [
+          "資產交易",
+          "治理異動"
+        ],
+        "primaryEventLabel": "資產交易",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
+        "eventConfirmation": {
+          "level": "pending",
+          "label": "Pending",
+          "note": "Fresh event, but price and turnover have not confirmed it yet."
+        },
+        "highValueEvent": {
+          "active": false,
+          "label": "Low-value",
+          "note": "Event exists, but its trading value is still limited."
+        },
+        "announcementCount": 1,
+        "dataMonth": "2026-07",
+        "alertFlags": [
+          "strongWithCatalyst",
+          "revenuePriceLag",
+          "eventPendingConfirmation"
+        ]
+      },
+      {
         "code": "3167",
         "name": "大量",
         "market": "listed",
@@ -3212,151 +3373,6 @@
         "dataMonth": "2026-07",
         "alertFlags": [
           "otcInstitutionSupport"
-        ]
-      },
-      {
-        "code": "6446",
-        "name": "藥華藥",
-        "market": "listed",
-        "marketLabel": "上市",
-        "industry": "生技醫療業",
-        "lens": "nonElectronics",
-        "lensLabel": "非電子鏈",
-        "watchlist": false,
-        "chain": "生技醫療業",
-        "focus": "全市場非電子掃描",
-        "signal": {
-          "score": 9,
-          "label": "強訊號",
-          "tone": "strong",
-          "drivers": [
-            {
-              "label": "營收年增超過 40%",
-              "impact": "positive",
-              "weight": 4
-            },
-            {
-              "label": "營收月增為正",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "累計營收趨勢強",
-              "impact": "positive",
-              "weight": 2
-            },
-            {
-              "label": "股價日變動偏弱",
-              "impact": "negative",
-              "weight": -1
-            },
-            {
-              "label": "近期有重大訊息催化",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "事件分數中高，適合排入優先追蹤",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "成交值高於 20 億",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "revenueDisplay": "25.07 億",
-        "revenueYoY": 92.58697116592172,
-        "revenueYoYDisplay": "+92.59%",
-        "revenueMoM": 7.479549262881831,
-        "revenueMoMDisplay": "+7.48%",
-        "cumulativeYoY": 77.46495077474397,
-        "cumulativeYoYDisplay": "+77.46%",
-        "closingPrice": 1545,
-        "priceChange": -15,
-        "priceChangeDisplay": "-15.00",
-        "tradeValue": 6493089490,
-        "tradeValueDisplay": "64.93 億",
-        "eventScore": 5,
-        "eventScoreDisplay": "5/10",
-        "eventStrength": {
-          "score": 2,
-          "label": "2/4",
-          "note": "Event strength is actionable.",
-          "drivers": [
-            {
-              "label": "Tradeable catalyst exists",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "Primary event is high-impact",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "eventStrengthDisplay": "2/4",
-        "marketConfirmationScore": 0,
-        "marketConfirmationDisplay": "0/3",
-        "fundamentalFollowThrough": {
-          "score": 3,
-          "label": "3/3",
-          "note": "Fundamentals are following the event.",
-          "drivers": [
-            {
-              "label": "Revenue YoY is validating the thesis",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "Revenue MoM is improving",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "Cumulative trend is supportive",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "fundamentalFollowThroughDisplay": "3/3",
-        "catalystCount": 1,
-        "catalystTypes": [
-          "regulatory_approval"
-        ],
-        "catalystLabels": [
-          "法規核准"
-        ],
-        "eventTypes": [
-          "regulatory_approval"
-        ],
-        "eventLabels": [
-          "法規核准"
-        ],
-        "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
-        "eventConfirmation": {
-          "level": "failed",
-          "label": "Failed",
-          "note": "Price action rejected the event."
-        },
-        "highValueEvent": {
-          "active": false,
-          "label": "Watch",
-          "note": "Meaningful event, but validation is incomplete."
-        },
-        "announcementCount": 1,
-        "dataMonth": "2026-07",
-        "alertFlags": [
-          "strongWithCatalyst",
-          "revenuePriceLag",
-          "eventDrivenVolume",
-          "regulatoryBinaryEvent"
         ]
       },
       {
@@ -5268,40 +5284,35 @@
     ],
     "catalysts": [
       {
-        "code": "4958",
-        "name": "臻鼎-KY",
+        "code": "5534",
+        "name": "長虹",
         "market": "listed",
         "marketLabel": "上市",
-        "industry": "電子零組件業",
-        "lens": "market",
-        "lensLabel": "全市場",
+        "industry": "建材營造",
+        "lens": "nonElectronics",
+        "lensLabel": "非電子鏈",
         "watchlist": false,
-        "chain": "電子零組件業",
-        "focus": "全市場掃描",
+        "chain": "建材營造",
+        "focus": "全市場非電子掃描",
         "signal": {
-          "score": 9,
+          "score": 10,
           "label": "強訊號",
           "tone": "strong",
           "drivers": [
             {
-              "label": "營收年增超過 20%",
+              "label": "營收年增超過 40%",
               "impact": "positive",
-              "weight": 3
+              "weight": 4
             },
             {
-              "label": "營收月增為正",
+              "label": "營收月增超過 10%",
               "impact": "positive",
-              "weight": 1
+              "weight": 2
             },
             {
-              "label": "累計營收維持改善",
+              "label": "累計營收趨勢強",
               "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "股價日變動偏強",
-              "impact": "positive",
-              "weight": 1
+              "weight": 2
             },
             {
               "label": "近期有重大訊息催化",
@@ -5312,28 +5323,23 @@
               "label": "事件分數中高，適合排入優先追蹤",
               "impact": "positive",
               "weight": 1
-            },
-            {
-              "label": "成交值高於 20 億",
-              "impact": "positive",
-              "weight": 1
             }
           ]
         },
-        "revenueDisplay": "176.01 億",
-        "revenueYoY": 31.81571715860863,
-        "revenueYoYDisplay": "+31.82%",
-        "revenueMoM": 3.3308427067449524,
-        "revenueMoMDisplay": "+3.33%",
-        "cumulativeYoY": 16.501556738590747,
-        "cumulativeYoYDisplay": "+16.50%",
-        "closingPrice": 480.5,
-        "priceChange": 3.5,
-        "priceChangeDisplay": "+3.50",
-        "tradeValue": 16442878954,
-        "tradeValueDisplay": "164.43 億",
-        "eventScore": 6,
-        "eventScoreDisplay": "6/10",
+        "revenueDisplay": "9.07 億",
+        "revenueYoY": 269.79263095650754,
+        "revenueYoYDisplay": "+269.79%",
+        "revenueMoM": 23.99556410039026,
+        "revenueMoMDisplay": "+24.00%",
+        "cumulativeYoY": 63.44502485811813,
+        "cumulativeYoYDisplay": "+63.45%",
+        "closingPrice": 75.3,
+        "priceChange": -0.4,
+        "priceChangeDisplay": "-0.40",
+        "tradeValue": 84213808,
+        "tradeValueDisplay": "8421.38 萬",
+        "eventScore": 5,
+        "eventScoreDisplay": "5/10",
         "eventStrength": {
           "score": 1,
           "label": "1/4",
@@ -5347,147 +5353,8 @@
           ]
         },
         "eventStrengthDisplay": "1/4",
-        "marketConfirmationScore": 3,
-        "marketConfirmationDisplay": "3/3",
-        "fundamentalFollowThrough": {
-          "score": 2,
-          "label": "2/3",
-          "note": "Fundamentals are following the event.",
-          "drivers": [
-            {
-              "label": "Revenue YoY is validating the thesis",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "Cumulative trend is supportive",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "fundamentalFollowThroughDisplay": "2/3",
-        "catalystCount": 1,
-        "catalystTypes": [
-          "asset_transaction"
-        ],
-        "catalystLabels": [
-          "資產交易"
-        ],
-        "eventTypes": [
-          "asset_transaction"
-        ],
-        "eventLabels": [
-          "資產交易"
-        ],
-        "primaryEventLabel": "資產交易",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
-        "eventConfirmation": {
-          "level": "confirmed",
-          "label": "Confirmed",
-          "note": "Price and turnover are validating the event."
-        },
-        "highValueEvent": {
-          "active": false,
-          "label": "Low-value",
-          "note": "Event exists, but its trading value is still limited."
-        },
-        "announcementCount": 1,
-        "dataMonth": "2026-07",
-        "alertFlags": [
-          "strongWithCatalyst",
-          "eventDrivenVolume",
-          "eventConfirmed"
-        ]
-      },
-      {
-        "code": "6446",
-        "name": "藥華藥",
-        "market": "listed",
-        "marketLabel": "上市",
-        "industry": "生技醫療業",
-        "lens": "nonElectronics",
-        "lensLabel": "非電子鏈",
-        "watchlist": false,
-        "chain": "生技醫療業",
-        "focus": "全市場非電子掃描",
-        "signal": {
-          "score": 9,
-          "label": "強訊號",
-          "tone": "strong",
-          "drivers": [
-            {
-              "label": "營收年增超過 40%",
-              "impact": "positive",
-              "weight": 4
-            },
-            {
-              "label": "營收月增為正",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "累計營收趨勢強",
-              "impact": "positive",
-              "weight": 2
-            },
-            {
-              "label": "股價日變動偏弱",
-              "impact": "negative",
-              "weight": -1
-            },
-            {
-              "label": "近期有重大訊息催化",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "事件分數中高，適合排入優先追蹤",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "成交值高於 20 億",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "revenueDisplay": "25.07 億",
-        "revenueYoY": 92.58697116592172,
-        "revenueYoYDisplay": "+92.59%",
-        "revenueMoM": 7.479549262881831,
-        "revenueMoMDisplay": "+7.48%",
-        "cumulativeYoY": 77.46495077474397,
-        "cumulativeYoYDisplay": "+77.46%",
-        "closingPrice": 1545,
-        "priceChange": -15,
-        "priceChangeDisplay": "-15.00",
-        "tradeValue": 6493089490,
-        "tradeValueDisplay": "64.93 億",
-        "eventScore": 5,
-        "eventScoreDisplay": "5/10",
-        "eventStrength": {
-          "score": 2,
-          "label": "2/4",
-          "note": "Event strength is actionable.",
-          "drivers": [
-            {
-              "label": "Tradeable catalyst exists",
-              "impact": "positive",
-              "weight": 1
-            },
-            {
-              "label": "Primary event is high-impact",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "eventStrengthDisplay": "2/4",
-        "marketConfirmationScore": 0,
-        "marketConfirmationDisplay": "0/3",
+        "marketConfirmationScore": 1,
+        "marketConfirmationDisplay": "1/3",
         "fundamentalFollowThrough": {
           "score": 3,
           "label": "3/3",
@@ -5513,37 +5380,38 @@
         "fundamentalFollowThroughDisplay": "3/3",
         "catalystCount": 1,
         "catalystTypes": [
-          "regulatory_approval"
+          "asset_transaction"
         ],
         "catalystLabels": [
-          "法規核准"
+          "資產交易"
         ],
         "eventTypes": [
-          "regulatory_approval"
+          "asset_transaction",
+          "governance_change"
         ],
         "eventLabels": [
-          "法規核准"
+          "資產交易",
+          "治理異動"
         ],
-        "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "primaryEventLabel": "資產交易",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
-          "level": "failed",
-          "label": "Failed",
-          "note": "Price action rejected the event."
+          "level": "pending",
+          "label": "Pending",
+          "note": "Fresh event, but price and turnover have not confirmed it yet."
         },
         "highValueEvent": {
           "active": false,
-          "label": "Watch",
-          "note": "Meaningful event, but validation is incomplete."
+          "label": "Low-value",
+          "note": "Event exists, but its trading value is still limited."
         },
         "announcementCount": 1,
         "dataMonth": "2026-07",
         "alertFlags": [
           "strongWithCatalyst",
           "revenuePriceLag",
-          "eventDrivenVolume",
-          "regulatoryBinaryEvent"
+          "eventPendingConfirmation"
         ]
       },
       {
@@ -5660,8 +5528,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -6060,8 +5928,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "failed",
           "label": "Failed",
@@ -7224,62 +7092,12 @@
     {
       "level": "high",
       "title": "強訊號 + 催化事件",
-      "code": "6446",
-      "name": "藥華藥",
+      "code": "5534",
+      "name": "長虹",
       "marketLabel": "上市",
       "lensLabel": "非電子鏈",
-      "signalScore": 9,
-      "message": "藥華藥 同時具備高分訊號與近期重大催化，主事件為法規核准，適合優先驗證。"
-    },
-    {
-      "level": "high",
-      "title": "事件驅動成交放大",
-      "code": "6446",
-      "name": "藥華藥",
-      "marketLabel": "上市",
-      "lensLabel": "非電子鏈",
-      "signalScore": 9,
-      "message": "藥華藥 近期催化伴隨大量成交，適合納入盤後追蹤與隔日計畫。"
-    },
-    {
-      "level": "high",
-      "title": "法規核准 / 二元事件",
-      "code": "6446",
-      "name": "藥華藥",
-      "marketLabel": "上市",
-      "lensLabel": "非電子鏈",
-      "signalScore": 9,
-      "message": "藥華藥 有法規核准或認證事件，屬於二元型催化，需特別注意後續落地與價格波動。"
-    },
-    {
-      "level": "high",
-      "title": "強訊號 + 催化事件",
-      "code": "4958",
-      "name": "臻鼎-KY",
-      "marketLabel": "上市",
-      "lensLabel": "全市場",
-      "signalScore": 9,
-      "message": "臻鼎-KY 同時具備高分訊號與近期重大催化，主事件為資產交易，適合優先驗證。"
-    },
-    {
-      "level": "high",
-      "title": "事件驅動成交放大",
-      "code": "4958",
-      "name": "臻鼎-KY",
-      "marketLabel": "上市",
-      "lensLabel": "全市場",
-      "signalScore": 9,
-      "message": "臻鼎-KY 近期催化伴隨大量成交，適合納入盤後追蹤與隔日計畫。"
-    },
-    {
-      "level": "high",
-      "title": "事件已獲價格確認",
-      "code": "4958",
-      "name": "臻鼎-KY",
-      "marketLabel": "上市",
-      "lensLabel": "全市場",
-      "signalScore": 9,
-      "message": "臻鼎-KY 事件後已有價格與量能確認，可轉入後續追蹤與風險管理。"
+      "signalScore": 10,
+      "message": "長虹 同時具備高分訊號與近期重大催化，主事件為資產交易，適合優先驗證。"
     },
     {
       "level": "high",
@@ -7374,12 +7192,22 @@
     {
       "level": "medium",
       "title": "營收強但價格未充分反映",
-      "code": "6446",
-      "name": "藥華藥",
+      "code": "5534",
+      "name": "長虹",
       "marketLabel": "上市",
       "lensLabel": "非電子鏈",
-      "signalScore": 9,
-      "message": "藥華藥 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
+      "signalScore": 10,
+      "message": "長虹 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
+    },
+    {
+      "level": "medium",
+      "title": "事件待價格確認",
+      "code": "5534",
+      "name": "長虹",
+      "marketLabel": "上市",
+      "lensLabel": "非電子鏈",
+      "signalScore": 10,
+      "message": "長虹 近 3 日內有事件，但價格或量能尚未完整確認，適合列入觀察清單。"
     },
     {
       "level": "medium",
@@ -7460,6 +7288,46 @@
       "lensLabel": "半導體鏈",
       "signalScore": 9,
       "message": "九齊 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
+    },
+    {
+      "level": "medium",
+      "title": "營收強但價格未充分反映",
+      "code": "2070",
+      "name": "精湛",
+      "marketLabel": "上櫃",
+      "lensLabel": "非電子鏈",
+      "signalScore": 9,
+      "message": "精湛 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
+    },
+    {
+      "level": "medium",
+      "title": "營收強但價格未充分反映",
+      "code": "6187",
+      "name": "萬潤",
+      "marketLabel": "上櫃",
+      "lensLabel": "半導體鏈",
+      "signalScore": 9,
+      "message": "萬潤 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
+    },
+    {
+      "level": "medium",
+      "title": "營收強但價格未充分反映",
+      "code": "6913",
+      "name": "鴻呈",
+      "marketLabel": "上櫃",
+      "lensLabel": "全市場",
+      "signalScore": 9,
+      "message": "鴻呈 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
+    },
+    {
+      "level": "medium",
+      "title": "營收強但價格未充分反映",
+      "code": "6462",
+      "name": "神盾",
+      "marketLabel": "上櫃",
+      "lensLabel": "半導體鏈",
+      "signalScore": 9,
+      "message": "神盾 營收年增強，但股價日變動仍偏平，需檢查市場是否尚未形成共識。"
     }
   ],
   "strategies": {
@@ -14926,6 +14794,137 @@
   },
   "leaderboard": [
     {
+      "code": "5534",
+      "name": "長虹",
+      "market": "listed",
+      "marketLabel": "上市",
+      "industry": "建材營造",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "建材營造",
+      "focus": "全市場非電子掃描",
+      "signal": {
+        "score": 10,
+        "label": "強訊號",
+        "tone": "strong",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月增超過 10%",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "近期有重大訊息催化",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "事件分數中高，適合排入優先追蹤",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "revenueDisplay": "9.07 億",
+      "revenueYoY": 269.79263095650754,
+      "revenueYoYDisplay": "+269.79%",
+      "revenueMoM": 23.99556410039026,
+      "revenueMoMDisplay": "+24.00%",
+      "cumulativeYoY": 63.44502485811813,
+      "cumulativeYoYDisplay": "+63.45%",
+      "closingPrice": 75.3,
+      "priceChange": -0.4,
+      "priceChangeDisplay": "-0.40",
+      "tradeValue": 84213808,
+      "tradeValueDisplay": "8421.38 萬",
+      "eventScore": 5,
+      "eventScoreDisplay": "5/10",
+      "eventStrength": {
+        "score": 1,
+        "label": "1/4",
+        "note": "Event strength is light.",
+        "drivers": [
+          {
+            "label": "Tradeable catalyst exists",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventStrengthDisplay": "1/4",
+      "marketConfirmationScore": 1,
+      "marketConfirmationDisplay": "1/3",
+      "fundamentalFollowThrough": {
+        "score": 3,
+        "label": "3/3",
+        "note": "Fundamentals are following the event.",
+        "drivers": [
+          {
+            "label": "Revenue YoY is validating the thesis",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "Revenue MoM is improving",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "Cumulative trend is supportive",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "3/3",
+      "catalystCount": 1,
+      "catalystTypes": [
+        "asset_transaction"
+      ],
+      "catalystLabels": [
+        "資產交易"
+      ],
+      "eventTypes": [
+        "asset_transaction",
+        "governance_change"
+      ],
+      "eventLabels": [
+        "資產交易",
+        "治理異動"
+      ],
+      "primaryEventLabel": "資產交易",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
+      "eventConfirmation": {
+        "level": "pending",
+        "label": "Pending",
+        "note": "Fresh event, but price and turnover have not confirmed it yet."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "Low-value",
+        "note": "Event exists, but its trading value is still limited."
+      },
+      "announcementCount": 1,
+      "dataMonth": "2026-07",
+      "alertFlags": [
+        "strongWithCatalyst",
+        "revenuePriceLag",
+        "eventPendingConfirmation"
+      ]
+    },
+    {
       "code": "5386",
       "name": "青雲",
       "market": "otc",
@@ -17307,285 +17306,6 @@
       "dataMonth": "2026-07",
       "alertFlags": [
         "otcInstitutionSupport"
-      ]
-    },
-    {
-      "code": "6446",
-      "name": "藥華藥",
-      "market": "listed",
-      "marketLabel": "上市",
-      "industry": "生技醫療業",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "生技醫療業",
-      "focus": "全市場非電子掃描",
-      "signal": {
-        "score": 9,
-        "label": "強訊號",
-        "tone": "strong",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月增為正",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "股價日變動偏弱",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "近期有重大訊息催化",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "事件分數中高，適合排入優先追蹤",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "成交值高於 20 億",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "revenueDisplay": "25.07 億",
-      "revenueYoY": 92.58697116592172,
-      "revenueYoYDisplay": "+92.59%",
-      "revenueMoM": 7.479549262881831,
-      "revenueMoMDisplay": "+7.48%",
-      "cumulativeYoY": 77.46495077474397,
-      "cumulativeYoYDisplay": "+77.46%",
-      "closingPrice": 1545,
-      "priceChange": -15,
-      "priceChangeDisplay": "-15.00",
-      "tradeValue": 6493089490,
-      "tradeValueDisplay": "64.93 億",
-      "eventScore": 5,
-      "eventScoreDisplay": "5/10",
-      "eventStrength": {
-        "score": 2,
-        "label": "2/4",
-        "note": "Event strength is actionable.",
-        "drivers": [
-          {
-            "label": "Tradeable catalyst exists",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Primary event is high-impact",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventStrengthDisplay": "2/4",
-      "marketConfirmationScore": 0,
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 3,
-        "label": "3/3",
-        "note": "Fundamentals are following the event.",
-        "drivers": [
-          {
-            "label": "Revenue YoY is validating the thesis",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Revenue MoM is improving",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Cumulative trend is supportive",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "3/3",
-      "catalystCount": 1,
-      "catalystTypes": [
-        "regulatory_approval"
-      ],
-      "catalystLabels": [
-        "法規核准"
-      ],
-      "eventTypes": [
-        "regulatory_approval"
-      ],
-      "eventLabels": [
-        "法規核准"
-      ],
-      "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
-      "eventConfirmation": {
-        "level": "failed",
-        "label": "Failed",
-        "note": "Price action rejected the event."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "Watch",
-        "note": "Meaningful event, but validation is incomplete."
-      },
-      "announcementCount": 1,
-      "dataMonth": "2026-07",
-      "alertFlags": [
-        "strongWithCatalyst",
-        "revenuePriceLag",
-        "eventDrivenVolume",
-        "regulatoryBinaryEvent"
-      ]
-    },
-    {
-      "code": "4958",
-      "name": "臻鼎-KY",
-      "market": "listed",
-      "marketLabel": "上市",
-      "industry": "電子零組件業",
-      "lens": "market",
-      "lensLabel": "全市場",
-      "watchlist": false,
-      "chain": "電子零組件業",
-      "focus": "全市場掃描",
-      "signal": {
-        "score": 9,
-        "label": "強訊號",
-        "tone": "strong",
-        "drivers": [
-          {
-            "label": "營收年增超過 20%",
-            "impact": "positive",
-            "weight": 3
-          },
-          {
-            "label": "營收月增為正",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "累計營收維持改善",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "股價日變動偏強",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "近期有重大訊息催化",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "事件分數中高，適合排入優先追蹤",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "成交值高於 20 億",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "revenueDisplay": "176.01 億",
-      "revenueYoY": 31.81571715860863,
-      "revenueYoYDisplay": "+31.82%",
-      "revenueMoM": 3.3308427067449524,
-      "revenueMoMDisplay": "+3.33%",
-      "cumulativeYoY": 16.501556738590747,
-      "cumulativeYoYDisplay": "+16.50%",
-      "closingPrice": 480.5,
-      "priceChange": 3.5,
-      "priceChangeDisplay": "+3.50",
-      "tradeValue": 16442878954,
-      "tradeValueDisplay": "164.43 億",
-      "eventScore": 6,
-      "eventScoreDisplay": "6/10",
-      "eventStrength": {
-        "score": 1,
-        "label": "1/4",
-        "note": "Event strength is light.",
-        "drivers": [
-          {
-            "label": "Tradeable catalyst exists",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventStrengthDisplay": "1/4",
-      "marketConfirmationScore": 3,
-      "marketConfirmationDisplay": "3/3",
-      "fundamentalFollowThrough": {
-        "score": 2,
-        "label": "2/3",
-        "note": "Fundamentals are following the event.",
-        "drivers": [
-          {
-            "label": "Revenue YoY is validating the thesis",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Cumulative trend is supportive",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "2/3",
-      "catalystCount": 1,
-      "catalystTypes": [
-        "asset_transaction"
-      ],
-      "catalystLabels": [
-        "資產交易"
-      ],
-      "eventTypes": [
-        "asset_transaction"
-      ],
-      "eventLabels": [
-        "資產交易"
-      ],
-      "primaryEventLabel": "資產交易",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
-      "eventConfirmation": {
-        "level": "confirmed",
-        "label": "Confirmed",
-        "note": "Price and turnover are validating the event."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "Low-value",
-        "note": "Event exists, but its trading value is still limited."
-      },
-      "announcementCount": 1,
-      "dataMonth": "2026-07",
-      "alertFlags": [
-        "strongWithCatalyst",
-        "eventDrivenVolume",
-        "eventConfirmed"
       ]
     },
     {
@@ -24919,99 +24639,6 @@
       "priceChangeDisplay": "-0.40",
       "tradeValue": 357739258,
       "tradeValueDisplay": "3.58 億",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmationScore": 0,
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "catalystCount": 0,
-      "catalystTypes": [],
-      "catalystLabels": [],
-      "eventTypes": [],
-      "eventLabels": [],
-      "primaryEventLabel": null,
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "announcementCount": 0,
-      "dataMonth": "2026-07",
-      "alertFlags": [
-        "revenuePriceLag"
-      ]
-    },
-    {
-      "code": "5534",
-      "name": "長虹",
-      "market": "listed",
-      "marketLabel": "上市",
-      "industry": "建材營造",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "建材營造",
-      "focus": "全市場非電子掃描",
-      "signal": {
-        "score": 8,
-        "label": "強訊號",
-        "tone": "strong",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月增超過 10%",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          }
-        ]
-      },
-      "revenueDisplay": "9.07 億",
-      "revenueYoY": 269.79263095650754,
-      "revenueYoYDisplay": "+269.79%",
-      "revenueMoM": 23.99556410039026,
-      "revenueMoMDisplay": "+24.00%",
-      "cumulativeYoY": 63.44502485811813,
-      "cumulativeYoYDisplay": "+63.45%",
-      "closingPrice": 75.3,
-      "priceChange": -0.4,
-      "priceChangeDisplay": "-0.40",
-      "tradeValue": 84213808,
-      "tradeValueDisplay": "8421.38 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -34507,8 +34134,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -37757,6 +37384,109 @@
       "announcementCount": 0,
       "dataMonth": "2026-07",
       "alertFlags": []
+    },
+    {
+      "code": "6446",
+      "name": "藥華藥",
+      "market": "listed",
+      "marketLabel": "上市",
+      "industry": "生技醫療業",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "生技醫療業",
+      "focus": "全市場非電子掃描",
+      "signal": {
+        "score": 7,
+        "label": "正向觀察",
+        "tone": "positive",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月增為正",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "股價日變動偏弱",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "成交值高於 20 億",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "revenueDisplay": "25.07 億",
+      "revenueYoY": 92.58697116592172,
+      "revenueYoYDisplay": "+92.59%",
+      "revenueMoM": 7.479549262881831,
+      "revenueMoMDisplay": "+7.48%",
+      "cumulativeYoY": 77.46495077474397,
+      "cumulativeYoYDisplay": "+77.46%",
+      "closingPrice": 1545,
+      "priceChange": -15,
+      "priceChangeDisplay": "-15.00",
+      "tradeValue": 6493089490,
+      "tradeValueDisplay": "64.93 億",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmationScore": 0,
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "catalystCount": 0,
+      "catalystTypes": [],
+      "catalystLabels": [],
+      "eventTypes": [],
+      "eventLabels": [],
+      "primaryEventLabel": null,
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "announcementCount": 0,
+      "dataMonth": "2026-07",
+      "alertFlags": [
+        "revenuePriceLag"
+      ]
     },
     {
       "code": "6285",
@@ -46014,6 +45744,107 @@
       "alertFlags": [
         "revenuePriceLag"
       ]
+    },
+    {
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "market": "listed",
+      "marketLabel": "上市",
+      "industry": "電子零組件業",
+      "lens": "market",
+      "lensLabel": "全市場",
+      "watchlist": false,
+      "chain": "電子零組件業",
+      "focus": "全市場掃描",
+      "signal": {
+        "score": 7,
+        "label": "正向觀察",
+        "tone": "positive",
+        "drivers": [
+          {
+            "label": "營收年增超過 20%",
+            "impact": "positive",
+            "weight": 3
+          },
+          {
+            "label": "營收月增為正",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "累計營收維持改善",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "股價日變動偏強",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "成交值高於 20 億",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "revenueDisplay": "176.01 億",
+      "revenueYoY": 31.81571715860863,
+      "revenueYoYDisplay": "+31.82%",
+      "revenueMoM": 3.3308427067449524,
+      "revenueMoMDisplay": "+3.33%",
+      "cumulativeYoY": 16.501556738590747,
+      "cumulativeYoYDisplay": "+16.50%",
+      "closingPrice": 480.5,
+      "priceChange": 3.5,
+      "priceChangeDisplay": "+3.50",
+      "tradeValue": 16442878954,
+      "tradeValueDisplay": "164.43 億",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmationScore": 0,
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "catalystCount": 0,
+      "catalystTypes": [],
+      "catalystLabels": [],
+      "eventTypes": [],
+      "eventLabels": [],
+      "primaryEventLabel": null,
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "announcementCount": 0,
+      "dataMonth": "2026-07",
+      "alertFlags": []
     },
     {
       "code": "3555",
@@ -63712,8 +63543,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -105476,7 +105307,7 @@
         "label": "No catalyst",
         "note": "No event to classify."
       },
-      "announcementCount": 1,
+      "announcementCount": 0,
       "dataMonth": "2026-07",
       "alertFlags": []
     },
@@ -132003,7 +131834,7 @@
         "label": "No catalyst",
         "note": "No event to classify."
       },
-      "announcementCount": 0,
+      "announcementCount": 1,
       "dataMonth": "2026-07",
       "alertFlags": []
     },
@@ -146835,8 +146666,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -146847,7 +146678,7 @@
         "label": "Low-value",
         "note": "Event exists, but its trading value is still limited."
       },
-      "announcementCount": 1,
+      "announcementCount": 2,
       "dataMonth": "2026-07",
       "alertFlags": [
         "regulatoryBinaryEvent",
@@ -146963,8 +146794,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -199656,8 +199487,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -199680,7 +199511,7 @@
           "code": "1721",
           "companyName": "三晃",
           "subject": "公告本公司名稱由「三晃股份有限公司」更名為\r\n「國慶科技股份有限公司」\r\n，公告期間：115年07月01日至115年9月30日。",
-          "date": "2026-08-29",
+          "date": "2026-08-30",
           "time": "07:00:03",
           "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：國慶科技股份有限公司(原名：三晃股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：11530099260  (3)更名案股東會決議通過日期：民國115年06月16日  (4)變更前公司名稱：三晃股份有限公司  (5)變更後公司名稱：國慶科技股份有限公司  (6)變更前公司簡稱：三晃  (7)變更後公司簡稱：國慶科技  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「1721」。  (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",
           "isRoutine": false,
@@ -199718,7 +199549,7 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-29",
+          "date": "2026-08-30",
           "time": "07:00:03",
           "subject": "公告本公司名稱由「三晃股份有限公司」更名為\r\n「國慶科技股份有限公司」\r\n，公告期間：115年07月01日至115年9月30日。",
           "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：國慶科技股份有限公司(原名：三晃股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：11530099260  (3)更名案股東會決議通過日期：民國115年06月16日  (4)變更前公司名稱：三晃股份有限公司  (5)變更後公司名稱：國慶科技股份有限公司  (6)變更前公司簡稱：三晃  (7)變更後公司簡稱：國慶科技  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「1721」。  (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",
@@ -199998,8 +199829,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -200023,7 +199854,7 @@
           "code": "2072",
           "companyName": "世紀風電",
           "subject": "公告本公司名稱由「世紀離岸風電設備股份有限公司」更名\r\n為「世紀能源設備股份有限公司」，公告期間：115年8月26日至\r\n115年11月25日。",
-          "date": "2026-08-29",
+          "date": "2026-08-30",
           "time": "07:00:03",
           "summary": "1.事實發生日：民國115年08月24日  2.公司名稱：世紀能源設備股份有限公司(原名：世紀離岸風電設備股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年08月24日  (2)公司名稱變更核准文號：經授商字第11530130420號  (3)更名案股東會決議通過日期：民國115年08月12日  (4)變更前公司名稱：世紀離岸風電設備股份有限公司  (5)變更後公司名稱：世紀能源設備股份有限公司  (6)變更前公司簡稱：世紀風電  (7)變更後公司簡稱：世紀能源  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/08/26收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，  於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「2072」。  (4)本公司英文名更名為「Century Energy Co., Ltd.」",
           "isRoutine": false,
@@ -200061,7 +199892,7 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-29",
+          "date": "2026-08-30",
           "time": "07:00:03",
           "subject": "公告本公司名稱由「世紀離岸風電設備股份有限公司」更名\r\n為「世紀能源設備股份有限公司」，公告期間：115年8月26日至\r\n115年11月25日。",
           "summary": "1.事實發生日：民國115年08月24日  2.公司名稱：世紀能源設備股份有限公司(原名：世紀離岸風電設備股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年08月24日  (2)公司名稱變更核准文號：經授商字第11530130420號  (3)更名案股東會決議通過日期：民國115年08月12日  (4)變更前公司名稱：世紀離岸風電設備股份有限公司  (5)變更後公司名稱：世紀能源設備股份有限公司  (6)變更前公司簡稱：世紀風電  (7)變更後公司簡稱：世紀能源  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/08/26收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，  於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「2072」。  (4)本公司英文名更名為「Century Energy Co., Ltd.」",
@@ -200240,6 +200071,119 @@
           },
           {
             "label": "股價日變動偏弱",
+            "impact": "negative",
+            "weight": -1
+          }
+        ]
+      },
+      "eventDrivers": [
+        {
+          "label": "No catalyst yet",
+          "impact": "neutral",
+          "weight": 0
+        },
+        {
+          "label": "No event-follow-through context",
+          "impact": "neutral",
+          "weight": 0
+        }
+      ]
+    },
+    "2239": {
+      "code": "2239",
+      "market": "listed",
+      "marketLabel": "上市",
+      "name": "英利-KY",
+      "industry": "汽車工業",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "汽車工業",
+      "focus": "全市場非電子掃描",
+      "note": "非核心觀察池，來自全市場掃描。",
+      "dataMonth": "2026-07",
+      "revenueDisplay": "13.26 億",
+      "revenueYoYDisplay": "-20.61%",
+      "revenueMoMDisplay": "+6.06%",
+      "cumulativeYoYDisplay": "-12.93%",
+      "closingPrice": 20.15,
+      "priceChangeDisplay": "-0.20",
+      "tradeValueDisplay": "58.68 萬",
+      "otcInstitutionNetDisplay": "無資料",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmation": {
+        "score": 0,
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover.",
+        "drivers": [
+          {
+            "label": "No catalyst yet",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "primaryEventLabel": null,
+      "eventLabels": [],
+      "catalystLabels": [],
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "catalystCount": 0,
+      "announcementCount": 0,
+      "alertFlags": [],
+      "announcements": [],
+      "eventTimeline": [],
+      "signal": {
+        "score": 0,
+        "label": "偏弱等待",
+        "tone": "negative",
+        "scoreDisplay": "0/10",
+        "drivers": [
+          {
+            "label": "營收年減超過 20%",
+            "impact": "negative",
+            "weight": -3
+          },
+          {
+            "label": "營收月增為正",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "累計營收仍在下行",
             "impact": "negative",
             "weight": -1
           }
@@ -201253,129 +201197,6 @@
       "closingPrice": 2010,
       "priceChangeDisplay": "+20.00",
       "tradeValueDisplay": "38.58 億",
-      "otcInstitutionNetDisplay": "無資料",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmation": {
-        "score": 0,
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover.",
-        "drivers": [
-          {
-            "label": "No catalyst yet",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "primaryEventLabel": null,
-      "eventLabels": [],
-      "catalystLabels": [],
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "catalystCount": 0,
-      "announcementCount": 0,
-      "alertFlags": [],
-      "announcements": [],
-      "eventTimeline": [],
-      "signal": {
-        "score": 10,
-        "label": "強訊號",
-        "tone": "strong",
-        "scoreDisplay": "10/10",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月增超過 10%",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "股價日變動偏強",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "成交值高於 20 億",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventDrivers": [
-        {
-          "label": "No catalyst yet",
-          "impact": "neutral",
-          "weight": 0
-        },
-        {
-          "label": "No event-follow-through context",
-          "impact": "neutral",
-          "weight": 0
-        }
-      ]
-    },
-    "2368": {
-      "code": "2368",
-      "market": "listed",
-      "marketLabel": "上市",
-      "name": "金像電",
-      "industry": "電子零組件業",
-      "lens": "market",
-      "lensLabel": "全市場",
-      "watchlist": false,
-      "chain": "電子零組件業",
-      "focus": "全市場掃描",
-      "note": "非核心觀察池，僅納入全市場排行。",
-      "dataMonth": "2026-07",
-      "revenueDisplay": "100.15 億",
-      "revenueYoYDisplay": "+77.38%",
-      "revenueMoMDisplay": "+21.31%",
-      "cumulativeYoYDisplay": "+70.29%",
-      "closingPrice": 1130,
-      "priceChangeDisplay": "+100.00",
-      "tradeValueDisplay": "119.40 億",
       "otcInstitutionNetDisplay": "無資料",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
@@ -203101,6 +202922,138 @@
         }
       ]
     },
+    "3032": {
+      "code": "3032",
+      "market": "listed",
+      "marketLabel": "上市",
+      "name": "偉訓",
+      "industry": "電子零組件業",
+      "lens": "market",
+      "lensLabel": "全市場",
+      "watchlist": false,
+      "chain": "電子零組件業",
+      "focus": "全市場掃描",
+      "note": "非核心觀察池，僅納入全市場排行。",
+      "dataMonth": "2026-07",
+      "revenueDisplay": "11.23 億",
+      "revenueYoYDisplay": "-1.70%",
+      "revenueMoMDisplay": "+11.84%",
+      "cumulativeYoYDisplay": "+11.66%",
+      "closingPrice": 79.8,
+      "priceChangeDisplay": "+0.10",
+      "tradeValueDisplay": "1853.52 萬",
+      "otcInstitutionNetDisplay": "無資料",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmation": {
+        "score": 0,
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover.",
+        "drivers": [
+          {
+            "label": "No catalyst yet",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "primaryEventLabel": null,
+      "eventLabels": [],
+      "catalystLabels": [],
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "catalystCount": 0,
+      "announcementCount": 1,
+      "alertFlags": [],
+      "announcements": [
+        {
+          "market": "listed",
+          "code": "3032",
+          "companyName": "偉訓",
+          "subject": "本公司部份資訊系統遭受網路安全事件說明",
+          "date": "2026-08-30",
+          "time": "19:32:40",
+          "summary": "1.事實發生日:115/08/30 2.發生緣由:本公司偵測到部份資訊系統遭受網路安全事件。 3.處理過程:本公司於偵測到異常後，已立即啟動資安應變機制,迅速採取受影響資訊系 統隔離及風險控管措施，並進行全面性盤點及持續監控,同時委請外部專業資安廠商協 助進行系統復原、事件調查及相關強化作業。 4.預計可能損失或影響:目前評估沒有個資、亦沒有機密或重要的文件資料外洩等情事 發生，對本公司營運無重大影響。 5.可能獲得保險理賠之金額:無。 6.改善情形及未來因應措施:本公司將持續依事件調查結果檢視並強化相關資訊系統及資 安防護機制，並持續精進資安管理措施，確保資料安全及營運韌性。 7.其他應敘明事項:無。",
+          "isRoutine": false,
+          "hasCatalyst": false,
+          "events": [],
+          "catalysts": [],
+          "eventTypes": [],
+          "catalystTypes": [],
+          "eventWeightTotal": 0,
+          "catalystWeightTotal": 0,
+          "primaryEventLabel": null
+        }
+      ],
+      "eventTimeline": [],
+      "signal": {
+        "score": 2,
+        "label": "偏弱等待",
+        "tone": "negative",
+        "scoreDisplay": "2/10",
+        "drivers": [
+          {
+            "label": "營收年減",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "營收月增超過 10%",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "累計營收維持改善",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventDrivers": [
+        {
+          "label": "No catalyst yet",
+          "impact": "neutral",
+          "weight": 0
+        },
+        {
+          "label": "No event-follow-through context",
+          "impact": "neutral",
+          "weight": 0
+        }
+      ]
+    },
     "3035": {
       "code": "3035",
       "market": "listed",
@@ -204488,138 +204441,6 @@
         }
       ]
     },
-    "3432": {
-      "code": "3432",
-      "market": "listed",
-      "marketLabel": "上市",
-      "name": "台端",
-      "industry": "電子零組件業",
-      "lens": "market",
-      "lensLabel": "全市場",
-      "watchlist": false,
-      "chain": "電子零組件業",
-      "focus": "全市場掃描",
-      "note": "非核心觀察池，僅納入全市場排行。",
-      "dataMonth": "2026-07",
-      "revenueDisplay": "2355.50 萬",
-      "revenueYoYDisplay": "+24.98%",
-      "revenueMoMDisplay": "-25.70%",
-      "cumulativeYoYDisplay": "+139.96%",
-      "closingPrice": 14.6,
-      "priceChangeDisplay": "0.00",
-      "tradeValueDisplay": "18.05 萬",
-      "otcInstitutionNetDisplay": "無資料",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmation": {
-        "score": 0,
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover.",
-        "drivers": [
-          {
-            "label": "No catalyst yet",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "primaryEventLabel": null,
-      "eventLabels": [],
-      "catalystLabels": [],
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "catalystCount": 0,
-      "announcementCount": 1,
-      "alertFlags": [],
-      "announcements": [
-        {
-          "market": "listed",
-          "code": "3432",
-          "companyName": "台端",
-          "subject": "依臺灣證券交易所股份有限公司臺證上一字第1121801204\r\n號函辦理",
-          "date": "2026-08-29",
-          "time": "14:18:25",
-          "summary": "1.事實發生日:115/08/29 2.公司名稱:台端興業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依臺灣證券交易所股份有限公司臺證上一字第1121801204號函辦理，每周           定期發布重大訊息公告持有之每檔基金餘額、申購與贖回交易情形及應收           基金贖回款之收回情形與餘額。 6.因應措施: (一)本公司及子公司依據所投資基金(截至115/08/29止)已公布之最近期淨值計算之投     資餘額計美金53,286仟元(折合新台幣1,684,379仟元)，其公允價值評估為0元。                                           USD      NTD    公允  交易  發行　              基金名稱              簡稱   仟元     仟元   價值  機構  單位     =============================  ==== ======  ========= ==== ====== ====     Spectra SPC Powerfund          (PF) 21,984    694,922   0    AA    STI     Asian Strategic Long Term Fund (GP)  8,151    257,653   0    AA   CCIB     Asian Strategic Orient Fund    (GH)  9,099    287,621   0    AA   CCIB     Longchamp Absolute Return Unit        Trust Fund                  (LC) 14,052    444,183   0  CCAM-N CCAM                                         ------  --------- ----                                  合計   53,286  1,684,379   0                                         ======  ========= ====         (1)AA：Ayers Alliance Financial Group Ltd.         (2)STI：STI PF Limited         (3)CCIB：City Credit Investment Bank Limited         (4)CCAM-N：City Credit Asset Management Nominee Co., Ltd.         (5)CCAM：CCAM Co., Ltd.         (6)已公布之最近期淨值基準日：            (PF)=112.02.14 (GP)=112.03.28 (GH)=112.03.30 (LC)=112.07.07 (二)本公司及子公司本年度截至115/08/29止，無新增申購及贖回基金交易。 (三)本公司截至115/08/29止，有兩筆尚未收回款項之應收基金贖回款金額計     美金2,041仟元(折合新台幣64,507仟元)，其經減損評估後金額為0元。       基金簡稱   交易日  USD仟元  NTD仟元 攤銷後成本 交易機構 發行單位      =========  =======  ======= ======== ========== ======== ========        PF      112.02.15  1,032   32,811        0       AA       STI        LC      112.02.20  1,009   31,896        0     CCAM-N    CCAM                           ------ -------- ----------                     合計  2,041   64,507       0                           ====== ======== ========== 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (一)本公司將密切注意上述四檔基金後續之發展，並委請專業人士協助本公司主張權利     ，以維護全體股東之權益。 (二)有關於本公司財務業務相關訊息，本公司均依相關規定公告，若有收到進一步通知     或其他應公告事項，請投資人依本公司公告之資訊為準。",
-          "isRoutine": false,
-          "hasCatalyst": false,
-          "events": [],
-          "catalysts": [],
-          "eventTypes": [],
-          "catalystTypes": [],
-          "eventWeightTotal": 0,
-          "catalystWeightTotal": 0,
-          "primaryEventLabel": null
-        }
-      ],
-      "eventTimeline": [],
-      "signal": {
-        "score": 3,
-        "label": "偏弱等待",
-        "tone": "negative",
-        "scoreDisplay": "3/10",
-        "drivers": [
-          {
-            "label": "營收年增超過 20%",
-            "impact": "positive",
-            "weight": 3
-          },
-          {
-            "label": "營收月減超過 10%",
-            "impact": "negative",
-            "weight": -2
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          }
-        ]
-      },
-      "eventDrivers": [
-        {
-          "label": "No catalyst yet",
-          "impact": "neutral",
-          "weight": 0
-        },
-        {
-          "label": "No event-follow-through context",
-          "impact": "neutral",
-          "weight": 0
-        }
-      ]
-    },
     "3443": {
       "code": "3443",
       "market": "listed",
@@ -205317,8 +205138,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -205341,8 +205162,8 @@
           "code": "3708",
           "companyName": "上緯投控",
           "subject": "公告本公司名稱由「上緯國際投資控股股份有限公司」更名為\r\n「上緯國際控股股份有限公司」，公告期間：115年6月11日至\r\n115年9月10日。",
-          "date": "2026-08-29",
-          "time": "07:00:04",
+          "date": "2026-08-30",
+          "time": "07:00:03",
           "summary": "1.事實發生日：民國115年06月11日  2.公司名稱：上緯國際控股股份有限公司(原名：上緯國際投資控股股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月11日  (2)公司名稱變更核准文號：經授商字第11530084540號函  (3)更名案股東會決議通過日期：民國115年05月28日  (4)變更前公司名稱：上緯國際投資控股股份有限公司  (5)變更後公司名稱：上緯國際控股股份有限公司  (6)變更前公司簡稱：上緯投控  (7)變更後公司簡稱：上緯控股  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/6/11收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更  名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「3708」",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -205379,8 +205200,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-29",
-          "time": "07:00:04",
+          "date": "2026-08-30",
+          "time": "07:00:03",
           "subject": "公告本公司名稱由「上緯國際投資控股股份有限公司」更名為\r\n「上緯國際控股股份有限公司」，公告期間：115年6月11日至\r\n115年9月10日。",
           "summary": "1.事實發生日：民國115年06月11日  2.公司名稱：上緯國際控股股份有限公司(原名：上緯國際投資控股股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月11日  (2)公司名稱變更核准文號：經授商字第11530084540號函  (3)更名案股東會決議通過日期：民國115年05月28日  (4)變更前公司名稱：上緯國際投資控股股份有限公司  (5)變更後公司名稱：上緯國際控股股份有限公司  (6)變更前公司簡稱：上緯投控  (7)變更後公司簡稱：上緯控股  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/6/11收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更  名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「3708」",
           "labels": [
@@ -206611,237 +206432,6 @@
         }
       ]
     },
-    "4958": {
-      "code": "4958",
-      "market": "listed",
-      "marketLabel": "上市",
-      "name": "臻鼎-KY",
-      "industry": "電子零組件業",
-      "lens": "market",
-      "lensLabel": "全市場",
-      "watchlist": false,
-      "chain": "電子零組件業",
-      "focus": "全市場掃描",
-      "note": "非核心觀察池，僅納入全市場排行。",
-      "dataMonth": "2026-07",
-      "revenueDisplay": "176.01 億",
-      "revenueYoYDisplay": "+31.82%",
-      "revenueMoMDisplay": "+3.33%",
-      "cumulativeYoYDisplay": "+16.50%",
-      "closingPrice": 480.5,
-      "priceChangeDisplay": "+3.50",
-      "tradeValueDisplay": "164.43 億",
-      "otcInstitutionNetDisplay": "無資料",
-      "eventScore": 6,
-      "eventScoreDisplay": "6/10",
-      "eventStrength": {
-        "score": 1,
-        "label": "1/4",
-        "note": "Event strength is light.",
-        "drivers": [
-          {
-            "label": "Tradeable catalyst exists",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventStrengthDisplay": "1/4",
-      "marketConfirmation": {
-        "score": 3,
-        "level": "confirmed",
-        "label": "Confirmed",
-        "note": "Price and turnover are validating the event.",
-        "drivers": [
-          {
-            "label": "Price confirmed",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "Turnover confirmed",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "marketConfirmationDisplay": "3/3",
-      "fundamentalFollowThrough": {
-        "score": 2,
-        "label": "2/3",
-        "note": "Fundamentals are following the event.",
-        "drivers": [
-          {
-            "label": "Revenue YoY is validating the thesis",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Cumulative trend is supportive",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "2/3",
-      "primaryEventLabel": "資產交易",
-      "eventLabels": [
-        "資產交易"
-      ],
-      "catalystLabels": [
-        "資產交易"
-      ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
-      "eventConfirmation": {
-        "level": "confirmed",
-        "label": "Confirmed",
-        "note": "Price and turnover are validating the event."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "Low-value",
-        "note": "Event exists, but its trading value is still limited."
-      },
-      "catalystCount": 1,
-      "announcementCount": 1,
-      "alertFlags": [
-        "strongWithCatalyst",
-        "eventDrivenVolume",
-        "eventConfirmed"
-      ],
-      "announcements": [
-        {
-          "market": "listed",
-          "code": "4958",
-          "companyName": "臻鼎-KY",
-          "subject": "代子公司PENG SHEN TECHNOLOGY (THAILAND) CO., LTD.公告取得機器設備",
-          "date": "2026-08-29",
-          "time": "00:00:24",
-          "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  機器設備  2.事實發生日:114/8/29~115/8/28  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年08月28日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  交易數量:一批 交易總金額:新台幣1,077,779,372元  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人: Burkle PCB Machinery Limited 與公司之關係:無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  依採購合約規定  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易決定方式:比價及議價 價格決定之參考依據:依市場行情 決策單位:依公司核決權限決定  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  無  23.取得或處分之具體目的或用途:  供營業使用  24.本次交易表示異議之董事之意見:  不適用  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
-          "isRoutine": false,
-          "hasCatalyst": true,
-          "events": [
-            {
-              "type": "asset_transaction",
-              "label": "資產交易",
-              "weight": 2,
-              "matchedKeywords": [
-                "取得",
-                "處分",
-                "不動產"
-              ]
-            }
-          ],
-          "catalysts": [
-            {
-              "type": "asset_transaction",
-              "label": "資產交易",
-              "weight": 2,
-              "matchedKeywords": [
-                "取得",
-                "處分",
-                "不動產"
-              ]
-            }
-          ],
-          "eventTypes": [
-            "asset_transaction"
-          ],
-          "catalystTypes": [
-            "asset_transaction"
-          ],
-          "eventWeightTotal": 2,
-          "catalystWeightTotal": 2,
-          "primaryEventLabel": "資產交易"
-        }
-      ],
-      "eventTimeline": [
-        {
-          "date": "2026-08-29",
-          "time": "00:00:24",
-          "subject": "代子公司PENG SHEN TECHNOLOGY (THAILAND) CO., LTD.公告取得機器設備",
-          "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  機器設備  2.事實發生日:114/8/29~115/8/28  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年08月28日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  交易數量:一批 交易總金額:新台幣1,077,779,372元  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人: Burkle PCB Machinery Limited 與公司之關係:無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  依採購合約規定  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易決定方式:比價及議價 價格決定之參考依據:依市場行情 決策單位:依公司核決權限決定  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  無  23.取得或處分之具體目的或用途:  供營業使用  24.本次交易表示異議之董事之意見:  不適用  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
-          "labels": [
-            "資產交易"
-          ],
-          "types": [
-            "asset_transaction"
-          ],
-          "weightTotal": 2
-        }
-      ],
-      "signal": {
-        "score": 9,
-        "label": "強訊號",
-        "tone": "strong",
-        "scoreDisplay": "9/10",
-        "drivers": [
-          {
-            "label": "營收年增超過 20%",
-            "impact": "positive",
-            "weight": 3
-          },
-          {
-            "label": "營收月增為正",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "累計營收維持改善",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "股價日變動偏強",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "近期有重大訊息催化",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "事件分數中高，適合排入優先追蹤",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "成交值高於 20 億",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventDrivers": [
-        {
-          "label": "Tradeable catalyst exists",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Price confirmed",
-          "impact": "positive",
-          "weight": 2
-        },
-        {
-          "label": "Turnover confirmed",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Revenue YoY is validating the thesis",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Cumulative trend is supportive",
-          "impact": "positive",
-          "weight": 1
-        }
-      ]
-    },
     "5206": {
       "code": "5206",
       "market": "otc",
@@ -207332,6 +206922,237 @@
           "label": "No event-follow-through context",
           "impact": "neutral",
           "weight": 0
+        }
+      ]
+    },
+    "5534": {
+      "code": "5534",
+      "market": "listed",
+      "marketLabel": "上市",
+      "name": "長虹",
+      "industry": "建材營造",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "建材營造",
+      "focus": "全市場非電子掃描",
+      "note": "非核心觀察池，來自全市場掃描。",
+      "dataMonth": "2026-07",
+      "revenueDisplay": "9.07 億",
+      "revenueYoYDisplay": "+269.79%",
+      "revenueMoMDisplay": "+24.00%",
+      "cumulativeYoYDisplay": "+63.45%",
+      "closingPrice": 75.3,
+      "priceChangeDisplay": "-0.40",
+      "tradeValueDisplay": "8421.38 萬",
+      "otcInstitutionNetDisplay": "無資料",
+      "eventScore": 5,
+      "eventScoreDisplay": "5/10",
+      "eventStrength": {
+        "score": 1,
+        "label": "1/4",
+        "note": "Event strength is light.",
+        "drivers": [
+          {
+            "label": "Tradeable catalyst exists",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventStrengthDisplay": "1/4",
+      "marketConfirmation": {
+        "score": 1,
+        "level": "pending",
+        "label": "Pending",
+        "note": "Fresh event, but price and turnover have not confirmed it yet.",
+        "drivers": [
+          {
+            "label": "Fresh event; awaiting market response",
+            "impact": "neutral",
+            "weight": 1
+          }
+        ]
+      },
+      "marketConfirmationDisplay": "1/3",
+      "fundamentalFollowThrough": {
+        "score": 3,
+        "label": "3/3",
+        "note": "Fundamentals are following the event.",
+        "drivers": [
+          {
+            "label": "Revenue YoY is validating the thesis",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "Revenue MoM is improving",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "Cumulative trend is supportive",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "3/3",
+      "primaryEventLabel": "資產交易",
+      "eventLabels": [
+        "資產交易",
+        "治理異動"
+      ],
+      "catalystLabels": [
+        "資產交易"
+      ],
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
+      "eventConfirmation": {
+        "level": "pending",
+        "label": "Pending",
+        "note": "Fresh event, but price and turnover have not confirmed it yet."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "Low-value",
+        "note": "Event exists, but its trading value is still limited."
+      },
+      "catalystCount": 1,
+      "announcementCount": 1,
+      "alertFlags": [
+        "strongWithCatalyst",
+        "revenuePriceLag",
+        "eventPendingConfirmation"
+      ],
+      "announcements": [
+        {
+          "market": "listed",
+          "code": "5534",
+          "companyName": "長虹",
+          "subject": "公告本公司獲選台北市「大直藏璽」公辦都更案之最優申請人",
+          "date": "2026-08-30",
+          "time": "14:19:06",
+          "summary": "1.契約種類:公辦都市更新案  2.事實發生日:115/8/28~115/8/28  3.董事會通過日期: 民國115年7月15日  4.其他核決日期: 不適用  5.契約相對人及其與公司之關係:  實施者：臺北市住宅及都市更新中心/非關係人  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  悉依臺北市住宅及都市更新中心規定辦理。 全案預計投入成本尚未完成，未來實際規模及價值將依審議及 權利變換計畫核定結果為準。  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  投資興建住宅大樓供出售或出租之用。  11.本次交易表示異議之董事意見:  無。  12.本次交易為關係人交易:否  13.監察人承認或審計委員會同意日期:  115年7月15日通過授權董事長全權處理。  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期: 不適用  22.其他敘明事項:  無",
+          "isRoutine": false,
+          "hasCatalyst": true,
+          "events": [
+            {
+              "type": "asset_transaction",
+              "label": "資產交易",
+              "weight": 2,
+              "matchedKeywords": [
+                "取得",
+                "不動產"
+              ]
+            },
+            {
+              "type": "governance_change",
+              "label": "治理異動",
+              "weight": 1,
+              "matchedKeywords": [
+                "董事長"
+              ]
+            }
+          ],
+          "catalysts": [
+            {
+              "type": "asset_transaction",
+              "label": "資產交易",
+              "weight": 2,
+              "matchedKeywords": [
+                "取得",
+                "不動產"
+              ]
+            }
+          ],
+          "eventTypes": [
+            "asset_transaction",
+            "governance_change"
+          ],
+          "catalystTypes": [
+            "asset_transaction"
+          ],
+          "eventWeightTotal": 3,
+          "catalystWeightTotal": 2,
+          "primaryEventLabel": "資產交易"
+        }
+      ],
+      "eventTimeline": [
+        {
+          "date": "2026-08-30",
+          "time": "14:19:06",
+          "subject": "公告本公司獲選台北市「大直藏璽」公辦都更案之最優申請人",
+          "summary": "1.契約種類:公辦都市更新案  2.事實發生日:115/8/28~115/8/28  3.董事會通過日期: 民國115年7月15日  4.其他核決日期: 不適用  5.契約相對人及其與公司之關係:  實施者：臺北市住宅及都市更新中心/非關係人  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  悉依臺北市住宅及都市更新中心規定辦理。 全案預計投入成本尚未完成，未來實際規模及價值將依審議及 權利變換計畫核定結果為準。  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  投資興建住宅大樓供出售或出租之用。  11.本次交易表示異議之董事意見:  無。  12.本次交易為關係人交易:否  13.監察人承認或審計委員會同意日期:  115年7月15日通過授權董事長全權處理。  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期: 不適用  22.其他敘明事項:  無",
+          "labels": [
+            "資產交易",
+            "治理異動"
+          ],
+          "types": [
+            "asset_transaction",
+            "governance_change"
+          ],
+          "weightTotal": 3
+        }
+      ],
+      "signal": {
+        "score": 10,
+        "label": "強訊號",
+        "tone": "strong",
+        "scoreDisplay": "10/10",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月增超過 10%",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "近期有重大訊息催化",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "事件分數中高，適合排入優先追蹤",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventDrivers": [
+        {
+          "label": "Tradeable catalyst exists",
+          "impact": "positive",
+          "weight": 1
+        },
+        {
+          "label": "Fresh event; awaiting market response",
+          "impact": "neutral",
+          "weight": 1
+        },
+        {
+          "label": "Revenue YoY is validating the thesis",
+          "impact": "positive",
+          "weight": 1
+        },
+        {
+          "label": "Revenue MoM is improving",
+          "impact": "positive",
+          "weight": 1
+        },
+        {
+          "label": "Cumulative trend is supportive",
+          "impact": "positive",
+          "weight": 1
         }
       ]
     },
@@ -209027,170 +208848,86 @@
         }
       ]
     },
-    "6446": {
-      "code": "6446",
-      "market": "listed",
-      "marketLabel": "上市",
-      "name": "藥華藥",
-      "industry": "生技醫療業",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
+    "6462": {
+      "code": "6462",
+      "market": "otc",
+      "marketLabel": "上櫃",
+      "name": "神盾",
+      "industry": "半導體業",
+      "lens": "semiconductor",
+      "lensLabel": "半導體鏈",
       "watchlist": false,
-      "chain": "生技醫療業",
-      "focus": "全市場非電子掃描",
+      "chain": "半導體業",
+      "focus": "全市場半導體掃描",
       "note": "非核心觀察池，來自全市場掃描。",
       "dataMonth": "2026-07",
-      "revenueDisplay": "25.07 億",
-      "revenueYoYDisplay": "+92.59%",
-      "revenueMoMDisplay": "+7.48%",
-      "cumulativeYoYDisplay": "+77.46%",
-      "closingPrice": 1545,
-      "priceChangeDisplay": "-15.00",
-      "tradeValueDisplay": "64.93 億",
-      "otcInstitutionNetDisplay": "無資料",
-      "eventScore": 5,
-      "eventScoreDisplay": "5/10",
+      "revenueDisplay": "7.96 億",
+      "revenueYoYDisplay": "+63.86%",
+      "revenueMoMDisplay": "+114.49%",
+      "cumulativeYoYDisplay": "+70.36%",
+      "closingPrice": 101,
+      "priceChangeDisplay": "+0.50",
+      "tradeValueDisplay": "5211.50 萬",
+      "otcInstitutionNetDisplay": "5.30 萬",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
       "eventStrength": {
-        "score": 2,
-        "label": "2/4",
-        "note": "Event strength is actionable.",
-        "drivers": [
-          {
-            "label": "Tradeable catalyst exists",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Primary event is high-impact",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
       },
-      "eventStrengthDisplay": "2/4",
+      "eventStrengthDisplay": "0/4",
       "marketConfirmation": {
         "score": 0,
-        "level": "failed",
-        "label": "Failed",
-        "note": "Price action rejected the event.",
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover.",
         "drivers": [
           {
-            "label": "Price rejected the event",
-            "impact": "negative",
-            "weight": -1
+            "label": "No catalyst yet",
+            "impact": "neutral",
+            "weight": 0
           }
         ]
       },
       "marketConfirmationDisplay": "0/3",
       "fundamentalFollowThrough": {
-        "score": 3,
-        "label": "3/3",
-        "note": "Fundamentals are following the event.",
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
         "drivers": [
           {
-            "label": "Revenue YoY is validating the thesis",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Revenue MoM is improving",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "Cumulative trend is supportive",
-            "impact": "positive",
-            "weight": 1
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
           }
         ]
       },
-      "fundamentalFollowThroughDisplay": "3/3",
-      "primaryEventLabel": "法規核准",
-      "eventLabels": [
-        "法規核准"
-      ],
-      "catalystLabels": [
-        "法規核准"
-      ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "fundamentalFollowThroughDisplay": "0/3",
+      "primaryEventLabel": null,
+      "eventLabels": [],
+      "catalystLabels": [],
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
       "eventConfirmation": {
-        "level": "failed",
-        "label": "Failed",
-        "note": "Price action rejected the event."
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
       },
       "highValueEvent": {
         "active": false,
-        "label": "Watch",
-        "note": "Meaningful event, but validation is incomplete."
+        "label": "No catalyst",
+        "note": "No event to classify."
       },
-      "catalystCount": 1,
-      "announcementCount": 1,
+      "catalystCount": 0,
+      "announcementCount": 0,
       "alertFlags": [
-        "strongWithCatalyst",
         "revenuePriceLag",
-        "eventDrivenVolume",
-        "regulatoryBinaryEvent"
+        "otcInstitutionSupport"
       ],
-      "announcements": [
-        {
-          "market": "listed",
-          "code": "6446",
-          "companyName": "藥華藥",
-          "subject": "本公司新藥BESREMi（Ropeginterferon alfa-2b-njft）\r\n獲美國FDA核准使用於治療成人原發性血小板過多症（ET）",
-          "date": "2026-08-29",
-          "time": "08:20:30",
-          "summary": "1.事實發生日:115/08/29 2.研發新藥名稱或代號:BESREMi（ropeginterferon alfa-2b-njft, 即P1101） 3.用途: (1)治療成人原發性血小板過多症患者 (2)治療成人真性紅血球增多症患者 4.預計進行之所有研發階段:不適用。 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/ 不通過核准，若未通過者，請說明公司所面臨之風險及因應措施； 另請說明未來經營方向及已投入累積研發費用): (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他    影響新藥研發之重大事件：    本公司於美國時間2026年8月28日接獲美國食品藥物管理局（FDA）通知，核准    本公司新藥BESREMi（ropeginterferon alfa-2b-njft）針筒裝注射液劑（500微    克/毫升）及注射筆（500微克/0.5毫升）用於治療成人原發性血小板過多症（ET）    患者。 (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計上    顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應措施：    不適用。 (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上    顯著意義或發生其他影響新藥研發之重大事件者，未來經營方向：    本公司美國子公司正式啟動BESREMi（ropeginterferon alfa-2b-njft）於美國ET    市場銷售業務，並依照規畫展開在美國各地的行銷活動。 (4)已投入之累積研發費用：    考量未來市場行銷策略，保障公司及投資人權益，暫不公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):不適用。 (1)預計完成時間：不適用。 (2)預計應負擔之義務：無。 7.市場現況: 原發性血小板過多症（essential thrombocythemia, ET）為骨髓增生性腫瘤 （myeloproliferative neoplasms, MPN）疾病的一種，病人數與真性紅血球增多症 （polycythemia vera, PV）的病人數相近。根據市場研究推估，美國約有17萬名 ET患者。 目前ET的第一線用藥是仿單標示外的愛治（hydroxyurea, HU），第二線用藥則是 安閣靈（anagrelide, ANA），此藥係美國FDA於1997年核准。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): (1)Ropeginterferon alfa-2b-njft已於2021年11月獲美國FDA核准用於治療所有    成人真性紅血球增多症患者。 (2)Ropeginterferon alfa-2b-njft為本公司自行研發生產的新一代創新長效型    干擾素，至今已獲全球約50個國家核准用於治療成人真性紅血球增多症，    包括美國、日本、中國及歐盟等主要新藥市場；並已於台灣、澳門及日本    獲准用於治療原發性血小板過多症。 (3)Ropeginterferon alfa-2b-njft本次獲美國FDA核准用於治療所有成人原發性    血小板過多症患者。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:",
-          "isRoutine": false,
-          "hasCatalyst": true,
-          "events": [
-            {
-              "type": "regulatory_approval",
-              "label": "法規核准",
-              "weight": 4,
-              "matchedKeywords": [
-                "核准",
-                "許可"
-              ]
-            }
-          ],
-          "catalysts": [
-            {
-              "type": "regulatory_approval",
-              "label": "法規核准",
-              "weight": 4,
-              "matchedKeywords": [
-                "核准",
-                "許可"
-              ]
-            }
-          ],
-          "eventTypes": [
-            "regulatory_approval"
-          ],
-          "catalystTypes": [
-            "regulatory_approval"
-          ],
-          "eventWeightTotal": 4,
-          "catalystWeightTotal": 4,
-          "primaryEventLabel": "法規核准"
-        }
-      ],
-      "eventTimeline": [
-        {
-          "date": "2026-08-29",
-          "time": "08:20:30",
-          "subject": "本公司新藥BESREMi（Ropeginterferon alfa-2b-njft）\r\n獲美國FDA核准使用於治療成人原發性血小板過多症（ET）",
-          "summary": "1.事實發生日:115/08/29 2.研發新藥名稱或代號:BESREMi（ropeginterferon alfa-2b-njft, 即P1101） 3.用途: (1)治療成人原發性血小板過多症患者 (2)治療成人真性紅血球增多症患者 4.預計進行之所有研發階段:不適用。 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/ 不通過核准，若未通過者，請說明公司所面臨之風險及因應措施； 另請說明未來經營方向及已投入累積研發費用): (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他    影響新藥研發之重大事件：    本公司於美國時間2026年8月28日接獲美國食品藥物管理局（FDA）通知，核准    本公司新藥BESREMi（ropeginterferon alfa-2b-njft）針筒裝注射液劑（500微    克/毫升）及注射筆（500微克/0.5毫升）用於治療成人原發性血小板過多症（ET）    患者。 (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計上    顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應措施：    不適用。 (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上    顯著意義或發生其他影響新藥研發之重大事件者，未來經營方向：    本公司美國子公司正式啟動BESREMi（ropeginterferon alfa-2b-njft）於美國ET    市場銷售業務，並依照規畫展開在美國各地的行銷活動。 (4)已投入之累積研發費用：    考量未來市場行銷策略，保障公司及投資人權益，暫不公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):不適用。 (1)預計完成時間：不適用。 (2)預計應負擔之義務：無。 7.市場現況: 原發性血小板過多症（essential thrombocythemia, ET）為骨髓增生性腫瘤 （myeloproliferative neoplasms, MPN）疾病的一種，病人數與真性紅血球增多症 （polycythemia vera, PV）的病人數相近。根據市場研究推估，美國約有17萬名 ET患者。 目前ET的第一線用藥是仿單標示外的愛治（hydroxyurea, HU），第二線用藥則是 安閣靈（anagrelide, ANA），此藥係美國FDA於1997年核准。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): (1)Ropeginterferon alfa-2b-njft已於2021年11月獲美國FDA核准用於治療所有    成人真性紅血球增多症患者。 (2)Ropeginterferon alfa-2b-njft為本公司自行研發生產的新一代創新長效型    干擾素，至今已獲全球約50個國家核准用於治療成人真性紅血球增多症，    包括美國、日本、中國及歐盟等主要新藥市場；並已於台灣、澳門及日本    獲准用於治療原發性血小板過多症。 (3)Ropeginterferon alfa-2b-njft本次獲美國FDA核准用於治療所有成人原發性    血小板過多症患者。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:",
-          "labels": [
-            "法規核准"
-          ],
-          "types": [
-            "regulatory_approval"
-          ],
-          "weightTotal": 4
-        }
-      ],
+      "announcements": [],
+      "eventTimeline": [],
       "signal": {
         "score": 9,
         "label": "強訊號",
@@ -209203,9 +208940,9 @@
             "weight": 4
           },
           {
-            "label": "營收月增為正",
+            "label": "營收月增超過 10%",
             "impact": "positive",
-            "weight": 1
+            "weight": 2
           },
           {
             "label": "累計營收趨勢強",
@@ -209213,22 +208950,7 @@
             "weight": 2
           },
           {
-            "label": "股價日變動偏弱",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "近期有重大訊息催化",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "事件分數中高，適合排入優先追蹤",
-            "impact": "positive",
-            "weight": 1
-          },
-          {
-            "label": "成交值高於 20 億",
+            "label": "櫃買法人買超",
             "impact": "positive",
             "weight": 1
           }
@@ -209236,34 +208958,14 @@
       },
       "eventDrivers": [
         {
-          "label": "Tradeable catalyst exists",
-          "impact": "positive",
-          "weight": 1
+          "label": "No catalyst yet",
+          "impact": "neutral",
+          "weight": 0
         },
         {
-          "label": "Primary event is high-impact",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Price rejected the event",
-          "impact": "negative",
-          "weight": -1
-        },
-        {
-          "label": "Revenue YoY is validating the thesis",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Revenue MoM is improving",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Cumulative trend is supportive",
-          "impact": "positive",
-          "weight": 1
+          "label": "No event-follow-through context",
+          "impact": "neutral",
+          "weight": 0
         }
       ]
     },
@@ -210464,6 +210166,127 @@
         }
       ]
     },
+    "6913": {
+      "code": "6913",
+      "market": "otc",
+      "marketLabel": "上櫃",
+      "name": "鴻呈",
+      "industry": "電子零組件業",
+      "lens": "market",
+      "lensLabel": "全市場",
+      "watchlist": false,
+      "chain": "電子零組件業",
+      "focus": "全市場掃描",
+      "note": "非核心觀察池，僅納入全市場排行。",
+      "dataMonth": "2026-07",
+      "revenueDisplay": "3.73 億",
+      "revenueYoYDisplay": "+67.45%",
+      "revenueMoMDisplay": "+20.99%",
+      "cumulativeYoYDisplay": "+37.13%",
+      "closingPrice": 159,
+      "priceChangeDisplay": "+1.00",
+      "tradeValueDisplay": "2.88 億",
+      "otcInstitutionNetDisplay": "4.90 萬",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmation": {
+        "score": 0,
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover.",
+        "drivers": [
+          {
+            "label": "No catalyst yet",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "primaryEventLabel": null,
+      "eventLabels": [],
+      "catalystLabels": [],
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "catalystCount": 0,
+      "announcementCount": 0,
+      "alertFlags": [
+        "revenuePriceLag",
+        "otcInstitutionSupport"
+      ],
+      "announcements": [],
+      "eventTimeline": [],
+      "signal": {
+        "score": 9,
+        "label": "強訊號",
+        "tone": "strong",
+        "scoreDisplay": "9/10",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月增超過 10%",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "櫃買法人買超",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventDrivers": [
+        {
+          "label": "No catalyst yet",
+          "impact": "neutral",
+          "weight": 0
+        },
+        {
+          "label": "No event-follow-through context",
+          "impact": "neutral",
+          "weight": 0
+        }
+      ]
+    },
     "6919": {
       "code": "6919",
       "market": "listed",
@@ -210667,8 +210490,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -210680,7 +210503,7 @@
         "note": "Event exists, but its trading value is still limited."
       },
       "catalystCount": 1,
-      "announcementCount": 1,
+      "announcementCount": 2,
       "alertFlags": [
         "regulatoryBinaryEvent",
         "eventPendingConfirmation"
@@ -210690,8 +210513,26 @@
           "market": "listed",
           "code": "6949",
           "companyName": "沛爾生醫-創",
+          "subject": "公告本公司發言人異動",
+          "date": "2026-08-30",
+          "time": "17:14:01",
+          "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:發言人 2.發生變動日期:115/08/30 3.舊任者姓名、級職及簡歷:宋明潭/沛爾生技股份有限公司幕僚長兼法務長 4.新任者姓名、級職及簡歷:陳志賢/沛爾生技股份有限公司財務長 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/08/30 8.其他應敘明事項:無",
+          "isRoutine": false,
+          "hasCatalyst": false,
+          "events": [],
+          "catalysts": [],
+          "eventTypes": [],
+          "catalystTypes": [],
+          "eventWeightTotal": 0,
+          "catalystWeightTotal": 0,
+          "primaryEventLabel": null
+        },
+        {
+          "market": "listed",
+          "code": "6949",
+          "companyName": "沛爾生醫-創",
           "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
-          "date": "2026-08-29",
+          "date": "2026-08-30",
           "time": "07:00:03",
           "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
           "isRoutine": false,
@@ -210729,7 +210570,7 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-08-29",
+          "date": "2026-08-30",
           "time": "07:00:03",
           "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
           "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
@@ -212691,12 +212532,12 @@
   "announcements": [
     {
       "market": "listed",
-      "code": "3432",
-      "companyName": "台端",
-      "subject": "依臺灣證券交易所股份有限公司臺證上一字第1121801204\r\n號函辦理",
-      "date": "2026-08-29",
-      "time": "14:18:25",
-      "summary": "1.事實發生日:115/08/29 2.公司名稱:台端興業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依臺灣證券交易所股份有限公司臺證上一字第1121801204號函辦理，每周           定期發布重大訊息公告持有之每檔基金餘額、申購與贖回交易情形及應收           基金贖回款之收回情形與餘額。 6.因應措施: (一)本公司及子公司依據所投資基金(截至115/08/29止)已公布之最近期淨值計算之投     資餘額計美金53,286仟元(折合新台幣1,684,379仟元)，其公允價值評估為0元。                                           USD      NTD    公允  交易  發行　              基金名稱              簡稱   仟元     仟元   價值  機構  單位     =============================  ==== ======  ========= ==== ====== ====     Spectra SPC Powerfund          (PF) 21,984    694,922   0    AA    STI     Asian Strategic Long Term Fund (GP)  8,151    257,653   0    AA   CCIB     Asian Strategic Orient Fund    (GH)  9,099    287,621   0    AA   CCIB     Longchamp Absolute Return Unit        Trust Fund                  (LC) 14,052    444,183   0  CCAM-N CCAM                                         ------  --------- ----                                  合計   53,286  1,684,379   0                                         ======  ========= ====         (1)AA：Ayers Alliance Financial Group Ltd.         (2)STI：STI PF Limited         (3)CCIB：City Credit Investment Bank Limited         (4)CCAM-N：City Credit Asset Management Nominee Co., Ltd.         (5)CCAM：CCAM Co., Ltd.         (6)已公布之最近期淨值基準日：            (PF)=112.02.14 (GP)=112.03.28 (GH)=112.03.30 (LC)=112.07.07 (二)本公司及子公司本年度截至115/08/29止，無新增申購及贖回基金交易。 (三)本公司截至115/08/29止，有兩筆尚未收回款項之應收基金贖回款金額計     美金2,041仟元(折合新台幣64,507仟元)，其經減損評估後金額為0元。       基金簡稱   交易日  USD仟元  NTD仟元 攤銷後成本 交易機構 發行單位      =========  =======  ======= ======== ========== ======== ========        PF      112.02.15  1,032   32,811        0       AA       STI        LC      112.02.20  1,009   31,896        0     CCAM-N    CCAM                           ------ -------- ----------                     合計  2,041   64,507       0                           ====== ======== ========== 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (一)本公司將密切注意上述四檔基金後續之發展，並委請專業人士協助本公司主張權利     ，以維護全體股東之權益。 (二)有關於本公司財務業務相關訊息，本公司均依相關規定公告，若有收到進一步通知     或其他應公告事項，請投資人依本公司公告之資訊為準。",
+      "code": "3032",
+      "companyName": "偉訓",
+      "subject": "本公司部份資訊系統遭受網路安全事件說明",
+      "date": "2026-08-30",
+      "time": "19:32:40",
+      "summary": "1.事實發生日:115/08/30 2.發生緣由:本公司偵測到部份資訊系統遭受網路安全事件。 3.處理過程:本公司於偵測到異常後，已立即啟動資安應變機制,迅速採取受影響資訊系 統隔離及風險控管措施，並進行全面性盤點及持續監控,同時委請外部專業資安廠商協 助進行系統復原、事件調查及相關強化作業。 4.預計可能損失或影響:目前評估沒有個資、亦沒有機密或重要的文件資料外洩等情事 發生，對本公司營運無重大影響。 5.可能獲得保險理賠之金額:無。 6.改善情形及未來因應措施:本公司將持續依事件調查結果檢視並強化相關資訊系統及資 安防護機制，並持續精進資安管理措施，確保資料安全及營運韌性。 7.其他應敘明事項:無。",
       "isRoutine": false,
       "hasCatalyst": false,
       "events": [],
@@ -212709,132 +212550,79 @@
     },
     {
       "market": "listed",
-      "code": "6446",
-      "companyName": "藥華藥",
-      "subject": "本公司新藥BESREMi（Ropeginterferon alfa-2b-njft）\r\n獲美國FDA核准使用於治療成人原發性血小板過多症（ET）",
-      "date": "2026-08-29",
-      "time": "08:20:30",
-      "summary": "1.事實發生日:115/08/29 2.研發新藥名稱或代號:BESREMi（ropeginterferon alfa-2b-njft, 即P1101） 3.用途: (1)治療成人原發性血小板過多症患者 (2)治療成人真性紅血球增多症患者 4.預計進行之所有研發階段:不適用。 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/ 不通過核准，若未通過者，請說明公司所面臨之風險及因應措施； 另請說明未來經營方向及已投入累積研發費用): (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他    影響新藥研發之重大事件：    本公司於美國時間2026年8月28日接獲美國食品藥物管理局（FDA）通知，核准    本公司新藥BESREMi（ropeginterferon alfa-2b-njft）針筒裝注射液劑（500微    克/毫升）及注射筆（500微克/0.5毫升）用於治療成人原發性血小板過多症（ET）    患者。 (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計上    顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應措施：    不適用。 (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上    顯著意義或發生其他影響新藥研發之重大事件者，未來經營方向：    本公司美國子公司正式啟動BESREMi（ropeginterferon alfa-2b-njft）於美國ET    市場銷售業務，並依照規畫展開在美國各地的行銷活動。 (4)已投入之累積研發費用：    考量未來市場行銷策略，保障公司及投資人權益，暫不公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):不適用。 (1)預計完成時間：不適用。 (2)預計應負擔之義務：無。 7.市場現況: 原發性血小板過多症（essential thrombocythemia, ET）為骨髓增生性腫瘤 （myeloproliferative neoplasms, MPN）疾病的一種，病人數與真性紅血球增多症 （polycythemia vera, PV）的病人數相近。根據市場研究推估，美國約有17萬名 ET患者。 目前ET的第一線用藥是仿單標示外的愛治（hydroxyurea, HU），第二線用藥則是 安閣靈（anagrelide, ANA），此藥係美國FDA於1997年核准。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): (1)Ropeginterferon alfa-2b-njft已於2021年11月獲美國FDA核准用於治療所有    成人真性紅血球增多症患者。 (2)Ropeginterferon alfa-2b-njft為本公司自行研發生產的新一代創新長效型    干擾素，至今已獲全球約50個國家核准用於治療成人真性紅血球增多症，    包括美國、日本、中國及歐盟等主要新藥市場；並已於台灣、澳門及日本    獲准用於治療原發性血小板過多症。 (3)Ropeginterferon alfa-2b-njft本次獲美國FDA核准用於治療所有成人原發性    血小板過多症患者。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:",
-      "isRoutine": false,
-      "hasCatalyst": true,
-      "events": [
-        {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
-          "matchedKeywords": [
-            "核准",
-            "許可"
-          ]
-        }
-      ],
-      "catalysts": [
-        {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
-          "matchedKeywords": [
-            "核准",
-            "許可"
-          ]
-        }
-      ],
-      "eventTypes": [
-        "regulatory_approval"
-      ],
-      "catalystTypes": [
-        "regulatory_approval"
-      ],
-      "eventWeightTotal": 4,
-      "catalystWeightTotal": 4,
-      "primaryEventLabel": "法規核准"
-    },
-    {
-      "market": "listed",
-      "code": "3708",
-      "companyName": "上緯投控",
-      "subject": "公告本公司名稱由「上緯國際投資控股股份有限公司」更名為\r\n「上緯國際控股股份有限公司」，公告期間：115年6月11日至\r\n115年9月10日。",
-      "date": "2026-08-29",
-      "time": "07:00:04",
-      "summary": "1.事實發生日：民國115年06月11日  2.公司名稱：上緯國際控股股份有限公司(原名：上緯國際投資控股股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月11日  (2)公司名稱變更核准文號：經授商字第11530084540號函  (3)更名案股東會決議通過日期：民國115年05月28日  (4)變更前公司名稱：上緯國際投資控股股份有限公司  (5)變更後公司名稱：上緯國際控股股份有限公司  (6)變更前公司簡稱：上緯投控  (7)變更後公司簡稱：上緯控股  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/6/11收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更  名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「3708」",
-      "isRoutine": false,
-      "hasCatalyst": true,
-      "events": [
-        {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
-          "matchedKeywords": [
-            "核准"
-          ]
-        }
-      ],
-      "catalysts": [
-        {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
-          "matchedKeywords": [
-            "核准"
-          ]
-        }
-      ],
-      "eventTypes": [
-        "regulatory_approval"
-      ],
-      "catalystTypes": [
-        "regulatory_approval"
-      ],
-      "eventWeightTotal": 4,
-      "catalystWeightTotal": 4,
-      "primaryEventLabel": "法規核准"
-    },
-    {
-      "market": "listed",
       "code": "6949",
       "companyName": "沛爾生醫-創",
-      "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
-      "date": "2026-08-29",
-      "time": "07:00:03",
-      "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
+      "subject": "公告本公司發言人異動",
+      "date": "2026-08-30",
+      "time": "17:14:01",
+      "summary": "1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:發言人 2.發生變動日期:115/08/30 3.舊任者姓名、級職及簡歷:宋明潭/沛爾生技股份有限公司幕僚長兼法務長 4.新任者姓名、級職及簡歷:陳志賢/沛爾生技股份有限公司財務長 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/08/30 8.其他應敘明事項:無",
+      "isRoutine": false,
+      "hasCatalyst": false,
+      "events": [],
+      "catalysts": [],
+      "eventTypes": [],
+      "catalystTypes": [],
+      "eventWeightTotal": 0,
+      "catalystWeightTotal": 0,
+      "primaryEventLabel": null
+    },
+    {
+      "market": "listed",
+      "code": "5534",
+      "companyName": "長虹",
+      "subject": "公告本公司獲選台北市「大直藏璽」公辦都更案之最優申請人",
+      "date": "2026-08-30",
+      "time": "14:19:06",
+      "summary": "1.契約種類:公辦都市更新案  2.事實發生日:115/8/28~115/8/28  3.董事會通過日期: 民國115年7月15日  4.其他核決日期: 不適用  5.契約相對人及其與公司之關係:  實施者：臺北市住宅及都市更新中心/非關係人  6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）  、限制條款及其他重要約定事項:  悉依臺北市住宅及都市更新中心規定辦理。 全案預計投入成本尚未完成，未來實際規模及價值將依審議及 權利變換計畫核定結果為準。  7.專業估價者事務所或公司名稱及其估價結果:  不適用  8.不動產估價師姓名:  不適用  9.不動產估價師開業證書字號:  不適用  10.取得之具體目的:  投資興建住宅大樓供出售或出租之用。  11.本次交易表示異議之董事意見:  無。  12.本次交易為關係人交易:否  13.監察人承認或審計委員會同意日期:  115年7月15日通過授權董事長全權處理。  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  15.是否尚未取得估價報告:否或不適用  16.尚未取得估價報告之原因:  不適用  17.估價結果有重大差異時，其差異原因及會計師意見:  不適用  18.會計師事務所名稱:  不適用  19.會計師姓名:  不適用  20.會計師開業證書字號:  不適用  21.前已就同一件事件發布重大訊息日期: 不適用  22.其他敘明事項:  無",
       "isRoutine": false,
       "hasCatalyst": true,
       "events": [
         {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
+          "type": "asset_transaction",
+          "label": "資產交易",
+          "weight": 2,
           "matchedKeywords": [
-            "核准"
+            "取得",
+            "不動產"
+          ]
+        },
+        {
+          "type": "governance_change",
+          "label": "治理異動",
+          "weight": 1,
+          "matchedKeywords": [
+            "董事長"
           ]
         }
       ],
       "catalysts": [
         {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
+          "type": "asset_transaction",
+          "label": "資產交易",
+          "weight": 2,
           "matchedKeywords": [
-            "核准"
+            "取得",
+            "不動產"
           ]
         }
       ],
       "eventTypes": [
-        "regulatory_approval"
+        "asset_transaction",
+        "governance_change"
       ],
       "catalystTypes": [
-        "regulatory_approval"
+        "asset_transaction"
       ],
-      "eventWeightTotal": 4,
-      "catalystWeightTotal": 4,
-      "primaryEventLabel": "法規核准"
+      "eventWeightTotal": 3,
+      "catalystWeightTotal": 2,
+      "primaryEventLabel": "資產交易"
     },
     {
       "market": "listed",
       "code": "1721",
       "companyName": "三晃",
       "subject": "公告本公司名稱由「三晃股份有限公司」更名為\r\n「國慶科技股份有限公司」\r\n，公告期間：115年07月01日至115年9月30日。",
-      "date": "2026-08-29",
+      "date": "2026-08-30",
       "time": "07:00:03",
       "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：國慶科技股份有限公司(原名：三晃股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：11530099260  (3)更名案股東會決議通過日期：民國115年06月16日  (4)變更前公司名稱：三晃股份有限公司  (5)變更後公司名稱：國慶科技股份有限公司  (6)變更前公司簡稱：三晃  (7)變更後公司簡稱：國慶科技  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「1721」。  (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",
       "isRoutine": false,
@@ -212874,9 +212662,89 @@
       "code": "2072",
       "companyName": "世紀風電",
       "subject": "公告本公司名稱由「世紀離岸風電設備股份有限公司」更名\r\n為「世紀能源設備股份有限公司」，公告期間：115年8月26日至\r\n115年11月25日。",
-      "date": "2026-08-29",
+      "date": "2026-08-30",
       "time": "07:00:03",
       "summary": "1.事實發生日：民國115年08月24日  2.公司名稱：世紀能源設備股份有限公司(原名：世紀離岸風電設備股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年08月24日  (2)公司名稱變更核准文號：經授商字第11530130420號  (3)更名案股東會決議通過日期：民國115年08月12日  (4)變更前公司名稱：世紀離岸風電設備股份有限公司  (5)變更後公司名稱：世紀能源設備股份有限公司  (6)變更前公司簡稱：世紀風電  (7)變更後公司簡稱：世紀能源  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/08/26收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，  於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「2072」。  (4)本公司英文名更名為「Century Energy Co., Ltd.」",
+      "isRoutine": false,
+      "hasCatalyst": true,
+      "events": [
+        {
+          "type": "regulatory_approval",
+          "label": "法規核准",
+          "weight": 4,
+          "matchedKeywords": [
+            "核准"
+          ]
+        }
+      ],
+      "catalysts": [
+        {
+          "type": "regulatory_approval",
+          "label": "法規核准",
+          "weight": 4,
+          "matchedKeywords": [
+            "核准"
+          ]
+        }
+      ],
+      "eventTypes": [
+        "regulatory_approval"
+      ],
+      "catalystTypes": [
+        "regulatory_approval"
+      ],
+      "eventWeightTotal": 4,
+      "catalystWeightTotal": 4,
+      "primaryEventLabel": "法規核准"
+    },
+    {
+      "market": "listed",
+      "code": "3708",
+      "companyName": "上緯投控",
+      "subject": "公告本公司名稱由「上緯國際投資控股股份有限公司」更名為\r\n「上緯國際控股股份有限公司」，公告期間：115年6月11日至\r\n115年9月10日。",
+      "date": "2026-08-30",
+      "time": "07:00:03",
+      "summary": "1.事實發生日：民國115年06月11日  2.公司名稱：上緯國際控股股份有限公司(原名：上緯國際投資控股股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月11日  (2)公司名稱變更核准文號：經授商字第11530084540號函  (3)更名案股東會決議通過日期：民國115年05月28日  (4)變更前公司名稱：上緯國際投資控股股份有限公司  (5)變更後公司名稱：上緯國際控股股份有限公司  (6)變更前公司簡稱：上緯投控  (7)變更後公司簡稱：上緯控股  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/6/11收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更  名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「3708」",
+      "isRoutine": false,
+      "hasCatalyst": true,
+      "events": [
+        {
+          "type": "regulatory_approval",
+          "label": "法規核准",
+          "weight": 4,
+          "matchedKeywords": [
+            "核准"
+          ]
+        }
+      ],
+      "catalysts": [
+        {
+          "type": "regulatory_approval",
+          "label": "法規核准",
+          "weight": 4,
+          "matchedKeywords": [
+            "核准"
+          ]
+        }
+      ],
+      "eventTypes": [
+        "regulatory_approval"
+      ],
+      "catalystTypes": [
+        "regulatory_approval"
+      ],
+      "eventWeightTotal": 4,
+      "catalystWeightTotal": 4,
+      "primaryEventLabel": "法規核准"
+    },
+    {
+      "market": "listed",
+      "code": "6949",
+      "companyName": "沛爾生醫-創",
+      "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
+      "date": "2026-08-30",
+      "time": "07:00:03",
+      "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
       "isRoutine": false,
       "hasCatalyst": true,
       "events": [
@@ -213128,50 +212996,6 @@
       "eventWeightTotal": 4,
       "catalystWeightTotal": 4,
       "primaryEventLabel": "法規核准"
-    },
-    {
-      "market": "listed",
-      "code": "4958",
-      "companyName": "臻鼎-KY",
-      "subject": "代子公司PENG SHEN TECHNOLOGY (THAILAND) CO., LTD.公告取得機器設備",
-      "date": "2026-08-29",
-      "time": "00:00:24",
-      "summary": "1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:  機器設備  2.事實發生日:114/8/29~115/8/28  3.董事會通過日期: 不適用  4.其他核決日期:  核決層級:總經理核決  民國115年08月28日  5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:  交易數量:一批 交易總金額:新台幣1,077,779,372元  6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關  係人者，得免揭露其姓名）:  交易相對人: Burkle PCB Machinery Limited 與公司之關係:無  7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之  所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期  及移轉金額:  不適用  8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係  人之取得及處分日期、價格及交易當時與公司之關係:  不適用  9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明  認列情形）:  不適用  10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定  事項:  依採購合約規定  11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及  決策單位:  交易決定方式:比價及議價 價格決定之參考依據:依市場行情 決策單位:依公司核決權限決定  12.專業估價者事務所或公司名稱及其估價金額:  不適用  13.專業估價師姓名:  不適用  14.專業估價師開業證書字號:  不適用  15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用  16.是否尚未取得估價報告:否或不適用  17.尚未取得估價報告之原因:  不適用  18.估價結果有重大差異時，其差異原因及會計師意見:  不適用  19.會計師事務所名稱:  不適用  20.會計師姓名:  不適用  21.會計師開業證書字號:  不適用  22.經紀人及經紀費用:  無  23.取得或處分之具體目的或用途:  供營業使用  24.本次交易表示異議之董事之意見:  不適用  25.本次交易為關係人交易:否  26.監察人承認或審計委員會同意日期:  不適用  27.本次交易係向關係人取得不動產或其使用權資產:否  28.依「公開發行公司取得或處分資產處理準則」第十六條規定  評估之價格:不適用  29.依前項評估之價格較交易價格為低者，依同準則第十七條規  定評估之價格:不適用  30.前已就同一件事件發布重大訊息日期: 不適用  31.其他敘明事項:  無",
-      "isRoutine": false,
-      "hasCatalyst": true,
-      "events": [
-        {
-          "type": "asset_transaction",
-          "label": "資產交易",
-          "weight": 2,
-          "matchedKeywords": [
-            "取得",
-            "處分",
-            "不動產"
-          ]
-        }
-      ],
-      "catalysts": [
-        {
-          "type": "asset_transaction",
-          "label": "資產交易",
-          "weight": 2,
-          "matchedKeywords": [
-            "取得",
-            "處分",
-            "不動產"
-          ]
-        }
-      ],
-      "eventTypes": [
-        "asset_transaction"
-      ],
-      "catalystTypes": [
-        "asset_transaction"
-      ],
-      "eventWeightTotal": 2,
-      "catalystWeightTotal": 2,
-      "primaryEventLabel": "資產交易"
     }
   ]
 }
