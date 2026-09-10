@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T09:36:06.777Z",
+  "generatedAt": "2026-09-10T14:18:28.912Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -48,8 +48,8 @@
       },
       {
         "investor": "投信",
-        "net": 682994909,
-        "netDisplay": "6.83 億"
+        "net": 1071104103,
+        "netDisplay": "10.71 億"
       },
       {
         "investor": "自營商合計",
@@ -68,8 +68,8 @@
       },
       {
         "investor": "三大法人合計*",
-        "net": -11601853868,
-        "netDisplay": "-116.02 億"
+        "net": -11213744674,
+        "netDisplay": "-112.14 億"
       }
     ]
   },
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-09-10T09:36:03.006Z",
+        "fetchedAt": "2026-09-10T14:18:27.310Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-09-10T09:36:06.706Z",
+        "fetchedAt": "2026-09-10T14:18:28.866Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-09-10T09:36:03.678Z",
+        "fetchedAt": "2026-09-10T14:18:26.552Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-09-10T09:36:03.567Z",
+        "fetchedAt": "2026-09-10T14:18:23.218Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-09-10T09:36:04.341Z",
+        "fetchedAt": "2026-09-10T14:18:26.813Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-09-10T09:36:04.738Z",
+        "fetchedAt": "2026-09-10T14:18:26.660Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-09-10T09:36:04.484Z",
+        "fetchedAt": "2026-09-10T14:18:27.367Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-09-10T09:36:04.977Z",
+        "fetchedAt": "2026-09-10T14:18:26.843Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-09-10T09:36:04.141Z",
+        "fetchedAt": "2026-09-10T14:18:26.976Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-09-10T09:36:05.869Z",
+        "fetchedAt": "2026-09-10T14:18:22.029Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -36575,6 +36575,104 @@
       ]
     },
     {
+      "code": "7828",
+      "name": "創新服務",
+      "market": "otc",
+      "marketLabel": "上櫃",
+      "industry": "半導體業",
+      "lens": "semiconductor",
+      "lensLabel": "半導體鏈",
+      "watchlist": false,
+      "chain": "半導體業",
+      "focus": "全市場半導體掃描",
+      "signal": {
+        "score": 7,
+        "label": "正向觀察",
+        "tone": "positive",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月增超過 10%",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "股價日變動偏弱",
+            "impact": "negative",
+            "weight": -1
+          }
+        ]
+      },
+      "revenueDisplay": "1.30 億",
+      "revenueYoY": 397.15776149744926,
+      "revenueYoYDisplay": "+397.16%",
+      "revenueMoM": 10.97279062997654,
+      "revenueMoMDisplay": "+10.97%",
+      "cumulativeYoY": 235.79712118672478,
+      "cumulativeYoYDisplay": "+235.80%",
+      "closingPrice": 2055,
+      "priceChange": -25,
+      "priceChangeDisplay": "-25.00",
+      "tradeValue": 907205000,
+      "tradeValueDisplay": "9.07 億",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmationScore": 0,
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "catalystCount": 0,
+      "catalystTypes": [],
+      "catalystLabels": [],
+      "eventTypes": [],
+      "eventLabels": [],
+      "primaryEventLabel": null,
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "announcementCount": 0,
+      "dataMonth": "2026-07",
+      "alertFlags": [
+        "revenuePriceLag"
+      ]
+    },
+    {
       "code": "8112",
       "name": "至上",
       "market": "listed",
@@ -50688,109 +50786,6 @@
       "priceChangeDisplay": "0.00",
       "tradeValue": 1146100,
       "tradeValueDisplay": "114.61 萬",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmationScore": 0,
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "catalystCount": 0,
-      "catalystTypes": [],
-      "catalystLabels": [],
-      "eventTypes": [],
-      "eventLabels": [],
-      "primaryEventLabel": null,
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "announcementCount": 0,
-      "dataMonth": "2026-07",
-      "alertFlags": [
-        "revenuePriceLag"
-      ]
-    },
-    {
-      "code": "7828",
-      "name": "創新服務",
-      "market": "otc",
-      "marketLabel": "上櫃",
-      "industry": "半導體業",
-      "lens": "semiconductor",
-      "lensLabel": "半導體鏈",
-      "watchlist": false,
-      "chain": "半導體業",
-      "focus": "全市場半導體掃描",
-      "signal": {
-        "score": 6,
-        "label": "正向觀察",
-        "tone": "positive",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月增超過 10%",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          },
-          {
-            "label": "股價日變動偏弱",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "櫃買法人賣超",
-            "impact": "negative",
-            "weight": -1
-          }
-        ]
-      },
-      "revenueDisplay": "1.30 億",
-      "revenueYoY": 397.15776149744926,
-      "revenueYoYDisplay": "+397.16%",
-      "revenueMoM": 10.97279062997654,
-      "revenueMoMDisplay": "+10.97%",
-      "cumulativeYoY": 235.79712118672478,
-      "cumulativeYoYDisplay": "+235.80%",
-      "closingPrice": 2055,
-      "priceChange": -25,
-      "priceChangeDisplay": "-25.00",
-      "tradeValue": 907205000,
-      "tradeValueDisplay": "9.07 億",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -209960,7 +209955,7 @@
       "closingPrice": 18700,
       "priceChangeDisplay": "+95.00",
       "tradeValueDisplay": "41.49 億",
-      "otcInstitutionNetDisplay": "1.47 萬",
+      "otcInstitutionNetDisplay": "2.63 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -213050,7 +213045,7 @@
       "closingPrice": 3670,
       "priceChangeDisplay": "+60.00",
       "tradeValueDisplay": "36.03 億",
-      "otcInstitutionNetDisplay": "14.57 萬",
+      "otcInstitutionNetDisplay": "18.87 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
