@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T16:59:23.974Z",
+  "generatedAt": "2026-09-12T19:12:08.723Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -132,28 +132,28 @@
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-09-12T16:59:20.847Z",
+        "fetchedAt": "2026-09-12T19:12:05.137Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-09-12T16:59:20.834Z",
+        "fetchedAt": "2026-09-12T19:12:05.130Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-09-12T16:59:20.994Z",
+        "fetchedAt": "2026-09-12T19:12:05.263Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-09-12T16:59:21.170Z",
+        "fetchedAt": "2026-09-12T19:12:05.372Z",
         "attempts": 1,
         "cacheUsed": false
       }
