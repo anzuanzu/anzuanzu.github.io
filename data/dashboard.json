@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T11:40:55.456Z",
+  "generatedAt": "2026-09-13T16:09:08.278Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -132,28 +132,28 @@
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-09-13T11:40:51.972Z",
+        "fetchedAt": "2026-09-13T16:09:04.668Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-09-13T11:40:51.570Z",
+        "fetchedAt": "2026-09-13T16:09:04.231Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-09-13T11:40:52.275Z",
+        "fetchedAt": "2026-09-13T16:09:04.764Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-09-13T11:40:51.993Z",
+        "fetchedAt": "2026-09-13T16:09:04.482Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -476,8 +476,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -835,8 +835,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -1412,8 +1412,8 @@
           "資產交易"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -3121,8 +3121,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -3264,8 +3264,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -3414,8 +3414,8 @@
           "資產交易"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -5703,8 +5703,8 @@
           "治理異動"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -5852,8 +5852,8 @@
           "庫藏股"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6000,8 +6000,8 @@
           "資產交易"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6136,8 +6136,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6279,8 +6279,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6417,8 +6417,8 @@
           "治理異動"
         ],
         "primaryEventLabel": "庫藏股",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6546,8 +6546,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 1,
-        "daysSinceLatestEventDisplay": "1 日前",
+        "daysSinceLatestEvent": 2,
+        "daysSinceLatestEventDisplay": "2 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -6680,8 +6680,8 @@
           "併購收購"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6815,8 +6815,8 @@
           "治理異動"
         ],
         "primaryEventLabel": "增資籌資",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -6957,8 +6957,8 @@
           "併購收購"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -7091,8 +7091,8 @@
           "治理異動"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -7225,8 +7225,8 @@
           "治理異動"
         ],
         "primaryEventLabel": "增資籌資",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -7369,8 +7369,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -7519,8 +7519,8 @@
           "資產交易"
         ],
         "primaryEventLabel": "併購收購",
-        "daysSinceLatestEvent": 107,
-        "daysSinceLatestEventDisplay": "107 日前",
+        "daysSinceLatestEvent": 108,
+        "daysSinceLatestEventDisplay": "108 日前",
         "eventConfirmation": {
           "level": "stale",
           "label": "Stale",
@@ -10503,8 +10503,8 @@
             "治理異動"
           ],
           "primaryEventLabel": "增資籌資",
-          "daysSinceLatestEvent": 107,
-          "daysSinceLatestEventDisplay": "107 日前",
+          "daysSinceLatestEvent": 108,
+          "daysSinceLatestEventDisplay": "108 日前",
           "eventConfirmation": {
             "level": "stale",
             "label": "Stale",
@@ -10934,8 +10934,8 @@
             "庫藏股"
           ],
           "primaryEventLabel": "庫藏股",
-          "daysSinceLatestEvent": 107,
-          "daysSinceLatestEventDisplay": "107 日前",
+          "daysSinceLatestEvent": 108,
+          "daysSinceLatestEventDisplay": "108 日前",
           "eventConfirmation": {
             "level": "stale",
             "label": "Stale",
@@ -16522,8 +16522,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -16665,8 +16665,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -16815,8 +16815,8 @@
         "資產交易"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -16968,8 +16968,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -17117,8 +17117,8 @@
         "庫藏股"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -21329,8 +21329,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "資產交易",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -21460,8 +21460,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "庫藏股",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -21584,8 +21584,8 @@
         "庫藏股"
       ],
       "primaryEventLabel": "庫藏股",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -22842,8 +22842,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -29907,8 +29907,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -30026,8 +30026,8 @@
         "資產交易"
       ],
       "primaryEventLabel": "資產交易",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -30158,8 +30158,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -30566,8 +30566,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -35814,8 +35814,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -41331,8 +41331,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -41439,8 +41439,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -44784,8 +44784,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -44918,8 +44918,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "增資籌資",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -45052,8 +45052,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -56787,8 +56787,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -56905,8 +56905,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -57039,8 +57039,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "增資籌資",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -71650,8 +71650,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "庫藏股",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -80859,8 +80859,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -88085,8 +88085,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -88883,8 +88883,8 @@
         "增資籌資"
       ],
       "primaryEventLabel": "增資籌資",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -98357,8 +98357,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -102123,8 +102123,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -105732,8 +105732,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -105860,8 +105860,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -105972,8 +105972,8 @@
         "增資籌資"
       ],
       "primaryEventLabel": "增資籌資",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -106110,8 +106110,8 @@
         "資產交易"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -121097,8 +121097,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -121225,8 +121225,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -121344,8 +121344,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -121482,8 +121482,8 @@
         "庫藏股"
       ],
       "primaryEventLabel": "庫藏股",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -121619,8 +121619,8 @@
         "增資籌資"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -121818,8 +121818,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -122572,8 +122572,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -126741,8 +126741,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -128856,8 +128856,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -129063,8 +129063,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -130096,8 +130096,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -130393,8 +130393,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -131792,8 +131792,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -138721,8 +138721,8 @@
         "資產交易"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -138840,8 +138840,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "資產交易",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -138960,8 +138960,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -139094,8 +139094,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "庫藏股",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -139218,8 +139218,8 @@
         "增資籌資"
       ],
       "primaryEventLabel": "增資籌資",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -139348,8 +139348,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -139477,8 +139477,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -139609,8 +139609,8 @@
         "併購收購"
       ],
       "primaryEventLabel": "併購收購",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -139745,8 +139745,8 @@
         "資產交易"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -155907,8 +155907,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -160898,8 +160898,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -161090,8 +161090,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -161449,8 +161449,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -162624,8 +162624,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -163369,8 +163369,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -166813,8 +166813,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -173625,8 +173625,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -185114,8 +185114,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -186338,8 +186338,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -188218,8 +188218,8 @@
         "治理異動"
       ],
       "primaryEventLabel": "治理異動",
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -201423,8 +201423,8 @@
       "catalystLabels": [
         "併購收購"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -201982,8 +201982,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -202332,8 +202332,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 1,
-      "daysSinceLatestEventDisplay": "1 日前",
+      "daysSinceLatestEvent": 2,
+      "daysSinceLatestEventDisplay": "2 日前",
       "eventConfirmation": {
         "level": "failed",
         "label": "Failed",
@@ -205157,8 +205157,8 @@
       "catalystLabels": [
         "併購收購"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -205362,8 +205362,8 @@
       "catalystLabels": [
         "庫藏股"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -205830,8 +205830,8 @@
         "治理異動"
       ],
       "catalystLabels": [],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -206162,8 +206162,8 @@
       "catalystLabels": [
         "增資籌資"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -206656,8 +206656,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -207271,8 +207271,8 @@
       "catalystLabels": [
         "併購收購"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -207736,8 +207736,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -208043,8 +208043,8 @@
         "併購收購",
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -208296,8 +208296,8 @@
         "庫藏股",
         "增資籌資"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -209340,8 +209340,8 @@
         "資產交易",
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -209611,8 +209611,8 @@
       "catalystLabels": [
         "併購收購"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -209847,8 +209847,8 @@
       "catalystLabels": [
         "增資籌資"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -210256,8 +210256,8 @@
       "catalystLabels": [
         "併購收購"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -212043,8 +212043,8 @@
         "庫藏股",
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -212430,8 +212430,8 @@
       "catalystLabels": [
         "庫藏股"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -213149,8 +213149,8 @@
         "治理異動"
       ],
       "catalystLabels": [],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -214453,8 +214453,8 @@
         "治理異動"
       ],
       "catalystLabels": [],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "none",
         "label": "None",
@@ -215320,8 +215320,8 @@
         "資產交易",
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
@@ -216060,8 +216060,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 107,
-      "daysSinceLatestEventDisplay": "107 日前",
+      "daysSinceLatestEvent": 108,
+      "daysSinceLatestEventDisplay": "108 日前",
       "eventConfirmation": {
         "level": "stale",
         "label": "Stale",
