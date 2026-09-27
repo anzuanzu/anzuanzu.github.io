@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T18:17:21.589Z",
+  "generatedAt": "2026-09-27T22:02:05.793Z",
   "marketOverview": {
     "listed": {
       "label": "加權指數",
@@ -26,8 +26,8 @@
     },
     "breadth": {
       "strong": 158,
-      "positive": 287,
-      "neutral": 382,
+      "positive": 288,
+      "neutral": 381,
       "negative": 1151
     },
     "otcInstitutionSummary": [
@@ -75,7 +75,7 @@
   },
   "sourceStatus": {
     "monthlyRevenueMonth": "2026-08",
-    "twseMajorDate": "2026-09-26",
+    "twseMajorDate": "2026-09-27",
     "tpexMajorDate": "2026-09-26",
     "etfTrackDate": "2026-05-29",
     "etfTrackCount": 6,
@@ -84,70 +84,70 @@
       "tpexHighlight": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
-        "fetchedAt": "2026-09-27T18:17:21.052Z",
+        "fetchedAt": "2026-09-27T22:02:03.078Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiDetail": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
-        "fetchedAt": "2026-09-27T18:17:20.614Z",
+        "fetchedAt": "2026-09-27T22:02:05.676Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexInstiSummary": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_3insti_summary",
-        "fetchedAt": "2026-09-27T18:17:21.439Z",
+        "fetchedAt": "2026-09-27T22:02:04.050Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexMajor": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-        "fetchedAt": "2026-09-27T18:17:21.126Z",
+        "fetchedAt": "2026-09-27T22:02:03.118Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexQuotes": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
-        "fetchedAt": "2026-09-27T18:17:20.372Z",
+        "fetchedAt": "2026-09-27T22:02:04.805Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "tpexRevenue": {
         "status": "live",
         "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-        "fetchedAt": "2026-09-27T18:17:19.838Z",
+        "fetchedAt": "2026-09-27T22:02:04.665Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseIndices": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-        "fetchedAt": "2026-09-27T18:17:18.923Z",
+        "fetchedAt": "2026-09-27T22:02:02.793Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseMajor": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-        "fetchedAt": "2026-09-27T18:17:18.681Z",
+        "fetchedAt": "2026-09-27T22:02:02.265Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseQuotes": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-        "fetchedAt": "2026-09-27T18:17:19.198Z",
+        "fetchedAt": "2026-09-27T22:02:03.012Z",
         "attempts": 1,
         "cacheUsed": false
       },
       "twseRevenue": {
         "status": "live",
         "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-        "fetchedAt": "2026-09-27T18:17:19.120Z",
+        "fetchedAt": "2026-09-27T22:02:02.640Z",
         "attempts": 1,
         "cacheUsed": false
       }
@@ -229,8 +229,8 @@
     "nonElectronicsLensCount": 1027,
     "breadth": {
       "strong": 158,
-      "positive": 287,
-      "neutral": 382,
+      "positive": 288,
+      "neutral": 381,
       "negative": 1151
     }
   },
@@ -5304,8 +5304,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -5438,8 +5438,8 @@
           "法規核准"
         ],
         "primaryEventLabel": "法規核准",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
         "eventConfirmation": {
           "level": "pending",
           "label": "Pending",
@@ -5455,6 +5455,134 @@
         "alertFlags": [
           "revenuePriceLag",
           "regulatoryBinaryEvent",
+          "eventPendingConfirmation"
+        ]
+      },
+      {
+        "code": "2509",
+        "name": "全坤建",
+        "market": "listed",
+        "marketLabel": "上市",
+        "industry": "建材營造",
+        "lens": "nonElectronics",
+        "lensLabel": "非電子鏈",
+        "watchlist": false,
+        "chain": "建材營造",
+        "focus": "全市場非電子掃描",
+        "signal": {
+          "score": 6,
+          "label": "正向觀察",
+          "tone": "positive",
+          "drivers": [
+            {
+              "label": "營收年增超過 40%",
+              "impact": "positive",
+              "weight": 4
+            },
+            {
+              "label": "營收月減超過 10%",
+              "impact": "negative",
+              "weight": -2
+            },
+            {
+              "label": "累計營收趨勢強",
+              "impact": "positive",
+              "weight": 2
+            },
+            {
+              "label": "近期有重大訊息催化",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "事件分數中高，適合排入優先追蹤",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "revenueDisplay": "1.26 億",
+        "revenueYoY": 510.3268226648617,
+        "revenueYoYDisplay": "+510.33%",
+        "revenueMoM": -88.25146554219245,
+        "revenueMoMDisplay": "-88.25%",
+        "cumulativeYoY": 665.3996298068884,
+        "cumulativeYoYDisplay": "+665.40%",
+        "closingPrice": 14.35,
+        "priceChange": -0.1,
+        "priceChangeDisplay": "-0.10",
+        "tradeValue": 1012581,
+        "tradeValueDisplay": "101.26 萬",
+        "eventScore": 4,
+        "eventScoreDisplay": "4/10",
+        "eventStrength": {
+          "score": 1,
+          "label": "1/4",
+          "note": "Event strength is light.",
+          "drivers": [
+            {
+              "label": "Tradeable catalyst exists",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "eventStrengthDisplay": "1/4",
+        "marketConfirmationScore": 1,
+        "marketConfirmationDisplay": "1/3",
+        "fundamentalFollowThrough": {
+          "score": 2,
+          "label": "2/3",
+          "note": "Fundamentals are following the event.",
+          "drivers": [
+            {
+              "label": "Revenue YoY is validating the thesis",
+              "impact": "positive",
+              "weight": 1
+            },
+            {
+              "label": "Revenue MoM softened",
+              "impact": "negative",
+              "weight": -1
+            },
+            {
+              "label": "Cumulative trend is supportive",
+              "impact": "positive",
+              "weight": 1
+            }
+          ]
+        },
+        "fundamentalFollowThroughDisplay": "2/3",
+        "catalystCount": 1,
+        "catalystTypes": [
+          "asset_transaction"
+        ],
+        "catalystLabels": [
+          "資產交易"
+        ],
+        "eventTypes": [
+          "asset_transaction"
+        ],
+        "eventLabels": [
+          "資產交易"
+        ],
+        "primaryEventLabel": "資產交易",
+        "daysSinceLatestEvent": 1,
+        "daysSinceLatestEventDisplay": "1 日前",
+        "eventConfirmation": {
+          "level": "pending",
+          "label": "Pending",
+          "note": "Fresh event, but price and turnover have not confirmed it yet."
+        },
+        "highValueEvent": {
+          "active": false,
+          "label": "Low-value",
+          "note": "Event exists, but its trading value is still limited."
+        },
+        "announcementCount": 1,
+        "dataMonth": "2026-08",
+        "alertFlags": [
+          "revenuePriceLag",
           "eventPendingConfirmation"
         ]
       },
@@ -5583,124 +5711,6 @@
         "dataMonth": "2026-08",
         "alertFlags": [
           "regulatoryBinaryEvent"
-        ]
-      },
-      {
-        "code": "2023",
-        "name": "燁輝",
-        "market": "listed",
-        "marketLabel": "上市",
-        "industry": "鋼鐵工業",
-        "lens": "nonElectronics",
-        "lensLabel": "非電子鏈",
-        "watchlist": false,
-        "chain": "鋼鐵工業",
-        "focus": "全市場非電子掃描",
-        "signal": {
-          "score": 0,
-          "label": "偏弱等待",
-          "tone": "negative",
-          "drivers": [
-            {
-              "label": "營收年減",
-              "impact": "negative",
-              "weight": -1
-            },
-            {
-              "label": "營收月減超過 10%",
-              "impact": "negative",
-              "weight": -2
-            },
-            {
-              "label": "近期有重大訊息催化",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "revenueDisplay": "47.77 億",
-        "revenueYoY": -14.313043172516776,
-        "revenueYoYDisplay": "-14.31%",
-        "revenueMoM": -16.530666167120547,
-        "revenueMoMDisplay": "-16.53%",
-        "cumulativeYoY": -6.722604889339132,
-        "cumulativeYoYDisplay": "-6.72%",
-        "closingPrice": 13.65,
-        "priceChange": 0.05,
-        "priceChangeDisplay": "+0.05",
-        "tradeValue": 10433791,
-        "tradeValueDisplay": "1043.38 萬",
-        "eventScore": 2,
-        "eventScoreDisplay": "2/10",
-        "eventStrength": {
-          "score": 1,
-          "label": "1/4",
-          "note": "Event strength is light.",
-          "drivers": [
-            {
-              "label": "Tradeable catalyst exists",
-              "impact": "positive",
-              "weight": 1
-            }
-          ]
-        },
-        "eventStrengthDisplay": "1/4",
-        "marketConfirmationScore": 1,
-        "marketConfirmationDisplay": "1/3",
-        "fundamentalFollowThrough": {
-          "score": 0,
-          "label": "0/3",
-          "note": "Fundamentals have not confirmed the event yet.",
-          "drivers": [
-            {
-              "label": "Revenue YoY is not yet validating the thesis",
-              "impact": "negative",
-              "weight": -1
-            },
-            {
-              "label": "Revenue MoM softened",
-              "impact": "negative",
-              "weight": -1
-            },
-            {
-              "label": "Cumulative trend is still weak",
-              "impact": "negative",
-              "weight": -1
-            }
-          ]
-        },
-        "fundamentalFollowThroughDisplay": "0/3",
-        "catalystCount": 1,
-        "catalystTypes": [
-          "buyback"
-        ],
-        "catalystLabels": [
-          "庫藏股"
-        ],
-        "eventTypes": [
-          "buyback"
-        ],
-        "eventLabels": [
-          "庫藏股"
-        ],
-        "primaryEventLabel": "庫藏股",
-        "daysSinceLatestEvent": 2,
-        "daysSinceLatestEventDisplay": "2 日前",
-        "eventConfirmation": {
-          "level": "pending",
-          "label": "Pending",
-          "note": "Fresh event, but price and turnover have not confirmed it yet."
-        },
-        "highValueEvent": {
-          "active": false,
-          "label": "Low-value",
-          "note": "Event exists, but its trading value is still limited."
-        },
-        "announcementCount": 1,
-        "dataMonth": "2026-08",
-        "alertFlags": [
-          "buybackEvent",
-          "eventPendingConfirmation"
         ]
       }
     ],
@@ -19691,8 +19701,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -30022,8 +30032,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -44402,6 +44412,134 @@
       ]
     },
     {
+      "code": "2509",
+      "name": "全坤建",
+      "market": "listed",
+      "marketLabel": "上市",
+      "industry": "建材營造",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "建材營造",
+      "focus": "全市場非電子掃描",
+      "signal": {
+        "score": 6,
+        "label": "正向觀察",
+        "tone": "positive",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月減超過 10%",
+            "impact": "negative",
+            "weight": -2
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "近期有重大訊息催化",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "事件分數中高，適合排入優先追蹤",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "revenueDisplay": "1.26 億",
+      "revenueYoY": 510.3268226648617,
+      "revenueYoYDisplay": "+510.33%",
+      "revenueMoM": -88.25146554219245,
+      "revenueMoMDisplay": "-88.25%",
+      "cumulativeYoY": 665.3996298068884,
+      "cumulativeYoYDisplay": "+665.40%",
+      "closingPrice": 14.35,
+      "priceChange": -0.1,
+      "priceChangeDisplay": "-0.10",
+      "tradeValue": 1012581,
+      "tradeValueDisplay": "101.26 萬",
+      "eventScore": 4,
+      "eventScoreDisplay": "4/10",
+      "eventStrength": {
+        "score": 1,
+        "label": "1/4",
+        "note": "Event strength is light.",
+        "drivers": [
+          {
+            "label": "Tradeable catalyst exists",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventStrengthDisplay": "1/4",
+      "marketConfirmationScore": 1,
+      "marketConfirmationDisplay": "1/3",
+      "fundamentalFollowThrough": {
+        "score": 2,
+        "label": "2/3",
+        "note": "Fundamentals are following the event.",
+        "drivers": [
+          {
+            "label": "Revenue YoY is validating the thesis",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "Revenue MoM softened",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "Cumulative trend is supportive",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "2/3",
+      "catalystCount": 1,
+      "catalystTypes": [
+        "asset_transaction"
+      ],
+      "catalystLabels": [
+        "資產交易"
+      ],
+      "eventTypes": [
+        "asset_transaction"
+      ],
+      "eventLabels": [
+        "資產交易"
+      ],
+      "primaryEventLabel": "資產交易",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
+      "eventConfirmation": {
+        "level": "pending",
+        "label": "Pending",
+        "note": "Fresh event, but price and turnover have not confirmed it yet."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "Low-value",
+        "note": "Event exists, but its trading value is still limited."
+      },
+      "announcementCount": 1,
+      "dataMonth": "2026-08",
+      "alertFlags": [
+        "revenuePriceLag",
+        "eventPendingConfirmation"
+      ]
+    },
+    {
       "code": "2072",
       "name": "世紀風電",
       "market": "listed",
@@ -44515,8 +44653,8 @@
         "法規核准"
       ],
       "primaryEventLabel": "法規核准",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -75412,99 +75550,6 @@
       "priceChangeDisplay": "-1.00",
       "tradeValue": 17170082,
       "tradeValueDisplay": "1717.01 萬",
-      "eventScore": 0,
-      "eventScoreDisplay": "0/10",
-      "eventStrength": {
-        "score": 0,
-        "label": "0/4",
-        "note": "No strong catalyst weight yet.",
-        "drivers": []
-      },
-      "eventStrengthDisplay": "0/4",
-      "marketConfirmationScore": 0,
-      "marketConfirmationDisplay": "0/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "No catalyst yet, so there is no follow-through to grade.",
-        "drivers": [
-          {
-            "label": "No event-follow-through context",
-            "impact": "neutral",
-            "weight": 0
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "catalystCount": 0,
-      "catalystTypes": [],
-      "catalystLabels": [],
-      "eventTypes": [],
-      "eventLabels": [],
-      "primaryEventLabel": null,
-      "daysSinceLatestEvent": null,
-      "daysSinceLatestEventDisplay": "無資料",
-      "eventConfirmation": {
-        "level": "none",
-        "label": "None",
-        "note": "No catalyst to confirm in price or turnover."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "No catalyst",
-        "note": "No event to classify."
-      },
-      "announcementCount": 0,
-      "dataMonth": "2026-08",
-      "alertFlags": [
-        "revenuePriceLag"
-      ]
-    },
-    {
-      "code": "2509",
-      "name": "全坤建",
-      "market": "listed",
-      "marketLabel": "上市",
-      "industry": "建材營造",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "建材營造",
-      "focus": "全市場非電子掃描",
-      "signal": {
-        "score": 4,
-        "label": "中性監看",
-        "tone": "neutral",
-        "drivers": [
-          {
-            "label": "營收年增超過 40%",
-            "impact": "positive",
-            "weight": 4
-          },
-          {
-            "label": "營收月減超過 10%",
-            "impact": "negative",
-            "weight": -2
-          },
-          {
-            "label": "累計營收趨勢強",
-            "impact": "positive",
-            "weight": 2
-          }
-        ]
-      },
-      "revenueDisplay": "1.26 億",
-      "revenueYoY": 510.3268226648617,
-      "revenueYoYDisplay": "+510.33%",
-      "revenueMoM": -88.25146554219245,
-      "revenueMoMDisplay": "-88.25%",
-      "cumulativeYoY": 665.3996298068884,
-      "cumulativeYoYDisplay": "+665.40%",
-      "closingPrice": 14.35,
-      "priceChange": -0.1,
-      "priceChangeDisplay": "-0.10",
-      "tradeValue": 1012581,
-      "tradeValueDisplay": "101.26 萬",
       "eventScore": 0,
       "eventScoreDisplay": "0/10",
       "eventStrength": {
@@ -142323,124 +142368,6 @@
       "alertFlags": []
     },
     {
-      "code": "2023",
-      "name": "燁輝",
-      "market": "listed",
-      "marketLabel": "上市",
-      "industry": "鋼鐵工業",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "鋼鐵工業",
-      "focus": "全市場非電子掃描",
-      "signal": {
-        "score": 0,
-        "label": "偏弱等待",
-        "tone": "negative",
-        "drivers": [
-          {
-            "label": "營收年減",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "營收月減超過 10%",
-            "impact": "negative",
-            "weight": -2
-          },
-          {
-            "label": "近期有重大訊息催化",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "revenueDisplay": "47.77 億",
-      "revenueYoY": -14.313043172516776,
-      "revenueYoYDisplay": "-14.31%",
-      "revenueMoM": -16.530666167120547,
-      "revenueMoMDisplay": "-16.53%",
-      "cumulativeYoY": -6.722604889339132,
-      "cumulativeYoYDisplay": "-6.72%",
-      "closingPrice": 13.65,
-      "priceChange": 0.05,
-      "priceChangeDisplay": "+0.05",
-      "tradeValue": 10433791,
-      "tradeValueDisplay": "1043.38 萬",
-      "eventScore": 2,
-      "eventScoreDisplay": "2/10",
-      "eventStrength": {
-        "score": 1,
-        "label": "1/4",
-        "note": "Event strength is light.",
-        "drivers": [
-          {
-            "label": "Tradeable catalyst exists",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventStrengthDisplay": "1/4",
-      "marketConfirmationScore": 1,
-      "marketConfirmationDisplay": "1/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "Fundamentals have not confirmed the event yet.",
-        "drivers": [
-          {
-            "label": "Revenue YoY is not yet validating the thesis",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "Revenue MoM softened",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "Cumulative trend is still weak",
-            "impact": "negative",
-            "weight": -1
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "catalystCount": 1,
-      "catalystTypes": [
-        "buyback"
-      ],
-      "catalystLabels": [
-        "庫藏股"
-      ],
-      "eventTypes": [
-        "buyback"
-      ],
-      "eventLabels": [
-        "庫藏股"
-      ],
-      "primaryEventLabel": "庫藏股",
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
-      "eventConfirmation": {
-        "level": "pending",
-        "label": "Pending",
-        "note": "Fresh event, but price and turnover have not confirmed it yet."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "Low-value",
-        "note": "Event exists, but its trading value is still limited."
-      },
-      "announcementCount": 1,
-      "dataMonth": "2026-08",
-      "alertFlags": [
-        "buybackEvent",
-        "eventPendingConfirmation"
-      ]
-    },
-    {
       "code": "8097",
       "name": "常珵",
       "market": "otc",
@@ -174237,6 +174164,92 @@
       "alertFlags": []
     },
     {
+      "code": "2023",
+      "name": "燁輝",
+      "market": "listed",
+      "marketLabel": "上市",
+      "industry": "鋼鐵工業",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "鋼鐵工業",
+      "focus": "全市場非電子掃描",
+      "signal": {
+        "score": 0,
+        "label": "偏弱等待",
+        "tone": "negative",
+        "drivers": [
+          {
+            "label": "營收年減",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "營收月減超過 10%",
+            "impact": "negative",
+            "weight": -2
+          }
+        ]
+      },
+      "revenueDisplay": "47.77 億",
+      "revenueYoY": -14.313043172516776,
+      "revenueYoYDisplay": "-14.31%",
+      "revenueMoM": -16.530666167120547,
+      "revenueMoMDisplay": "-16.53%",
+      "cumulativeYoY": -6.722604889339132,
+      "cumulativeYoYDisplay": "-6.72%",
+      "closingPrice": 13.65,
+      "priceChange": 0.05,
+      "priceChangeDisplay": "+0.05",
+      "tradeValue": 10433791,
+      "tradeValueDisplay": "1043.38 萬",
+      "eventScore": 0,
+      "eventScoreDisplay": "0/10",
+      "eventStrength": {
+        "score": 0,
+        "label": "0/4",
+        "note": "No strong catalyst weight yet.",
+        "drivers": []
+      },
+      "eventStrengthDisplay": "0/4",
+      "marketConfirmationScore": 0,
+      "marketConfirmationDisplay": "0/3",
+      "fundamentalFollowThrough": {
+        "score": 0,
+        "label": "0/3",
+        "note": "No catalyst yet, so there is no follow-through to grade.",
+        "drivers": [
+          {
+            "label": "No event-follow-through context",
+            "impact": "neutral",
+            "weight": 0
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "0/3",
+      "catalystCount": 0,
+      "catalystTypes": [],
+      "catalystLabels": [],
+      "eventTypes": [],
+      "eventLabels": [],
+      "primaryEventLabel": null,
+      "daysSinceLatestEvent": null,
+      "daysSinceLatestEventDisplay": "無資料",
+      "eventConfirmation": {
+        "level": "none",
+        "label": "None",
+        "note": "No catalyst to confirm in price or turnover."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "No catalyst",
+        "note": "No event to classify."
+      },
+      "announcementCount": 0,
+      "dataMonth": "2026-08",
+      "alertFlags": []
+    },
+    {
       "code": "2417",
       "name": "圓剛",
       "market": "listed",
@@ -198890,8 +198903,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -198915,7 +198928,7 @@
           "code": "1721",
           "companyName": "國慶科技",
           "subject": "公告本公司名稱由「三晃股份有限公司」更名為\r\n「國慶科技股份有限公司」\r\n，公告期間：115年07月01日至115年9月30日。",
-          "date": "2026-09-26",
+          "date": "2026-09-27",
           "time": "07:00:04",
           "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：國慶科技股份有限公司(原名：三晃股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：11530099260  (3)更名案股東會決議通過日期：民國115年06月16日  (4)變更前公司名稱：三晃股份有限公司  (5)變更後公司名稱：國慶科技股份有限公司  (6)變更前公司簡稱：三晃  (7)變更後公司簡稱：國慶科技  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「1721」。  (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",
           "isRoutine": false,
@@ -198953,7 +198966,7 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-09-26",
+          "date": "2026-09-27",
           "time": "07:00:04",
           "subject": "公告本公司名稱由「三晃股份有限公司」更名為\r\n「國慶科技股份有限公司」\r\n，公告期間：115年07月01日至115年9月30日。",
           "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：國慶科技股份有限公司(原名：三晃股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：11530099260  (3)更名案股東會決議通過日期：民國115年06月16日  (4)變更前公司名稱：三晃股份有限公司  (5)變更後公司名稱：國慶科技股份有限公司  (6)變更前公司簡稱：三晃  (7)變更後公司簡稱：國慶科技  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「1721」。  (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",
@@ -199148,216 +199161,6 @@
         }
       ]
     },
-    "2023": {
-      "code": "2023",
-      "market": "listed",
-      "marketLabel": "上市",
-      "name": "燁輝",
-      "industry": "鋼鐵工業",
-      "lens": "nonElectronics",
-      "lensLabel": "非電子鏈",
-      "watchlist": false,
-      "chain": "鋼鐵工業",
-      "focus": "全市場非電子掃描",
-      "note": "非核心觀察池，來自全市場掃描。",
-      "dataMonth": "2026-08",
-      "revenueDisplay": "47.77 億",
-      "revenueYoYDisplay": "-14.31%",
-      "revenueMoMDisplay": "-16.53%",
-      "cumulativeYoYDisplay": "-6.72%",
-      "closingPrice": 13.65,
-      "priceChangeDisplay": "+0.05",
-      "tradeValueDisplay": "1043.38 萬",
-      "otcInstitutionNetDisplay": "無資料",
-      "eventScore": 2,
-      "eventScoreDisplay": "2/10",
-      "eventStrength": {
-        "score": 1,
-        "label": "1/4",
-        "note": "Event strength is light.",
-        "drivers": [
-          {
-            "label": "Tradeable catalyst exists",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventStrengthDisplay": "1/4",
-      "marketConfirmation": {
-        "score": 1,
-        "level": "pending",
-        "label": "Pending",
-        "note": "Fresh event, but price and turnover have not confirmed it yet.",
-        "drivers": [
-          {
-            "label": "Fresh event; awaiting market response",
-            "impact": "neutral",
-            "weight": 1
-          }
-        ]
-      },
-      "marketConfirmationDisplay": "1/3",
-      "fundamentalFollowThrough": {
-        "score": 0,
-        "label": "0/3",
-        "note": "Fundamentals have not confirmed the event yet.",
-        "drivers": [
-          {
-            "label": "Revenue YoY is not yet validating the thesis",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "Revenue MoM softened",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "Cumulative trend is still weak",
-            "impact": "negative",
-            "weight": -1
-          }
-        ]
-      },
-      "fundamentalFollowThroughDisplay": "0/3",
-      "primaryEventLabel": "庫藏股",
-      "eventLabels": [
-        "庫藏股"
-      ],
-      "catalystLabels": [
-        "庫藏股"
-      ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
-      "eventConfirmation": {
-        "level": "pending",
-        "label": "Pending",
-        "note": "Fresh event, but price and turnover have not confirmed it yet."
-      },
-      "highValueEvent": {
-        "active": false,
-        "label": "Low-value",
-        "note": "Event exists, but its trading value is still limited."
-      },
-      "catalystCount": 1,
-      "announcementCount": 1,
-      "alertFlags": [
-        "buybackEvent",
-        "eventPendingConfirmation"
-      ],
-      "announcements": [
-        {
-          "market": "listed",
-          "code": "2023",
-          "companyName": "燁輝",
-          "subject": "公告本公司第二十五次買回庫藏股執行情形",
-          "date": "2026-09-26",
-          "time": "14:24:49",
-          "summary": "1.原預定買回股份總金額上限(元):2,640,312,634  2.原預定買回之期間:115/07/28~115/09/26  3.原預定買回之數量(股):15,000,000  4.原預定買回區間價格(元):13.00~15.50  5.本次實際買回期間:115/07/28~115/09/22  6.本次已買回股份數量(股):7,840,000  7.本次已買回股份總金額(元):107,903,533  8.本次平均每股買回價格(元):13.76  9.累積已持有自己公司股份數量(股):24,138,000  10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.33  11.本次未執行完畢之原因:  為兼顧市場機制及維護整體股東權益，考量股價變動已趨穩定，故未予以全部執行完畢。  12.其他應敘明事項:  無",
-          "isRoutine": false,
-          "hasCatalyst": true,
-          "events": [
-            {
-              "type": "buyback",
-              "label": "庫藏股",
-              "weight": 2,
-              "matchedKeywords": [
-                "庫藏股",
-                "買回股份",
-                "買回庫藏股"
-              ]
-            }
-          ],
-          "catalysts": [
-            {
-              "type": "buyback",
-              "label": "庫藏股",
-              "weight": 2,
-              "matchedKeywords": [
-                "庫藏股",
-                "買回股份",
-                "買回庫藏股"
-              ]
-            }
-          ],
-          "eventTypes": [
-            "buyback"
-          ],
-          "catalystTypes": [
-            "buyback"
-          ],
-          "eventWeightTotal": 2,
-          "catalystWeightTotal": 2,
-          "primaryEventLabel": "庫藏股"
-        }
-      ],
-      "eventTimeline": [
-        {
-          "date": "2026-09-26",
-          "time": "14:24:49",
-          "subject": "公告本公司第二十五次買回庫藏股執行情形",
-          "summary": "1.原預定買回股份總金額上限(元):2,640,312,634  2.原預定買回之期間:115/07/28~115/09/26  3.原預定買回之數量(股):15,000,000  4.原預定買回區間價格(元):13.00~15.50  5.本次實際買回期間:115/07/28~115/09/22  6.本次已買回股份數量(股):7,840,000  7.本次已買回股份總金額(元):107,903,533  8.本次平均每股買回價格(元):13.76  9.累積已持有自己公司股份數量(股):24,138,000  10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.33  11.本次未執行完畢之原因:  為兼顧市場機制及維護整體股東權益，考量股價變動已趨穩定，故未予以全部執行完畢。  12.其他應敘明事項:  無",
-          "labels": [
-            "庫藏股"
-          ],
-          "types": [
-            "buyback"
-          ],
-          "weightTotal": 2
-        }
-      ],
-      "signal": {
-        "score": 0,
-        "label": "偏弱等待",
-        "tone": "negative",
-        "scoreDisplay": "0/10",
-        "drivers": [
-          {
-            "label": "營收年減",
-            "impact": "negative",
-            "weight": -1
-          },
-          {
-            "label": "營收月減超過 10%",
-            "impact": "negative",
-            "weight": -2
-          },
-          {
-            "label": "近期有重大訊息催化",
-            "impact": "positive",
-            "weight": 1
-          }
-        ]
-      },
-      "eventDrivers": [
-        {
-          "label": "Tradeable catalyst exists",
-          "impact": "positive",
-          "weight": 1
-        },
-        {
-          "label": "Fresh event; awaiting market response",
-          "impact": "neutral",
-          "weight": 1
-        },
-        {
-          "label": "Revenue YoY is not yet validating the thesis",
-          "impact": "negative",
-          "weight": -1
-        },
-        {
-          "label": "Revenue MoM softened",
-          "impact": "negative",
-          "weight": -1
-        },
-        {
-          "label": "Cumulative trend is still weak",
-          "impact": "negative",
-          "weight": -1
-        }
-      ]
-    },
     "2072": {
       "code": "2072",
       "market": "listed",
@@ -199443,8 +199246,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -199468,7 +199271,7 @@
           "code": "2072",
           "companyName": "世紀風電",
           "subject": "公告本公司名稱由「世紀離岸風電設備股份有限公司」更名\r\n為「世紀能源設備股份有限公司」，公告期間：115年8月26日至\r\n115年11月25日。",
-          "date": "2026-09-26",
+          "date": "2026-09-27",
           "time": "07:00:04",
           "summary": "1.事實發生日：民國115年08月24日  2.公司名稱：世紀能源設備股份有限公司(原名：世紀離岸風電設備股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年08月24日  (2)公司名稱變更核准文號：經授商字第11530130420號  (3)更名案股東會決議通過日期：民國115年08月12日  (4)變更前公司名稱：世紀離岸風電設備股份有限公司  (5)變更後公司名稱：世紀能源設備股份有限公司  (6)變更前公司簡稱：世紀風電  (7)變更後公司簡稱：世紀能源  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/08/26收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，  於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「2072」。  (4)本公司英文名更名為「Century Energy Co., Ltd.」",
           "isRoutine": false,
@@ -199506,7 +199309,7 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-09-26",
+          "date": "2026-09-27",
           "time": "07:00:04",
           "subject": "公告本公司名稱由「世紀離岸風電設備股份有限公司」更名\r\n為「世紀能源設備股份有限公司」，公告期間：115年8月26日至\r\n115年11月25日。",
           "summary": "1.事實發生日：民國115年08月24日  2.公司名稱：世紀能源設備股份有限公司(原名：世紀離岸風電設備股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年08月24日  (2)公司名稱變更核准文號：經授商字第11530130420號  (3)更名案股東會決議通過日期：民國115年08月12日  (4)變更前公司名稱：世紀離岸風電設備股份有限公司  (5)變更後公司名稱：世紀能源設備股份有限公司  (6)變更前公司簡稱：世紀風電  (7)變更後公司簡稱：世紀能源  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/08/26收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，  於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「2072」。  (4)本公司英文名更名為「Century Energy Co., Ltd.」",
@@ -200917,6 +200720,222 @@
           "label": "No event-follow-through context",
           "impact": "neutral",
           "weight": 0
+        }
+      ]
+    },
+    "2509": {
+      "code": "2509",
+      "market": "listed",
+      "marketLabel": "上市",
+      "name": "全坤建",
+      "industry": "建材營造",
+      "lens": "nonElectronics",
+      "lensLabel": "非電子鏈",
+      "watchlist": false,
+      "chain": "建材營造",
+      "focus": "全市場非電子掃描",
+      "note": "非核心觀察池，來自全市場掃描。",
+      "dataMonth": "2026-08",
+      "revenueDisplay": "1.26 億",
+      "revenueYoYDisplay": "+510.33%",
+      "revenueMoMDisplay": "-88.25%",
+      "cumulativeYoYDisplay": "+665.40%",
+      "closingPrice": 14.35,
+      "priceChangeDisplay": "-0.10",
+      "tradeValueDisplay": "101.26 萬",
+      "otcInstitutionNetDisplay": "無資料",
+      "eventScore": 4,
+      "eventScoreDisplay": "4/10",
+      "eventStrength": {
+        "score": 1,
+        "label": "1/4",
+        "note": "Event strength is light.",
+        "drivers": [
+          {
+            "label": "Tradeable catalyst exists",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventStrengthDisplay": "1/4",
+      "marketConfirmation": {
+        "score": 1,
+        "level": "pending",
+        "label": "Pending",
+        "note": "Fresh event, but price and turnover have not confirmed it yet.",
+        "drivers": [
+          {
+            "label": "Fresh event; awaiting market response",
+            "impact": "neutral",
+            "weight": 1
+          }
+        ]
+      },
+      "marketConfirmationDisplay": "1/3",
+      "fundamentalFollowThrough": {
+        "score": 2,
+        "label": "2/3",
+        "note": "Fundamentals are following the event.",
+        "drivers": [
+          {
+            "label": "Revenue YoY is validating the thesis",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "Revenue MoM softened",
+            "impact": "negative",
+            "weight": -1
+          },
+          {
+            "label": "Cumulative trend is supportive",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "fundamentalFollowThroughDisplay": "2/3",
+      "primaryEventLabel": "資產交易",
+      "eventLabels": [
+        "資產交易"
+      ],
+      "catalystLabels": [
+        "資產交易"
+      ],
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
+      "eventConfirmation": {
+        "level": "pending",
+        "label": "Pending",
+        "note": "Fresh event, but price and turnover have not confirmed it yet."
+      },
+      "highValueEvent": {
+        "active": false,
+        "label": "Low-value",
+        "note": "Event exists, but its trading value is still limited."
+      },
+      "catalystCount": 1,
+      "announcementCount": 1,
+      "alertFlags": [
+        "revenuePriceLag",
+        "eventPendingConfirmation"
+      ],
+      "announcements": [
+        {
+          "market": "listed",
+          "code": "2509",
+          "companyName": "全坤建",
+          "subject": "公告本公司「全坤御峰」工地火災事件說明",
+          "date": "2026-09-27",
+          "time": "16:52:42",
+          "summary": "1.事實發生日：115/09/26  2.事實發生主體：本公司  3.發生緣由(事件說明)：本公司大安區嘉興街公辦都更案「全坤御峰」，與國家住都中心同為起造人，  委由億東營造股份有限公司承造，該工地於9/26晚間約9點發生地下三樓火警事件，  現場無任何人員發生意外。  4.處理過程：本公司已於第一時間派員到現場監控情勢，消防單位亦迅速到場協助撲滅，  火勢已獲得控制，現場無任何人員發生意外，後續將全力配合消防人員調查起火原因。  5.處分情形：目前配合消防及相關主管機關進一步調查，尚未有相關處分訊息。  6.是否遭裁處罰鍰：尚未確定  7.裁罰金額(元)：尚未確定  8.預計可能損失或影響：本工地已依相關規定投保營造綜合保險，初步評估對整體營運及財務尚無重大影響，  實際損失待判定。  9.可能獲得保險理賠之金額(元)：尚未確定  10.改善情形及未來因應措施：已責成結構技師與專業團隊針對工地結構安全性進行徹底檢視與評估，  未來將持續強化工安管理與預防機制，確保任何異常情況能在最短時間內控制及處理。  11.是否前已就同一事件發布重大訊息：否  12.其他應述明事項：無",
+          "isRoutine": false,
+          "hasCatalyst": true,
+          "events": [
+            {
+              "type": "asset_transaction",
+              "label": "資產交易",
+              "weight": 2,
+              "matchedKeywords": [
+                "處分"
+              ]
+            }
+          ],
+          "catalysts": [
+            {
+              "type": "asset_transaction",
+              "label": "資產交易",
+              "weight": 2,
+              "matchedKeywords": [
+                "處分"
+              ]
+            }
+          ],
+          "eventTypes": [
+            "asset_transaction"
+          ],
+          "catalystTypes": [
+            "asset_transaction"
+          ],
+          "eventWeightTotal": 2,
+          "catalystWeightTotal": 2,
+          "primaryEventLabel": "資產交易"
+        }
+      ],
+      "eventTimeline": [
+        {
+          "date": "2026-09-27",
+          "time": "16:52:42",
+          "subject": "公告本公司「全坤御峰」工地火災事件說明",
+          "summary": "1.事實發生日：115/09/26  2.事實發生主體：本公司  3.發生緣由(事件說明)：本公司大安區嘉興街公辦都更案「全坤御峰」，與國家住都中心同為起造人，  委由億東營造股份有限公司承造，該工地於9/26晚間約9點發生地下三樓火警事件，  現場無任何人員發生意外。  4.處理過程：本公司已於第一時間派員到現場監控情勢，消防單位亦迅速到場協助撲滅，  火勢已獲得控制，現場無任何人員發生意外，後續將全力配合消防人員調查起火原因。  5.處分情形：目前配合消防及相關主管機關進一步調查，尚未有相關處分訊息。  6.是否遭裁處罰鍰：尚未確定  7.裁罰金額(元)：尚未確定  8.預計可能損失或影響：本工地已依相關規定投保營造綜合保險，初步評估對整體營運及財務尚無重大影響，  實際損失待判定。  9.可能獲得保險理賠之金額(元)：尚未確定  10.改善情形及未來因應措施：已責成結構技師與專業團隊針對工地結構安全性進行徹底檢視與評估，  未來將持續強化工安管理與預防機制，確保任何異常情況能在最短時間內控制及處理。  11.是否前已就同一事件發布重大訊息：否  12.其他應述明事項：無",
+          "labels": [
+            "資產交易"
+          ],
+          "types": [
+            "asset_transaction"
+          ],
+          "weightTotal": 2
+        }
+      ],
+      "signal": {
+        "score": 6,
+        "label": "正向觀察",
+        "tone": "positive",
+        "scoreDisplay": "6/10",
+        "drivers": [
+          {
+            "label": "營收年增超過 40%",
+            "impact": "positive",
+            "weight": 4
+          },
+          {
+            "label": "營收月減超過 10%",
+            "impact": "negative",
+            "weight": -2
+          },
+          {
+            "label": "累計營收趨勢強",
+            "impact": "positive",
+            "weight": 2
+          },
+          {
+            "label": "近期有重大訊息催化",
+            "impact": "positive",
+            "weight": 1
+          },
+          {
+            "label": "事件分數中高，適合排入優先追蹤",
+            "impact": "positive",
+            "weight": 1
+          }
+        ]
+      },
+      "eventDrivers": [
+        {
+          "label": "Tradeable catalyst exists",
+          "impact": "positive",
+          "weight": 1
+        },
+        {
+          "label": "Fresh event; awaiting market response",
+          "impact": "neutral",
+          "weight": 1
+        },
+        {
+          "label": "Revenue YoY is validating the thesis",
+          "impact": "positive",
+          "weight": 1
+        },
+        {
+          "label": "Revenue MoM softened",
+          "impact": "negative",
+          "weight": -1
+        },
+        {
+          "label": "Cumulative trend is supportive",
+          "impact": "positive",
+          "weight": 1
         }
       ]
     },
@@ -209054,8 +209073,8 @@
       "catalystLabels": [
         "法規核准"
       ],
-      "daysSinceLatestEvent": 2,
-      "daysSinceLatestEventDisplay": "2 日前",
+      "daysSinceLatestEvent": 1,
+      "daysSinceLatestEventDisplay": "1 日前",
       "eventConfirmation": {
         "level": "pending",
         "label": "Pending",
@@ -209078,8 +209097,8 @@
           "code": "6949",
           "companyName": "沛爾生醫*-創",
           "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
-          "date": "2026-09-26",
-          "time": "07:00:03",
+          "date": "2026-09-27",
+          "time": "07:00:04",
           "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
           "isRoutine": false,
           "hasCatalyst": true,
@@ -209116,8 +209135,8 @@
       ],
       "eventTimeline": [
         {
-          "date": "2026-09-26",
-          "time": "07:00:03",
+          "date": "2026-09-27",
+          "time": "07:00:04",
           "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
           "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
           "labels": [
@@ -210950,54 +210969,90 @@
   "announcements": [
     {
       "market": "listed",
-      "code": "2023",
-      "companyName": "燁輝",
-      "subject": "公告本公司第二十五次買回庫藏股執行情形",
-      "date": "2026-09-26",
-      "time": "14:24:49",
-      "summary": "1.原預定買回股份總金額上限(元):2,640,312,634  2.原預定買回之期間:115/07/28~115/09/26  3.原預定買回之數量(股):15,000,000  4.原預定買回區間價格(元):13.00~15.50  5.本次實際買回期間:115/07/28~115/09/22  6.本次已買回股份數量(股):7,840,000  7.本次已買回股份總金額(元):107,903,533  8.本次平均每股買回價格(元):13.76  9.累積已持有自己公司股份數量(股):24,138,000  10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.33  11.本次未執行完畢之原因:  為兼顧市場機制及維護整體股東權益，考量股價變動已趨穩定，故未予以全部執行完畢。  12.其他應敘明事項:  無",
+      "code": "2509",
+      "companyName": "全坤建",
+      "subject": "公告本公司「全坤御峰」工地火災事件說明",
+      "date": "2026-09-27",
+      "time": "16:52:42",
+      "summary": "1.事實發生日：115/09/26  2.事實發生主體：本公司  3.發生緣由(事件說明)：本公司大安區嘉興街公辦都更案「全坤御峰」，與國家住都中心同為起造人，  委由億東營造股份有限公司承造，該工地於9/26晚間約9點發生地下三樓火警事件，  現場無任何人員發生意外。  4.處理過程：本公司已於第一時間派員到現場監控情勢，消防單位亦迅速到場協助撲滅，  火勢已獲得控制，現場無任何人員發生意外，後續將全力配合消防人員調查起火原因。  5.處分情形：目前配合消防及相關主管機關進一步調查，尚未有相關處分訊息。  6.是否遭裁處罰鍰：尚未確定  7.裁罰金額(元)：尚未確定  8.預計可能損失或影響：本工地已依相關規定投保營造綜合保險，初步評估對整體營運及財務尚無重大影響，  實際損失待判定。  9.可能獲得保險理賠之金額(元)：尚未確定  10.改善情形及未來因應措施：已責成結構技師與專業團隊針對工地結構安全性進行徹底檢視與評估，  未來將持續強化工安管理與預防機制，確保任何異常情況能在最短時間內控制及處理。  11.是否前已就同一事件發布重大訊息：否  12.其他應述明事項：無",
       "isRoutine": false,
       "hasCatalyst": true,
       "events": [
         {
-          "type": "buyback",
-          "label": "庫藏股",
+          "type": "asset_transaction",
+          "label": "資產交易",
           "weight": 2,
           "matchedKeywords": [
-            "庫藏股",
-            "買回股份",
-            "買回庫藏股"
+            "處分"
           ]
         }
       ],
       "catalysts": [
         {
-          "type": "buyback",
-          "label": "庫藏股",
+          "type": "asset_transaction",
+          "label": "資產交易",
           "weight": 2,
           "matchedKeywords": [
-            "庫藏股",
-            "買回股份",
-            "買回庫藏股"
+            "處分"
           ]
         }
       ],
       "eventTypes": [
-        "buyback"
+        "asset_transaction"
       ],
       "catalystTypes": [
-        "buyback"
+        "asset_transaction"
       ],
       "eventWeightTotal": 2,
       "catalystWeightTotal": 2,
-      "primaryEventLabel": "庫藏股"
+      "primaryEventLabel": "資產交易"
+    },
+    {
+      "market": "listed",
+      "code": "6949",
+      "companyName": "沛爾生醫*-創",
+      "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
+      "date": "2026-09-27",
+      "time": "07:00:04",
+      "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
+      "isRoutine": false,
+      "hasCatalyst": true,
+      "events": [
+        {
+          "type": "regulatory_approval",
+          "label": "法規核准",
+          "weight": 4,
+          "matchedKeywords": [
+            "核准"
+          ]
+        }
+      ],
+      "catalysts": [
+        {
+          "type": "regulatory_approval",
+          "label": "法規核准",
+          "weight": 4,
+          "matchedKeywords": [
+            "核准"
+          ]
+        }
+      ],
+      "eventTypes": [
+        "regulatory_approval"
+      ],
+      "catalystTypes": [
+        "regulatory_approval"
+      ],
+      "eventWeightTotal": 4,
+      "catalystWeightTotal": 4,
+      "primaryEventLabel": "法規核准"
     },
     {
       "market": "listed",
       "code": "1721",
       "companyName": "國慶科技",
       "subject": "公告本公司名稱由「三晃股份有限公司」更名為\r\n「國慶科技股份有限公司」\r\n，公告期間：115年07月01日至115年9月30日。",
-      "date": "2026-09-26",
+      "date": "2026-09-27",
       "time": "07:00:04",
       "summary": "1.事實發生日：民國115年06月29日  2.公司名稱：國慶科技股份有限公司(原名：三晃股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年06月29日  (2)公司名稱變更核准文號：11530099260  (3)更名案股東會決議通過日期：民國115年06月16日  (4)變更前公司名稱：三晃股份有限公司  (5)變更後公司名稱：國慶科技股份有限公司  (6)變更前公司簡稱：三晃  (7)變更後公司簡稱：國慶科技  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「1721」。  (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",
       "isRoutine": false,
@@ -211037,7 +211092,7 @@
       "code": "2072",
       "companyName": "世紀風電",
       "subject": "公告本公司名稱由「世紀離岸風電設備股份有限公司」更名\r\n為「世紀能源設備股份有限公司」，公告期間：115年8月26日至\r\n115年11月25日。",
-      "date": "2026-09-26",
+      "date": "2026-09-27",
       "time": "07:00:04",
       "summary": "1.事實發生日：民國115年08月24日  2.公司名稱：世紀能源設備股份有限公司(原名：世紀離岸風電設備股份有限公司)  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司名稱變更核准日期/事實發生日：民國115年08月24日  (2)公司名稱變更核准文號：經授商字第11530130420號  (3)更名案股東會決議通過日期：民國115年08月12日  (4)變更前公司名稱：世紀離岸風電設備股份有限公司  (5)變更後公司名稱：世紀能源設備股份有限公司  (6)變更前公司簡稱：世紀風電  (7)變更後公司簡稱：世紀能源  6.因應措施：無  7.其他應敘明事項：(1)本公司於115/08/26收到經濟部變更登記核准函。  (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，  於更名後須連續公告三個月。  (3)本公司股票代號未變動，普通股仍為「2072」。  (4)本公司英文名更名為「Century Energy Co., Ltd.」",
       "isRoutine": false,
@@ -211170,46 +211225,6 @@
       ],
       "eventWeightTotal": 6,
       "catalystWeightTotal": 6,
-      "primaryEventLabel": "法規核准"
-    },
-    {
-      "market": "listed",
-      "code": "6949",
-      "companyName": "沛爾生醫*-創",
-      "subject": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
-      "date": "2026-09-26",
-      "time": "07:00:03",
-      "summary": "1.事實發生日：民國115年07月13日  2.公司名稱：沛爾生技醫藥股份有限公司  3.與公司關係(請輸入本公司或子公司)：本公司  4.相互持股比例：不適用  5.發生緣由：  (1)公司面額變更核准日期/事實發生日：民國115年07月13日  (2)公司面額變更核准文號：經授商字第經授商字第11530095510號號函  (3)董事會決議通過換股計畫書日期：民國115年08月06日  (4)變更前面額：新台幣10.00  (5)變更後面額：新台幣0.50  (6)新股票上市買賣日及舊股票終止上市買賣日：民國115年09月07日  (7)換發股票時程重大訊息公告日期：民國115年08月06日重大訊息公告  6.因應措施：無。  7.其他應敘明事項：一、本公司係辦理變更股票面額，每股面額由新台幣10元變更為新台幣0.5元，業經臺灣  證券交易所函核准在案。  二、配合面額變更，新股票上市買賣日(115年09月07日)之參考價按比例調整為舊股票  最後交易日(115年8月26日)收盤價之20分之1，請投資人注意。  三、股票面額變更後，每股盈餘、每股淨值及每股股價等將有所變動，參閱資訊時須留  意。",
-      "isRoutine": false,
-      "hasCatalyst": true,
-      "events": [
-        {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
-          "matchedKeywords": [
-            "核准"
-          ]
-        }
-      ],
-      "catalysts": [
-        {
-          "type": "regulatory_approval",
-          "label": "法規核准",
-          "weight": 4,
-          "matchedKeywords": [
-            "核准"
-          ]
-        }
-      ],
-      "eventTypes": [
-        "regulatory_approval"
-      ],
-      "catalystTypes": [
-        "regulatory_approval"
-      ],
-      "eventWeightTotal": 4,
-      "catalystWeightTotal": 4,
       "primaryEventLabel": "法規核准"
     },
     {
